@@ -72,6 +72,7 @@
   font-size: 1.4em;
   font-weight: 500;
   margin-bottom: 1em;
+  color: var(--branding-main);
 }
 
 .evaluation h2 {
@@ -107,7 +108,7 @@
 }
 
 .heuristic:nth-child(even) {
-  background-color: #f3f3f3;
+  background-color: #f6f6f6;
 }
 
 .heuristic .scoring {
