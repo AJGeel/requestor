@@ -4,6 +4,8 @@ This is a web application that is used to share Figma works-in-progress for eval
 
 Check out [a demo](https://ajgeel.github.io/requestor/) of the latest build.
 
+![Requestor's User Interface](i/concept-overview.jpg)
+
 ## Easier Sharing of Works-in-progress
 
 With this tool, UX Designers can more easily share their works-in-progress with their (Non UX-designer) colleagues, and provide them with actionable instructions in order to provide feedback. The functionality of this application will be linked with the [Evaluator](https://github.com/AJGeel/figma-sample-plugin) Plugin for Figma in the future.
