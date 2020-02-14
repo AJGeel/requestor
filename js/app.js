@@ -18,8 +18,8 @@ function myFunction() {
 /* Start of Figma Embed functionality */
 
 // DOM element of the iFrame which will be replaced.
-const iframe_prototype = document.getElementById("iframe_prototype");
-var frame = document.getElementById("frame_container");
+const DOM_iFrame = document.getElementById("iframe_prototype");
+var DOM_iFrame_Container = document.getElementById("frame_container");
 
 // Note: the Figma prototype URLs are currently hardcoded. In the future this should be automatically retrieved from the Figma Plugin communication.
 var Figma_URI = "ejJw4AVHI1kAIktWxJzYDb"; // Specifies the location of the Figma File
@@ -38,22 +38,25 @@ function updateiFrame(URI, nodeID, viewport, target) {
   // Then, update the iFrame's sizing based on the size of its container
   // However, we do add a consistent padding to all sides
   const padding = 40;
-  target.width = frame.clientWidth - padding;
-  target.height = frame.clientHeight - padding;
+  target.width = DOM_iFrame_Container.clientWidth - padding;
+  target.height = DOM_iFrame_Container.clientHeight - padding;
 
   // DEBUG: print full src URL and frame container's sizing
   console.log("$DEBUG: " + updated_src);
-  console.log("$DEBUG: W: " + frame.clientWidth);
-  console.log("$DEBUG: H: " + frame.clientHeight);
+  console.log("$DEBUG: W: " + DOM_iFrame_Container.clientWidth);
+  console.log("$DEBUG: H: " + DOM_iFrame_Container.clientHeight);
 }
 
 // Run the function with the arguments
-updateiFrame(Figma_URI, Figma_Node_ID, Figma_Viewport, iframe_prototype);
+updateiFrame(Figma_URI, Figma_Node_ID, Figma_Viewport, DOM_iFrame);
 
 /* End of Figma Embed functionality */
 
 
 // Potential future functionality: press keyboard to 'automanually' set Figma prototype viewer's to constrain width.
 // However, this is quite hacky and perhaps can be circumvented by better embedding practices.
-// element.dispatchEvent(new KeyboardEvent('keypress',{'key':'a'}));
-// element.dispatchEvent(new KeyboardEvent('keypress',{'key':'z'}));
+// DOM_iFrame_Container.dispatchEvent(new KeyboardEvent('keypress',{'key':'a'}));
+// function pressKey(target, key) {
+//   target.dispatchEvent(new KeyboardEvent('keypress', {'key':String(key)}));
+// }
+// DOM_iFrame_Container.dispatchEvent(new KeyboardEvent('keypress',{'key':'z'}));

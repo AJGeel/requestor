@@ -164,3 +164,20 @@
 .heuristic .scoring li:hover a{
   color: #fff;
 }
+
+select {
+  width: 100%;
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+
+select option {
+  display: inline-block;
+  text-align: center;
+  width: 20%;
+  box-sizing: border-box;
+  border: 1px solid red;
+  padding: 10px;
+  font-family: "BentonSans", sans-serif;
+  font-size: 14px;
+}
