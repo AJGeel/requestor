@@ -48,7 +48,8 @@
 
 .evaluation {
   z-index: 1;
-  width: 540px;
+  width: 420px;
+  flex-shrink: 0;
 
   background-color: #FFF;
   box-sizing: border-box;
@@ -75,9 +76,6 @@
 
 .evaluation-section {
   padding: 2em;
-}
-
-.evaluation-section {
   border-bottom: 2px solid rgba(0,0,0,.1);
 }
 

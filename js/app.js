@@ -25,15 +25,18 @@ var DOM_iFrame_Container = document.getElementById("frame_container");
 var Figma_URI = "ejJw4AVHI1kAIktWxJzYDb"; // Specifies the location of the Figma File
 var Figma_Node_ID = "0%3A1"; // Specifies the initial node selected in the Figma project
 var Figma_Viewport = "285%2C345%2C0.32568514347076416"; // Specifies the viewport
+var Figma_Scaling = "scale-down-width" // Specifies how Figma handles scaling issues (e.g. horizontal overflow)
 
 
 /* Function that updates the targeted iFrame's source attribute with our Figma demonstrator prototype */
-function updateiFrame(URI, nodeID, viewport, target) {
+function updateiFrame(URI, nodeID, viewport, scaling, target) {
   // Construct the iFrame's new src URI with the specified arguments
-  var updated_src = "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/" + URI + "?node-id=" + nodeID + "&viewport=" + viewport + "&scaling=scale-down-width";
+  var updated_src = "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/" + URI + "?node-id=" + nodeID + "&viewport=" + viewport + "&scaling=" + scaling;
 
   // Update the iFrame DOM element's src
   target.src = updated_src;
+  target.src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%2FExample-Project-Bol.com%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
+  // target.src = "https://www.arthurgeel.com/"
 
   // Then, update the iFrame's sizing based on the size of its container
   // However, we do add a consistent padding to all sides
@@ -48,9 +51,18 @@ function updateiFrame(URI, nodeID, viewport, target) {
 }
 
 // Run the function with the arguments
-updateiFrame(Figma_URI, Figma_Node_ID, Figma_Viewport, DOM_iFrame);
+updateiFrame(Figma_URI, Figma_Node_ID, Figma_Viewport, Figma_Scaling, DOM_iFrame);
 
 /* End of Figma Embed functionality */
+
+
+/* Start window resize watcher */
+window.addEventListener("resize", doSth);
+
+function doSth() {
+  console.log("Hello");
+}
+/* End window resize watcher */
 
 
 // Potential future functionality: press keyboard to 'automanually' set Figma prototype viewer's to constrain width.
