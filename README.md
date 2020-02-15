@@ -15,16 +15,17 @@ The purpose of this project is to help address problems related to [UX Maturity]
 ## Evaluation Methods
 
 Currently, the plugin contains placeholders that will support the following UX Evaluation methods in future releases:
-* Jakob Nielsen's `Usability Heuristics`.
-* (TAM) `Technology Acceptance Model`.
-* (SUS) `System Usability Scale`.
-* (UEQ) `User Experience Questionnaire`.
-* (UEQ-S) `Short User Experience Questionnaire`.
-* Mark Hassenzahl's `AttrakDiff`.
-* `Perspective-Based Inspection`.
-* `Hedonic Utility Scale`.
-* `Product Attachment Scale`.
-* `Visual Aesthetics of Websites Inventory`.
-* (SUPR-Q)`Standardized User Experience Percentile Rank Questionnaire`.
-* (NPS)`Net Promoter Score`.
-* (SMEQ) `Subjective Mental Effort Questionnaire`.
+
+| Abbreviation | Method | Reference |
+| / | ------------ | ------------- |
+| N.A. | Jakob Nielsen's Usability Heuristics | [Source](https://pdfs.semanticscholar.org/5f03/b251093aee730ab9772db2e1a8a7eb8522cb.pdf) |
+| TAM | Technology Acceptance Model | Coming soon.. |
+| SUS | System Usability Scale | Coming soon.. |
+| UEQ | User Experience Questionnaire | Coming soon.. |
+| UEQ-S | Short User Experience Questionnaire | Coming soon.. |
+| / | Mark Hassenzahl's AttrakDiff |  Coming soon.. |
+| / | Perspective-Based Inspection |  Coming soon.. |
+| / | Visual Aesthetics of Websites Inventory |  Coming soon.. |
+| SUPR-Q | Standardized User Experience Percentile Rank Questionnaire |  Coming soon.. |
+| NPS | Net Promoter Score | Coming soon.. |
+| SMEQ | Subjective Mental Effort Questionnaire |  Coming soon.. |
