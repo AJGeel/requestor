@@ -34,9 +34,9 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
   var updated_src = "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/" + URI + "?node-id=" + nodeID + "&viewport=" + viewport + "&scaling=" + scaling;
 
   // Update the iFrame DOM element's src
-  // target.src = updated_src;
+  target.src = updated_src;
   // target.src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%2FExample-Project-Bol.com%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
-  // target.src = "https://www.arthurgeel.com/"
+  target.src = "https://www.arthurgeel.com/"
 
   // Then, update the iFrame's sizing based on the size of its container
   // However, we do add a consistent padding to all sides
@@ -60,7 +60,7 @@ updateiFrame(Figma_URI, Figma_Node_ID, Figma_Viewport, Figma_Scaling, DOM_iFrame
 window.addEventListener("resize", doSth);
 
 function doSth() {
-  console.log("Hello");
+  console.log("$DEBUG: Page was resized.");
 }
 /* End window resize watcher */
 
@@ -97,3 +97,44 @@ document.addEventListener("keypress", function(event) {
   }
 });
 /* End of Key Mapping Functionality */
+
+/* Start of Timer Functionality */
+
+// Grab DOM element of time spent on page.
+const DOM_Timer = document.getElementById("timer");
+
+// Generate a date object of initial page load
+var startTime = Date.now();
+
+// Every 1000 ms, generate a Date object, compare it to initial time and format
+setInterval(() => {
+  var currentTime = formatTime(Math.floor((Date.now() - startTime)/1000));
+  // console.log("$DEBUG: " + currentTime);
+  DOM_Timer.innerHTML = currentTime;
+
+}, 1000);
+
+
+// Function that formats the time
+function formatTime(time) {
+  // The largest round integer less than or equal to the result of time divided being by 60.
+  let minutes = Math.floor(time / 60);
+
+  // Seconds are the remainder of the time divided by 60 (modulus operator)
+  let seconds = time % 60;
+
+  // If the value of seconds is less than 10, then display seconds with a leading zero
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+
+  // If the value of minutes is less than 10, then display minutes with a leading zero
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  // The output in MM:SS format
+  return `${minutes}:${seconds}`;
+}
+
+/* End of Timer Functionality */

@@ -1,4 +1,5 @@
 * {
+  /* DEBUG: ADD RED BORDER TO ALL ELEMENTS. TOGGLE IF NEEDED */
   /* border: 1px solid red; */
 }
 
@@ -7,8 +8,21 @@
 }
 
 :root {
-  /* --branding-main: #007657; */
   --branding-main: #0000a4;
+}
+
+@keyframes fadeInBlur {
+    from {
+        transform: scale(.9);
+        opacity: 0;
+        filter: blur(5px);
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0px);
+    }
 }
 
 .app {
@@ -38,6 +52,8 @@
   border-radius: 5px;
   /* border: 2px solid var(--branding-main); */
   box-shadow: 0px 5px 50px rgba(0,0,0,.2);
+
+  animation: fadeInBlur 1.5s ease-in-out;
 }
 
 
@@ -104,6 +120,13 @@
   line-height: 1.3em;
 }
 
+.evaluation p img {
+  max-width: 20px;
+  margin-right: .8em;
+  opacity: .6;
+  transform: translateY(-1px);
+}
+
 .evaluation p:last-child {
   margin-bottom: 0px;
 }
@@ -120,6 +143,22 @@
 .evaluation a:hover {
   color: #000;
   text-decoration: none;
+}
+
+.evaluation .timer {
+  border: 1px solid #e0e0e0;
+  background-color: #f6f6f6;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: center;
+  font-family: "IBM Plex Mono", monospace;
+
+  transition: opacity .4s ease-in-out;
+}
+
+.evaluation .timer:hover {
+  opacity: 0;
+  cursor: pointer;
 }
 
 .heuristic {
