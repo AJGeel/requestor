@@ -34,8 +34,8 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
   var updated_src = "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/" + URI + "?node-id=" + nodeID + "&viewport=" + viewport + "&scaling=" + scaling;
 
   // Update the iFrame DOM element's src
-  target.src = updated_src;
-  target.src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%2FExample-Project-Bol.com%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
+  // target.src = updated_src;
+  // target.src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%2FExample-Project-Bol.com%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
   // target.src = "https://www.arthurgeel.com/"
 
   // Then, update the iFrame's sizing based on the size of its container
@@ -72,3 +72,28 @@ function doSth() {
 //   target.dispatchEvent(new KeyboardEvent('keypress', {'key':String(key)}));
 // }
 // DOM_iFrame_Container.dispatchEvent(new KeyboardEvent('keypress',{'key':'z'}));
+
+
+/* Start of Key Mapping Functionality */
+// Select the DOM body element
+const DOM_Body = document.getElementById("body");
+
+// Function that toggles a classname on a DOM id
+function toggleClass(target, className) {
+  target.classList.toggle(className);
+}
+
+// Add event listener to the document which runs this function every time a key is pressed
+document.addEventListener("keypress", function(event) {
+
+  // Console log the keycode for debugging
+  console.log("$DEBUG: Key: " + event.keyCode);
+  if (event.keyCode == 100 || event.keyCode == 68) {
+    // 'd' or 'D' is pressed: toggle darkmode on Body DOM element
+    toggleClass(DOM_Body, "darkmode");
+
+  }  else if (event.keyCode == 120 || event.keyCode == 88) {
+    // 'x' or 'X' is pressed: does nothing yet.
+  }
+});
+/* End of Key Mapping Functionality */

@@ -1,0 +1,65 @@
+:root {
+  --branding-main-darkmode: #d0d0ff;
+}
+
+.darkmode .frame {
+  background-color: hsl(202, 20%, 14%);
+}
+
+
+.darkmode .evaluation {
+  background-color: hsl(202, 20%, 16%);
+}
+
+.darkmode .evaluation h1 {
+  color: var(--branding-main-darkmode);
+}
+
+.darkmode .evaluation h2 {
+  color: #ccc;
+}
+
+.darkmode .evaluation h2 img {
+  filter: invert();
+  opacity: .8;
+}
+
+.darkmode .evaluation h3 {
+  color: #aaa;
+}
+
+.darkmode .evaluation p {
+  color: #999;
+}
+
+.darkmode .evaluation a {
+  color: var(--branding-main-darkmode);
+}
+
+.darkmode .evaluation-section {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.darkmode .progress-bar-container {
+  background-color: hsl(202, 20%, 16%);
+}
+
+.darkmode .progress-bar {
+  background-color: var(--branding-main-darkmode);
+}
+
+.darkmode .heuristic {
+  background-color: hsl(202, 20%, 16%);
+}
+
+.darkmode .heuristic:nth-child(even) {
+  background-color: hsl(202, 20%, 19%);
+}
+
+.darkmode .heuristic .scoring li:hover {
+  background-color: var(--branding-main-darkmode);
+}
+
+.darkmode .heuristic .scoring li a {
+  color: var(--branding-main-darkmode);
+}
