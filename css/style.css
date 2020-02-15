@@ -120,6 +120,24 @@
   line-height: 1.3em;
 }
 
+.evaluation li {
+  color: #666;
+  font-size: .9em;
+  margin-bottom: .5em;
+  line-height: 1.3em;
+}
+
+.evaluation ol {
+  padding-left: 1em;
+  margin-bottom: 2em;
+}
+
+.evaluation ol li {
+  list-style-type: decimal;
+  list-style-position: outside;
+  padding-left: .5em;
+}
+
 .evaluation p img {
   max-width: 20px;
   margin-right: .8em;
