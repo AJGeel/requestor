@@ -35,8 +35,8 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
 
   // Update the iFrame DOM element's src
   target.src = updated_src;
-  // target.src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%2FExample-Project-Bol.com%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
-  target.src = "https://www.arthurgeel.com/"
+  target.src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%2FExample-Project-Bol.com%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
+  // target.src = "https://www.arthurgeel.com/"
 
   // Then, update the iFrame's sizing based on the size of its container
   // However, we do add a consistent padding to all sides
@@ -98,6 +98,13 @@ document.addEventListener("keypress", function(event) {
 });
 /* End of Key Mapping Functionality */
 
+
+
+
+
+
+
+
 /* Start of Timer Functionality */
 
 // Grab DOM element of time spent on page.
@@ -106,14 +113,30 @@ const DOM_Timer = document.getElementById("timer");
 // Generate a date object of initial page load
 var startTime = Date.now();
 
-// Every 1000 ms, generate a Date object, compare it to initial time and format
+// Function is called every 1000ms
 setInterval(() => {
-  var currentTime = formatTime(Math.floor((Date.now() - startTime)/1000));
-  // console.log("$DEBUG: " + currentTime);
-  DOM_Timer.innerHTML = currentTime;
-
+  updateTime(DOM_Timer);
 }, 1000);
 
+
+function updateTime(target) {
+  var currentTime = formatTime(Math.floor((Date.now() - startTime)/1000));
+
+  updateTargetBG(target, currentTime, "00:10", "00:20", "00:30");
+
+  // console.log("$DEBUG: " + currentTime);
+  target.innerHTML = currentTime;
+}
+
+function updateTargetBG(target, currentTime, timeStamp1, timeStamp2, timeStamp3) {
+  if (currentTime == timeStamp1) {
+    target.parentElement.style.backgroundColor = "#fcffd2";
+  } else if (currentTime == timeStamp2) {
+    target.parentElement.style.backgroundColor = "#ffedd2";
+  } else if (currentTime == timeStamp3) {
+    target.parentElement.style.backgroundColor = "#ffd2d2";
+  }
+}
 
 // Function that formats the time
 function formatTime(time) {
