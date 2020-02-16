@@ -32,6 +32,10 @@
   color: #999;
 }
 
+.darkmode .evaluation li {
+  color: #999;
+}
+
 .darkmode .evaluation a {
   color: var(--branding-main-darkmode);
 }
@@ -58,6 +62,19 @@
 
 .darkmode .heuristic .scoring li:hover {
   background-color: var(--branding-main-darkmode);
+}
+
+.darkmode .heuristic .scoring li:hover a {
+  color: #000;
+}
+
+.darkmode .heuristic .scoring li {
+  border: 1px solid var(--branding-main-darkmode);
+  border-right: none;
+}
+
+.darkmode .heuristic .scoring li:last-child {
+  border-right: 1px solid var(--branding-main-darkmode);
 }
 
 .darkmode .heuristic .scoring li a {

@@ -38,16 +38,11 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
   target.src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%2FExample-Project-Bol.com%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
   // target.src = "https://www.arthurgeel.com/"
 
-  // Then, update the iFrame's sizing based on the size of its container
-  // However, we do add a consistent padding to all sides
-  const padding = 40;
-  target.width = DOM_iFrame_Container.clientWidth - padding;
-  target.height = DOM_iFrame_Container.clientHeight - padding;
+  // Resize the iFrame's size
+  resizeiFrame();
 
-  // DEBUG: print full src URL and frame container's sizing
+  // DEBUG: print full src URL
   console.log("$DEBUG: " + updated_src);
-  console.log("$DEBUG: W: " + DOM_iFrame_Container.clientWidth);
-  console.log("$DEBUG: H: " + DOM_iFrame_Container.clientHeight);
 }
 
 // Run the function with the arguments
@@ -57,9 +52,13 @@ updateiFrame(Figma_URI, Figma_Node_ID, Figma_Viewport, Figma_Scaling, DOM_iFrame
 
 
 /* Start window resize watcher */
-window.addEventListener("resize", doSth);
+window.addEventListener("resize", resizeiFrame);
 
-function doSth() {
+function resizeiFrame() {
+  const padding = 40;
+
+  DOM_iFrame.width = DOM_iFrame_Container.clientWidth - padding;
+  DOM_iFrame.height = DOM_iFrame_Container.clientHeight - padding;
   console.log("$DEBUG: Page was resized.");
 }
 /* End window resize watcher */
@@ -88,7 +87,7 @@ document.addEventListener("keypress", function(event) {
 
   // Console log the keycode for debugging
   console.log("$DEBUG: Key: " + event.keyCode);
-  if (event.keyCode == 100 || event.keyCode == 68) {
+  if (event.keyCode == 68 /* || event.keyCode == 100 */) {
     // 'd' or 'D' is pressed: toggle darkmode on Body DOM element
     toggleClass(DOM_Body, "darkmode");
 
@@ -161,3 +160,17 @@ function formatTime(time) {
 }
 
 /* End of Timer Functionality */
+
+
+
+/* Automatic resizer for TextArea elements */
+var textAreas = document.getElementsByTagName('textarea');
+for (var i = 0; i < tx.length; i++) {
+  textAreas[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
+  textAreas[i].addEventListener("input", OnInput, false);
+}
+
+function OnInput() {
+  this.style.height = 'auto';
+  this.style.height = (this.scrollHeight) + 'px';
+}
