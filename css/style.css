@@ -9,6 +9,7 @@
 
 :root {
   --branding-main: #0000a4;
+  --branding-main-light: hsl(216, 100%, 97%);
 }
 
 @keyframes fadeInBlur {
@@ -38,6 +39,10 @@
  box-sizing: border-box;
  position: sticky;
  top: 0px;
+}
+
+.frame-container:hover {
+  cursor: pointer;
 }
 
 .frame {
@@ -132,6 +137,10 @@
   margin-bottom: 2em;
 }
 
+.evaluation ol:last-child {
+  margin-bottom: 0em;
+}
+
 .evaluation ol li {
   list-style-type: decimal;
   list-style-position: outside;
@@ -161,6 +170,7 @@
 
 .evaluation a {
   color: var(--branding-main);
+  transition: color .2s ease-in-out;
 }
 
 .evaluation a:hover {
@@ -170,6 +180,7 @@
 
 .evaluation .timer {
   border: 1px solid #e0e0e0;
+  border-radius: 2px;
   background-color: #f6f6f6;
   padding: 20px 10px;
   display: flex;
@@ -182,6 +193,10 @@
 .evaluation .timer:hover {
   opacity: 0;
   cursor: pointer;
+}
+
+.evaluation img {
+  max-width: 100%;
 }
 
 .heuristic {
@@ -205,10 +220,18 @@
   flex-grow: 1;
   text-align: center;
   padding: 10px 4px 4px 4px;
+  transition: background-color .2s ease-in-out;
+}
+
+.heuristic .scoring li:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 
 .heuristic .scoring li:last-child {
   border-right: 1px solid var(--branding-main);
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
 .heuristic .scoring li:hover {
@@ -267,6 +290,12 @@ textarea {
   resize: vertical;
 }
 
+textarea:focus {
+  outline: none;
+  border: 1px solid var(--branding-main);
+  background-color: var(--branding-main-light);
+}
+
 /* Start Balloon.css framework */
 :root {
   --balloon-color: rgba(16, 16, 16, 0.95);
@@ -298,7 +327,8 @@ button[aria-label][data-balloon-pos] {
   content: attr(aria-label);
   padding: .5em 1em;
   position: absolute;
-  white-space: nowrap;
+  white-space: pre-wrap;
+  /* white-space: pre-wrap; */
   z-index: 10;
 }
 
@@ -326,11 +356,11 @@ button[aria-label][data-balloon-pos] {
 }
 
 [aria-label][data-balloon-pos][data-balloon-break]:after {
-  white-space: pre;
+  white-space: pre-wrap;
 }
 
 [aria-label][data-balloon-pos][data-balloon-break][data-balloon-length]:after {
-  white-space: pre-line;
+  white-space: pre-wrap;
   word-break: break-word;
 }
 
@@ -533,33 +563,38 @@ button[aria-label][data-balloon-pos] {
 }
 
 [aria-label][data-balloon-pos][data-balloon-length="small"]:after {
-  white-space: normal;
+  white-space: pre-wrap;
   width: 80px;
 }
 
 [aria-label][data-balloon-pos][data-balloon-length="medium"]:after {
-  white-space: normal;
+  white-space: pre-wrap;
   width: 150px;
 }
 
 [aria-label][data-balloon-pos][data-balloon-length="large"]:after {
-  white-space: normal;
+  white-space: pre-wrap;
   width: 260px;
 }
 
 [aria-label][data-balloon-pos][data-balloon-length="xlarge"]:after {
-  white-space: normal;
+  white-space: pre-wrap;
   width: 380px;
 }
 
 @media screen and (max-width: 768px) {
   [aria-label][data-balloon-pos][data-balloon-length="xlarge"]:after {
-    white-space: normal;
+    white-space: pre-wrap;
     width: 90vw;
   }
 }
 
 [aria-label][data-balloon-pos][data-balloon-length="fit"]:after {
-  white-space: normal;
+  white-space: pre-wrap;
   width: 100%;
+}
+
+/* - - - - - - - - - - - - */
+.hide {
+  display: none;
 }

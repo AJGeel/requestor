@@ -11,6 +11,14 @@ function myFunction() {
 
   // console.log("DEBUG: \nPX scrolled: " + pixelsScrolled + "px, \nPg. height:  " + elemHeight + "px, \nScroll %:    " + percentScrolled + "%.");
   document.getElementById("progress-bar").style.width = percentScrolled + "%";
+
+  console.log("percScrolled: " + percentScrolled);
+  console.log("timerCondition: " + timerCondition);
+
+  if (percentScrolled == 100) {
+  //   console.log("100% SCROLLED MATE");
+    timerCondition = false;
+  }
 }
 /* End of Scrollbar functionality */
 
@@ -23,19 +31,21 @@ var DOM_iFrame_Container = document.getElementById("frame_container");
 
 // Note: the Figma prototype URLs are currently hardcoded. In the future this should be automatically retrieved from the Figma Plugin communication.
 var Figma_URI = "ejJw4AVHI1kAIktWxJzYDb"; // Specifies the location of the Figma File
-var Figma_Node_ID = "0%3A1"; // Specifies the initial node selected in the Figma project
-var Figma_Viewport = "285%2C345%2C0.32568514347076416"; // Specifies the viewport
+var Figma_Node_ID = "%253A2%26"; // Specifies the initial node selected in the Figma project
+var Figma_Viewport = "497%252C275%252C0.2620800733566284"; // Specifies the viewport
 var Figma_Scaling = "scale-down-width" // Specifies how Figma handles scaling issues (e.g. horizontal overflow)
 
 
 /* Function that updates the targeted iFrame's source attribute with our Figma demonstrator prototype */
 function updateiFrame(URI, nodeID, viewport, scaling, target) {
   // Construct the iFrame's new src URI with the specified arguments
-  var updated_src = "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/" + URI + "?node-id=" + nodeID + "&viewport=" + viewport + "&scaling=" + scaling;
+  var updated_src = "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/" + URI + "%3Fnode-id%3D" + nodeID + "%26viewport%3D" + viewport + "%26scaling%3D" + scaling;
+  const hardcoded_src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
+  // const hardcoded_src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%2FExample-Project-Bol.com%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
 
   // Update the iFrame DOM element's src
   target.src = updated_src;
-  target.src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%2FExample-Project-Bol.com%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
+  // target.src = hardcoded_src;
   // target.src = "https://www.arthurgeel.com/"
 
   // Resize the iFrame's size
@@ -43,6 +53,7 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
 
   // DEBUG: print full src URL
   console.log("$DEBUG: " + updated_src);
+  console.log("$DEBUG: " + hardcoded_src);
 }
 
 // Run the function with the arguments
@@ -112,9 +123,14 @@ const DOM_Timer = document.getElementById("timer");
 // Generate a date object of initial page load
 var startTime = Date.now();
 
+var timerCondition = true;
+
 // Function is called every 1000ms
 setInterval(() => {
-  updateTime(DOM_Timer);
+
+  if (timerCondition == true) {
+    updateTime(DOM_Timer);
+  }
 }, 1000);
 
 
@@ -165,8 +181,8 @@ function formatTime(time) {
 
 /* Automatic resizer for TextArea elements */
 var textAreas = document.getElementsByTagName('textarea');
-for (var i = 0; i < tx.length; i++) {
-  textAreas[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
+for (var i = 0; i < textAreas.length; i++) {
+  textAreas[i].setAttribute('style', 'height:' + (textAreas[i].scrollHeight) + 'px;overflow-y:hidden;');
   textAreas[i].addEventListener("input", OnInput, false);
 }
 
@@ -174,3 +190,12 @@ function OnInput() {
   this.style.height = 'auto';
   this.style.height = (this.scrollHeight) + 'px';
 }
+
+/* Experimental: Fullscreen when clicking on canvas */
+const DOM_Evaluation_Container = document.getElementById("evaluation_container");
+
+DOM_iFrame_Container.addEventListener("click", function() {
+  toggleClass(DOM_Evaluation_Container, "hide");
+
+  resizeiFrame();
+});
