@@ -271,11 +271,12 @@ select option {
   font-size: 14px;
 }
 
-/* input[type=text] { } */
-
 .form-progressive-disclosure {
+  display: none;
+}
+
+.form-progressive-disclosure h3:first-child {
   margin-top: 2em;
-  /* display: none; */
 }
 
 input, textarea {
