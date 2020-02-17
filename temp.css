@@ -274,7 +274,6 @@ select option {
 /* input[type=text] { } */
 
 .form-progressive-disclosure {
-  margin-top: 2em;
   /* display: none; */
 }
 
@@ -304,52 +303,42 @@ textarea {
 
 .radio-button-group input[type=radio] {
   /* First: override standard browser rendering */
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  margin: 0;
+
+  border: 1px solid var(--branding-main);
+  border-radius: 0px;
+  border-right: none;
+  flex-grow: 1;
+  text-align: center;
+  transition: background-color .2s ease-in-out; */
   display: none;
+}
+
+.radio-button-group input[type=radio]:first-child {
+  /* border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px; */
+}
+
+.radio-button-group input[type=radio]:last-child {
+  /* border-right: 1px solid var(--branding-main);
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px; */
 }
 
 .radio-button-group label {
   display: flex;
-  flex-grow: 1;
-
-  border: 1px solid var(--branding-main);
-  border-right: none;
-
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0px 8px 0px;
-
-  color: var(--branding-main);
-  font-size: .8em;
-  font-family: "BentonSans", sans-serif;
-  line-height: 1.3em;
-
-  transition: background-color .2s ease-in-out;
-}
-
-.radio-button-group label:nth-child(2) {
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
-
-.radio-button-group label:last-child {
-  border-right: 1px solid var(--branding-main);
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-
-.radio-button-group label:hover {
-  background-color: var(--branding-main);
-  cursor: pointer;
-  color: #fff;
-}
-
-.radio-button-group label:after {
-  text-align: center;
+  flex: 1;
+  /* padding: 10px; */
+  border: solid 1px red;
+  transition: border .2s ease-in-out;
 }
 
 .radio-button-group input[type="radio"]:checked + label {
-  background-color: var(--branding-main);
-  color: #fff;
+  border: solid 1px green;
 }
 
 textarea:focus {

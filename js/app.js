@@ -40,12 +40,13 @@ var Figma_Scaling = "scale-down-width" // Specifies how Figma handles scaling is
 function updateiFrame(URI, nodeID, viewport, scaling, target) {
   // Construct the iFrame's new src URI with the specified arguments
   var updated_src = "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/" + URI + "%3Fnode-id%3D" + nodeID + "%26viewport%3D" + viewport + "%26scaling%3D" + scaling;
+
+  // Hardcoded iFrame source. I'm keeping this in to help me understand the URI Encoding issue I was dealing with earlier. However, it is fixed now.
   const hardcoded_src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
-  // const hardcoded_src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%2FExample-Project-Bol.com%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
 
   // Update the iFrame DOM element's src
-  target.src = updated_src;
-  // target.src = hardcoded_src;
+  // target.src = updated_src;
+  // target.src = hardcoded_src; /* Toggle this to override the target source with the hardcoded src. */
   // target.src = "https://www.arthurgeel.com/"
 
   // Resize the iFrame's size
