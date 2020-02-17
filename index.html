@@ -398,12 +398,34 @@ Click on the link for an in-depth article (reading time: 5 minutes)." data-ballo
           </div>
 
           <div class="heuristic">
-            <!-- <img src="i/mirage-message-sent.png"/> -->
+
+            <img class="congrats-img" src="i/mirage-message-sent.png"/>
             <!-- <img src="i/kingdom.png"/> -->
+
             <h2>Finish Line</h2>
-            <p>... and with that, you've reached the end of this evaluation. Thank you very much for your efforts, you allow us to level up our designs!</p>
-            <p>Here's an overview of how you did:</p>
-            <p class="timer"><img src="i/feather/clock.svg"/><span id="timer">00:00</span>&nbsp;spent in this session</p>
+            <p>You've reached the end of this evaluation. On behalf <span id="requestor_id">Arthur Geel</span>, the requestor, thank you very much for your efforts, they allow us to level up our designs!</p>
+            <p>Before you submit your evaluation, we'd like to show you how you did:</p>
+            <div class="stat-overview">
+              <p class="timer"><img src="i/feather/clock.svg"/><span id="timer">00:00</span>&nbsp;spent in this session</p>
+
+              <div class="stat-half">
+                <p><img src="i/feather/bell.svg"/>Some cool stats should be here.</p>
+                <p><img src="i/feather/bell.svg"/>Don't forget about this one.</p>
+              </div>
+
+              <div class="stat-half">
+                <p><img src="i/feather/bell.svg"/>Or this one.</p>
+                <p><img src="i/feather/bell.svg"/>This one too.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="heuristic">
+            <h2>Don't Forget:</h2>
+            <p>Click the button below finish this session and send your evaluation to the requestor.</p>
+
+            <input type="submit" value="Submit Evaluation" onclick="alert('$DEBUG: This will validate and send the form data in the future.');">
           </div>
 
         </form>

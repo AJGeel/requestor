@@ -15,7 +15,7 @@ function myFunction() {
   console.log("percScrolled: " + percentScrolled);
   console.log("timerCondition: " + timerCondition);
 
-  if (percentScrolled == 100) {
+  if (percentScrolled >= 75) {
   //   console.log("100% SCROLLED MATE");
     timerCondition = false;
   }
