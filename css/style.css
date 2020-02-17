@@ -265,67 +265,19 @@
   color: #fff;
 }
 
-.heuristic:last-child p {
+.heuristic:last-child h3 {
+  color: #fff;
+  opacity: .85;
+}
+
+.heuristic:last-child h3 span {
   color: #fff;
   opacity: .7;
 }
 
-.heuristic .scoring {
-  display: flex;
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-.heuristic .scoring li {
-  border: 1px solid var(--branding-main);
-  border-right: none;
-  flex-grow: 1;
-  text-align: center;
-  padding: 10px 4px 4px 4px;
-  transition: background-color .2s ease-in-out;
-}
-
-.heuristic .scoring li:first-child {
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
-
-.heuristic .scoring li:last-child {
-  border-right: 1px solid var(--branding-main);
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-
-.heuristic .scoring li:hover {
-  background-color: var(--branding-main);
-  cursor: pointer;
-}
-
-.heuristic .scoring li a {
-  text-decoration: none;
-  font-size: .9em;
-  color: var(--branding-main);
-}
-
-.heuristic .scoring li:hover a{
+.heuristic:last-child p {
   color: #fff;
-}
-
-select {
-  width: 100%;
-  /* display: flex; */
-  /* flex-direction: column; */
-}
-
-select option {
-  display: inline-block;
-  text-align: center;
-  width: 20%;
-  box-sizing: border-box;
-  border: 1px solid red;
-  padding: 10px;
-  font-family: "BentonSans", sans-serif;
-  font-size: 14px;
+  opacity: .7;
 }
 
 .form-progressive-disclosure {
@@ -361,8 +313,14 @@ textarea {
 }
 
 .radio-button-group input[type=radio] {
-  /* First: override standard browser rendering */
-  display: none;
+  /* Hide browser native html radio input rendering. */
+  /* However, we use Snook Research's boilerplate to keep things accessible for those who use screen readers */
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px; padding: 0; border: 0;
 }
 
 .radio-button-group label {
@@ -401,6 +359,11 @@ textarea {
   color: #fff;
 }
 
+.radio-button-group input[type="radio"]:focus + label {
+  background-color: var(--branding-main);
+  color: #fff;
+}
+
 .radio-button-group label:after {
   text-align: center;
 }
@@ -424,7 +387,7 @@ input[type="submit"] {
 
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 1em;
+  font-size: .9em;
   letter-spacing: .05em;
   color: var(--branding-main);
   padding-top: 1.2em;

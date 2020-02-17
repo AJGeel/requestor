@@ -9,11 +9,10 @@ function myFunction() {
   var elemHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   var percentScrolled = (pixelsScrolled / elemHeight) * 100;
 
-  // console.log("DEBUG: \nPX scrolled: " + pixelsScrolled + "px, \nPg. height:  " + elemHeight + "px, \nScroll %:    " + percentScrolled + "%.");
   document.getElementById("progress-bar").style.width = percentScrolled + "%";
 
-  console.log("percScrolled: " + percentScrolled);
-  console.log("timerCondition: " + timerCondition);
+  // console.log("$DEBUG: percScrolled: " + percentScrolled);
+  // console.log("$DEBUG: timerCondition: " + timerCondition);
 
   if (percentScrolled >= 75) {
   //   console.log("100% SCROLLED MATE");
@@ -53,8 +52,8 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
   resizeiFrame();
 
   // DEBUG: print full src URL
-  console.log("$DEBUG: " + updated_src);
-  console.log("$DEBUG: " + hardcoded_src);
+  // console.log("$DEBUG: " + updated_src);
+  // console.log("$DEBUG: " + hardcoded_src);
 }
 
 // Run the function with the arguments
@@ -64,25 +63,18 @@ updateiFrame(Figma_URI, Figma_Node_ID, Figma_Viewport, Figma_Scaling, DOM_iFrame
 
 
 /* Start window resize watcher */
+// If the window is resized, carry out the 'resizeiFrame' function
 window.addEventListener("resize", resizeiFrame);
 
 function resizeiFrame() {
   const padding = 40;
 
+  // Update iFrame container height and width
   DOM_iFrame.width = DOM_iFrame_Container.clientWidth - padding;
   DOM_iFrame.height = DOM_iFrame_Container.clientHeight - padding;
-  console.log("$DEBUG: Page was resized.");
+  // console.log("$DEBUG: Page was resized.");
 }
 /* End window resize watcher */
-
-
-// Potential future functionality: press keyboard to 'automanually' set Figma prototype viewer's to constrain width.
-// However, this is quite hacky and perhaps can be circumvented by better embedding practices.
-// DOM_iFrame_Container.dispatchEvent(new KeyboardEvent('keypress',{'key':'a'}));
-// function pressKey(target, key) {
-//   target.dispatchEvent(new KeyboardEvent('keypress', {'key':String(key)}));
-// }
-// DOM_iFrame_Container.dispatchEvent(new KeyboardEvent('keypress',{'key':'z'}));
 
 
 /* Start of Key Mapping Functionality */
@@ -246,3 +238,14 @@ DOM_iFrame_Container.addEventListener("click", function() {
 
   resizeiFrame();
 });
+
+
+/* Experimental: calculate color contrasts */
+
+function calculateLuminance(red, green, blue) {
+  return Math.sqrt( 0.299 * Math.pow(red, 2) + 0.587 * Math.pow(green, 2) + 0.144 * Math.pow(blue, 2));
+}
+
+function calculateContrast(L1, L2) {
+  return ((L1 + 0.05) / (L2 + 0.05));
+}
