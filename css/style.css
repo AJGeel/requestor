@@ -1,6 +1,10 @@
-* {
-  /* DEBUG: ADD RED BORDER TO ALL ELEMENTS. TOGGLE IF NEEDED */
+form_section* {
+  /* $DEBUG: ADD RED BORDER TO ALL ELEMENTS. TOGGLE IF NEEDED */
   /* border: 1px solid red; */
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 ::selection {
@@ -8,7 +12,7 @@
 }
 
 :root {
-  --branding-main: #0000a4;
+  --branding-main: hsl(240, 100%, 32%);
   --branding-main-light: hsl(216, 100%, 97%);
 }
 
@@ -95,7 +99,7 @@
   width: 0%;
 }
 
-.evaluation-section {
+.evaluation-intro {
   padding: 2em;
   border-bottom: 2px solid rgba(0,0,0,.1);
 }
@@ -244,41 +248,43 @@
   max-width: 100%;
 }
 
-.heuristic {
+.form_section {
   padding: 2em;
   background-color: #fff;
 }
 
-.heuristic:nth-child(even) {
+.form_section:nth-child(even) {
   background-color: #f6f6f6;
 }
 
-.heuristic:nth-last-child(2) {
+/* Penultimate item */
+.form_section:nth-last-child(2) {
   /* background-color: var(--branding-main-light); */
 }
 
-.heuristic:last-child {
+/* Last item: give extra emphasis? */
+/* .form_section:last-child {
   background-color: var(--branding-main);
 }
 
-.heuristic:last-child h2 {
+.form_section:last-child h2 {
   color: #fff;
 }
 
-.heuristic:last-child h3 {
+.form_section:last-child h3 {
   color: #fff;
   opacity: .85;
 }
 
-.heuristic:last-child h3 span {
+.form_section:last-child h3 span {
   color: #fff;
   opacity: .7;
 }
 
-.heuristic:last-child p {
+.form_section:last-child p {
   color: #fff;
   opacity: .7;
-}
+} */
 
 .form-progressive-disclosure {
   display: none;
@@ -300,10 +306,20 @@ input, textarea {
   font-size: .9em;
   line-height: 1.3em;
   color: #333;
+
+  transition: background-color .1s ease-in-out, border .1s ease-in-out, box-shadow .1s ease-in-out;
 }
 
 textarea {
   resize: none;
+}
+
+textarea:focus {
+  outline: none;
+  border: 1px solid var(--branding-main);
+  background-color: var(--branding-main-light);
+  box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .1),
+              inset 0px 0px 30px hsla(240, 100%, 62%, .05);
 }
 
 .radio-button-group {
@@ -339,7 +355,7 @@ textarea {
   font-family: "BentonSans", sans-serif;
   line-height: 1.3em;
 
-  transition: background-color .2s ease-in-out;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .radio-button-group label:nth-child(2) {
@@ -357,11 +373,13 @@ textarea {
   background-color: var(--branding-main);
   cursor: pointer;
   color: #fff;
+  box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .15);
 }
 
 .radio-button-group input[type="radio"]:focus + label {
   background-color: var(--branding-main);
   color: #fff;
+  box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .15);
 }
 
 .radio-button-group label:after {
@@ -373,15 +391,14 @@ textarea {
   color: #fff;
 }
 
-textarea:focus {
-  outline: none;
-  border: 1px solid var(--branding-main);
-  background-color: var(--branding-main-light);
+.p_emphasis {
+  font-style: italic;
+  opacity: .7;
 }
 
 input[type="submit"] {
-  background-color: #FFF;
-  border: 1px solid white;
+  background-color: var(--branding-main);
+  border: 2px solid var(--branding-main);
   margin-bottom: 0px;
   border-radius: 5px;
 
@@ -389,19 +406,33 @@ input[type="submit"] {
   font-weight: bold;
   font-size: .9em;
   letter-spacing: .05em;
-  color: var(--branding-main);
+  color: #FFF;
   padding-top: 1.2em;
 
   transition: background-color .2s ease-in-out, color .2s ease-in-out, box-shadow .2s ease-in-out;
 }
 
+input[type="submit"][disabled] {
+  background-color: #a0a0a0;
+  color: #fff;
+  border: 2px solid #a0a0a0;
+}
+
 input[type="submit"]:hover {
-  background-color: var(--branding-main);
-  border: 1px solid white;
+  background-color: #fff;
+  border: 2px solid var(--branding-main);
   cursor: pointer;
 
-  color: #FFF;
-  box-shadow: inset 0px 0px 15px rgba(255,255,255,.3);
+  color: var(--branding-main);
+  box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .3);
+}
+
+input[type="submit"][disabled]:hover {
+  cursor: not-allowed;
+  background-color: #a0a0a0;
+  color: #fff;
+  border: 2px solid #a0a0a0;
+  box-shadow: none;
 }
 
 /* Start Balloon.css framework */
@@ -705,4 +736,18 @@ button[aria-label][data-balloon-pos] {
 /* - - - - - - - - - - - - */
 .hide {
   display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  position: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 2em;
+  box-shadow: 0px 5px 25px rgba(0,0,0,.2);
+}
+
+a[href$=".pdf"]::after {
+  content: " (PDF)";
 }

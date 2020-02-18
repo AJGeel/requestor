@@ -40,7 +40,7 @@
   color: var(--branding-main-darkmode);
 }
 
-.darkmode .evaluation-section {
+.darkmode .evaluation-intro {
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -52,31 +52,48 @@
   background-color: var(--branding-main-darkmode);
 }
 
-.darkmode .heuristic {
+.darkmode .form_section {
   background-color: hsl(202, 20%, 16%);
 }
 
-.darkmode .heuristic:nth-child(even) {
+.darkmode .form_section:nth-child(even) {
   background-color: hsl(202, 20%, 19%);
 }
 
-.darkmode .heuristic .scoring li:hover {
-  background-color: var(--branding-main-darkmode);
-}
-
-.darkmode .heuristic .scoring li:hover a {
-  color: #000;
-}
-
-.darkmode .heuristic .scoring li {
+.darkmode .radio-button-group label {
   border: 1px solid var(--branding-main-darkmode);
   border-right: none;
+  color: var(--branding-main-darkmode);
 }
 
-.darkmode .heuristic .scoring li:last-child {
+.darkmode .radio-button-group label:last-child {
   border-right: 1px solid var(--branding-main-darkmode);
 }
 
-.darkmode .heuristic .scoring li a {
-  color: var(--branding-main-darkmode);
+.darkmode .radio-button-group label:hover {
+  background-color: var(--branding-main-darkmode);
+  cursor: pointer;
+  color: #000;
+}
+
+.darkmode .radio-button-group input[type="radio"]:focus + label {
+  background-color: var(--branding-main-darkmode);
+  color: #000;
+}
+
+.darkmode .radio-button-group input[type="radio"]:checked + label {
+  background-color: var(--branding-main-darkmode);
+  color: #000;
+}
+
+.darkmode input, textarea {
+  background-color: rgba(0,0,0,0);
+}
+
+.darkmode textarea:focus {
+  outline: none;
+  border: 1px solid var(--branding-main-darkmode);
+  background-color: rgba(0,0,0,0);
+  box-shadow: 0px 0px 15px hsla(240, 100%, 82%, .4),
+              inset 0px 0px 30px hsla(240, 100%, 82%, .15);
 }

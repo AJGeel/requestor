@@ -44,7 +44,7 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
   const hardcoded_src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
 
   // Update the iFrame DOM element's src
-  // target.src = updated_src;
+  target.src = updated_src;
   // target.src = hardcoded_src; /* Toggle this to override the target source with the hardcoded src. */
   // target.src = "https://www.arthurgeel.com/"
 
@@ -111,20 +111,20 @@ document.addEventListener("keypress", function(event) {
 /* Start of Timer Functionality */
 
 // Grab DOM element of time spent on page.
-const DOM_Timer = document.getElementById("timer");
-
-// Generate a date object of initial page load
-var startTime = Date.now();
-
-var timerCondition = true;
-
-// Function is called every 1000ms
-setInterval(() => {
-
-  if (timerCondition == true) {
-    updateTime(DOM_Timer);
-  }
-}, 1000);
+// const DOM_Timer = document.getElementById("timer");
+//
+// // Generate a date object of initial page load
+// var startTime = Date.now();
+//
+// var timerCondition = true;
+//
+// // Function is called every 1000ms
+// setInterval(() => {
+//
+//   if (timerCondition == true) {
+//     updateTime(DOM_Timer);
+//   }
+// }, 1000);
 
 
 function updateTime(target) {
@@ -240,12 +240,44 @@ DOM_iFrame_Container.addEventListener("click", function() {
 });
 
 
+/* Experimental: reminder to save work */
+
+window.addEventListener("beforeunload", function(event) {
+  alert('hey dude!');
+  // Remind user to save their work or whatever.
+});
+
+
 /* Experimental: calculate color contrasts */
 
+// Calculates perceived luminance. Value output: [0, ~258.8]
 function calculateLuminance(red, green, blue) {
   return Math.sqrt( 0.299 * Math.pow(red, 2) + 0.587 * Math.pow(green, 2) + 0.144 * Math.pow(blue, 2));
 }
 
+// Calculates perceived contrast. Value output: [1, ~5177]
 function calculateContrast(L1, L2) {
+  // If/else statement to find the highest value, this one should go first
   return ((L1 + 0.05) / (L2 + 0.05));
 }
+
+// function luminanace(r, g, b) {
+//     var a = [r, g, b].map(function (v) {
+//         v /= 255;
+//         return v <= 0.03928
+//             ? v / 12.92
+//             : Math.pow( (v + 0.055) / 1.055, 2.4 );
+//     });
+//     return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+// }
+// function contrast(rgb1, rgb2) {
+//     var lum1 = luminanace(rgb1[0], rgb1[1], rgb1[2]);
+//     var lum2 = luminanace(rgb2[0], rgb2[1], rgb2[2]);
+//     var brightest = Math.max(lum1, lum2);
+//     var darkest = Math.min(lum1, lum2);
+//     return (brightest + 0.05)
+//          / (darkest + 0.05);
+// }
+// contrast([255, 255, 255], [255, 255, 0]); // 1.074 for yellow
+// contrast([255, 255, 255], [0, 0, 255]); // 8.592 for blue
+// // minimal recommended contrast ratio is 4.5, or 3 for larger font-sizes
