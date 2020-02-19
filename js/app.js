@@ -196,21 +196,24 @@ function OnInput() {
 /* Start of Form Functionality */
 
 // Function that progressively discloses the form questions.
-function formProgressiveDisclosure(value, target) {
-  // Make DOM call to identify element to be disclosed.
-  var targ = document.getElementById("h" + target + "_prog");
+function formProgressiveDisclosure(value, target, evaluationType) {
 
-  if (value == 0) {
-    // No issue found, no need to show follow-up questions.
-    // Most of the times, the element should already be hidden, but we make sure it always is.
-    targ.style.display = "none";
+  if (evaluationType == 'nielsen') {
+    // Make DOM call to identify element to be disclosed.
+    var targ = document.getElementById("h" + target + "_prog");
 
-  } else if (value == 1 || value == 2 || value == 3 || value == 4) {
-    // If there is an issue (in any quantity), we do show the follow-up.
-    targ.style.display = "initial";
+    if (value == 0) {
+      // No issue found, no need to show follow-up questions.
+      // Most of the times, the element should already be hidden, but we make sure it always is.
+      targ.style.display = "none";
 
-    for (var i = 0; i < textAreas.length; i++) {
-      textAreas[i].style.height = 'auto';
+    } else if (value == 1 || value == 2 || value == 3 || value == 4) {
+      // If there is an issue (in any quantity), we do show the follow-up.
+      targ.style.display = "initial";
+
+      for (var i = 0; i < textAreas.length; i++) {
+        textAreas[i].style.height = 'auto';
+      }
     }
   }
 }
