@@ -86,8 +86,9 @@
   color: #000;
 }
 
-.darkmode input, textarea {
+.darkmode input, .darkmode textarea {
   background-color: rgba(0,0,0,0);
+  color: #CCC;
 }
 
 .darkmode textarea:focus {
@@ -96,4 +97,28 @@
   background-color: rgba(0,0,0,0);
   box-shadow: 0px 0px 15px hsla(240, 100%, 82%, .4),
               inset 0px 0px 30px hsla(240, 100%, 82%, .15);
+}
+
+.darkmode [aria-label][data-balloon-pos]:after {
+  background: #fff;
+  color: var(--balloon-color);
+}
+
+.darkmode [aria-label][data-balloon-pos]:before {
+  border-top-color: #fff;
+}
+
+.darkmode [aria-label][data-balloon-pos][data-balloon-pos="down"]:before {
+  border: 5px solid transparent;
+  border-bottom-color: #fff;
+}
+
+.darkmode [aria-label][data-balloon-pos][data-balloon-pos="down-left"]:before {
+  border: 5px solid transparent;
+  border-bottom-color: #fff;
+}
+
+.darkmode [aria-label][data-balloon-pos][data-balloon-pos="down-right"]:before {
+  border: 5px solid transparent;
+  border-bottom-color: #fff;
 }
