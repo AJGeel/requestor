@@ -284,3 +284,21 @@ function calculateContrast(L1, L2) {
 // contrast([255, 255, 255], [255, 255, 0]); // 1.074 for yellow
 // contrast([255, 255, 255], [0, 0, 255]); // 8.592 for blue
 // // minimal recommended contrast ratio is 4.5, or 3 for larger font-sizes
+
+function reviewInvitation() {
+  alert("This should trigger an animation that opens the envelope and does some of the onboarding. However, for now it's kept simple.");
+
+  // Grab onboarding wrapper DOM element and hide it.
+  const onboardingWrapper = document.querySelector(".onboarding-wrapper");
+  onboardingWrapper.style.display = "none";
+
+  // Grab evaluation form and make it scrollable again.
+  const evaluationContainer = document.querySelector(".evaluation");
+  evaluationContainer.style.height = "initial";
+  evaluationContainer.style.overflowY = "scroll";
+}
+
+function declineInvitation() {
+  alert("This should notify the user that while they decline this invitation for now, they can still open it later if they wish. \n\n We're redirecting you to DuckDuckGo.");
+  window.location.href = "https://duckduckgo.com";
+}
