@@ -16,9 +16,8 @@
     <div class="app">
 
       <section class="frame-container" id="frame_container"> <!-- Embedded Figma Prototype -->
-        <div class="frame">
+        <div class="frame" id="frame">
           <iframe id="iframe_prototype" allowedfullscreen></iframe>
-          <!-- <img src="i/placeholder-image.jpeg"/> -->
         </div>
 
       </section>
@@ -39,21 +38,23 @@
 
           <h2><img src="i/feather/clipboard.svg"/>What We Ask You To Do</h2>
           <ol>
-            <li>Carefully read through the Scenario below, and try completing all listed steps.</li>
+            <li>Carefully read through the Scenario below, and try completing all listed steps in the interface on the left.</li>
             <li>Perform a <a href="https://uxplanet.org/how-to-conduct-heuristic-evaluation-85548a355dca" target="_blank" aria-label="In short, a Heuristic Evaluation is a method for helping UX practitioners evaluate user interface designs.
 
 Click on the link for an in-depth article (reading time: 5 minutes)." data-balloon-pos="down" data-balloon-length="medium">Heuristic Evaluation</a> of the project using the form below. For every heuristic or 'global rule', you state whether you think there is a usability error.</li>
           </ol>
         </div>
 
-        <div class="evaluation-intro">
+        <div class="evaluation-intro" id="evaluation_intro">
           <h2><img src="i/feather/image.svg"/>Scenario / Task List</h2>
           <ol>
-            <li>Your name is Frederic — a 62 year old Dutch man from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</li>
-            <li>You opened the Bol.com page to order a new one. However, your wife gave you a list of restrictions:</li>
-            <li>The printer should <e>cost less than €90</e>. It should be able to <e>print in full-colour</e>. Finally, <e>you don't want an Epson brand printer</e>.</li>
-            <li>Use the Bol.com website to find a suitable new printer, and add it to your shopping basket.</li>
+            <li class="taskListItem">Your name is Frederic — a 62 year old Dutch man from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</li>
+            <li class="taskListItem">You opened the Bol.com page to order a new one. However, your wife gave you a list of restrictions:</li>
+            <li class="taskListItem">The printer should <e>cost less than €90</e>. It should be able to <e>print in full-colour</e>. Finally, <e>you don't want an Epson brand printer</e>.</li>
+            <li class="taskListItem">Use the Bol.com website to find a suitable new printer, and add it to your shopping basket.</li>
           </ol>
+
+          <button type="button" name="startEvaluation" id="startEvaluationBtn" class="btn" onclick="startEvaluation()">I understand &mdash; show me the interface!</button>
         </div>
 
         <form class="" action="javascript:void(0)" method="post" enctype="multipart/form-data">
@@ -450,9 +451,10 @@ Potentially, the tooltip functionality could be used to embed additional context
         </div>
 
         <div class="information">
-          <h1>You've been invited by <a href="#!" tabindex="1">Arthur</a> to evaluate their <a href="#!" tabindex="2">Bol.com</a> prototype!</h1>
+          <h1>You've been invited by <a href="#!" tabindex="1">Arthur Geel</a> to evaluate their <a href="#!" tabindex="2">Bol.com</a>  prototype!</h1>
+          <h2>* This should only take about <span id="timeAmount">ten minutes</span> of your time.</h2>
           <button type="button" name="review" class="onboarding-btn main" tabindex="3" onclick="reviewInvitation()">Review Invitation</button>
-          <button type="button" name="nothanks" class="onboarding-btn" tabindex="4" onclick="declineInvitation()">I'll pass, thanks</button>
+          <button type="button" name="nothanks" class="onboarding-btn" tabindex="4" onclick="declineInvitation()">I'll Pass, Thanks</button>
 
         </div>
 

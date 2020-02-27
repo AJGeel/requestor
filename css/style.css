@@ -86,6 +86,8 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #F5F5F5;
+
+  filter: blur(10px);
 }
 
 .frame iframe {
@@ -93,7 +95,7 @@ body {
   /* border: 2px solid var(--branding-main); */
   box-shadow: 0px 5px 50px rgba(0,0,0,.2);
 
-  animation: fadeInBlur 1.5s ease-in-out;
+  /* animation: fadeInBlur 1.5s ease-in-out; */
 }
 
 
@@ -114,6 +116,10 @@ body {
   /* These get overridden when the onboarding screen is completed */
   height: 100vh;
   overflow-y: hidden;
+}
+
+.onboarding-wrapper {
+  /* display: none; */
 }
 
 .progress-bar-container {
@@ -176,7 +182,7 @@ body {
 
 .evaluation ol {
   padding-left: 1em;
-  margin-bottom: 2em;
+  /* margin-bottom: 1.5em; */
 }
 
 .evaluation ol:last-child {
@@ -187,6 +193,15 @@ body {
   list-style-type: decimal;
   list-style-position: outside;
   padding-left: .5em;
+}
+
+.evaluation ol li:hover {
+  /* cursor: pointer; */
+}
+
+.evaluation ol li.clicked {
+  text-decoration: line-through;
+  opacity: .4;
 }
 
 .evaluation p img {
@@ -279,6 +294,26 @@ body {
 
 .evaluation img {
   max-width: 100%;
+}
+
+.evaluation button {
+  width: 100%;
+  font-size: 1em;
+  margin-top: 1em;
+  padding: .7em 1.4em;
+  margin-right: 1em;
+  border-radius: 7px;
+  background-color: none;
+  border: 2px solid var(--branding-main);
+  color: var(--branding-main);
+
+  transition: color .2s ease-in-out, background-color .2s ease-in-out;
+}
+
+.evaluation button:hover, .evaluation button:focus {
+  background-color: var(--branding-main);
+  color: #fff;
+  cursor: pointer;
 }
 
 .form_section {
@@ -469,6 +504,7 @@ input[type="submit"][disabled]:hover {
 }
 
 /* Start Balloon.css framework */
+/* Baloon.css tooltip framework, courtesy of https://kazzkiq.github.io/balloon.css/ */
 :root {
   --balloon-color: rgba(16, 16, 16, 0.95);
   --balloon-font-size: 12px;
@@ -794,7 +830,10 @@ button[aria-label][data-balloon-pos] {
   background-color: #FDFDFD;
 
   /* border: 1px solid red; */
-  /* display: none; */
+}
+
+.onboarding-wrapper.hover {
+  background-color: hsl(240, 62%, 97%);
 }
 
 .onboarding-content {
@@ -806,7 +845,7 @@ button[aria-label][data-balloon-pos] {
 }
 
 .onboarding-content .invitation {
-  animation: fadeInLeft .5s ease-in-out;
+  animation: fadeInLeft .8s ease-in-out;
 }
 
 .onboarding-content .invitation img {
@@ -820,20 +859,36 @@ button[aria-label][data-balloon-pos] {
   cursor: pointer;
 }
 
+.onboarding-content .invitation img.hover {
+  transform: scale(1.05);
+}
+
 .onboarding-content .information {
-  max-width: 400px;
-  animation: fadeInRight .5s ease-in-out;
+  max-width: 450px;
+  animation: fadeInRight .8s ease-in-out;
 }
 
 .onboarding-content h1 {
   font-size: 1.5em;
   color: #333;
   line-height: 140%;
-  margin-bottom: 1em;
+  margin-bottom: .5em;
 }
 
 .onboarding-content h1 a {
   color: inherit;
+  line-height: 80%;
+}
+
+.onboarding-content h2 {
+  color: #777;
+  font-style: italic;
+  margin-bottom: 2em;
+}
+
+.onboarding-content h2 span {
+  color: var(--branding-main);
+  opacity: .7;
 }
 
 .onboarding-content button {
@@ -843,6 +898,7 @@ button[aria-label][data-balloon-pos] {
   border-radius: 7px;
   border: 2px solid black;
   color: black;
+  background-color: transparent;
 
   transition: background-color .2s ease-in-out, color .2s ease-in-out, border-color .2s ease-in-out, box-shadow .2s ease-in-out;
 }
@@ -854,7 +910,7 @@ button[aria-label][data-balloon-pos] {
 }
 
 .onboarding-content button.main:hover, .onboarding-content button.main:focus {
-  background-color: hsl(240, 100%, 99%);
+  background-color: hsla(240, 100%, 99%, 0);
   border-color: var(--branding-main);
   color: var(--branding-main);
   box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .15), inset 0px 0px 8px hsla(240, 100%, 32%, .2);
@@ -862,7 +918,7 @@ button[aria-label][data-balloon-pos] {
 
 .onboarding-content button:hover, .onboarding-content button:focus {
   cursor: pointer;
-  background-color: hsl(240, 0%, 99%);
+  background-color: hsl(240, 0%, 97%);
   border-color: #777;
   color: #555;
 

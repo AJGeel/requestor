@@ -299,6 +299,51 @@ function reviewInvitation() {
 }
 
 function declineInvitation() {
-  alert("This should notify the user that while they decline this invitation for now, they can still open it later if they wish. \n\n We're redirecting you to DuckDuckGo.");
-  window.location.href = "https://duckduckgo.com";
+  const answer = confirm("Are you sure you want to decline this invitation? This will close the current window.");
+
+  if (answer == true) {
+    alert("Page is closing. If you change your mind, you can still access the invitation later by using the link you received earlier.");
+    window.location.href = "";
+  } else {
+    alert("You stayed! Noice!");
+  }
 }
+
+// Eventlistener that makes the envelope invitation move if the user hovers over the accept button.
+const onboardingBtn = document.querySelector(".onboarding-btn");
+const invitationImg = document.getElementById("invitationImg");
+const onboardingBg = document.querySelector(".onboarding-wrapper");
+
+onboardingBtn.addEventListener("mouseenter", function(event) {
+  invitationImg.classList.toggle("hover");
+  onboardingBg.style.transition = "background-color .6s ease-in-out";
+  onboardingBg.classList.toggle("hover");
+});
+
+onboardingBtn.addEventListener("mouseleave", function(event) {
+  invitationImg.classList.toggle("hover");
+  onboardingBg.classList.toggle("hover");
+});
+
+function startEvaluation() {
+  // Scroll to the Scenario / Task list.
+  // const evaluation_intro = document.getElementById("evaluation_intro");
+  // evaluation_intro.scrollIntoView();
+
+  // Unblur the prototype frame.
+  const frame = document.getElementById("frame");
+  frame.style.transition = "filter 2s ease-in-out";
+  frame.style.filter = "blur(0px)";
+
+  // Hide the 'start' button.
+  const startEvaluationBtn = document.getElementById("startEvaluationBtn");
+  startEvaluationBtn.style.display = "none";
+  // startEvaluationBtn.style.animation = "fadeOutElement 1s ease-in-out";
+  // startEvaluationBtn.style.animationFillMode = "forwards";
+
+}
+
+/* Function that reads and stores the URL parameters */
+const queryString = window.location.search;
+console.log(queryString);
+// https://www.sitepoint.com/get-url-parameters-with-javascript/
