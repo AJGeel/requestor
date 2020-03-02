@@ -234,13 +234,13 @@ function formProgressiveDisclosure(value, target, evaluationType) {
 
 
 /* Experimental: Fullscreen when clicking on canvas */
-const DOM_Evaluation_Container = document.getElementById("evaluation_container");
-
-DOM_iFrame_Container.addEventListener("click", function() {
-  toggleClass(DOM_Evaluation_Container, "hide");
-
-  resizeiFrame();
-});
+// const DOM_Evaluation_Container = document.getElementById("evaluation_container");
+//
+// DOM_iFrame_Container.addEventListener("click", function() {
+//   toggleClass(DOM_Evaluation_Container, "hide");
+//
+//   resizeiFrame();
+// });
 
 
 /* Experimental: reminder to save work */
@@ -285,6 +285,21 @@ function calculateContrast(L1, L2) {
 // contrast([255, 255, 255], [0, 0, 255]); // 8.592 for blue
 // // minimal recommended contrast ratio is 4.5, or 3 for larger font-sizes
 
+
+/* If the user hovers over the information to read it, we make the Lottie animation less obtrusive */
+const evaluationContainer = document.getElementById("evaluation_container");
+evaluationContainer.addEventListener("mouseenter", function(event) {
+  // animation.pause();       /* We can pause the animation completely */
+  animation.setSpeed(.2);     /* Or can choose to slow it down. */
+});
+
+evaluationContainer.addEventListener("mouseleave", function(event) {
+  // animation.play();
+  animation.setSpeed(1);
+});
+
+
+
 function reviewInvitation() {
   alert("This should trigger an animation that opens the envelope and does some of the onboarding. However, for now it's kept simple.");
 
@@ -293,7 +308,6 @@ function reviewInvitation() {
   onboardingWrapper.style.display = "none";
 
   // Grab evaluation form and make it scrollable again.
-  const evaluationContainer = document.querySelector(".evaluation");
   evaluationContainer.style.height = "initial";
   evaluationContainer.style.overflowY = "scroll";
 }
@@ -332,12 +346,22 @@ function startEvaluation() {
 
   // Unblur the prototype frame.
   const frame = document.getElementById("frame");
-  frame.style.transition = "filter 2s ease-in-out";
+  frame.style.transition = "filter 2s ease-in-out, opacity 2s ease-in-out";
   frame.style.filter = "blur(0px)";
+  frame.style.opacity = "1";
 
   // Hide the 'start' button.
   const startEvaluationBtn = document.getElementById("startEvaluationBtn");
-  startEvaluationBtn.style.display = "none";
+  startEvaluationBtn.classList.add("destroy-button");
+
+  const prevElemSibling = startEvaluationBtn.previousElementSibling
+
+  prevElemSibling.style.transition = "margin-bottom 2s ease-in-out";
+  prevElemSibling.style.marginBottom = "-4.4em";
+
+  const onboardingModal = document.getElementById("onboardingModal");
+  onboardingModal.classList.add("destroy-modal");
+  // onboardingModal.style.display = "none";
   // startEvaluationBtn.style.animation = "fadeOutElement 1s ease-in-out";
   // startEvaluationBtn.style.animationFillMode = "forwards";
 
@@ -347,3 +371,12 @@ function startEvaluation() {
 const queryString = window.location.search;
 console.log(queryString);
 // https://www.sitepoint.com/get-url-parameters-with-javascript/
+
+/* Lottie Animation Library */
+const animation = lottie.loadAnimation({
+  container: document.getElementById('lottie-point-right'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: '../i/lottie/data.json'
+})
