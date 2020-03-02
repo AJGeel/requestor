@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Variables updated by JS</title>
+
+    <style media="screen">
+      :root {
+        --regular\,: hsla(240, 100%, 50%, 1);
+        --darker\,: hsla(240, 100%, 10%, 1);
+        --lighter\,: hsla(240, 100%, 90%, 1);
+        --bg\,: hsla(240, 100%, 90%, .1);
+      }
+
+      ::selection {
+        background: var(--bg/,);
+      }
+
+      * {
+        font-family: "IBM Plex Mono", monospace;
+        text-align: center;
+      }
+
+      body {
+        margin: 2em;
+      }
+
+      code {
+        font-size: .85em;
+        background-color: #ddd;
+      }
+
+      button {
+        width: 100%;
+        padding: 2em;
+        font-size: 1em;
+        background-color: #fff;
+        border: 1px solid black;
+        border-radius: 100px;
+        margin-bottom: 2em;
+        margin-right: .9em;
+        margin-top: 1em;
+        transition: background-color .2s ease-in-out;
+      }
+
+      button:last-child {
+        margin-right: 0;
+        margin-left: .9em;
+      }
+
+      button:hover {
+        cursor: pointer;
+        background-color: #ddd;
+      }
+
+      div {
+        padding: 3em;
+        color: #000;
+        transition: background-color .4s ease-in-out;
+        box-shadow: inset 0px 0px 3em rgba(0,0,0,.2)
+      }
+
+      section {
+        display: flex;
+      }
+
+      .one {
+        background-color: var(--darker\,);
+        color: #fff;
+        border-top-left-radius: 2em;
+        border-top-right-radius: 2em;
+      }
+
+      .two {
+        background-color: var(--regular\,);
+      }
+
+      .three {
+        background-color: var(--lighter\,);
+        border-bottom-left-radius: 2em;
+        border-bottom-right-radius: 2em;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>CSS Variables: Meet JavaScript.</h1>
+    <p>This page implements dynamic updating of CSS Variables using <code>document.documentElement.style.setProperty</code>.</p>
+
+    <section class="button-flex">
+      <button type="button" name="button" onclick="promptNewHue()">Input a hue 🎩</button>
+      <button type="button" name="button" onclick="randomNewHue()">Random hue 👀</button>
+    </section>
+
+    <div class="one">
+      Darker colour <br><br> hsla(<span id="darkerHue">0</span>, 100%, 10%, 1)
+    </div>
+
+    <div class="two">
+      Regular colour <br><br> hsla(<span id="regularHue">0</span>, 100%, 10%, 1)
+    </div>
+
+    <div class="three">
+      lighter colour <br><br> hsla(<span id="lighterHue">0</span>, 100%, 10%, 1)
+    </div>
+
+  </body>
+
+  <script type="text/javascript">
+    let hue = 0;
+    const saturations = [100, 100, 100];
+    const luminances = [50, 10, 90];
+    const alphas = [1, 1, 1];
+    const colorNames = ["regular", "darker", "lighter"];
+
+    function promptNewHue() {
+      hue = window.prompt("Choose a new hue (Any number will do.)");
+
+      if (hue == "") {
+        alert("That ain't no number! 🤬");
+        randomNewHue();
+      } else {
+        updateColorVars(hue);
+      }
+    }
+
+    function randomNewHue() {
+      hue = Math.round(Math.random() * 359)
+      updateColorVars(hue);
+    }
+
+    function updateColorVars(hue) {
+      const functionString = "document.documentElement.style.setProperty('--";
+
+      for (var i = 0; i < saturations.length; i++) {
+        const newString = `hsla(${hue}, ${saturations[i]}%, ${luminances[i]}%, ${alphas[i]})`;
+        document.documentElement.style.setProperty(`--${colorNames[i]},`, `${newString}`);
+
+        /* For some reason, these template strings are output as '--lighter\,' */
+        /* Remember: it's not a but if it's a feature. */
+
+        document.getElementById(`${colorNames[i]}Hue`).innerHTML = hue;
+      }
+    }
+
+    randomNewHue();
+
+  </script>
+</html>

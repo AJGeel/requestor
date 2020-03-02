@@ -205,11 +205,21 @@ function formProgressiveDisclosure(value, target, evaluationType) {
     if (value == 0) {
       // No issue found, no need to show follow-up questions.
       // Most of the times, the element should already be hidden, but we make sure it always is.
-      targ.style.display = "none";
+      // targ.style.display = "none";
+      targ.style.height = `0px`;
+      targ.style.opacity = `0`;
+
+      // Time out for the animation duration.
+      setTimeout(function() {
+        targ.style.visibility = `hidden`;
+      }, 300)
 
     } else if (value == 1 || value == 2 || value == 3 || value == 4) {
       // If there is an issue (in any quantity), we do show the follow-up.
-      targ.style.display = "initial";
+      // targ.style.display = "initial";
+      targ.style.height = `268px`;
+      targ.style.opacity = `1`;
+      targ.style.visibility = `visible`;
 
       for (var i = 0; i < textAreas.length; i++) {
         textAreas[i].style.height = 'auto';
@@ -299,13 +309,13 @@ evaluationContainer.addEventListener("mouseleave", function(event) {
 });
 
 
-
 function reviewInvitation() {
-  alert("This should trigger an animation that opens the envelope and does some of the onboarding. However, for now it's kept simple.");
+  // alert("This should trigger an animation that opens the envelope and does some of the onboarding. However, for now it's kept simple.");
 
   // Grab onboarding wrapper DOM element and hide it.
   const onboardingWrapper = document.querySelector(".onboarding-wrapper");
-  onboardingWrapper.style.display = "none";
+  // onboardingWrapper.style.display = "none";
+  onboardingWrapper.classList.add("destroy-modal-1s");
 
   // Grab evaluation form and make it scrollable again.
   evaluationContainer.style.height = "initial";
@@ -319,7 +329,7 @@ function declineInvitation() {
     alert("Page is closing. If you change your mind, you can still access the invitation later by using the link you received earlier.");
     window.location.href = "";
   } else {
-    alert("You stayed! Noice!");
+    // alert("You stayed! Noice!");
   }
 }
 
@@ -380,3 +390,16 @@ const animation = lottie.loadAnimation({
   autoplay: true,
   path: '../i/lottie/data.json'
 })
+
+// while (animation.playSpeed >= 0.1) {
+//   setTimeout(function() {
+//     // animation.setSpeed(animation.playSpeed * 0.99);
+//     console.log("hello world");
+//   }, 50);
+// }
+
+async function wait(ms) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
+}

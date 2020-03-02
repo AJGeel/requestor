@@ -13,7 +13,7 @@ html {
 
 :root {
   --branding-main: hsl(240, 100%, 32%);
-  --branding-main-light: hsl(216, 100%, 97%);
+  --branding-main-light: hsl(240, 100%, 97%);
 }
 
 @keyframes fadeInBlur {
@@ -60,6 +60,11 @@ html {
 
 .destroy-modal {
   animation: destroyModal 2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.destroy-modal-1s {
+  animation: destroyModal 1s ease-in-out;
   animation-fill-mode: forwards;
 }
 
@@ -152,6 +157,10 @@ body {
 
 .frame-modal .lottie-img {
   padding: 0px;
+}
+
+.frame-modal .lottie-img g g:nth-child(2) path {
+  fill: var(--branding-main);
 }
 
 .frame-modal div:first-child {
@@ -482,7 +491,11 @@ body {
 } */
 
 .form-progressive-disclosure {
-  display: none;
+  /* display: none; */
+  overflow-y: hidden;
+  visibility: hidden;
+  height: 0px;
+  transition: height .3s ease-in-out, opacity .3s ease-in-out;
 }
 
 .form-progressive-disclosure h3:first-child {
@@ -550,7 +563,9 @@ textarea:focus {
   font-family: "BentonSans", sans-serif;
   line-height: 1.3em;
 
-  transition: background-color .2s ease-in-out, color .2s ease-in-out, box-shadow .15s ease-in-out;
+  transition: background-color .2s ease-in-out,
+              color .2s ease-in-out,
+              box-shadow .15s ease-in-out;
 }
 
 .radio-button-group label:nth-child(2) {
@@ -604,7 +619,9 @@ input[type="submit"] {
   color: #FFF;
   padding-top: 1.2em;
 
-  transition: background-color .2s ease-in-out, color .2s ease-in-out, box-shadow .2s ease-in-out;
+  transition: background-color .2s ease-in-out,
+              color .2s ease-in-out,
+              box-shadow .2s ease-in-out;
 }
 
 input[type="submit"][disabled] {
