@@ -319,7 +319,7 @@ function reviewInvitation() {
 
   // Grab evaluation form and make it scrollable again.
   evaluationContainer.style.height = "initial";
-  evaluationContainer.style.overflowY = "scroll";
+  evaluationContainer.style.overflowY = "visible";
 }
 
 function declineInvitation() {

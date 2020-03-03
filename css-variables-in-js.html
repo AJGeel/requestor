@@ -9,11 +9,11 @@
         --regular\,: hsla(240, 100%, 50%, 1);
         --darker\,: hsla(240, 100%, 10%, 1);
         --lighter\,: hsla(240, 100%, 90%, 1);
-        --bg\,: hsla(240, 100%, 90%, .1);
+        --bg: hsla(240, 100%, 90%, .2);
       }
 
       ::selection {
-        background: var(--bg/,);
+        background: var(--bg);
       }
 
       * {
@@ -85,7 +85,7 @@
   <body>
 
     <h1>CSS Variables: Meet JavaScript.</h1>
-    <p>This page implements dynamic updating of CSS Variables using <code>document.documentElement.style.setProperty</code>.</p>
+    <p>This page implements dynamic updating of CSS Variables using JavaScript's <code>document.documentElement.style.setProperty</code>.</p>
 
     <section class="button-flex">
       <button type="button" name="button" onclick="promptNewHue()">Input a hue 🎩</button>
@@ -141,6 +141,8 @@
 
         document.getElementById(`${colorNames[i]}Hue`).innerHTML = hue;
       }
+
+      document.documentElement.style.setProperty('--bg', `hsla(${hue}, 100%, 50%, .2)`);
     }
 
     randomNewHue();

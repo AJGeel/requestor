@@ -242,7 +242,7 @@ body {
 
 .evaluation {
   z-index: 1;
-  width: 420px;
+  width: 26.25em;
   flex-shrink: 0;
 
   background-color: #FFF;
