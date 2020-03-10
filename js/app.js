@@ -90,7 +90,7 @@ function toggleClass(target, className) {
 document.addEventListener("keypress", function(event) {
 
   // Console log the keycode for debugging
-  console.log("$DEBUG: Key: " + event.keyCode);
+  // console.log("$DEBUG: Key: " + event.keyCode);
   if (event.keyCode == 68 /* || event.keyCode == 100 */) {
     // 'd' or 'D' is pressed: toggle darkmode on Body DOM element
     toggleClass(DOM_Body, "darkmode");
@@ -200,7 +200,9 @@ function formProgressiveDisclosure(value, target, evaluationType) {
 
   if (evaluationType == 'nielsen') {
     // Make DOM call to identify element to be disclosed.
-    var targ = document.getElementById("h" + target + "_prog");
+    let targ = document.getElementById("h" + target + "_prog");
+
+    let targetNodeChildren = targ.querySelectorAll('textarea');
 
     if (value == 0) {
       // No issue found, no need to show follow-up questions.
@@ -208,6 +210,14 @@ function formProgressiveDisclosure(value, target, evaluationType) {
       // targ.style.display = "none";
       targ.style.height = `0px`;
       targ.style.opacity = `0`;
+
+      // Select all textareas within the progressive disclosure element, and add the 'disabled' tag.
+      // We do this to exclude it from the serializing function, meaning it will not be included in the data transfer.
+      targ.querySelectorAll('textarea').forEach((item) => {
+        item.disabled = true;
+        // console.log(item);
+      });
+
 
       // Time out for the animation duration.
       setTimeout(function() {
@@ -220,6 +230,12 @@ function formProgressiveDisclosure(value, target, evaluationType) {
       targ.style.height = `268px`;
       targ.style.opacity = `1`;
       targ.style.visibility = `visible`;
+
+      // Select all textareas within the progressive disclosure element, and add the 'disabled' tag.
+      targ.querySelectorAll('textarea').forEach((item) => {
+        item.disabled = false;
+        // console.log(item);
+      });
 
       for (var i = 0; i < textAreas.length; i++) {
         textAreas[i].style.height = 'auto';
@@ -366,7 +382,7 @@ function startEvaluation() {
 
   const prevElemSibling = startEvaluationBtn.previousElementSibling
 
-  prevElemSibling.style.transition = "margin-bottom 2s ease-in-out";
+  prevElemSibling.style.transition = "margin-bottom .5s ease-in-out";
   prevElemSibling.style.marginBottom = "-4.4em";
 
   const onboardingModal = document.getElementById("onboardingModal");
@@ -378,8 +394,8 @@ function startEvaluation() {
 }
 
 /* Function that reads and stores the URL parameters */
-const queryString = window.location.search;
-console.log(queryString);
+// const queryString = window.location.search;
+// console.log(queryString);
 // https://www.sitepoint.com/get-url-parameters-with-javascript/
 
 /* Lottie Animation Library */
@@ -388,7 +404,7 @@ const animation = lottie.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: '../i/lottie/data.json'
+  path: 'i/lottie/data.json'
 })
 
 // while (animation.playSpeed >= 0.1) {
@@ -398,8 +414,53 @@ const animation = lottie.loadAnimation({
 //   }, 50);
 // }
 
-async function wait(ms) {
-  return new Promise(resolve => {
-    setTimeout(resolve, ms);
-  });
+// async function wait(ms) {
+//   return new Promise(resolve => {
+//     setTimeout(resolve, ms);
+//   });
+// }
+
+/* Functionality: Serialize form data with JS */
+const form = document.querySelector('form');
+
+function serializeForm() {
+  let formData = serialize(form);
+  console.log(formData);
 }
+
+/*!
+ * Serialize all form data into a query string
+ * (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
+ * @param  {Node}   form The form to serialize
+ * @return {String}      The serialized form data
+ */
+
+function serialize(form) {
+	// Setup our serialized data
+	var serialized = [];
+
+	// Loop through each field in the form
+	for (var i = 0; i < form.elements.length; i++) {
+
+		var field = form.elements[i];
+
+		// Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
+		if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue;
+
+		// If a multi-select, get all selections
+		if (field.type === 'select-multiple') {
+			for (var n = 0; n < field.options.length; n++) {
+				if (!field.options[n].selected) continue;
+				serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[n].value));
+			}
+		}
+
+		// Convert field data to a query string
+		else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
+			serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+		}
+	}
+
+	return serialized.join('&');
+
+};

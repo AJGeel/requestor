@@ -8,12 +8,14 @@ html {
 }
 
 ::selection {
-  background: rgba(0, 0, 164, .1);
+  /* background: rgba(0, 0, 164, .1); */
+  background: hsla(240, 100%, 32%, .1);
 }
 
 :root {
-  --branding-main: hsl(240, 100%, 32%);
-  --branding-main-light: hsl(240, 100%, 97%);
+  --branding: hsl(240, 100%, 32%);
+  --branding-light: hsl(240, 100%, 97%);
+  --branding-light-desat: hsl(236, 52%, 97%);
 }
 
 @keyframes fadeInBlur {
@@ -69,7 +71,7 @@ html {
 }
 
 .destroy-button {
-  animation: destroyButton 2s ease-in-out;
+  animation: destroyButton .5s ease-in-out;
   animation-fill-mode: forwards;
 }
 
@@ -120,7 +122,7 @@ body {
 
 .frame iframe {
   border-radius: 5px;
-  /* border: 2px solid var(--branding-main); */
+  /* border: 2px solid var(--branding); */
   box-shadow: 0px 5px 50px rgba(0,0,0,.2);
 
   /* animation: fadeInBlur 1.5s ease-in-out; */
@@ -160,7 +162,7 @@ body {
 }
 
 .frame-modal .lottie-img g g:nth-child(2) path {
-  fill: var(--branding-main);
+  fill: var(--branding);
 }
 
 .frame-modal div:first-child {
@@ -206,7 +208,7 @@ body {
   font-size: 1.4em;
   font-weight: 500;
   margin-bottom: .5em;
-  color: var(--branding-main);
+  color: var(--branding);
 }
 
 .frame-container .frame-modal-container .frame-modal p {
@@ -222,14 +224,14 @@ body {
   margin-top: 1em;
   border-radius: 7px;
   background-color: transparent;
-  border: 2px solid var(--branding-main);
-  color: var(--branding-main);
+  border: 2px solid var(--branding);
+  color: var(--branding);
   transition: color .2s ease-in-out, background-color .2s ease-in-out;
 }
 
 
 .frame-container .frame-modal-container .frame-modal button:hover, .frame-container .frame-modal-container .frame-modal button:focus {
-  background-color: var(--branding-main);
+  background-color: var(--branding);
   color: #fff;
   cursor: pointer;
 } */
@@ -269,7 +271,7 @@ body {
 
 .progress-bar {
   height: 4px;
-  background-color: var(--branding-main);
+  background-color: var(--branding);
   /* border-top: 2px solid white; */
   width: 0%;
 }
@@ -283,7 +285,7 @@ body {
   font-size: 1.4em;
   font-weight: 500;
   margin-bottom: 1em;
-  color: var(--branding-main);
+  color: var(--branding);
 }
 
 .evaluation h2 {
@@ -362,7 +364,7 @@ body {
 }
 
 .evaluation a {
-  color: var(--branding-main);
+  color: var(--branding);
   transition: color .2s ease-in-out;
 }
 
@@ -440,14 +442,14 @@ body {
   margin-right: 1em;
   border-radius: 7px;
   background-color: transparent;
-  border: 2px solid var(--branding-main);
-  color: var(--branding-main);
+  border: 2px solid var(--branding);
+  color: var(--branding);
 
   transition: color .2s ease-in-out, background-color .2s ease-in-out;
 }
 
 .evaluation button:hover, .evaluation button:focus {
-  background-color: var(--branding-main);
+  background-color: var(--branding);
   color: #fff;
   cursor: pointer;
 }
@@ -463,12 +465,12 @@ body {
 
 /* Penultimate item */
 .form_section:nth-last-child(2) {
-  /* background-color: var(--branding-main-light); */
+  /* background-color: var(--branding-light); */
 }
 
 /* Last item: give extra emphasis? */
 /* .form_section:last-child {
-  background-color: var(--branding-main);
+  background-color: var(--branding);
 }
 
 .form_section:last-child h2 {
@@ -523,9 +525,9 @@ textarea {
 }
 
 textarea:focus {
-  outline: none;
-  border: 1px solid var(--branding-main);
-  background-color: var(--branding-main-light);
+  outline: 0;
+  border: 1px solid var(--branding);
+  background-color: var(--branding-light);
   box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .1),
               inset 0px 0px 30px hsla(240, 100%, 62%, .05);
 }
@@ -551,17 +553,18 @@ textarea:focus {
   display: flex;
   flex-grow: 1;
 
-  border: 1px solid var(--branding-main);
+  border: 1px solid var(--branding);
   border-right: none;
 
   justify-content: center;
   align-items: center;
   padding: 10px 0px 8px 0px;
 
-  color: var(--branding-main);
+  color: var(--branding);
   font-size: .8em;
   font-family: "BentonSans", sans-serif;
   line-height: 1.3em;
+  box-shadow: 0px 0px 15px hsla(240, 100%, 32%, 0);
 
   transition: background-color .2s ease-in-out,
               color .2s ease-in-out,
@@ -574,22 +577,24 @@ textarea:focus {
 }
 
 .radio-button-group label:last-child {
-  border-right: 1px solid var(--branding-main);
+  border-right: 1px solid var(--branding);
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
 }
 
 .radio-button-group label:hover {
-  background-color: var(--branding-main);
+  background-color: var(--branding);
   cursor: pointer;
   color: #fff;
   box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .15);
 }
 
 .radio-button-group input[type="radio"]:focus + label {
-  background-color: var(--branding-main);
+  background-color: var(--branding);
   color: #fff;
-  box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .15);
+  z-index: 5;
+  box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .7),
+              0px 0px 30px hsla(240, 100%, 100%, .7);
 }
 
 .radio-button-group label:after {
@@ -597,7 +602,7 @@ textarea:focus {
 }
 
 .radio-button-group input[type="radio"]:checked + label {
-  background-color: var(--branding-main);
+  background-color: var(--branding);
   color: #fff;
 }
 
@@ -607,8 +612,8 @@ textarea:focus {
 }
 
 input[type="submit"] {
-  background-color: var(--branding-main);
-  border: 2px solid var(--branding-main);
+  background-color: var(--branding);
+  border: 2px solid var(--branding);
   margin-bottom: 0px;
   border-radius: 5px;
 
@@ -632,10 +637,10 @@ input[type="submit"][disabled] {
 
 input[type="submit"]:hover {
   background-color: #fff;
-  border: 2px solid var(--branding-main);
+  border: 2px solid var(--branding);
   cursor: pointer;
 
-  color: var(--branding-main);
+  color: var(--branding);
   box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .3);
 }
 
@@ -1031,7 +1036,7 @@ button[aria-label][data-balloon-pos] {
 }
 
 .onboarding-content h2 span {
-  color: var(--branding-main);
+  color: var(--branding);
   opacity: .7;
 }
 
@@ -1048,15 +1053,15 @@ button[aria-label][data-balloon-pos] {
 }
 
 .onboarding-content button.main {
-  background-color: var(--branding-main);
-  border-color: var(--branding-main);
+  background-color: var(--branding);
+  border-color: var(--branding);
   color: #fff;
 }
 
 .onboarding-content button.main:hover, .onboarding-content button.main:focus {
   background-color: hsla(240, 100%, 99%, 0);
-  border-color: var(--branding-main);
-  color: var(--branding-main);
+  border-color: var(--branding);
+  color: var(--branding);
   box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .15), inset 0px 0px 8px hsla(240, 100%, 32%, .2);
 }
 
