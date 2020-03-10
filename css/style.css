@@ -65,6 +65,12 @@ html {
   animation-fill-mode: forwards;
 }
 
+.restore-modal {
+  animation: destroyModal 2s ease-in-out;
+  animation-fill-mode: forwards;
+  animation-direction: reverse;
+}
+
 .destroy-modal-1s {
   animation: destroyModal 1s ease-in-out;
   animation-fill-mode: forwards;
@@ -318,8 +324,15 @@ body {
   border-bottom: 1px dashed #CCC;
 }
 
+.evaluation .tasklist-p {
+  margin-top: 1em;
+  margin-bottom: 0em;
+  font-style: italic;
+}
+
 .evaluation ol {
   padding-left: 1em;
+  margin-top: 1em;
   /* margin-bottom: 1.5em; */
 }
 
@@ -636,12 +649,13 @@ input[type="submit"][disabled] {
 }
 
 input[type="submit"]:hover {
-  background-color: #fff;
+  background-color: transparent;
   border: 2px solid var(--branding);
   cursor: pointer;
 
   color: var(--branding);
-  box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .3);
+  box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .3),
+              inset 0px 0px 15px hsla(240, 100%, 32%, .15);
 }
 
 input[type="submit"][disabled]:hover {

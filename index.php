@@ -1,3 +1,9 @@
+<?php
+
+define('allow-access', TRUE);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -19,7 +25,8 @@
           <iframe id="iframe_prototype" allowedfullscreen></iframe>
         </div>
 
-        <div class="frame-modal-container" id="frameModal">
+        <div class="frame-modal-container" id="onboardingModal">
+
           <div class="frame-modal">
             <div class="modal-illustration">
               <!-- <img src="i/custom-icons/notice-the-right.png" alt=""> -->
@@ -32,6 +39,7 @@
               <!-- <button type="button" name="startEvaluation" class="btn" onclick="startEvaluation()">I understand &mdash; show me the interface!</button> -->
             </div>
           </div>
+
         </div>
 
       </section>
@@ -52,21 +60,19 @@
 
           <h2><img src="i/feather/clipboard.svg"/>What We Ask You To Do</h2>
           <ol>
-            <li>Carefully read through the 'Scenario / Task List'.</li>
-            <li>Once you are familiar with the tasks, click on the 'I understand' button: this unlocks the interface.</li>
-            <li>Try to perform all the steps using the interface on the left. Don't worry if you get stuck.</li>
+            <li>Start by carefully reading through the 'Scenario / Task List' below.</li>
+            <li>Click on the 'I understand' button, and try to perform these steps using the interface on the left.</li>
             <!-- <li>Perform a <a href="https://uxplanet.org/how-to-conduct-heuristic-evaluation-85548a355dca" target="_blank" aria-label="In short, a Heuristic Evaluation is a method for helping UX practitioners evaluate user interface designs.
 
 Click on the link for an in-depth article (reading time: 5 minutes)." data-balloon-pos="down" data-balloon-length="medium">Heuristic Evaluation</a> of the project using the form below. For every heuristic or 'global rule', you state whether you think there is a usability error.</li> -->
-            <li>When you've completed the steps, review the interface you've just used using the ten 'Usability Heuristics' &mdash; giving your opion on how well the design meets these ten rules.</li>
+            <li>Then, read through ...</li>
           </ol>
         </div>
 
         <div class="evaluation-intro" id="evaluation_intro">
           <h2><img src="i/feather/image.svg"/>Scenario / Task List</h2>
-          <p class="tasklist-p">Your name is Frederic — a 62 year old Dutch male from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</p>
           <ol>
-            <!-- <li class="taskListItem">Your name is Frederic — a 62 year old Dutch male from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</li> -->
+            <li class="taskListItem">Your name is Frederic — a 62 year old Dutch man from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</li>
             <li class="taskListItem">You opened the Bol.com page to order a new one. However, your wife gave you a list of restrictions:</li>
             <li class="taskListItem">The printer should <e>cost less than €90</e>. It should be able to <e>print in full-colour</e>. Finally, <e>you don't want an Epson brand printer</e>.</li>
             <li class="taskListItem">Use the Bol.com website to find a suitable new printer, and add it to your shopping basket.</li>
@@ -75,8 +81,7 @@ Click on the link for an in-depth article (reading time: 5 minutes)." data-ballo
           <button type="button" name="startEvaluation" id="startEvaluationBtn" class="btn" onclick="startEvaluation()">I understand &mdash; show me the interface!</button>
         </div>
 
-        <!-- <form class="" action="backend/form_handler.php" method="post" enctype="application/x-www-form-urlencoded"> -->
-        <form class="" action="javascript:void(0)" method="post" enctype="application/x-www-form-urlencoded">
+        <form class="" action="backend/form_handler.php" method="post" enctype="application/x-www-form-urlencoded">
 
           <!-- hidden form attributes to store user and session data -->
           <input type="hidden" name="user_id" id="form_user_id" value="22044"/>           <!-- TODO: link these hidden form values with JS / PHP, update them accordingly. -->
@@ -459,7 +464,7 @@ Potentially, the tooltip functionality could be used to embed additional context
 
             <p class="p_emphasis">Don't forget to click the submit button when you've completed your evaluation.</p>
 
-            <input type="submit" value="Submit Evaluation" onclick="validateForm('nielsen')">
+            <input type="submit" value="Submit Evaluation" onclick="alert('$DEBUG: This will validate and send the form data in the future.');">
           </div>
 
         </form>

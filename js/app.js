@@ -385,13 +385,23 @@ function startEvaluation() {
   prevElemSibling.style.transition = "margin-bottom .5s ease-in-out";
   prevElemSibling.style.marginBottom = "-4.4em";
 
-  const onboardingModal = document.getElementById("onboardingModal");
-  onboardingModal.classList.add("destroy-modal");
-  // onboardingModal.style.display = "none";
+  const frameModal = document.getElementById("frameModal");
+  frameModal.classList.add("destroy-modal");
+  // frameModal.style.display = "none";
   // startEvaluationBtn.style.animation = "fadeOutElement 1s ease-in-out";
   // startEvaluationBtn.style.animationFillMode = "forwards";
 
 }
+
+// function updateFrameModalContent() {
+//   const frameModal = document.getElementById("frameModal");
+//
+//   frameModal.classList.remove("destroy-modal");
+//   frameModal.classList.add("restore-modal");
+//
+//   frameModal.querySelector("h1").innerHTML = "Heads up!";
+//   frameModal.querySelector("p").innerHTML = "You did not complete all of the heuristics &mdash; we recommend you to review them again. However, you may also submit your evaluation as-is. To do so, simply click on the button once more.";
+// }
 
 /* Function that reads and stores the URL parameters */
 // const queryString = window.location.search;
@@ -405,7 +415,7 @@ const animation = lottie.loadAnimation({
   loop: true,
   autoplay: true,
   path: 'i/lottie/data.json'
-})
+});
 
 // while (animation.playSpeed >= 0.1) {
 //   setTimeout(function() {
@@ -423,10 +433,10 @@ const animation = lottie.loadAnimation({
 /* Functionality: Serialize form data with JS */
 const form = document.querySelector('form');
 
-function serializeForm() {
-  let formData = serialize(form);
-  console.log(formData);
-}
+// function serializeForm() {
+//   let formData = serialize(form);
+//   console.log(formData);
+// }
 
 /*!
  * Serialize all form data into a query string
@@ -464,3 +474,55 @@ function serialize(form) {
 	return serialized.join('&');
 
 };
+
+
+let submittedBefore = false;
+
+/*!
+ * Check form for completeness and validity, notify end-user if incomplete/invalid.
+ * (c) 2020 Arthur Geel
+ * @param  {type} Evaluation type: determines resulting validation logic
+ */
+function validateForm(type) {
+
+  if (type == 'nielsen') {
+    // First: get all of the data that is inside the form.
+    let serializedFormString = serialize(form);
+
+    // Then: we check if all required values (input on heuristics) are filled.
+    let testFailed = false;
+    const numHeuristics = 10;
+    let heuristicsFailed = [];
+
+    for (let i = 1; i <= numHeuristics; i++) {
+      // try for values 1 through 10: see if the heuristics are filled
+      if (serializedFormString.includes(`heu_${i}`) != true) {
+        // If one of the values is not included, the test fill fail.
+        testFailed = true;
+        heuristicsFailed.push(i);
+        console.log(`Heuristic ${i} is incomplete.`);
+      }
+    }
+
+    if (testFailed == true && submittedBefore == false) {
+      // Test has failed: notify the user.
+      alert("Not all heuristics were completed. However, you may still submit your results. To do so, click the button again.");
+
+      // Log all instances of incomplete heuristics to the console
+      for (i = i; i <= heuristicsFailed.length; i++) {
+        console.log(`Heuristic ${i};`);
+      }
+
+      // Make sure that the next submit will send the data through PHP.
+      submittedBefore = true;
+
+    } else {
+      // Send the form data to the PHP
+      form.action = "backend/form_handler.php";
+    }
+
+
+  } else {
+    // Other forms are not supported yet.
+  }
+}
