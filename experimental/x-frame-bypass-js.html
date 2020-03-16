@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>X-Frame-Bypass-JS test</title>
+
+    <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
+
+    <style media="screen">
+
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --gray: #eee;
+      }
+      html, body {
+        height: 100%;
+        width: 100%;
+        margin; 0;
+      }
+
+      .frame-container iframe {
+          width:100%;
+          height:100%;
+          border: none;
+          border-radius: 10px;
+      }
+
+      .frame-container {
+          height: 90vh;
+          width: 100vw;
+          border: 10px solid var(--gray);
+          background-color: var(--gray);
+      }
+
+      .important-note {
+        width: 100vw;
+        height: 10vh;
+        background-color: var(--gray);
+        font-family: sans-serif;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .important-note p {
+        color: #555;
+        max-width: 50%;
+        font-size: .85em;
+        line-height: 125%;
+
+        transition: opacity .2s ease-in-out;
+
+        opacity: .3;
+      }
+
+      .important-note p:hover {
+        opacity: 1;
+      }
+
+      .important-note a {
+        color: #000;
+      }
+
+      .important-note p code {
+
+        padding: 2px;
+        border-radius: 2px;
+        background-color: hsla(0, 0%, 0%, .1);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="frame-container">
+      <iframe is="x-frame-bypass" src="https://bol.com/"></iframe>
+    </div>
+
+    <div class="important-note">
+      <p>Please note: the <a href="https://bol.com/">Bol.com</a> page you see above is embedded in an iFrame, which normally is not allowed due to <br><code>X-Frame-Options</code>. The reasons browser do not allow this is for <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">security reasons</a>. However, the <a href="https://www.npmjs.com/package/x-frame-bypass">X-Frame-Bypass</a> Web Component does allow this. Only downside: loading times.</p>
+    </div>
+
+  </body>
+</html>

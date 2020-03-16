@@ -44,9 +44,10 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
   const hardcoded_src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
 
   // Update the iFrame DOM element's src
-  target.src = updated_src;
+  // target.src = updated_src;
   // target.src = hardcoded_src; /* Toggle this to override the target source with the hardcoded src. */
   // target.src = "https://www.arthurgeel.com/"
+  // target.src = "https://www.bol.com/"
 
   // Resize the iFrame's size
   resizeiFrame();
@@ -526,3 +527,15 @@ function validateForm(type) {
     // Other forms are not supported yet.
   }
 }
+
+/* Start dynamic favicon functionality */
+
+function updateFavicon(newName) {
+  // First: make DOM call to grab favicon
+  const favicon = document.getElementById("favicon");
+
+  // Then: adjust its colour.
+  favicon.setAttribute("href", `i/favicon-${newName}.png`);
+}
+
+/* End dynamic favicon functionality */

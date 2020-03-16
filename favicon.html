@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link rel="shortcut icon" id="favicon" href=".ico">
+
+    <link rel="stylesheet" href="css/reset.min.css">
+
+    <style media="screen">
+      html {
+        font-family: "BentonSans", sans-serif;
+        background-color: #fafafa;
+      }
+
+      h1 {
+        font-weight: bold;
+        font-size: 1.3em;
+        margin-top: 2em;
+      }
+
+      .boxed {
+        border: 1px solid grey;
+        max-width: 50%;
+        margin: 2em;
+        padding: 2em;
+        border-radius: 4px;
+      }
+
+      p {
+        opacity: .7;
+        margin-top: 2em;
+        line-height: 150%;
+      }
+
+      p code {
+        font-family: "IBM Plex Mono", monospace;
+        background-color: #ddd;
+        padding: 2px 4px;
+        font-size: .8em;
+      }
+
+      button {
+        display: block;
+        margin-top: 2em;
+        font-size: 1.2em;
+        padding: .5em 2em;
+      }
+
+      canvas {
+        margin-top: 2em;
+      }
+
+      svg {
+        max-width: 32px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <center>
+      <h1>Here's a simple test to update the Favicon dynamically.</h1>
+
+      <div class="boxed">
+        <p>To do so, we use the HTML <code>&lt;canvas&gt;</code>, which is shown below. To operate it, use the following function: <code>updateFaviconCanvas(newColor);</code></p>
+        <canvas width="30" height="30"></canvas>
+      </div>
+
+      <div class="boxed">
+        <p>Additionally, we could use the <code>&lt;svg&gt;</code> element, which is shown below.</p>
+        <!-- <img src="i/trial.svg" id="faviconSvg" width="30" alt=""> -->
+        <svg id="faviconSvg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><style>.cls-1{fill:#231f20;}.cls-2{fill:#ed1c24;}</style></defs><title>trial</title><rect id="static" class="cls-1" x="6.97" y="10.24" width="6.38" height="17.86"/><path id="dynamic" class="cls-2" d="M27.71,28.1H20.8l-4.65-8.37h-1.8v-5h2.8C19.83,14.78,21,14,21,12s-1.17-2.73-3.85-2.73H3.2V4H17.38c6.19,0,10,2.05,10,7.85,0,3.78-1.6,6-4.76,7Z"/></svg>
+      </div>
+
+    </center>
+
+
+    <script type="text/javascript">
+
+      onload = ()=> {
+        const favicon = document.getElementById('favicon');
+
+        canvas = document.querySelector('canvas'),
+        context = canvas.getContext('2d');
+        if (!!context) {
+            /* if canvas is supported */
+
+            context.fillStyle = "#FF0000";
+            context.fillRect(0, 0, canvas.width, canvas.width);
+
+            favicon.href = canvas.toDataURL('image/png');
+        }
+      };
+
+      function updateFaviconCanvas(newColour) {
+        context.fillStyle = newColour;
+        context.fillRect(0, 0, canvas.width, canvas.width);
+        favicon.href = canvas.toDataURL('image/png');
+      }
+
+      function updateFaviconSVG(newColour) {
+        const faviconSvg = document.getElementById('faviconSvg');
+        let dyn = document.getElementById('dynamic');
+        dyn.fill = newColour;
+        // favicon.href = faviconSvg.src;
+      }
+
+    </script>
+
+  </body>
+</html>
