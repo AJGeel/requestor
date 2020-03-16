@@ -2,7 +2,7 @@
 
 This is a web application that is used to share Figma works-in-progress for evaluation with others. For this demonstration, an UX Evaluation of the Dutch e-commerce site known as [Bol.com](https://bol.com) is used. However, this will probably be changed to something less copyright intensive as this project continues.
 
-Check out [a demo](https://ajgeel.github.io/requestor/) of the latest build.
+Check out [a demo](https://arthurgeel.com/requestor/) of the latest build.
 
 ![Requestor's User Interface](i/concept-overview.jpg)
 
