@@ -1,0 +1,263 @@
+html {
+  scroll-behavior: smooth;
+  font-family: "BentonSans", "Ubuntu", sans-serif;
+  /* background-color: #eee; */
+}
+
+:root {
+  --main-30: hsla(165, 100%, 30%, 1);
+  --main-20: hsla(165, 100%, 20%, 1);
+  --main-10: hsla(165, 100%, 10%, 1);
+}
+
+::selection {
+  background: hsla(165, 100%, 30%, .1);
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(-3em);
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    transform: translateX(0em);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translateX(3em);
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    transform: translateX(0em);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeInBottom {
+  from {
+    transform: translateY(3em);
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    transform: translateY(0em);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+body {
+  display: flex;
+}
+
+section {
+  max-width: 54em;
+  padding: 6em;
+  color: #333;
+  background-color: #fff;
+  box-sizing: border-box;
+
+  animation: fadeInRight .8s ease-in-out;
+}
+
+section.sticky {
+  position: sticky;
+  top: 0;
+  width: 420px;
+  align-self: flex-start;
+  flex-shrink: 0;
+  padding-right: 0;
+  overflow-y: scroll;
+
+  animation: fadeInLeft .8s ease-in-out;
+}
+
+section.sticky button {
+  background-color: var(--main-30);
+  color: #fff;
+  font-size: .9em;
+  font-weight: 700;
+  width: 100%;
+
+  padding: 1em 3em;
+  border-radius: 4px;
+  border: none;
+  transition: background-color .2s ease-in-out;
+}
+
+section.sticky button:hover {
+  cursor: pointer;
+  background-color: var(--main-20);
+}
+
+section.sticky p {
+  font-size: .9em;
+  margin-top: 1.5em;
+}
+
+section.sticky li {
+  font-size: .9em;
+}
+
+p, li, h1, h2, h3 {
+  line-height: 150%;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: bolder;
+  margin-bottom: .5em;
+  margin-top: -.25em; /* Aligns the H1 with the 'return to app' button */
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 2em;
+  margin-bottom: .5em;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 1em;
+  padding: 1em;
+  font-style: italic;
+  border-radius: 4px;
+  background-color: hsla(165, 50%, 40%, .1);
+  text-align: center;
+}
+
+a {
+  color: var(--main-30);
+  transition: opacity .2s ease-in-out;
+}
+
+a:hover, a:focus {
+  color: var(--main-10);
+}
+
+.chevron-left {
+  margin-right: .7em;
+  transition: margin-left .2s ease-in-out;
+}
+
+button:hover .chevron-left{
+  margin-left: -2em;
+}
+
+ul, ol {
+  list-style-position: outside;
+  margin-left: 1em;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  margin: 0 0 1.5em;
+  counter-reset: item;
+}
+
+ol > li {
+  padding: 0 0 0 2em;
+  text-indent: -1em;
+  list-style-type: none;
+  counter-increment: item;
+}
+
+ol > li:before {
+  display: inline-block;
+  /* width: 2em; */
+  padding-right: 1em;
+  font-weight: 500;
+  text-align: right;
+  content: counter(item) ".";
+}
+
+li {
+  margin-bottom: .5em;
+}
+
+li span {
+  font-weight: 500;
+}
+
+li span:after {
+  content: " —";
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #00997340, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #00997340, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #00997340, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #00997340, #f0f0f0);
+  margin: 2.5em 0;
+}
+
+.sticky li {
+  margin-bottom: .1337em;
+}
+
+.sticky hr {
+  margin: 1.5em 0;
+}
+
+.table-of-contents {
+  opacity: .3;
+  transition: opacity .2s ease-in-out;
+}
+
+.table-of-contents:hover {
+  opacity: 1;
+}
+
+
+@media only screen and (max-width: 1060px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section {
+      padding-bottom: 3em;
+  }
+
+  section.sticky {
+    position: static;
+    width: 100%;
+    align-self: auto;
+    flex-shrink: 1;
+    padding-right: 6em;
+    padding-top: 3em;
+    background-color: #efefef;
+    order: 1;
+  }
+
+  section, section.sticky {
+    animation: fadeInBottom .8s ease-in-out;
+  }
+
+  .table-of-contents, hr {
+    display: none;
+  }
+
+
+}
