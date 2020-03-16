@@ -8,14 +8,13 @@ html {
 }
 
 ::selection {
-  /* background: rgba(0, 0, 164, .1); */
   background: hsla(240, 100%, 32%, .1);
 }
 
 :root {
-  --branding: hsl(240, 100%, 32%);
-  --branding-light: hsl(240, 100%, 97%);
-  --branding-light-desat: hsl(236, 52%, 97%);
+  --branding:                   hsl(240, 100%, 32%);
+  --branding-light:             hsl(240, 100%, 97%);
+  --branding-light-desaturated: hsl(240, 52%,  97%);
 }
 
 @keyframes fadeInBlur {
@@ -175,7 +174,7 @@ body {
 }
 
 .frame-modal .modal-illustration {
-  background-color: hsla(236, 52%, 97%, 1); /* MAKE THIS A VAR! */
+  background-color: var(--branding-light-desaturated);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -284,7 +283,7 @@ body {
 
 .evaluation-intro {
   padding: 2em;
-  border-bottom: 2px solid rgba(0,0,0,.1);
+  border-bottom: 3px solid var(--branding-light-desaturated);
 }
 
 .evaluation h1 {
@@ -371,7 +370,16 @@ body {
   font-weight: 400;
 }
 
-.evaluation h3 span {
+.evaluation label {
+  display: block;
+}
+
+/* .evaluation h3 span {
+  font-size: .75em;
+  color: #717171;
+} */
+
+.evaluation label span {
   font-size: .75em;
   color: #717171;
 }
@@ -473,7 +481,7 @@ body {
 }
 
 .form_section:nth-child(even) {
-  background-color: hsla(236, 52%, 97%, 1);
+  background-color: var(--branding-light-desaturated);
 }
 
 /* Penultimate item */
@@ -513,7 +521,11 @@ body {
   transition: height .3s ease-in-out, opacity .3s ease-in-out;
 }
 
-.form-progressive-disclosure h3:first-child {
+.form-progressive-disclosure label {
+  margin-bottom: .5em;
+}
+
+.form-progressive-disclosure label:first-child {
   margin-top: 2em;
 }
 
@@ -621,7 +633,7 @@ textarea:focus {
 
 .p_emphasis {
   font-style: italic;
-  opacity: .7;
+  /* opacity: .7; */
 }
 
 input[type="submit"] {
@@ -996,7 +1008,7 @@ button[aria-label][data-balloon-pos] {
 }
 
 .onboarding-wrapper.hover {
-  background-color: hsl(240, 62%, 97%);
+  background-color: var(--branding-light-desaturated);
 }
 
 .onboarding-content {
@@ -1044,7 +1056,7 @@ button[aria-label][data-balloon-pos] {
 }
 
 .onboarding-content h2 {
-  color: #777;
+  color: #6D6D6D;
   font-style: italic;
   margin-bottom: 2em;
 }
@@ -1076,7 +1088,8 @@ button[aria-label][data-balloon-pos] {
   background-color: hsla(240, 100%, 99%, 0);
   border-color: var(--branding);
   color: var(--branding);
-  box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .15), inset 0px 0px 8px hsla(240, 100%, 32%, .2);
+  box-shadow: 0px 0px 15px hsla(240, 100%, 32%, .15),
+        inset 0px 0px 8px hsla(240, 100%, 32%, .2);
 }
 
 .onboarding-content button:hover, .onboarding-content button:focus {
@@ -1085,7 +1098,8 @@ button[aria-label][data-balloon-pos] {
   border-color: #777;
   color: #555;
 
-  box-shadow: 0px 0px 15px hsla(240, 0%, 32%, .15), inset 0px 0px 8px hsla(240, 0%, 32%, .2);
+  box-shadow: 0px 0px 15px hsla(240, 0%, 32%, .15),
+        inset 0px 0px 8px hsla(240, 0%, 32%, .2);
 }
 
 a[href$=".pdf"]::after {

@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
     <title>Requestor (Pre-Alpha)</title>
+    <meta name="description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
+    <meta name="author" content="Arthur Geel, hello@arthurgeel.com">
+    <meta name="color-scheme" content="light dark">
+
+    <!-- Links and CSS -->
     <link rel="shortcut icon" href="i/favicon.png" type="image/png" id="favicon">
     <link rel="stylesheet" href="css/reset.min.css"> <!-- Reset browser inconsistencies -->
     <link rel="stylesheet" href="css/style.css"> <!-- Main styling document -->
@@ -16,7 +23,7 @@
 
       <section class="frame-container" id="frame_container"> <!-- Embedded Figma Prototype -->
         <div class="frame" id="frame">
-          <iframe id="iframe_prototype" allowedfullscreen></iframe>
+          <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen></iframe>
         </div>
 
         <div class="frame-modal-container" id="frameModal">
@@ -44,13 +51,13 @@
 
         <div class="evaluation-intro">
           <h1>Bol.com &mdash; UX Design Evaluation</h1>
-          <h2><img src="i/feather/tag.svg"/>About the Project</h2>
+          <h2><img src="i/feather/tag.svg" alt="Tag icon"/>About the Project</h2>
           <p>Bol.com is the leading online shop in the Netherlands for books, toys and electronics that serve over 10.5 million customers. (Note: this project is currently placeholder, as it allows pre-alpha testers to better understand what this project is about.)</p>
 
-          <h2><img src="i/feather/users.svg"/>Target Users</h2>
+          <h2><img src="i/feather/users.svg" alt="Users icon"/>Target Users</h2>
           <p>Bol.com mainly serves customers in the Netherlands (72%) and Belgium (17%), across all age groups. (Data is fictive, placeholder)</p>
 
-          <h2><img src="i/feather/clipboard.svg"/>What We Ask You To Do</h2>
+          <h2><img src="i/feather/clipboard.svg" alt="Clipboard icon"/>What We Ask You To Do</h2>
           <ol>
             <li>Carefully read through the 'Scenario / Task List'.</li>
             <li>Once you are familiar with the tasks, click on the 'I understand' button: this unlocks the interface.</li>
@@ -63,7 +70,7 @@ Click on the link for an in-depth article (reading time: 5 minutes)." data-ballo
         </div>
 
         <div class="evaluation-intro" id="evaluation_intro">
-          <h2><img src="i/feather/image.svg"/>Scenario / Task List</h2>
+          <h2><img src="i/feather/image.svg" alt="Image icon"/>Scenario / Task List</h2>
           <p class="tasklist-p">Your name is Frederic — a 62 year old Dutch male from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</p>
           <ol>
             <!-- <li class="taskListItem">Your name is Frederic — a 62 year old Dutch male from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</li> -->
@@ -109,10 +116,10 @@ Potentially, the tooltip functionality could be used to embed additional context
 
             <div class="form-progressive-disclosure" id="h1_prog">
 
-              <h3>Issue(s) <span>(Please be specific)</span></h3>
+              <label for="heu_1_issue">Issue(s) <span>(Please be specific)</span></label>
               <textarea name="heu_1_issue" rows="4" disabled></textarea>
 
-              <h3>Recommendation(s)</h3>
+              <label for="heu_1_recommendation">Recommendation(s)</label>
               <textarea name="heu_1_recommendation" rows="2" disabled></textarea>
 
             </div>
@@ -143,10 +150,10 @@ Potentially, the tooltip functionality could be used to embed additional context
 
             <div class="form-progressive-disclosure" id="h2_prog">
 
-              <h3>Issue(s) <span>(Please be specific)</span></h3>
+              <label for="heu_2_issue">Issue(s) <span>(Please be specific)</span></label>
               <textarea name="heu_2_issue" rows="4" disabled></textarea>
 
-              <h3>Recommendation(s)</h3>
+              <label for="heu_2_recommendation">Recommendation(s)</label>
               <textarea name="heu_2_recommendation" rows="2" disabled></textarea>
 
             </div>
@@ -177,10 +184,10 @@ Potentially, the tooltip functionality could be used to embed additional context
 
             <div class="form-progressive-disclosure" id="h3_prog">
 
-              <h3>Issue(s) <span>(Please be specific)</span></h3>
+              <label for="heu_3_issue">Issue(s) <span>(Please be specific)</span></label>
               <textarea name="heu_3_issue" rows="4" disabled></textarea>
 
-              <h3>Recommendation(s)</h3>
+              <label for="heu_3_recommendation">Recommendation(s)</label>
               <textarea name="heu_3_recommendation" rows="2" disabled></textarea>
 
             </div>
@@ -211,10 +218,10 @@ Potentially, the tooltip functionality could be used to embed additional context
 
             <div class="form-progressive-disclosure" id="h4_prog">
 
-              <h3>Issue(s) <span>(Please be specific)</span></h3>
+              <label for="heu_4_issue">Issue(s) <span>(Please be specific)</span></label>
               <textarea name="heu_4_issue" rows="4" disabled></textarea>
 
-              <h3>Recommendation(s)</h3>
+              <label for="heu_4_recommendation">Recommendation(s)</label>
               <textarea name="heu_4_recommendation" rows="2" disabled></textarea>
 
             </div>
@@ -245,10 +252,10 @@ Potentially, the tooltip functionality could be used to embed additional context
 
             <div class="form-progressive-disclosure" id="h5_prog">
 
-              <h3>Issue(s) <span>(Please be specific)</span></h3>
+              <label for="heu_5_issue">Issue(s) <span>(Please be specific)</span></label>
               <textarea name="heu_5_issue" rows="4" disabled></textarea>
 
-              <h3>Recommendation(s)</h3>
+              <label for="heu_5_recommendation">Recommendation(s)</label>
               <textarea name="heu_5_recommendation" rows="2" disabled></textarea>
 
             </div>
@@ -279,10 +286,10 @@ Potentially, the tooltip functionality could be used to embed additional context
 
             <div class="form-progressive-disclosure" id="h6_prog">
 
-              <h3>Issue(s) <span>(Please be specific)</span></h3>
+              <label for="heu_6issue">Issue(s) <span>(Please be specific)</span></label>
               <textarea name="heu_6_issue" rows="4" disabled></textarea>
 
-              <h3>Recommendation(s)</h3>
+              <label for="heu_6_recommendation">Recommendation(s)</label>
               <textarea name="heu_6_recommendation" rows="2" disabled></textarea>
 
             </div>
@@ -313,10 +320,10 @@ Potentially, the tooltip functionality could be used to embed additional context
 
             <div class="form-progressive-disclosure" id="h7_prog">
 
-              <h3>Issue(s) <span>(Please be specific)</span></h3>
+              <label for="heu_7_issue">Issue(s) <span>(Please be specific)</span></label>
               <textarea name="heu_7_issue" rows="4" disabled></textarea>
 
-              <h3>Recommendation(s)</h3>
+              <label for="heu_7_recommendation">Recommendation(s)</label>
               <textarea name="heu_7_recommendation" rows="2" disabled></textarea>
 
             </div>
@@ -347,10 +354,10 @@ Potentially, the tooltip functionality could be used to embed additional context
 
             <div class="form-progressive-disclosure" id="h8_prog">
 
-              <h3>Issue(s) <span>(Please be specific)</span></h3>
+              <label for="heu_8_issue">Issue(s) <span>(Please be specific)</span></label>
               <textarea name="heu_8_issue" rows="4" disabled></textarea>
 
-              <h3>Recommendation(s)</h3>
+              <label for="heu_8_recommendation">Recommendation(s)</label>
               <textarea name="heu_8_recommendation" rows="2" disabled></textarea>
 
             </div>
@@ -381,10 +388,10 @@ Potentially, the tooltip functionality could be used to embed additional context
 
             <div class="form-progressive-disclosure" id="h9_prog">
 
-              <h3>Issue(s) <span>(Please be specific)</span></h3>
+              <label for="heu_9_issue">Issue(s) <span>(Please be specific)</span></label>
               <textarea name="heu_9_issue" rows="4" disabled></textarea>
 
-              <h3>Recommendation(s)</h3>
+              <label for="heu_9_recommendation">Recommendation(s)</label>
               <textarea name="heu_9_recommendation" rows="2" disabled></textarea>
 
             </div>
@@ -415,10 +422,10 @@ Potentially, the tooltip functionality could be used to embed additional context
 
             <div class="form-progressive-disclosure" id="h10_prog">
 
-              <h3>Issue(s) <span>(Please be specific)</span></h3>
+              <label for="heu_10_issue">Issue(s) <span>(Please be specific)</span></label>
               <textarea name="heu_10_issue" rows="4" disabled></textarea>
 
-              <h3>Recommendation(s)</h3>
+              <label for="heu_10_recommendation">Recommendation(s)</label>
               <textarea name="heu_10_recommendation" rows="2" disabled></textarea>
 
             </div>
@@ -453,8 +460,7 @@ Potentially, the tooltip functionality could be used to embed additional context
 
             <p>Well done, you've reached the end of this evaluation. On behalf of <span id="requestor_id">Arthur Geel</span>, the requestor, we thank you very much for your efforts! Here's one last question:</p>
 
-            <h3>What was your general impression of the design you've just seen? <span>(You can be as specific as you want)</span></h3>
-
+            <label for="general_impression">What was your general impression of the design you've just seen? <span>(You can be as specific as you want)</span></label>
             <textarea name="general_impression" rows="4" ></textarea>
 
             <p class="p_emphasis">Don't forget to click the submit button when you've completed your evaluation.</p>
@@ -475,12 +481,13 @@ Potentially, the tooltip functionality could be used to embed additional context
         </div>
 
         <div class="information">
-          <h1>You've been invited by <a href="#!" tabindex="1" aria-label="As a User Experience Designer, Arthur is responsible for making sure that the products he works on are easy- and enjoyable to use." data-balloon-pos="up" data-balloon-length="large">Arthur Geel</a> to evaluate their <a href="#!" tabindex="2" aria-label="Bol.com is the leading online shop in the Netherlands for books, toys and electronics.
+          <!-- TODO: IMPLEMENT JS TO LOCK/TRAP TABINDEX TO MODAL -->
+          <h1>You've been invited by <a href="#!" tabindex="0" aria-label="As a User Experience Designer, Arthur is responsible for making sure that the products he works on are easy- and enjoyable to use." data-balloon-pos="up" data-balloon-length="large">Arthur Geel</a> to evaluate their <a href="#!" tabindex="0" aria-label="Bol.com is the leading online shop in the Netherlands for books, toys and electronics.
 
 Find out more about this project by accepting the invitation!" data-balloon-pos="down" data-balloon-length="large">Bol.com</a>  prototype!</h1>
           <h2>* This should only take about <span id="timeAmount">fifteen minutes</span> of your time.</h2>
-          <button type="button" name="review" class="onboarding-btn main" tabindex="3" onclick="reviewInvitation()">Review Invitation</button>
-          <button type="button" name="nothanks" class="onboarding-btn" tabindex="4" onclick="declineInvitation()">I'll Pass, Thanks</button>
+          <button type="button" name="review" class="onboarding-btn main" tabindex="0" onclick="reviewInvitation()">Review Invitation</button>
+          <button type="button" name="nothanks" class="onboarding-btn" tabindex="0" onclick="declineInvitation()">I'll Pass, Thanks</button>
 
         </div>
 
