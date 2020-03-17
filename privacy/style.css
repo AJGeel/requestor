@@ -77,7 +77,6 @@ section.sticky {
   align-self: flex-start;
   flex-shrink: 0;
   padding-right: 0;
-  overflow-y: scroll;
 
   animation: fadeInLeft .8s ease-in-out;
 }
@@ -117,6 +116,10 @@ p {
   margin-bottom: 1em;
 }
 
+p.extra-spacing {
+  margin-top: 1em;
+}
+
 h1 {
   font-size: 2.5em;
   font-weight: bolder;
@@ -135,7 +138,7 @@ h3 {
   font-size: 1.2em;
   font-weight: 500;
   margin-bottom: 1em;
-  padding: 1em;
+  padding: 1em 3em;
   font-style: italic;
   border-radius: 4px;
   background-color: hsla(165, 50%, 40%, .1);
@@ -161,12 +164,23 @@ button:hover .chevron-left{
 }
 
 ul, ol {
-  list-style-position: outside;
   margin-left: 1em;
 }
 
-ul {
-  list-style-type: disc;
+ul > li {
+  padding: 0 0 0 1em;
+  text-indent: -1em;
+  list-style-type: none;
+}
+
+ul > li:before {
+  display: inline-block;
+  padding-right: .75em;
+  font-weight: 500;
+  content: "•";
+  font-size: 1.4em;
+  transform: translateY(2px);
+  color: var(--main-30);
 }
 
 ol {
@@ -202,7 +216,7 @@ li span:after {
   content: " —";
 }
 
-hr {
+section.sticky hr {
   border: 0;
   height: 2px;
   background-image: -webkit-linear-gradient(left, #f0f0f0, #00997340, #f0f0f0);
@@ -210,6 +224,42 @@ hr {
   background-image: -ms-linear-gradient(left, #f0f0f0, #00997340, #f0f0f0);
   background-image: -o-linear-gradient(left, #f0f0f0, #00997340, #f0f0f0);
   margin: 2.5em 0;
+}
+
+section.sticky ul > li:before {
+  padding-right: .25em;
+}
+
+hr.cookie {
+  border: 0;
+  height: 3em;
+  background-image: url(cookies.jpg);
+  background-repeat: repeat;
+  background-attachment: fixed;
+  border-radius: 5px;
+  box-shadow: inset 0px 2px 15px rgba(0,0,0,.1);
+  margin: 6em 0;
+  filter: saturate(0.5);
+
+  transition: filter .5s ease-in-out;
+}
+
+hr.cookie:hover {
+  filter: saturate(1);
+  /* cursor: grab; */
+}
+
+hr.cookie:focus {
+
+}
+
+p.last-updated {
+  font-style: italic;
+  opacity: .7;
+}
+
+span.last-updated {
+  border-bottom: 1px dashed #555;
 }
 
 .sticky li {
@@ -255,7 +305,7 @@ hr {
     animation: fadeInBottom .8s ease-in-out;
   }
 
-  .table-of-contents, hr {
+  section.sticky hr, section.sticky .table-of-contents {
     display: none;
   }
 

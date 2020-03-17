@@ -41,10 +41,10 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
   var updated_src = "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/" + URI + "%3Fnode-id%3D" + nodeID + "%26viewport%3D" + viewport + "%26scaling%3D" + scaling;
 
   // Hardcoded iFrame source. I'm keeping this in to help me understand the URI Encoding issue I was dealing with earlier. However, it is fixed now.
-  const hardcoded_src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
+  // const hardcoded_src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
 
   // Update the iFrame DOM element's src
-  // target.src = updated_src;
+  target.src = updated_src;
   // target.src = hardcoded_src; /* Toggle this to override the target source with the hardcoded src. */
   // target.src = "https://www.arthurgeel.com/"
 
@@ -538,3 +538,53 @@ function updateFavicon(newName) {
 }
 
 /* End dynamic favicon functionality */
+
+// Function for setting cookies
+function setCookie(cookie_name, cookie_value, num_days) {
+  let d = new Date();
+  d.setTime(d.getTime() + num_days*24*60*60*1000);
+  let expires = `expires=${d.toUTCString()}`;
+  document.cookie = `${cookie_name}=${cookie_value};${expires};path=/`;
+}
+
+
+// Function for getting cookies
+function getCookie(cookie_name) {
+  let name = `${cookie_name}=`;
+  let decodedCookie = decodeURIComponent(document.cookie);
+
+  let ca = decodedCookie.split(';');
+
+  for(var i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+
+  }
+  return "";
+}
+
+function checkUID() {
+  // Get the user's unique id
+  let temp_uid = getCookie("temp_uid");
+
+  // If it is not defined yet
+  if (temp_uid == "" || temp_uid == null) {
+    // Generate a random user id. // TODO: make this happen server-side in the future for security reasons.
+    setCookie("temp_uid", generateRandom(99999), 182 /* Standard save for half a year*/ );
+  }
+
+  // Update the form's form_user_id with this value.
+  form_user_id.value = getCookie("temp_uid");
+}
+
+checkUID();
+
+function generateRandom(max) {
+  return Math.floor(Math.random()*max);
+}
