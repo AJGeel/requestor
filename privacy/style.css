@@ -56,6 +56,11 @@ html {
   }
 }
 
+@keyframes scrollingCookies {
+  from { background-position: 0px   0px; }
+  to   { background-position: 450px 0px; }
+}
+
 body {
   display: flex;
 }
@@ -132,12 +137,37 @@ h2 {
   font-weight: bold;
   margin-top: 2em;
   margin-bottom: .5em;
+
+  transition: padding-left .2s ease-in-out;
+}
+
+h2::before {
+  transition: opacity .2s ease-in-out;
+  content: "→";
+  color: var(--main-30);
+  margin-right: .5em;
+  margin-left: -1.5em;
+  opacity: 0;
+}
+
+h2:target, h2:hover {
+  padding-left: 1.5em;
+}
+
+h2:target::before, h2:hover::before {
+  opacity: 1;
+}
+
+h2 a {
+  color: #333;
+  text-decoration: none;
+  width: 100%;
 }
 
 h3 {
   font-size: 1.2em;
   font-weight: 500;
-  margin-bottom: 1em;
+  margin: 2em 0;
   padding: 1em 3em;
   font-style: italic;
   border-radius: 4px;
@@ -232,14 +262,15 @@ section.sticky ul > li:before {
 
 hr.cookie {
   border: 0;
-  height: 3em;
+  height: 10em;
   background-image: url(cookies.jpg);
   background-repeat: repeat;
   background-attachment: fixed;
+  animation: scrollingCookies 20s linear infinite;
   border-radius: 5px;
   box-shadow: inset 0px 2px 15px rgba(0,0,0,.1);
   margin: 6em 0;
-  filter: saturate(0.5);
+  filter: saturate(0.8);
 
   transition: filter .5s ease-in-out;
 }
@@ -310,4 +341,15 @@ span.last-updated {
   }
 
 
+}
+
+@media only screen and (max-width: 700px) {
+  section {
+    padding: 6em 2em;
+  }
+
+  section.sticky {
+    padding-right: 2em;
+    padding-bottom: 2em;
+  }
 }

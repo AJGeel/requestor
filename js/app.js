@@ -1,7 +1,11 @@
-/* Start of Scrollbar functionality */
-window.onscroll = function() {myFunction()};
+const windowWidth = document.getElementById('window-width');
 
-function myFunction() {
+/* Start of Scrollbar functionality */
+window.onscroll = function() {
+  trackScrollPercentage()
+};
+
+function trackScrollPercentage() {
   /* Calculate full window scroll amount */
   var pixelsScrolled = document.body.scrollTop || document.documentElement.scrollTop;
 
@@ -44,7 +48,7 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
   // const hardcoded_src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
 
   // Update the iFrame DOM element's src
-  target.src = updated_src;
+  // target.src = updated_src;
   // target.src = hardcoded_src; /* Toggle this to override the target source with the hardcoded src. */
   // target.src = "https://www.arthurgeel.com/"
 
@@ -73,6 +77,12 @@ function resizeiFrame() {
   DOM_iFrame.width = DOM_iFrame_Container.clientWidth - padding;
   DOM_iFrame.height = DOM_iFrame_Container.clientHeight - padding;
   // console.log("$DEBUG: Page was resized.");
+
+  if (window.innerWidth == 840) {
+    windowWidth.innerHTML = "exactly " + window.innerWidth;
+  } else {
+    windowWidth.innerHTML = "only " + window.innerWidth;
+  }
 }
 /* End window resize watcher */
 
@@ -270,11 +280,6 @@ function formProgressiveDisclosure(value, target, evaluationType) {
 
 
 /* Experimental: reminder to save work */
-
-window.addEventListener("beforeunload", function(event) {
-  alert('hey dude!');
-  // Remind user to save their work or whatever.
-});
 
 
 /* Experimental: calculate color contrasts */
@@ -488,6 +493,7 @@ function validateForm(type) {
   if (type == 'nielsen') {
     // First: get all of the data that is inside the form.
     let serializedFormString = serialize(form);
+    formChanged = false;
 
     // Then: we check if all required values (input on heuristics) are filled.
     let testFailed = false;
@@ -583,8 +589,29 @@ function checkUID() {
   form_user_id.value = getCookie("temp_uid");
 }
 
+function checkCookiesAccepted() {
+  // Check if the visitor has accepted cookies from Requestor
+  let accepted_cookies = getCookie("accepted_cookies");
+
+  // If they did not respond yet
+  if (accepted_cookies == "" || accepted_cookies == null) {
+
+  } else if (accepted_cookies == "true" ){
+    // Do not display the cookie modal.
+  }
+}
+
 checkUID();
 
 function generateRandom(max) {
   return Math.floor(Math.random()*max);
 }
+
+// Keep track of user input. If the form has been used, we want to make sure the user does not accidentally leave the page.
+let formChanged = false;
+form.addEventListener('change', () => formChanged = true);
+window.addEventListener('beforeunload', (event) => {
+  if (formChanged) {
+    event.returnValue = 'You have unfinished changes!';
+  }
+});
