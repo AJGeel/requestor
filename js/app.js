@@ -419,7 +419,7 @@ const animation = lottie.loadAnimation({
   renderer: 'svg',
   loop: true,
   autoplay: true,
-  path: 'i/lottie/data.json'
+  path: '/i/lottie/data.json'
 });
 
 // while (animation.playSpeed >= 0.1) {

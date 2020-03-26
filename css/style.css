@@ -10,14 +10,20 @@ html {
   scroll-behavior: smooth;
 }
 
-::selection {
-  background: hsla(240, 100%, 32%, .1);
-}
-
 :root {
   --branding:                   hsl(240, 100%, 32%);
   --branding-light:             hsl(240, 100%, 97%);
   --branding-light-desaturated: hsl(240, 52%,  97%);
+  --branding-select:            hsla(240, 100%, 32%, .1);
+
+  /* Overrides */
+  /* --branding:                   hsl(164, 100%, 26%);
+  --branding-light:             hsl(164, 100%, 97%);
+  --branding-light-desaturated: hsl(164, 52%, 97%); */
+}
+
+::selection {
+  background: var(--branding-select);
 }
 
 @keyframes fadeInBlur {

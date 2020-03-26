@@ -5,13 +5,14 @@ html {
 }
 
 :root {
-  --main-30: hsla(165, 100%, 30%, 1);
-  --main-20: hsla(165, 100%, 20%, 1);
-  --main-10: hsla(165, 100%, 10%, 1);
+  --main-30:        hsla(165, 100%, 30%, 1);
+  --main-20:        hsla(165, 100%, 20%, 1);
+  --main-10:        hsla(165, 100%, 10%, 1);
+  --main-selection: hsla(165, 100%, 10%, .1);
 }
 
 ::selection {
-  background: hsla(165, 100%, 30%, .1);
+  background: var(--main-selection);
 }
 
 @keyframes fadeInLeft {
