@@ -1,0 +1,15 @@
+#-------------------------------------------------------------------------------------------------------
+#     CORE FUNCTIONALITY
+
+RewriteEngine On
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+RewriteCond %{REQUEST_URI} /+[^\.]+$
+RewriteRule ^(.+[^/])$ %{REQUEST_URI}/ [R=301,L]
+
+#-------------------------------------------------------------------------------------------------------
+#     Experimentals
+
+DirectoryIndex index.html index.php index.htm
+
+#-------------------------------------------------------------------------------------------------------

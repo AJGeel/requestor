@@ -5,14 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
-    <title>Requestor Better Multidisciplinary Collaboration in UX Work</title>
+    <title>Requestor &mdash; Better Multidisciplinary Collaboration in UX Work</title>
     <meta name="description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
     <meta name="author" content="Arthur Geel, hello@arthurgeel.com">
     <meta name="color-scheme" content="light dark">
 
     <!-- Links and CSS -->
-    <link rel="shortcut icon" href="/i/favicon.png" type="image/png" id="favicon">
+    <link rel="shortcut icon" href="/i/favicon-alt.png" type="image/png" id="favicon">
     <link rel="stylesheet" href="/css/reset.min.css"> <!-- Reset browser inconsistencies -->
+    <link rel="stylesheet" href="/css/style.css">
 
     <style media="screen">
 
@@ -33,13 +34,19 @@
       }
 
       body {
+        /* display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; */
+      }
+
+      .container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-      }
+        margin: 4em auto;
 
-      .container {
         max-width: 54em;
         padding: 4em 0;
 
@@ -70,7 +77,7 @@
         padding: 0 4em;
       }
 
-      img {
+      .container img {
         max-width: 100%;
         margin: 4em 0;
         border-radius: 4px;
@@ -114,7 +121,9 @@
       .sitemap ul li {
         margin-bottom: 1em;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
       }
 
       .sitemap ul li:last-child {
@@ -124,10 +133,19 @@
       .sitemap ul span {
         color: #666;
         font-size: .7em;
-        margin-left: 1em;
+        margin-top: .5em;
+      }
+
+      .sitemap ul span::before {
+        content: 'Contains: ';
       }
 
       .sitemap ul span:last-child {
+        color: hsl(165, 100%, 30%);
+      }
+
+      .sitemap ul span:last-child::before {
+        content: 'Status: ';
         color: hsl(165, 100%, 30%);
       }
 
@@ -195,14 +213,6 @@
         border: 1px solid transparent;
       }
 
-      /* .features-grid .cell:nth-child(n+4) {
-        border-bottom: 1px solid #333;
-      }
-
-      .features-grid .cell:nth-child(3n) {
-        border-right: 1px solid #333;
-      } */
-
       .features-grid .cell img {
         margin: 0;
         width: 2em;
@@ -229,6 +239,18 @@
 
   </head>
   <body>
+
+    <nav>
+      <div class="navbar homepage">
+        <a class="nav-logo" href="/index.php"><img src="https://placehold.it/36x36" alt="Requestor Logo">Requestor</a>
+        <div class="urlbar">
+          <input type="text" name="url_input"  placeholder="Enter your Figma link here" />
+          <button type="button" name="url_button">Create New Project<span class="chevron-right"></span>&gt;</button>
+        </div>
+        <a href="#!" class="nav-account">My Account</a>
+        <button class="nav-sign-in" type="button" name="button" onclick="location.href='/app/sign-in.php'">Sign In</button>
+      </div>
+    </nav>
 
     <div class="container">
       <h1>Requestor &mdash; Better Multidisciplinary Collaboration in UX Work</h1>
@@ -281,18 +303,28 @@
         <p>Sitemap Version 'Pre-Alpha' &mdash; 2020/03/26</p>
         <ul><li><a href="#!">Landing Page</a><span>(Current page. What is Requestor, Why did we create it, How does it work, Sign-up)</span><span>In-progress</span></li></ul>
         <ul>
-          <li><a href="/app/">Application</a><span>&nbsp;</span></li>
+          <li><a href="/app/">Application</a><span>(Demonstrator part of the project)</span><span>In-progress</span></li>
           <ul><li><a href="/app/">Dashboard</a><span>(Manage active projects. Access/Create/Edit Prototypes.  Requires login to access)</span><span>In-progress</span></li></ul>
-          <ul><li><a href="/app/p">Prototype</a><span>(Embedded prototype with side-evaluation form. Requires URL to access)</span><span>V1 MVP</span></li></ul>
+          <ul><li><a href="/app/p">Prototype</a><span>(Embedded prototype with side-evaluation form. Requires URL to access)</span><span>V1 MVP 🎉</span></li></ul>
           <ul><li><a href="/app/reports">Reports</a><span>(Report screen of evaluation results. Requires login to access)</span><span>In-progress</span></li></ul>
         </ul>
-        <ul><li><a href="/terms-and-conditions/">Terms and Conditions</a><span>(Legal agreement between user and provider)</span><span>V1 MVP</span></li></ul>
-        <ul><li><a href="/privacy-policy/">Privacy Policy</a><span>(GDPR: explains how we handle privacy)</span><span>V1 MVP</span></li></ul>
-        <ul><li><a href="/profile/">Profile</a><span>In-progress</span></li></ul>
+        <ul><li><a href="/terms-and-conditions/">Terms and Conditions</a><span>(Legal agreement between user and provider)</span><span>In-progress</span></li></ul>
+        <ul><li><a href="/privacy-policy/">Privacy Policy</a><span>(GDPR: explains how we handle privacy)</span><span>V1 MVP 🎉</span></li></ul>
+        <ul><li><a href="/profile/">Profile Page</a><span>(Contains profile page, settings, disable account)</span><span>In-progress</span></li></ul>
 
       </div>
 
     </div>
+
+    <script src="/js/headroom.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    const nav = document.querySelector('nav');
+
+    let headroom = new Headroom(nav);
+    headroom.init();
+
+    </script>
 
   </body>
 </html>
