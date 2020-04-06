@@ -24,10 +24,10 @@
       <div class="navbar">
         <a class="nav-logo" href="/index.php"><img src="https://placehold.it/36x36" alt="Requestor Logo">Requestor</a>
         <div class="urlbar">
-          <input type="text" name="url_input"  placeholder="Enter your Figma link here" />
-          <button type="button" name="url_button">Create New Project<span class="chevron-right"></span>&gt;</button>
+          <input type="text" id="url_input" name="url_input"  placeholder="Enter your Figma link here" />
+          <button type="button" name="url_button" onclick="createNewRequestor()">Create Project<span class="chevron-right"></span>&gt;</button>
         </div>
-        <a href="#!" class="nav-account">My Account</a>
+        <a href="/app/profile" class="nav-account">My Account</a>
       </div>
     </nav>
 
@@ -54,6 +54,60 @@
     </div>
 
     <p><a href="/index.php#sitemap">Click here</a> to go back to the sitemap</p> -->
+
+    <script type="text/javascript">
+
+    function createNewRequestor() {
+      let urlbar_input = document.getElementById("url_input").value;
+
+      if (urlbar_input == "") {
+        // Check if user actually input something
+        console.log("There seems to be nothing here.");
+      } else {
+        // If not empty, firstly check if the URL happens to be a Figma document
+        if (checkIfFigma(urlbar_input) == true) {
+          alert("Link verified as valid Figma Embed Proto. System should now create new document");
+        /*} else if (checkIfURL(urlbar_input)){
+          // Future: check if the URL is a valid URL. Not supported currently however. */
+        } else {
+          alert("The URL you entered was not recognised as a valid Figma prototype.");
+          // Display error message to the user.
+        }
+
+      }
+    }
+
+    function checkIfFigma(string) {
+      // Regular Expression that does the following: {http(s)://}{figma.com/embed}{?embed_host=share}{&url=http(s)}
+      const regex = /(https?:\/\/w+?\.?figma\.com\/embed\?embed_host=share&url=https?)(\/[A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?/gim;
+
+      let m; // Variable that stores all the eventual matches
+
+      while ((m = regex.exec(string)) !== null) {
+        // This is necessary to avoid infinite loops with zero-width matches
+        if (m.index === regex.lastIndex) {
+            regex.lastIndex++;
+        }
+
+        // The result can be accessed through the `m`-variable.
+        // m.forEach((match, groupIndex) => {
+        //     console.log(`Found match, group ${groupIndex}: ${match}`);
+        // });
+
+
+        // This RegEx should produce three matches. If so, the link is validated as a Figma Embed Proto
+        if (m.length == 3) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      // Sample (valid) Figma Embed Proto link for testing
+      // https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F0aog8DUTpzlwfYNFORMjVa%2FFinal-Master-Project%3Fnode-id%3D418%253A2%26viewport%3D-311%252C317%252C0.05923917517066002%26scaling%3Dmin-zoom
+    }
+
+    </script>
 
   </body>
 </html>

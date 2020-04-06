@@ -305,12 +305,12 @@
         <ul>
           <li><a href="/app/">Application</a><span>(Demonstrator part of the project)</span><span>In-progress</span></li>
           <ul><li><a href="/app/">Dashboard</a><span>(Manage active projects. Access/Create/Edit Prototypes.  Requires login to access)</span><span>In-progress</span></li></ul>
-          <ul><li><a href="/app/p">Prototype</a><span>(Embedded prototype with side-evaluation form. Requires URL to access)</span><span>V1 MVP 🎉</span></li></ul>
+          <ul><li><a href="/app/r">Prototype</a><span>(Embedded prototype with side-evaluation form. Requires URL to access)</span><span>V1 MVP 🎉</span></li></ul>
           <ul><li><a href="/app/reports">Reports</a><span>(Report screen of evaluation results. Requires login to access)</span><span>In-progress</span></li></ul>
+          <ul><li><a href="/app/profile/">Profile Page</a><span>(Contains profile page, settings, disable account)</span><span>In-progress</span></li></ul>
         </ul>
         <ul><li><a href="/terms-and-conditions/">Terms and Conditions</a><span>(Legal agreement between user and provider)</span><span>In-progress</span></li></ul>
         <ul><li><a href="/privacy-policy/">Privacy Policy</a><span>(GDPR: explains how we handle privacy)</span><span>V1 MVP 🎉</span></li></ul>
-        <ul><li><a href="/profile/">Profile Page</a><span>(Contains profile page, settings, disable account)</span><span>In-progress</span></li></ul>
 
       </div>
 
