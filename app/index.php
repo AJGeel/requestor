@@ -22,7 +22,8 @@
 
     <nav>
       <div class="navbar">
-        <a class="nav-logo" href="/index.php"><img src="https://placehold.it/36x36" alt="Requestor Logo">Requestor</a>
+        <!-- <a class="nav-logo" href="/index.php"><img src="https://placehold.it/36x36" alt="Requestor Logo">Requestor</a> -->
+        <a class="nav-logo" href="/index.php"><div class="navbar--logo"></div>Requestor</a>
         <div class="urlbar">
           <input type="text" id="url_input" name="url_input"  placeholder="Enter your Figma link here" />
           <button type="button" name="url_button" onclick="createNewRequestor()">Create Project<span class="chevron-right"></span>&gt;</button>
@@ -37,7 +38,8 @@
 
         <img src="/i/TEMP_zen.jpg" alt="empty state image" />
 
-        <p>To get started, copy and paste a link to your Figma file in the bar above.</p>
+        <p>To get started, copy and paste a link to your Figma file in the bar above. Try the one underneath!</p>
+        <p style="font-family: 'IBM Plex Mono', mono; font-size: .9em; word-break: break-all; padding: 1.5em 2em; max-width: 50em; margin-bottom: 0; margin-top: 1em; background-color: #fff; border-radius: 4px;">https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F0aog8DUTpzlwfYNFORMjVa%2FFinal-Master-Project%3Fnode-id%3D418%253A2%26viewport%3D-311%252C317%252C0.05923917517066002%26scaling%3Dmin-zoom</p>
 
       </div>
 
@@ -62,38 +64,38 @@
 
       if (urlbar_input == "") {
         // Check if user actually input something
-        console.log("There seems to be nothing here.");
+        alert("There seems to be nothing here. Are you sure you have input a link?");
       } else {
         // If not empty, firstly check if the URL happens to be a Figma document
-        if (checkIfFigma(urlbar_input) == true) {
-          alert("Link verified as valid Figma Embed Proto. System should now create new document");
+        if (checkIfFigmaURL(urlbar_input) == true) {
+          alert("Link verified as valid Figma Embed Prototype! System should now create new document");
+          alert("However, this is not implemented yet. Stay tuned...");
         /*} else if (checkIfURL(urlbar_input)){
           // Future: check if the URL is a valid URL. Not supported currently however. */
         } else {
-          alert("The URL you entered was not recognised as a valid Figma prototype.");
+          alert("The URL you entered was not recognised as a valid Figma Prototype.");
           // Display error message to the user.
         }
 
       }
     }
 
-    function checkIfFigma(string) {
-      // Regular Expression that does the following: {http(s)://}{figma.com/embed}{?embed_host=share}{&url=http(s)}
+
+
+    function checkIfFigmaURL(string) {
+      // Regular Expression that checks whether the crucial URL parameters (i.e. /embed ?embed_host and ?url) are included.
+
+      // Ruleset for the regular expression. Created with the help of Regex101 — https://regex101.com/r/tR4vU6/1
       const regex = /(https?:\/\/w+?\.?figma\.com\/embed\?embed_host=share&url=https?)(\/[A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?/gim;
 
-      let m; // Variable that stores all the eventual matches
+      // Variable that stores all the eventual matches
+      let m;
 
       while ((m = regex.exec(string)) !== null) {
         // This is necessary to avoid infinite loops with zero-width matches
         if (m.index === regex.lastIndex) {
             regex.lastIndex++;
         }
-
-        // The result can be accessed through the `m`-variable.
-        // m.forEach((match, groupIndex) => {
-        //     console.log(`Found match, group ${groupIndex}: ${match}`);
-        // });
-
 
         // This RegEx should produce three matches. If so, the link is validated as a Figma Embed Proto
         if (m.length == 3) {

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
-    <title>Requestor &mdash; Sign In</title>
+    <title>Requestor &mdash; Create An Account</title>
     <meta name="description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
     <meta name="author" content="Arthur Geel, hello@arthurgeel.com">
     <meta name="color-scheme" content="light dark">
@@ -20,24 +20,31 @@
 
     <section class="signin-modal">
       <a href="/index.php" class="signin-modal--logo"></a>
-      <h1 class="signin-modal--header">Welcome back to Requestor.</h1>
-      <p class="signin-modal--subheader">New here? <a href="create-account.php">Create an account</a>.</p>
+      <h1 class="signin-modal--header">Welcome to Requestor.</h1>
+      <p class="signin-modal--subheader">We are a free service that allows you to share your Figma works-in-progress with others.</p>
 
       <form class="signin-modal--form">
         <fieldset>
-          <label for="email">Email</label>
+          <div class="signin-modal--dual-label">
+            <label for="email">Email</label>
+            <a href="sign-in.php">Already have an account?</a>
+          </div>
           <input type="email" name="email">
         </fieldset>
 
         <fieldset>
-          <div class="signin-modal--dual-label">
-            <label for="password">Password</label>
-            <a href="#!" onclick="alert('This button will support password recovery in the future. \n\nFor now however, just send me an email at hello@arthurgeel.com and I will resolve your lost password situation.')">Forgot your password?</a>
-          </div>
+          <label for="password">Password</label>
           <input type="password" name="password">
         </fieldset>
 
-        <button type="button" name="button">Sign In</button>
+        <fieldset> <!-- TODO: implement JS eventlistener: consent enables button. No consent disables button -->
+          <div class="signin-modal--checkbox">
+            <input type="checkbox" name="consent" id="consent_id">
+            <label for="consent_id">I agree to Requestor's <a href="#!">Terms of Use</a> and <a href="#!">Privacy Policy</a>.</label>
+          </div>
+        </fieldset>
+
+        <button type="button" name="button" disabled>Create Account</button>
       </form>
 
     </section>

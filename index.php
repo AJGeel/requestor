@@ -242,7 +242,8 @@
 
     <nav>
       <div class="navbar homepage">
-        <a class="nav-logo" href="/index.php"><img src="https://placehold.it/36x36" alt="Requestor Logo">Requestor</a>
+        <!-- <a class="nav-logo" href="/index.php"><img src="https://placehold.it/36x36" alt="Requestor Logo">Requestor</a> -->
+        <a class="nav-logo" href="/index.php"><div class="navbar--logo"></div>Requestor</a>
         <div class="urlbar">
           <input type="text" name="url_input"  placeholder="Enter your Figma link here" />
           <button type="button" name="url_button">Create New Project<span class="chevron-right"></span>&gt;</button>
