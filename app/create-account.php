@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="/i/requestor.svg" type="image/png" id="favicon">
     <link rel="stylesheet" href="/css/reset.min.css"> <!-- Reset browser inconsistencies -->
     <link rel="stylesheet" href="/css/style.css"> <!-- Main styling document -->
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
   </head>
 
   <body class="login">
@@ -53,7 +54,7 @@
         <fieldset> <!-- TODO: implement JS eventlistener: consent enables button. No consent disables button -->
           <div class="signin-modal--checkbox">
             <input type="checkbox" name="consent" id="checkbox_consent">
-            <label for="checkbox_consent">I agree to Requestor's <a href="/terms-and-conditions/" target="_blank">Terms of Use</a> and <a href="/privacy-policy/">Privacy Policy</a>.</label>
+            <label for="checkbox_consent">I agree to Requestor's <a href="/terms-and-conditions/" target="_blank">Terms of Use</a> and <a href="/privacy-policy/" target="_blank">Privacy Policy</a>.</label>
           </div>
         </fieldset>
 

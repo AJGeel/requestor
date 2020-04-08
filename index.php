@@ -14,12 +14,13 @@
     <link rel="shortcut icon" href="/i/requestor.svg" type="image/png" id="favicon">
     <link rel="stylesheet" href="/css/reset.min.css"> <!-- Reset browser inconsistencies -->
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
     <style media="screen">
 
       html {
         /* scroll-behavior: smooth; */
-        font-family: "BentonSans", "Ubuntu", sans-serif;
+        /* font-family: "BentonSans", "Ubuntu", sans-serif; */
       }
 
       :root {
@@ -149,7 +150,7 @@
         color: hsl(165, 100%, 30%);
       }
 
-      .sitemap p {
+      .sitemap h3 {
         padding: 0;
         font-weight: 600;
         color: hsl(165, 100%, 30%);
@@ -227,13 +228,12 @@
       }
 
       .features-grid .cell h3 {
-        font-weight: 500;
         color: #333;
         margin-bottom: .5em;
       }
 
       .features-grid .cell p {
-        color: #333;
+        color: #666;
       }
     </style>
 
@@ -298,7 +298,7 @@
       <p>For an early preview of the tool and its pages, please check out the <a href="#sitemap">sitemap</a> below. The links can be clicked to preview functionalities of the tool.</p>
 
       <div class="sitemap" id="sitemap">
-        <p>Sitemap Version 'Pre-Alpha' &mdash; 2020/04/06</p>
+        <h3>Sitemap Version 'Pre-Alpha' &mdash; 2020/04/06</h3>
         <ul><li><a href="#!">Landing Page</a><span>(Current page. What is Requestor, Why did we create it, How does it work, Sign-up)</span><span>In-progress</span></li></ul>
         <ul>
           <li><a href="/app/">Application</a><span>(Demonstrator part of the project)</span><span>In-progress</span></li>
@@ -306,8 +306,8 @@
           <ul><li><a href="/app/r">Prototype</a><span>(Embedded prototype with side-evaluation form. Requires URL to access)</span><span>V1 MVP 🎉</span></li></ul>
           <ul><li><a href="/app/reports">Reports</a><span>(Report screen of evaluation results. Requires login to access)</span><span>In-progress</span></li></ul>
           <ul><li><a href="/app/profile/">Profile Page</a><span>(Profile page, settings, disable account)</span><span>In-progress</span></li></ul>
-          <ul><li><a href="/app/create-account.php">Create Account</a><span>(Form to create account, links to ToC and Privacy Policy)</span><span>In-progress</span></li></ul>
-          <ul><li><a href="/app/sign-in.php">Sign In</a><span>(Form to sign in, link to recover password)</span><span>In-progress</span></li></ul>
+          <ul><li><a href="/app/create-account.php">Create Account</a><span>(Form to create account, links to ToC and Privacy Policy)</span><span>V1 MVP 🎉</span></li></ul>
+          <ul><li><a href="/app/sign-in.php">Sign In</a><span>(Form to sign in, link to recover password)</span><span>V1 MVP 🎉</span></li></ul>
         </ul>
         <ul><li><a href="/terms-and-conditions/">Terms and Conditions</a><span>(Legal agreement between user and provider)</span><span>In-progress</span></li></ul>
         <ul><li><a href="/privacy-policy/">Privacy Policy</a><span>(GDPR: explains how we handle privacy)</span><span>V1 MVP 🎉</span></li></ul>
