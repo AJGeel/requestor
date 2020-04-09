@@ -223,6 +223,7 @@ nav .navbar {
                 0 32px 64px hsla(165, 30%, 30%, .03);
 
   transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
+  animation: fadeInCenter .8s ease-in-out;
 }
 
 .dashboard-card:hover {
@@ -397,15 +398,7 @@ button:hover .chevron-left{
   background-color: hsl(165, 24%, 94%);
 }
 
-.fullscreen-modal--wrapper {
-  position: fixed;
-  z-index: 20;
-  width: 100vw;
-  height: 100vh;
-  display: block;
-}
-
-.fullscreen-modal--overlay {
+.modal--overlay {
   background-color: hsla(0, 0%, 0%, 0.3);
   backdrop-filter: blur(1px);
   width: 100%;
@@ -414,6 +407,13 @@ button:hover .chevron-left{
   justify-content: center;
   align-items: center;
   padding: 2em;
+  opacity: 0;
+
+  transition: opacity .2s ease-in-out;
+}
+
+.modal--overlay:hover {
+  cursor: pointer;
 }
 
 .fullscreen-modal {
@@ -424,10 +424,6 @@ button:hover .chevron-left{
   flex-direction: column;
   border-radius: 4px;
   padding: 6em;
-}
-
-.fullscreen-modal--overlay:hover {
-  cursor: pointer;
 }
 
 .fullscreen-modal:hover {
@@ -444,6 +440,7 @@ button:hover .chevron-left{
   color: var(--main-30);
   font-size: 2em;
   margin-bottom: 2em;
+  line-height: 1.2;
 }
 
 .fullscreen-modal--progress {
@@ -463,6 +460,14 @@ button:hover .chevron-left{
 .fullscreen-modal--button {
   width: auto;
   margin-left: 2em;
+}
+
+.fullscreen-modal--button:disabled {
+  background-color: #adadad;
+}
+
+.fullscreen-modal--button:disabled:hover {
+  cursor: not-allowed;
 }
 
 .fullscreen-modal--button.secondary {
@@ -542,33 +547,19 @@ button:hover .chevron-left{
   margin-bottom: 0;
 }
 
-.new-project-modal--wrapper {
+.modal {
   position: fixed;
   z-index: 20;
   width: 100vw;
   height: 100vh;
-  display: block;
+  visibility: hidden;
 }
 
-.new-project-modal--overlay {
-  background-color: hsla(0, 0%, 0%, 0.3);
-  backdrop-filter: blur(1px);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.new-project-modal--overlay:hover {
-  cursor: pointer;
-}
-
-.new-project-modal:hover {
+.small-modal:hover {
   cursor: initial;
 }
 
-.new-project-modal {
+.small-modal {
   background-color: #fff;
   width: 34em;
   display: flex;
@@ -576,7 +567,7 @@ button:hover .chevron-left{
   border-radius: 4px;
 }
 
-.new-project-modal--image {
+.small-modal--image {
   height: 200px;
   width: 100%;
   background-color: #D5EFE8;
@@ -585,23 +576,68 @@ button:hover .chevron-left{
   overflow: hidden;
 }
 
-.new-project-modal--image img {
+.small-modal--image img {
   max-width: 100%;
 }
 
-.new-project-modal--content {
+.small-modal--content {
   padding: 3em;
 }
 
-.new-project-modal--header {
+.small-modal--header {
   color: var(--main-30);
   font-size: 1.5em;
   line-height: 1.2;
 }
 
-.new-project-modal--text {
+.small-modal--text {
   color: #666;
   margin-bottom: 2em;
+}
+
+.small-modal--text span {
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.small-modal.prompt .small-modal--header {
+  color: hsl(350, 62%, 54%);
+}
+
+.small-modal.prompt .small-modal--button {
+  background-color: hsl(350, 62%, 54%);
+}
+
+.small-modal.prompt .small-modal--button:hover {
+  background-color: hsl(350, 62%, 34%);
+}
+
+.small-modal.prompt .small-modal--button.secondary {
+  background-color: transparent;
+  border: 2px solid hsl(350, 62%, 54%);
+  color: hsl(350, 62%, 54%);
+  transition: color .2s ease-in-out, border-color .2s ease-in-out, background-color .2s ease-in-out;
+}
+
+.small-modal.prompt .small-modal--button.secondary:hover {
+  color: hsl(350, 62%, 34%);
+  border-color: hsl(350, 62%, 34%);
+  background-color: hsl(350, 100%, 97%);
+}
+
+.small-modal--actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.small-modal--actions .small-modal--button {
+  width: 50%;
+  margin-left: 1em;
+  padding: 1em;
+}
+
+.small-modal--actions .small-modal--button:first-child {
+  margin-left: 0;
 }
 
 .signin-modal {

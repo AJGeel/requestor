@@ -347,8 +347,8 @@ function declineInvitation() {
   const answer = confirm("Are you sure you want to decline this invitation? This will close the current window.");
 
   if (answer == true) {
-    alert("Page is closing. If you change your mind, you can still access the invitation later by using the link you received earlier.");
-    window.location.href = "";
+    // alert("Page is closing. If you change your mind, you can still access the invitation later by using the link you received earlier.");
+    window.location.href = "../../index.php";
   } else {
     // alert("You stayed! Noice!");
   }

@@ -20,73 +20,6 @@
 
   <body class="dash">
 
-    <!-- <section class="new-project-modal--wrapper">
-      <div class="new-project-modal--overlay" id="modalOverlay">
-        <div class="new-project-modal">
-          <div class="new-project-modal--image">
-            <img src="/i/modal-example.png" alt="Suggestion on what information to provide">
-          </div>
-          <div class="new-project-modal--content">
-            <h1 class="new-project-modal--header">Your sharable project is created!</h1>
-            <p class="new-project-modal--text">Now we just need some information to help your evaluators understand the context, and you're ready to rock!</p>
-            <button class="new-project-modal--button" type="button" name="button">Continue &gt;</button>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    <section class="fullscreen-modal--wrapper">
-      <div class="fullscreen-modal--overlay" id="modalOverlay">
-        <div class="fullscreen-modal">
-          <div class="fullscreen-modal--content">
-            <p class="fullscreen-modal--progress">Question <span class="current">1</span> out of <span class="total">4</span>.</p>
-            <h1 class="fullscreen-modal--header">How would you like your design to be evaluated?</h1>
-            <div class="fullscreen-modal--input radio">
-
-                <input type="radio" id="evaluation-type-1" name="evaluation-type" value="usability">
-                <label for="evaluation-type-1">
-                  <img src="https://placehold.it/40x40" alt="usability icon">
-                  <div>
-                    <h2>I want others to review its usability</h2>
-                    <p>This will help you spot errors in how your design works, and make your design more usable.</p>
-                  </div>
-                </label>
-
-                <input type="radio" id="evaluation-type-2" name="evaluation-type" value="look-feel">
-                <label for="evaluation-type-2">
-                  <img src="https://placehold.it/40x40" alt="look-and-feel icon">
-                  <div>
-                    <h2>I want others to review its look-and-feel</h2>
-                    <p>This will help you understand your design's hedonic qualities.</p>
-                  </div>
-                </label>
-
-              <!-- <fieldset>
-                <input type="radio" id="evaluation-type-3" name="evaluation-type" value="free-form">
-                <label for="evaluation-type-3">
-                  <h2>I want a free-form review.</h2>
-                  <p>Morbi dui metus, arterisque non lacus eget, sagittis nulla.</p>
-                </label>
-              </fieldset>
-
-              <fieldset>
-                <input type="radio" id="evaluation-type-4" name="evaluation-type" value="placeholder">
-                <label for="evaluation-type-4">
-                  <h2>This is simply placeholder content</h2>
-                  <p>Morbi dui metus, arterisque non lacus eget, sagittis nulla.</p>
-                </label>
-              </fieldset> -->
-
-            </div>
-            <div class="fullscreen-modal--actions">
-              <button class="fullscreen-modal--button secondary" type="button" name="button">&lt; Back</button>
-              <button class="fullscreen-modal--button" type="button" name="button">Continue &gt;</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <nav>
       <div class="navbar">
         <!-- <a class="nav-logo" href="/index.php"><img src="https://placehold.it/36x36" alt="Requestor Logo">Requestor</a> -->
@@ -198,130 +131,16 @@
 
     </section>
 
-    <script type="text/javascript">
+    <!-- Initialize as empty: place to store dynamic modal content -->
+    <section class="modal">
+      <div class="modal--overlay" id="modalOverlay">
 
-    function createNewRequestor() {
-      let urlbar_input = document.getElementById("url_input").value;
-
-      if (urlbar_input == "") {
-        // Check if user actually input something
-        alert("There seems to be nothing here. Are you sure you have input a link?");
-      } else {
-        // If not empty, firstly check if the URL happens to be a Figma document
-        if (checkIfFigmaURL(urlbar_input) == true) {
-          alert("Link verified as valid Figma Embed Prototype! System should now create new document");
-          alert("However, this is not implemented yet. Stay tuned...");
-        /*} else if (checkIfURL(urlbar_input)){
-          // Future: check if the URL is a valid URL. Not supported currently however. */
-        } else {
-          alert("The URL you entered was not recognised as a valid Figma Prototype.");
-          // Display error message to the user.
-        }
-
-      }
-    }
-
-
-
-    function checkIfFigmaURL(string) {
-      // Regular Expression that checks whether the crucial URL parameters (i.e. /embed ?embed_host and ?url) are included.
-
-      // Ruleset for the regular expression. Created with the help of Regex101 — https://regex101.com/r/tR4vU6/1
-      const regex = /(https?:\/\/w+?\.?figma\.com\/embed\?embed_host=share&url=https?)(\/[A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?/gim;
-
-      // Variable that stores all the eventual matches
-      let m;
-
-      while ((m = regex.exec(string)) !== null) {
-        // This is necessary to avoid infinite loops with zero-width matches
-        if (m.index === regex.lastIndex) {
-            regex.lastIndex++;
-        }
-
-        // This RegEx should produce three matches. If so, the link is validated as a Figma Embed Proto
-        if (m.length == 3) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-
-    }
-
-    /* Function that updates the DOM element with the respective username */
-    function updateUsername(name) {
-      // Select the relevant DOM element
-      const username_dom = document.querySelector('.nav-account');
-
-      // Update its innerHTML with the right content
-      username_dom.innerHTML = `${name}`;
-    }
-
-    // updateUsername('Arthur');
-
-
-    let activeProjects = 0;
-
-    /* This string renders the empty state */
-    let emptyStateDOM = `<div class="dashboard--empty-state"><h1>You don't have any active projects yet.</h1><img src="/i/nothing-here.png" alt="empty state image" /><p>To get started, paste a link to your <a href="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F0aog8DUTpzlwfYNFORMjVa%2FFinal-Master-Project%3Fnode-id%3D418%253A2%26viewport%3D-311%252C317%252C0.05923917517066002%26scaling%3Dmin-zoom" target="_blank">Figma Prototype</a> in the bar above.</p></div>`;
-
-    const dashboardDOM = document.querySelector('.dashboard');
-    const dashCardsDOM = document.querySelector('.dashboard--cards');
-
-    function checkForProjects() {
-      if (dashCardsDOM.children.length > 0) {
-        dashCardsDOM.style.display = "flex";
-        // Show the normal dashboard with active projects (paginated?)
-      } else {
-        // Show the 'emtpy state'
-
-        // First: hide the container to get rid of its paddings and margins.
-        dashCardsDOM.style.display = "none";
-        // Then, insert the empty state in its place.
-        dashboardDOM.insertAdjacentHTML('beforeEnd', emptyStateDOM);
-      }
-
-      console.log("checked");
-    }
-
-    function deleteItem(input, warningBoolean) {
-      if (warningBoolean == true) {
-        if (confirm('🚨Are you sure you want to delete this project? Its data will be permanently deleted.')) {
-          let target = input.parentElement.parentElement.parentElement;
-          target.remove();
-        }
-      } else {
-        let target = input.parentElement.parentElement.parentElement;
-        target.remove();
-      }
-
-      checkForProjects();
-    }
-
-    checkForProjects();
-
-
-    let modalOverlay = document.getElementById('modalOverlay');
-
-    window.onclick = function(event) {
-      if (event.target == modalOverlay) {
-        closeModal(modalOverlay);
-      }
-    }
-
-    function closeModal(target) {
-      target.parentNode.style.display = "none";
-    }
-
-    </script>
+      </div>
+    </section>
 
     <script src="/js/headroom.js" charset="utf-8"></script>
+    <script src="/js/dashboard.js" charset="utf-8"></script>
     <script type="text/javascript">
-
-    const nav = document.querySelector('nav');
-
-    let headroom = new Headroom(nav);
-    headroom.init();
 
     </script>
 
