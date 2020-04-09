@@ -58,7 +58,7 @@
           </div>
         </fieldset>
 
-        <button type="button" name="button" id="btn_create_account" disabled onclick="location.href='/app/index.php'">Create Account</button>
+        <button type="button" name="button" id="btn_create_account" disabled onclick="location.href='/app/dashboard.php'">Create Account</button>
       </form>
 
     </section>

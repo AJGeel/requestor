@@ -10,6 +10,10 @@ html {
   scroll-behavior: smooth;
 }
 
+h1, h2, h3, h4, button {
+  font-family: "Sen", sans-serif;
+}
+
 :root {
   --branding:                   hsl(240, 100%, 32%);
   --branding-light:             hsl(240, 100%, 97%);
@@ -25,88 +29,6 @@ html {
 ::selection {
   background: var(--branding-select);
 }
-
-@keyframes fadeInBlur {
-    from {
-        transform: scale(.9);
-        opacity: 0;
-        filter: blur(5px);
-    }
-
-    to {
-        transform: scale(1);
-        opacity: 1;
-        filter: blur(0px);
-    }
-}
-
-@keyframes fadeInLeft {
-  from {
-    transform: translateX(-3em);
-    opacity: 0;
-    filter: blur(5px);
-  }
-
-  to {
-    transform: translateX(0em);
-    opacity: 1;
-    filter: blur(0px);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    transform: translateX(3em);
-    opacity: 0;
-    filter: blur(5px);
-  }
-
-  to {
-    transform: translateX(0em);
-    opacity: 1;
-    filter: blur(0px);
-  }
-}
-
-@keyframes fadeInBottom {
-  from {
-    transform: translateY(3em);
-    opacity: 0;
-    filter: blur(5px);
-  }
-
-  to {
-    transform: translateY(0em);
-    opacity: 1;
-    filter: blur(0px);
-  }
-}
-
-@keyframes fadeInBottom_privacy {
-  from {
-    transform: translateY(3em);
-    opacity: 0;
-    filter: blur(5px);
-  }
-
-  to {
-    transform: translateY(0em);
-    opacity: .4;
-    filter: blur(0px);
-  }
-}
-
-@keyframes rotation {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(359deg); }
-}
-
-@keyframes pulse {
-  0%   { transform: scale(1);   }
-  50%  { transform: scale(0.8); }
-  100% { transform: scale(1);   }
-}
-
 
 .destroy-modal {
   animation: destroyModal 2s ease-in-out;
@@ -142,7 +64,7 @@ html {
 }
 
 body {
-  font-family: "BentonSans", "Ubuntu", sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .app {
@@ -243,7 +165,7 @@ body {
 
 .frame-container .frame-modal-container .frame-modal h1 {
   font-size: 1.4em;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: .5em;
   color: var(--branding);
 }
@@ -320,7 +242,7 @@ body {
 
 .evaluation h1 {
   font-size: 1.4em;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 1em;
   color: var(--branding);
 }
@@ -494,7 +416,7 @@ body {
   margin-top: 1em;
   padding: .7em 1.4em;
   margin-right: 1em;
-  border-radius: 7px;
+  border-radius: 100px;
   background-color: transparent;
   border: 2px solid var(--branding);
   color: var(--branding);
@@ -570,7 +492,7 @@ input, textarea {
   padding: 1em;
   margin-bottom: 1em;
 
-  font-family: "BentonSans", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: .9em;
   line-height: 1.3em;
   color: #333;
@@ -620,7 +542,7 @@ textarea:focus {
 
   color: var(--branding);
   font-size: .8em;
-  font-family: "BentonSans", sans-serif;
+  font-family: "Sen", sans-serif;
   line-height: 1.3em;
   box-shadow: 0px 0px 15px hsla(240, 100%, 32%, 0);
 
@@ -845,7 +767,7 @@ input[type="submit"][disabled]:hover {
   font-size: 1.1em;
   padding: .7em 1.4em;
   margin-right: 1em;
-  border-radius: 7px;
+  border-radius: 100px;
   border: 2px solid black;
   color: black;
   background-color: transparent;
@@ -958,4 +880,85 @@ a[href$=".pdf"]::after {
   .small-screens .small-screens-container {
     padding: 1em;
   }
+}
+
+@keyframes fadeInBlur {
+    from {
+        transform: scale(.9);
+        opacity: 0;
+        filter: blur(5px);
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translateX(-3em);
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    transform: translateX(0em);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    transform: translateX(3em);
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    transform: translateX(0em);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeInBottom {
+  from {
+    transform: translateY(3em);
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    transform: translateY(0em);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeInBottom_privacy {
+  from {
+    transform: translateY(3em);
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    transform: translateY(0em);
+    opacity: .4;
+    filter: blur(0px);
+  }
+}
+
+@keyframes rotation {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(359deg); }
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1);   }
+  50%  { transform: scale(0.8); }
+  100% { transform: scale(1);   }
 }

@@ -46,7 +46,7 @@
       <p><b>Deleting account</b> (irreversible).</p>
       <p></p>
 
-      <button type="button" name="button" onclick="deleteAccount()">I wish to delete my account</button>
+      <button type="button" name="button" class="btn-destructive" onclick="deleteAccount()">I wish to delete my account</button>
 
     </section>
 

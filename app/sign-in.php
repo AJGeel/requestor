@@ -48,7 +48,7 @@
           <input type="password" name="password">
         </fieldset>
 
-        <button type="button" name="button" onclick="location.href = '/app/index.php'">Sign In</button>
+        <button type="button" name="button" onclick="location.href = '/app/dashboard.php'">Sign In</button>
       </form>
 
     </section>

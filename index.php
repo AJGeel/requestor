@@ -302,7 +302,7 @@
         <ul><li><a href="#!">Landing Page</a><span>(Current page. What is Requestor, Why did we create it, How does it work, Sign-up)</span><span>In-progress</span></li></ul>
         <ul>
           <li><a href="/app/">Application</a><span>(Demonstrator part of the project)</span><span>In-progress</span></li>
-          <ul><li><a href="/app/">Dashboard</a><span>(Manage active projects. Access/Create/Edit Prototypes.  Requires login to access)</span><span>In-progress</span></li></ul>
+          <ul><li><a href="/app/dashboard.php">Dashboard</a><span>(Manage active projects. Access/Create/Edit Prototypes.  Requires login to access)</span><span>In-progress</span></li></ul>
           <ul><li><a href="/app/r">Prototype</a><span>(Embedded prototype with side-evaluation form. Requires URL to access)</span><span>V1 MVP 🎉</span></li></ul>
           <ul><li><a href="/app/reports">Reports</a><span>(Report screen of evaluation results. Requires login to access)</span><span>In-progress</span></li></ul>
           <ul><li><a href="/app/profile/">Profile Page</a><span>(Profile page, settings, disable account)</span><span>In-progress</span></li></ul>

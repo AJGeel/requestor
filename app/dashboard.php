@@ -20,6 +20,73 @@
 
   <body class="dash">
 
+    <!-- <section class="new-project-modal--wrapper">
+      <div class="new-project-modal--overlay" id="modalOverlay">
+        <div class="new-project-modal">
+          <div class="new-project-modal--image">
+            <img src="/i/modal-example.png" alt="Suggestion on what information to provide">
+          </div>
+          <div class="new-project-modal--content">
+            <h1 class="new-project-modal--header">Your sharable project is created!</h1>
+            <p class="new-project-modal--text">Now we just need some information to help your evaluators understand the context, and you're ready to rock!</p>
+            <button class="new-project-modal--button" type="button" name="button">Continue &gt;</button>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section class="fullscreen-modal--wrapper">
+      <div class="fullscreen-modal--overlay" id="modalOverlay">
+        <div class="fullscreen-modal">
+          <div class="fullscreen-modal--content">
+            <p class="fullscreen-modal--progress">Question <span class="current">1</span> out of <span class="total">4</span>.</p>
+            <h1 class="fullscreen-modal--header">How would you like your design to be evaluated?</h1>
+            <div class="fullscreen-modal--input radio">
+
+                <input type="radio" id="evaluation-type-1" name="evaluation-type" value="usability">
+                <label for="evaluation-type-1">
+                  <img src="https://placehold.it/40x40" alt="usability icon">
+                  <div>
+                    <h2>I want others to review its usability</h2>
+                    <p>This will help you spot errors in how your design works, and make your design more usable.</p>
+                  </div>
+                </label>
+
+                <input type="radio" id="evaluation-type-2" name="evaluation-type" value="look-feel">
+                <label for="evaluation-type-2">
+                  <img src="https://placehold.it/40x40" alt="look-and-feel icon">
+                  <div>
+                    <h2>I want others to review its look-and-feel</h2>
+                    <p>This will help you understand your design's hedonic qualities.</p>
+                  </div>
+                </label>
+
+              <!-- <fieldset>
+                <input type="radio" id="evaluation-type-3" name="evaluation-type" value="free-form">
+                <label for="evaluation-type-3">
+                  <h2>I want a free-form review.</h2>
+                  <p>Morbi dui metus, arterisque non lacus eget, sagittis nulla.</p>
+                </label>
+              </fieldset>
+
+              <fieldset>
+                <input type="radio" id="evaluation-type-4" name="evaluation-type" value="placeholder">
+                <label for="evaluation-type-4">
+                  <h2>This is simply placeholder content</h2>
+                  <p>Morbi dui metus, arterisque non lacus eget, sagittis nulla.</p>
+                </label>
+              </fieldset> -->
+
+            </div>
+            <div class="fullscreen-modal--actions">
+              <button class="fullscreen-modal--button secondary" type="button" name="button">&lt; Back</button>
+              <button class="fullscreen-modal--button" type="button" name="button">Continue &gt;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <nav>
       <div class="navbar">
         <!-- <a class="nav-logo" href="/index.php"><img src="https://placehold.it/36x36" alt="Requestor Logo">Requestor</a> -->
@@ -37,9 +104,9 @@
     <section class="dashboard">
 
       <div class="dashboard--cards">
-        <div class="dashboard-card">
+
+        <!-- <div class="dashboard-card">
           <div class="dashboard-card--left">
-            <!-- <img src="https://source.unsplash.com/400x200/?ux"> -->
             <img style="mix-blend-mode: luminosity;" src="https://placehold.it/400x200">
           </div>
           <div class="dashboard-card--right">
@@ -58,7 +125,6 @@
 
         <div class="dashboard-card">
           <div class="dashboard-card--left">
-            <!-- <img src="https://source.unsplash.com/400x200/?design"> -->
             <img style="mix-blend-mode: luminosity;" src="https://placehold.it/400x200">
           </div>
           <div class="dashboard-card--right">
@@ -77,7 +143,6 @@
 
         <div class="dashboard-card">
           <div class="dashboard-card--left">
-            <!-- <img src="https://source.unsplash.com/400x200/?ux+design"> -->
             <img style="mix-blend-mode: luminosity;" src="https://placehold.it/400x200">
           </div>
           <div class="dashboard-card--right">
@@ -96,7 +161,6 @@
 
         <div class="dashboard-card">
           <div class="dashboard-card--left">
-            <!-- <img src="https://source.unsplash.com/400x200/?interaction+design"> -->
             <img style="mix-blend-mode: luminosity;" src="https://placehold.it/400x200">
           </div>
           <div class="dashboard-card--right">
@@ -115,7 +179,6 @@
 
         <div class="dashboard-card">
           <div class="dashboard-card--left">
-            <!-- <img src="https://source.unsplash.com/random/400x200"> -->
             <img style="mix-blend-mode: luminosity;" src="https://placehold.it/400x200">
           </div>
           <div class="dashboard-card--right">
@@ -131,7 +194,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </section>
 
@@ -183,8 +246,6 @@
         }
       }
 
-      // Sample (valid) Figma Embed Proto link for testing
-      // https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F0aog8DUTpzlwfYNFORMjVa%2FFinal-Master-Project%3Fnode-id%3D418%253A2%26viewport%3D-311%252C317%252C0.05923917517066002%26scaling%3Dmin-zoom
     }
 
     /* Function that updates the DOM element with the respective username */
@@ -237,7 +298,20 @@
       checkForProjects();
     }
 
-    // checkForProjects();
+    checkForProjects();
+
+
+    let modalOverlay = document.getElementById('modalOverlay');
+
+    window.onclick = function(event) {
+      if (event.target == modalOverlay) {
+        closeModal(modalOverlay);
+      }
+    }
+
+    function closeModal(target) {
+      target.parentNode.style.display = "none";
+    }
 
     </script>
 
