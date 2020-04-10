@@ -30,111 +30,22 @@
           <input type="text" id="url_input" name="url_input"  placeholder="Enter your Figma link here" />
           <button type="button" name="url_button" onclick="createNewRequestor()">Create Project<span class="chevron-right"></span>&gt;</button>
         </div>
-        <a style="width: 174px; text-align: right;" href="/app/profile" class="nav-account">My Account</a>
+        <a href="/app/profile" class="nav-account">My Account</a>
       </div>
     </nav>
 
     <section class="dashboard">
 
       <div class="dashboard--cards">
-
-        <!-- <div class="dashboard-card">
-          <div class="dashboard-card--left">
-            <img style="mix-blend-mode: luminosity;" src="https://placehold.it/400x200">
-          </div>
-          <div class="dashboard-card--right">
-            <h1 class="dashboard-card--title">Bol.com &mdash; UX Design Evaluation</h1>
-            <p class="dashboard-card--metadata">Created on <span class="dashboard-card--creation-date">07/04/2020</span></p>
-            <p class="dashboard-card--description">Bol.com is the leading online shop in the Netherlands for books, toys and electronics that serve over 10.5 million customers.</p>
-            <div class="dashboard-card--actions">
-              <button class="btn-tertiary" type="button" name="button" onclick="deleteItem(this, true)">Delete</button>
-              <div class="dashboard-card--button-group">
-                <button class="btn-secondary" type="button" name="button">Edit</button>
-                <button class="btn-primary" type="button" name="button" onclick="location.href='/app/r'">View</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="dashboard-card">
-          <div class="dashboard-card--left">
-            <img style="mix-blend-mode: luminosity;" src="https://placehold.it/400x200">
-          </div>
-          <div class="dashboard-card--right">
-            <h1 class="dashboard-card--title">Project Title</h1>
-            <p class="dashboard-card--metadata">Created on <span class="dashboard-card--creation-date">MM/DD/YYYY</span></p>
-            <p class="dashboard-card--description">Shaman put a bird on it stumptown, selfies tofu everyday carry squid kickstarter selvage swag dreamcatcher fanny pack bicycle rights.</p>
-            <div class="dashboard-card--actions">
-              <button class="btn-tertiary" type="button" name="button" onclick="deleteItem(this, false)">Delete</button>
-              <div class="dashboard-card--button-group">
-                <button class="btn-secondary" type="button" name="button">Edit</button>
-                <button class="btn-primary" type="button" name="button">View</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="dashboard-card">
-          <div class="dashboard-card--left">
-            <img style="mix-blend-mode: luminosity;" src="https://placehold.it/400x200">
-          </div>
-          <div class="dashboard-card--right">
-            <h1 class="dashboard-card--title">Project Title</h1>
-            <p class="dashboard-card--metadata">Created on <span class="dashboard-card--creation-date">MM/DD/YYYY</span></p>
-            <p class="dashboard-card--description">Shaman put a bird on it stumptown, selfies tofu everyday carry squid kickstarter selvage swag dreamcatcher fanny pack bicycle rights.</p>
-            <div class="dashboard-card--actions">
-              <button class="btn-tertiary" type="button" name="button" onclick="deleteItem(this, false)">Delete</button>
-              <div class="dashboard-card--button-group">
-                <button class="btn-secondary" type="button" name="button">Edit</button>
-                <button class="btn-primary" type="button" name="button">View</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="dashboard-card">
-          <div class="dashboard-card--left">
-            <img style="mix-blend-mode: luminosity;" src="https://placehold.it/400x200">
-          </div>
-          <div class="dashboard-card--right">
-            <h1 class="dashboard-card--title">Project Title</h1>
-            <p class="dashboard-card--metadata">Created on <span class="dashboard-card--creation-date">MM/DD/YYYY</span></p>
-            <p class="dashboard-card--description">Shaman put a bird on it stumptown, selfies tofu everyday carry squid kickstarter selvage swag dreamcatcher fanny pack bicycle rights.</p>
-            <div class="dashboard-card--actions">
-              <button class="btn-tertiary" type="button" name="button" onclick="deleteItem(this, false)">Delete</button>
-              <div class="dashboard-card--button-group">
-                <button class="btn-secondary" type="button" name="button">Edit</button>
-                <button class="btn-primary" type="button" name="button">View</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="dashboard-card">
-          <div class="dashboard-card--left">
-            <img style="mix-blend-mode: luminosity;" src="https://placehold.it/400x200">
-          </div>
-          <div class="dashboard-card--right">
-            <h1 class="dashboard-card--title">Project Title</h1>
-            <p class="dashboard-card--metadata">Created on <span class="dashboard-card--creation-date">MM/DD/YYYY</span></p>
-            <p class="dashboard-card--description">Shaman put a bird on it stumptown, selfies tofu everyday carry squid kickstarter selvage swag dreamcatcher fanny pack bicycle rights.</p>
-            <div class="dashboard-card--actions">
-              <button class="btn-tertiary" type="button" name="button" onclick="deleteItem(this, false)">Delete</button>
-              <div class="dashboard-card--button-group">
-                <button class="btn-secondary" type="button" name="button">Edit</button>
-                <button class="btn-primary" type="button" name="button">View</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+      </div>
 
     </section>
 
-    <!-- Initialize as empty: place to store dynamic modal content -->
+    <!-- Development: always show modal -->
+    <!-- <section class="modal" style="visibility: visible !important">
+      <div class="modal--overlay" id="modalOverlay" style="opacity: 1 !important;"> -->
     <section class="modal">
       <div class="modal--overlay" id="modalOverlay">
-
       </div>
     </section>
 

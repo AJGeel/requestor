@@ -197,6 +197,7 @@ nav .navbar {
 
 .dashboard--empty-state p {
   color: #333;
+  font-family: "Sen", sans-serif;
 }
 
 .dashboard--cards {
@@ -441,6 +442,7 @@ button:hover .chevron-left{
   font-size: 2em;
   margin-bottom: 2em;
   line-height: 1.2;
+  max-width: 70%;
 }
 
 .fullscreen-modal--progress {
@@ -511,6 +513,32 @@ button:hover .chevron-left{
   margin-right: 1em;
 }
 
+.fullscreen-modal--input.radio svg {
+  margin-right: 1em;
+  flex-shrink: 0;
+  padding: 1em;
+  width: 80px;
+  height: 80px;
+  box-sizing: border-box;
+  background-color: #ebf3f2;
+  border-radius: 4px;
+
+  transition: box-shadow .2s ease-in-out;
+}
+
+.fullscreen-modal--input.radio svg *, .fullscreen-modal--input.radio svg * {
+  /* stroke: #333; */
+  transition: stroke .2s ease-in-out;
+}
+
+.fullscreen-modal--input.radio input[type="radio"]:focus + svg *, .fullscreen-modal--input.radio label:hover svg * {
+  stroke: var(--main-20);
+}
+
+.fullscreen-modal--input.radio input[type="radio"]:focus + svg *, .fullscreen-modal--input.radio label:hover svg * {
+  stroke: var(--main-20);
+}
+
 .fullscreen-modal--input.radio input[type="radio"] {
   opacity: 0; /* We hide the radio button itself (visually, not for screenreaders) to be able to style this HTML element */
   position: fixed;
@@ -545,6 +573,93 @@ button:hover .chevron-left{
   font-weight: 500;
   color: #666;
   margin-bottom: 0;
+}
+
+.fullscreen-modal--input.text {
+  display: flex;
+}
+
+.fullscreen-modal--input.text textarea {
+  border: 1px solid #CCE3DD;
+  border-radius: 4px;
+  padding: 1em;
+  resize: none;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1em;
+  line-height: 1.4;
+  background-color: #fff;
+  color: #333;
+
+  transition: color .2s ease-in-out, background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.fullscreen-modal--input.text input {
+  border: 1px solid #CCE3DD;
+  border-radius: 4px;
+  padding: .5em 1em;
+  resize: none;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1em;
+  line-height: 1;
+  background-color: #fff;
+  color: #333;
+  margin-bottom: .5em;
+}
+
+.fullscreen-modal--steps {
+  list-style-type: decimal;
+  list-style-position: inside;
+  margin-left: 1em;
+  font-family: "Sen", sans-serif;
+  color: green;
+}
+
+.fullscreen-modal--steps li {
+  animation: fadeInCenter .4s ease-in-out;
+}
+
+.fullscreen-modal--steps input {
+  width: calc(100% - 4.5em);
+  margin-left: 1em;
+  font-family: "Ubuntu", sans-serif;
+}
+
+/* .project-scenario-steps::before {
+  content: "1";
+  display: block;
+  border: 1px solid #CCE3DD;
+  padding: .5em 1em;
+} */
+
+.fullscreen-modal--input.text label {
+  font-size: 1.3em;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+.fullscreen-modal--block {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 1em);
+  margin-left: 1em;
+}
+
+.fullscreen-modal--block:first-child {
+  margin-left: 0;
+}
+
+.fullscreen-modal--suggestion {
+  font-size: .9em;
+  color: #666;
+  margin-top: .5em;
+  opacity: .3;
+  transition: opacity .2s ease-in-out;
+}
+
+.fullscreen-modal--suggestion:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
 .modal {

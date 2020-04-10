@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------
 
 01. DOM Calls
-02. HTML Content / Templates
+02. HTML Content / Templates / Global Variables
 03. Core Functionality
 04. OnLoad Executables
 
@@ -23,7 +23,7 @@ const nav = document.querySelector('nav');
 
 
 /*--------------------------------------------------
-02. HTML Content / Templates
+02. HTML Content / Templates / Global Variables
 ---------------------------------------------------*/
 
 /* HTML element to handle empty states: an illustration and copy to
@@ -59,7 +59,7 @@ const modalConfirmDelete =
         <p class="small-modal--text">You are about to delete <span class="currentProject">'Bol.com — UX Design Evaluation'</span>, meaning your data will be permanently deleted. Are you sure you want to delete this project?</p>
         <div class="small-modal--actions">
           <button class="small-modal--button secondary" type="button" name="button" onclick="closeModal()">No, keep this project</button>
-          <button class="small-modal--button" type="button" name="button" onclick="">Yes, delete it</button>
+          <button class="small-modal--button" type="button" name="button" onclick="deleteCard()">Yes, I want it gone</button>
         </div>
       </div>
     </div>`;
@@ -69,48 +69,86 @@ const modalConfirmDelete =
 const modalProjectSetup1 =
   `<div class="fullscreen-modal">
       <div class="fullscreen-modal--content">
-        <p class="fullscreen-modal--progress">Question <span class="current">1</span> out of <span class="total">4</span>.</p>
+        <p class="fullscreen-modal--progress">Step <span class="current">1</span> out of <span class="total">3</span>.</p>
         <h1 class="fullscreen-modal--header">How would you like your design to be evaluated?</h1>
         <div class="fullscreen-modal--input radio">
 
             <input type="radio" id="evaluation-type-1" name="evaluation-type" value="usability">
-            <label for="evaluation-type-1">
-              <img src="https://placehold.it/40x40" alt="usability icon">
+            <label for="evaluation-type-1" onclick="enableModalBtn(); updateSetup('type', 'usability')">
+              <svg role="image" alt="wireframe design icon" width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="1.5" y="1.5" width="77" height="77" rx="3.5" stroke="#439675" stroke-width="3"/> <rect x="10.5" y="23.5" width="32" height="46" stroke="#439675" stroke-width="3" stroke-dasharray="6 2"/> <rect x="51.5" y="23.5" width="18" height="14" stroke="#439675" stroke-width="3" stroke-dasharray="6 2"/> <rect x="51.5" y="44.5" width="18" height="25" stroke="#439675" stroke-width="3" stroke-dasharray="6 2"/> <line x1="2" y1="15.5" x2="79" y2="15.5" stroke="#439675" stroke-width="3"/> <line x1="6" y1="8.5" x2="9" y2="8.5" stroke="#439675" stroke-width="3"/> <line x1="12" y1="8.5" x2="15" y2="8.5" stroke="#439675" stroke-width="3"/> <line x1="18" y1="8.5" x2="21" y2="8.5" stroke="#439675" stroke-width="3"/> </svg>
               <div>
                 <h2>I want others to review its usability</h2>
-                <p>This will help you spot errors in how your design works, and make your design more usable.</p>
+                <p>This will help you spot errors in the functionality of your design, helping you make your design more usable.</p>
               </div>
             </label>
 
             <input type="radio" id="evaluation-type-2" name="evaluation-type" value="look-feel">
-            <label for="evaluation-type-2">
-              <img src="https://placehold.it/40x40" alt="look-and-feel icon">
+            <label for="evaluation-type-2" onclick="enableModalBtn(); updateSetup('type', 'look-feel')">
+              <svg role="image" alt="visual design icon" width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"> <rect x="1.5" y="1.5" width="77" height="77" rx="3.5" stroke="#439675" stroke-width="3"/> <rect x="10.5" y="23.5" width="59" height="46" rx="3.5" stroke="#439675" stroke-width="3"/> <line x1="2" y1="15.5" x2="79" y2="15.5" stroke="#439675" stroke-width="3"/> <line x1="50.5" y1="71" x2="50.5" y2="25" stroke="#439675" stroke-width="3"/> <line x1="6" y1="8.5" x2="9" y2="8.5" stroke="#439675" stroke-width="3"/> <line x1="12" y1="8.5" x2="15" y2="8.5" stroke="#439675" stroke-width="3"/> <line x1="18" y1="8.5" x2="21" y2="8.5" stroke="#439675" stroke-width="3"/> <line x1="55" y1="29.5" x2="65" y2="29.5" stroke="#439675" stroke-width="3"/> <line x1="55" y1="35.5" x2="65" y2="35.5" stroke="#439675" stroke-width="3"/> <line x1="55" y1="41.5" x2="62" y2="41.5" stroke="#439675" stroke-width="3"/> <path d="M26.7564 42.3921L20.4895 52.2314C20.2775 52.5642 20.5166 53 20.9113 53H43.1027C43.4944 53 43.7339 52.57 43.5278 52.2369L34.5409 37.7126C34.3418 37.3907 33.871 37.3983 33.6823 37.7265L29.7335 44.594C29.5412 44.9283 29.0588 44.9283 28.8665 44.594L27.6116 42.4115C27.4243 42.0858 26.9582 42.0752 26.7564 42.3921Z" stroke="#439675" stroke-width="3"/> </svg>
               <div>
                 <h2>I want others to review its look-and-feel</h2>
-                <p>This will help you understand your design's hedonic qualities.</p>
+                <p>This will help you understand your design's hedonic qualities and emotional appeal.</p>
               </div>
             </label>
 
         </div>
         <div class="fullscreen-modal--actions">
           <button class="fullscreen-modal--button secondary" type="button" name="btn-prev" onclick="updateModalContent(modalNewProject)">&lt; Back</button>
-          <button class="fullscreen-modal--button" type="button" name="btn-next" onclick="updateModalContent(modalProjectSetup2)" >Continue &gt;</button>
+          <button class="fullscreen-modal--button" type="button" name="btn-next" onclick="updateModalContent(modalProjectSetup2)" disabled>Continue &gt;</button>
         </div>
       </div>
     </div>`;
 
 const modalProjectSetup2 =
   `<div class="fullscreen-modal">
-      <div class="fullscreen-modal--content">
-        <p class="fullscreen-modal--progress">Question <span class="current">2</span> out of <span class="total">4</span>.</p>
-        <h1 class="fullscreen-modal--header">What contextual information should evaluators know when evaluating your work?</h1>
-        <div class="fullscreen-modal--input radio">
+    <div class="fullscreen-modal--content">
+      <p class="fullscreen-modal--progress">Step <span class="current">2</span> out of <span class="total">3</span>.</p>
+      <h1 class="fullscreen-modal--header">What contextual information should your evaluators know when evaluating your work?</h1>
+      <div class="fullscreen-modal--input text">
 
-            <p>Nulla porta ex nec arctus bibendum. Duis convallis, nibh eget molestie finibus, risus nunc scelerisque lectus, sed sollicitudin arcu libero non nibh. Suspendisse feugiat orci sit amet diam gravida, id mollis elit pretium. Duis venenatis fringilla nunc a accumsan. Ut ac vestibulum lacus. Phasellus ut iaculis ex. Pellentesque facilisis erat nec velit rutrum semper. Suspendisse feugiat, arte quis feugiat iaculis, orci arcu fermentum ipsum, ac porttitor felis quam et odio. Nullam nibh lectus, condimentum in lectus vitae, commodo placerat mi. Mauris a ex ut lacus tempor vestibulum non nec leo. Phasellus convallis eros eget pretium sagittis. Integer ut eleifend erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        <div class="fullscreen-modal--block">
+          <label for="project-about">What can you tell them about the project?</label>
+          <textarea name="project-about" id="project-about" rows="3" ></textarea>
+          <p class="fullscreen-modal--suggestion" onclick="suggest(this, 'about')">No inspiration? Click here receive a suggestion.</p>
+        </div>
+
+        <div class="fullscreen-modal--block">
+          <label for="project-audience">What can you tell them about your target audience?</label>
+          <textarea name="project-audience" id="project-audience" rows="3"></textarea>
+          <p class="fullscreen-modal--suggestion" onclick="suggest(this, 'audience')">No inspiration? Click here receive a suggestion.</p>
+        </div>
+
+      </div>
+      <div class="fullscreen-modal--actions">
+        <button class="fullscreen-modal--button secondary" type="button" name="btn-prev" onclick="updateModalContent(modalProjectSetup1)">&lt; Back</button>
+        <button class="fullscreen-modal--button" type="button" name="btn-next" onclick="updateModalContent(modalProjectSetup3)">Continue &gt;</button>
+      </div>
+    </div>
+  </div>`;
+
+  const modalProjectSetup3 =
+    `<div class="fullscreen-modal">
+      <div class="fullscreen-modal--content">
+        <p class="fullscreen-modal--progress">Step <span class="current">3</span> out of <span class="total">3</span>.</p>
+        <h1 class="fullscreen-modal--header">Finally, can you describe the scenario you would like your evaluators to review?</h1>
+        <div class="fullscreen-modal--input text">
+
+          <div class="fullscreen-modal--block">
+            <label for="project-about">Can you summarize your scenario in ~three lines?</label>
+            <textarea name="project-about" id="project-about" rows="3" ></textarea>
+            <p class="fullscreen-modal--suggestion" onclick="suggest(this, 'scenario')">No inspiration? Click here receive a suggestion.</p>
+          </div>
+
+          <div class="fullscreen-modal--block">
+            <label for="project-scenario-steps">Can you break the scenario down in two to five steps?</label>
+            <ol class="fullscreen-modal--steps">
+              <li><input type="text" name="project-scenario-step-1" id="project-scenario-step-1" onclick="addMoreSteps(this)"></input></li>
+            </ol>
+          </div>
 
         </div>
         <div class="fullscreen-modal--actions">
-          <button class="fullscreen-modal--button secondary" type="button" name="btn-prev" onclick="updateModalContent(modalProjectSetup1)">&lt; Back</button>
+          <button class="fullscreen-modal--button secondary" type="button" name="btn-prev" onclick="updateModalContent(modalProjectSetup2)">&lt; Back</button>
           <button class="fullscreen-modal--button" type="button" name="btn-next" onclick="addCard(projectCard1); closeModal();">Continue &gt;</button>
         </div>
       </div>
@@ -119,14 +157,15 @@ const modalProjectSetup2 =
 const projectCard1 =
   `<div class="dashboard-card">
     <div class="dashboard-card--left">
-      <img style="mix-blend-mode: luminosity;" src="https://placehold.it/400x200">
+      <!--img style="mix-blend-mode: luminosity;" src="https://placehold.it/400x200"-->
+      <img style="mix-blend-mode: luminosity;" src="https://source.unsplash.com/400x200/?ux">
     </div>
     <div class="dashboard-card--right">
       <h1 class="dashboard-card--title">Bol.com &mdash; UX Design Evaluation</h1>
       <p class="dashboard-card--metadata">Created on <span class="dashboard-card--creation-date">07/04/2020</span></p>
       <p class="dashboard-card--description">Bol.com is the leading online shop in the Netherlands for books, toys and electronics that serve over 10.5 million customers.</p>
       <div class="dashboard-card--actions">
-        <button class="btn-tertiary" type="button" name="button" onclick="deleteCard(this)">Delete</button>
+        <button class="btn-tertiary" type="button" name="button" onclick="promptDeleteCard(this)">Delete</button>
         <div class="dashboard-card--button-group">
           <button class="btn-secondary" type="button" name="button">Edit</button>
           <button class="btn-primary" type="button" name="button" onclick="location.href='/app/r'">View</button>
@@ -134,6 +173,8 @@ const projectCard1 =
       </div>
     </div>
   </div>`;
+
+let cardToDelete;
 
 /*--------------------------------------------------
 	03. Creating new Projectss
@@ -227,21 +268,31 @@ function addCard(cardName) {
   dashCardsDOM.insertAdjacentHTML('beforeEnd', cardName);
 }
 
-function deleteCard(targ) {
+/* Functionality to prompt the user to verify whether they actually want to delete the card with a modal */
+function promptDeleteCard(targ) {
 
-  // First: update modal contents with the prompt message
+  // Store a temporary reference to the card that is to be deleted
+  cardToDelete = targ.parentElement.parentElement.parentElement;
+  // parents:    button > actions  > cardRight   > card
+
+  // Then: update modal contents with the prompt message
   updateModalContent(modalConfirmDelete);
 
-  // Then: show the modal on the screen
+  // Show the modal on the screen
   showModal();
+}
 
+/* Functionality to actually delete the card */
+function deleteCard() {
+  // Remove the card from the DOM
+  cardToDelete.remove();
 
+  // Reset the global variable
+  cardToDelete = "";
 
- // let target = targ.parentElement.parentElement.parentElement;
- // parents:  button > actions  > cardRight   > card
- // target.remove();
-
- // checkForProjects();
+  // Check whether the empty state should be returned
+  checkForProjects();
+  closeModal();
 }
 
 /* Functionality that hides the navbar when the user scrolls down. */
@@ -294,9 +345,96 @@ function removeModalContent() {
 // }
 // updateUsername('Arthur');
 
+/* Used in modals: enables the 'next' button if input is received and validated */
 function enableModalBtn() {
-  let nextBtn = document.getElementsByName("btn-next")[0];
-  nextBtn.disabled = false;
+  try {
+    let nextBtn = document.getElementsByName("btn-next")[0];
+    nextBtn.disabled = false;
+  } catch (error) {
+
+  }
+}
+
+/* Used during project creation: allows users to receive contextual information */
+function suggest(pointer, keyword) {
+
+  let suggestion = "";
+  let allSuggestions = [];
+
+  if (keyword == "about") {
+    // Suggests a random example on how to describe the project.
+    allSuggestions = [
+      "[Client] is the leading online shop in the Netherlands for [items], [stuff] and [electronics] that serve over [###] million customers.",
+      "Artem ipsum dolor sit amet, consectetur adipisicing elit, sed do arturiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.",
+      "In reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui articia deserunt mollit anim id est laborum."
+    ];
+
+  } else if (keyword == "audience") {
+    // Suggests a random example on how to describe its focal audience
+    allSuggestions = [
+      "[Client] mainly serves customers in [Country] and [Other Country], across all age groups.",
+      "Artem ipsum dolor sit amet, consectetur adipisicing elit, sed do arturiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.",
+      "In reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui articia deserunt mollit anim id est laborum."
+    ];
+
+  } else if (keyword == "scenario") {
+    // Suggest a random example on how to describe the scenario-of-use
+    allSuggestions = [
+      "Your name is Frederic — a 62 year old Dutch male from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement."
+    ];
+
+  }
+
+  suggestion = allSuggestions[ Math.floor( Math.random() * allSuggestions.length ) ];
+
+  // Grab DOM item of <textarea>
+  let textArea = pointer.parentElement.querySelector('textarea');
+  // Update value inside
+  textArea.value = suggestion;
+
+  // Perform an animation to update user about the value changing.
+  textArea.style.backgroundColor = "hsl(160, 30%, 96%)";
+  textArea.style.color = "var(--main-30)";
+  textArea.style.boxShadow = "0px 0px 25px hsla(165, 30%, 85%, .5), inset 0px 0px 15px hsla(165, 30%, 85%, .3)";
+  setTimeout(function() {
+    textArea.style.backgroundColor = "#FFF";
+    textArea.style.color = "#333";
+    textArea.style.boxShadow = "none";
+  }, 300);
+
+}
+
+function addMoreSteps(pointer) {
+  // Ensure that the original list item cannot spawn any more afterwards.
+  pointer.removeAttribute("onclick");
+
+  // Find the <ol> tag in the DOM
+  let ol = pointer.parentElement.parentElement;
+
+  // Determine how many items the list already has.
+  let amountOfItems = ol.children.length;
+
+  // We don't want the list to have more than 5 items at any time.
+  let maxAmount = 5;
+  console.log(amountOfItems);
+
+  // Only add new list items if the maximum has not been reached.
+  if (amountOfItems < maxAmount) {
+    let scenarioStepTemplate =
+      `<li>
+        <input type="text" name="project-scenario-step-${amountOfItems+1}" id="project-scenario-step-${amountOfItems+1}" onclick="addMoreSteps(this)"></input>
+      </li>`;
+
+    ol.insertAdjacentHTML('beforeEnd', scenarioStepTemplate);
+  }
+
+}
+
+function updateSetup(key, value) {
+  console.log(`Update localStorage ${key} to ${value}`);
+  localStorage.setItem(`${key}`, `${value}`);
 }
 
 
