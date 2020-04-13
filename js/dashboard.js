@@ -217,6 +217,9 @@ function checkIfFigmaURL(string) {
  // Ruleset for the regular expression. Created with the help of Regex101 — https://regex101.com/r/tR4vU6/1
  const regex = /(https?:\/\/w+?\.?figma\.com\/embed\?embed_host=share&url=https?)(\/[A-Za-z0-9\-\._~:\/\?#\[\]@!$&'\(\)\*\+,;\=]*)?/gim;
 
+// Official Figma documentation on embeds: https://www.figma.com/developers/embed
+ const other_regex = /https:\/\/([\w\.-]+\.)?figma.com\/(file|proto)\/([0-9a-zA-Z]{22,128})(?:\/.*)?$/;
+
  // Variable that stores all the eventual matches
  let m;
 
