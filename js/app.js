@@ -61,7 +61,8 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
 }
 
 // Run the function with the arguments
-updateiFrame(Figma_URI, Figma_Node_ID, Figma_Viewport, Figma_Scaling, DOM_iFrame);
+// updateiFrame(Figma_URI, Figma_Node_ID, Figma_Viewport, Figma_Scaling, DOM_iFrame);
+resizeiFrame();
 
 /* End of Figma Embed functionality */
 
@@ -110,11 +111,6 @@ document.addEventListener("keypress", function(event) {
   }
 });
 /* End of Key Mapping Functionality */
-
-
-
-
-
 
 
 
