@@ -12,7 +12,8 @@
 html {
   scroll-behavior: smooth;
   font-family: "Ubuntu", sans-serif;
-  background-color: hsl(165, 24%, 94%)
+  background-color: hsl(165, 24%, 94%); /* Fallback for older browsers */
+  background: linear-gradient(to right, hsl(165, 24%, 94%), hsl(165, 24%, 94%) 50%, #fff 51%);
 }
 
 h1, h2, h3, button {
@@ -95,6 +96,10 @@ section.sticky p {
 
 section.sticky li {
   font-size: .9em;
+}
+
+section.sticky li:before {
+  width: 0;
 }
 
 p, li, h1, h2, h3 {
@@ -286,7 +291,7 @@ span.last-updated {
 }
 
 .table-of-contents {
-  opacity: .3;
+  opacity: .4;
   transition: opacity .2s ease-in-out;
 }
 
@@ -421,6 +426,20 @@ nav .navbar {
 
 
 @media only screen and (max-width: 1060px) {
+  html {
+    background: linear-gradient(90deg, hsl(165, 24%, 94%), hsl(165, 24%, 94%));
+  }
+
+  nav {
+    top: 0;
+  }
+
+  nav .navbar {
+    background-color: hsla(0, 0%, 100%, 0.95);
+    backdrop-filter: blur(2px);
+    border-bottom: 1px solid #ebf3f2;
+  }
+
   body {
     flex-direction: column;
     align-items: center;
@@ -439,6 +458,7 @@ nav .navbar {
     padding-top: 3em;
     background-color: #efefef;
     order: 1;
+    visibility: hidden;
   }
 
   section, section.sticky {
