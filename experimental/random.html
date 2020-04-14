@@ -8,12 +8,55 @@
     * {
       font-family: "Sen"
     }
+
+    body {
+      width: 30em;
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 4em;
+    }
+
+    button {
+      background-color: #009973;
+      color: #fff;
+      font-size: .9em;
+      font-weight: 700;
+      width: auto;
+      padding: 1em 3em;
+      border-radius: 100px;
+      border: none;
+      transition: background-color .2s ease-in-out;
+      margin-bottom: 2em;
+    }
+
+    button:hover {
+      background-color: hsla(165, 100%, 20%, 1);
+    }
+
+    p {
+      margin: 0;
+      margin-bottom: .5em;
+    }
+
+    span {
+      color: hsla(165, 100%, 20%, 1);
+      text-decoration: underline;
+      transition: color .2s ease-in-out;
+    }
+
+    span:hover {
+      color: #000;
+      cursor: pointer;
+    }
   </style>
   <body>
 
     <button type="button" name="button" onclick="updateFileName();">Generate New Name</button>
 
-    <p>Your project name is: <span id="nameDOM"></span>.</p>
+    <p>Your project name is:</p>
+    <p><span id="nameDOM"></span></p>
+
+    <a href="#!"><span id="nameDOM2"></span></a>
 
   </body>
 
