@@ -373,6 +373,8 @@ function suggest(pointer, keyword) {
       "In reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui articia deserunt mollit anim id est laborum."
     ];
 
+    allSuggestions = [ "[Client] is the leading online shop in the Netherlands for [items], [stuff] and [electronics] that serve over [###] million customers." ];
+
   } else if (keyword == "audience") {
     // Suggests a random example on how to describe its focal audience
     allSuggestions = [
@@ -381,6 +383,8 @@ function suggest(pointer, keyword) {
       "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.",
       "In reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui articia deserunt mollit anim id est laborum."
     ];
+
+    allSuggestions = [ "[Client] mainly serves customers in [Country] and [Other Country], across all age groups." ];
 
   } else if (keyword == "scenario") {
     // Suggest a random example on how to describe the scenario-of-use
@@ -461,3 +465,15 @@ window.onclick = function(event) {
     closeModal();
   }
 }
+
+/*
+
+
+Copy link:
+https://www.figma.com/file/0aog8DUTpzlwfYNFORMjVa/Final-Master-Project?node-id=41%3A2
+
+Embed code:
+https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/0aog8DUTpzlwfYNFORMjVa/Final-Master-Project?node-id=41%3A2
+
+
+*/
