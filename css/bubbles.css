@@ -124,6 +124,10 @@
   height: auto;
 }
 
+.bubb.e-button.bubble-pick:hover {
+	cursor: not-allowed;
+}
+
 .bubble.reply:not(.bubble-picked) .bubble-content .bubble-button:hover {
 	background-color: var(--branding);
 	/* box-shadow: inset 0px 0px 15px hsl(244, 100%, 81%); */
@@ -275,12 +279,14 @@
 .bubble .bubble-content b {
 	display: flex;
 	font-weight: 600;
-	margin-bottom: .5em;
+	margin: .5em 0;
+  padding-bottom: .5em;
+	border-bottom: 2px solid #cdcddc;
 }
 
 .bubble .bubble-content b img {
 	display: flex;
 	margin: 0;
-	width: auto;
+	width: 1em;
 	margin-right: .5em;
 }
