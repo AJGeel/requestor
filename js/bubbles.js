@@ -1,3 +1,5 @@
+/* TODO: Fix random order (1-5) --> (5-1) */
+
 // core function
 function Bubbles(container, self, options) {
   // options
@@ -9,7 +11,7 @@ function Bubbles(container, self, options) {
   recallInteractions = options.recallInteractions || 0 // number of interactions to be remembered and brought back upon restart
   inputCallbackFn = options.inputCallbackFn || false // should we display an input field?
 
-  let standingAnswer = "ice" // remember where to restart convo if interrupted
+  let standingAnswer = "icebreaker" // remember where to restart convo if interrupted
 
   let _convo = {} // local memory for conversation JSON object
   //--> NOTE that this object is only assigned once, per session and does not change for this
@@ -57,6 +59,7 @@ function Bubbles(container, self, options) {
 
     // save to memory
     interactionsHistory.push({ say: say, reply: reply })
+    console.log(interactionsHistory);
   }
 
   // commit save to localStorage
@@ -196,14 +199,10 @@ function Bubbles(container, self, options) {
       }, animationTime)
     }
     var position = 0
-    for (
-      var nextCallback = position + q.length - 1;
-      nextCallback >= position;
-      nextCallback--
-    ) {
+    for ( var nextCallback = position + q.length - 1; nextCallback >= position;nextCallback--) {
       ;(function(callback, index) {
         start = function() {
-          addBubble(q[index], callback)
+          addBubble(q[index], callback);
         }
       })(start, nextCallback)
     }
@@ -213,6 +212,7 @@ function Bubbles(container, self, options) {
   // create a bubble
   var bubbleQueue = false
   var addBubble = function(say, posted, reply, live) {
+    // console.log(say);
     reply = typeof reply !== "undefined" ? reply : ""
     live = typeof live !== "undefined" ? live : true // bubbles that are not "live" are not animated and displayed differently
     var animationTime = live ? this.animationTime : 0
@@ -228,12 +228,14 @@ function Bubbles(container, self, options) {
     // answer picker styles
     if (reply !== "") {
       var bubbleButtons = bubbleContent.querySelectorAll(".bubble-button")
+      // console.log(bubbleButtons);
       for (var z = 0; z < bubbleButtons.length; z++) {
         ;(function(el) {
           if (!el.parentNode.parentNode.classList.contains("reply-freeform"))
             // el.style.width = el.offsetWidth - sidePadding * 2 + widerBy + "px"
             el.style.width = "auto"; /* Custom: just set the width to be automatically defined */
         })(bubbleButtons[z])
+        // console.log(bubbleButtons[z].innerHTML); /* Log the (randomly inverted) buttons to the console */
       }
       bubble.addEventListener("click", function(e) {
         if (e.target.classList.contains('bubble-button')) {
@@ -241,8 +243,12 @@ function Bubbles(container, self, options) {
             ;(function(el) {
               el.style.width = 0 + "px"
               el.style.height = 0 + "px" /* Also vertically minimise */
+              el.style.margin = 0 + "px" /* Remove the margins too */
+              el.style.border = 0 + "px" /* Finally, also remove the borders */
               el.classList.contains("bubble-pick") ? (el.style.width = "") : false
               el.classList.contains("bubble-pick") ? (el.style.height = "") : false /* Custom: Also vertically reset, fixes vertical empty space */
+              el.classList.contains("bubble-pick") ? (el.style.margin = "") : false /* Custom: fixes slight horizontal empty space */
+              el.classList.contains("bubble-pick") ? (el.style.border = "") : false /* Custom: fixes slight horizontal empty space (too) */
               el.removeAttribute("onclick")
             })(bubbleButtons[i])
           }
@@ -268,8 +274,13 @@ function Bubbles(container, self, options) {
       var bubbleWidthCalc = bubbleContent.offsetWidth + widerBy + "px"
       bubble.style.width = reply == "" ? bubbleWidthCalc : ""
       bubble.style.width = say.includes("<img src=")
-        ? "50%"
+        // ? "50%" /* Swap these values to make images half width instead of 65% */
+        ? "auto"
         : bubble.style.width
+        bubble.style.width = say.includes("<b")
+          // ? "50%" /* Swap these values to make images half width instead of 65% */
+          ? "auto"
+          : bubble.style.width
       bubble.classList.add("say")
       posted()
 
