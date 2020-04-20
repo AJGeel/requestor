@@ -136,7 +136,33 @@ let convo = {
   }, // end conversation object
 
   "heuristic_1" : {
-    "says" : [ "<b>#1: Visibility of System Status</b>", "The system kept me informed about what was going on, through appropriate feedback within reasonable time."],
+    "says" : [ "<b>#1: Visibility of System Status</b>", "<i>The system kept me informed about what was going on, through appropriate feedback within reasonable time.</i>", "Was there an usability problem? Hover over the answers to see elaborate descriptions."],
+    "reply": [
+      {
+        "question": "0",
+        "answer": "heuristicFunc2"
+      },
+      {
+        "question": "1",
+        "answer": "heuristicFunc2"
+      },
+      {
+        "question": "2",
+        "answer": "heuristicFunc2"
+      },
+      {
+        "question": "3",
+        "answer": "heuristicFunc2"
+      },
+      {
+        "question": "4",
+        "answer": "heuristicFunc2"
+      },
+    ]
+  }, // end conversation object
+
+  "heuristic_2" : {
+    "says" : [ "<b>#2: Match between the system and the real world</b>", "<i>The system should speak the users' language, with words, phrases and concepts familiar to the user, rather than system-oriented terms. Follow real-world conventions, making information appear in a natural and logical order.</i>", "Once more, please share your input below."],
     "reply": [
       {
         "question": "0",
@@ -183,7 +209,16 @@ let convo = {
 
 unveilDesign = function() {
 
-  /* For security purposes, the full function HAS to be defined within this file. */
+  /* For security purposes, the full function HAS to be defined within this file.
+     The GitHub repo suggests that these functions cannot accept parameters for security reasons,
+     Although I have to try this out myself.
+
+     A function with a parameter in this formulation would be:
+
+     unveilDesign = function(param) {
+        console.log(param);
+     }
+  */
   startEvaluation();
 
   setTimeout(function() {
@@ -192,24 +227,26 @@ unveilDesign = function() {
 }
 
 heuristicFunc1 = function() {
-  setTimeout(function() {
-    console.log("1000ms passed");
-    // updateBalloonHovers();
-  }, 1000);
 
+  /* Time out for 5 seconds to ensure hover tooltips are added to the newly introduce DOM elements */
   setTimeout(function() {
-    console.log("2000ms passed");
-    // updateBalloonHovers();
-  }, 2000);
-
-  setTimeout(function() {
-    console.log("3000ms passed");
     updateBalloonHovers();
-  }, 3000);
+  }, 5000);
 
   chatWindow.talk(convo, "heuristic_1");
   // updateBalloonHovers();
 }
+
+heuristicFunc2 = function() {
+
+    /* Time out for 5 seconds to ensure hover tooltips are added to the newly introduce DOM elements */
+    setTimeout(function() {
+      updateBalloonHovers();
+    }, 5000);
+
+    chatWindow.talk(convo, "heuristic_2");
+    // updateBalloonHovers();
+  }
 
 
 /*--------------------------------------------------

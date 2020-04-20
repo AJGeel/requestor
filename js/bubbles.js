@@ -131,6 +131,7 @@ function Bubbles(container, self, options) {
 
     this.reply(_convo[here])
     here ? (standingAnswer = here) : false
+    // console.log(convo, here);
   }
 
   var iceBreaker = false // this variable holds answer to whether this is the initative bot interaction or not
@@ -181,6 +182,9 @@ function Bubbles(container, self, options) {
         "reply reply-pick"
       )
     }
+
+    // Debug: logs pressed key and content. Could be useful for storing full convo data in the future.
+    // console.log(key, content);
   }
 
   // api for typing bubble
@@ -305,6 +309,19 @@ function Bubbles(container, self, options) {
       }
       setTimeout(scrollBubbles, animationTime / 2)
     }, wait + animationTime * 2)
+
+    // Debug: logs adding bubble content. Canditate for callback function integration.
+    // console.log(say, posted, reply, live);
+    // console.log(say);
+
+    // Only log bubble buttons.
+    if (say.includes('<span class="bubble-button"')) {
+      console.log("Adding new bubble button! Here are the details:");
+      console.log("Say: " + say);
+      console.log("Posted: " + posted);
+      console.log("Reply: " + reply);
+      console.log("Live: " + live);
+    }
   }
 
   // recall previous interactions
