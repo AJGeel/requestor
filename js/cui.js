@@ -120,7 +120,7 @@ let convo = {
     "reply": [
       {
         "question": "Let’s go!",
-        "answer": "heuristicFunc1"
+        "answer": "heuristic_1"
       }
     ]
   }, // end conversation object
@@ -140,23 +140,23 @@ let convo = {
     "reply": [
       {
         "question": "0",
-        "answer": "heuristicFunc2"
+        "answer": "heuristic_2"
       },
       {
         "question": "1",
-        "answer": "heuristicFunc2"
+        "answer": "heuristic_2"
       },
       {
         "question": "2",
-        "answer": "heuristicFunc2"
+        "answer": "heuristic_2"
       },
       {
         "question": "3",
-        "answer": "heuristicFunc2"
+        "answer": "heuristic_2"
       },
       {
         "question": "4",
-        "answer": "heuristicFunc2"
+        "answer": "heuristic_2"
       },
     ]
   }, // end conversation object
@@ -166,26 +166,246 @@ let convo = {
     "reply": [
       {
         "question": "0",
-        "answer": "tasks_3"
+        "answer": "heuristic_3"
       },
       {
         "question": "1",
-        "answer": "tasks_3"
+        "answer": "heuristic_3"
       },
       {
         "question": "2",
-        "answer": "tasks_3"
+        "answer": "heuristic_3"
       },
       {
         "question": "3",
-        "answer": "tasks_3"
+        "answer": "heuristic_3"
       },
       {
         "question": "4",
-        "answer": "tasks_3"
+        "answer": "heuristic_3"
       },
     ]
   }, // end conversation object
+
+  "heuristic_3" : {
+    "says" : [ "<b>#3: User control and freedom</b>", "<i>Users often choose system functions by mistake and will need a clearly marked 'emergency exit' to leave the unwanted state without having to go through an extended dialogue. Support undo and redo.</i>"],
+    "reply": [
+      {
+        "question": "0",
+        "answer": "heuristic_4"
+      },
+      {
+        "question": "1",
+        "answer": "heuristic_4"
+      },
+      {
+        "question": "2",
+        "answer": "heuristic_4"
+      },
+      {
+        "question": "3",
+        "answer": "heuristic_4"
+      },
+      {
+        "question": "4",
+        "answer": "heuristic_4"
+      },
+    ]
+  }, // end conversation object
+
+  "heuristic_4" : {
+    "says" : [ "<b>#4: Consistency and standards</b>", "<i>Users should not have to wonder whether different words, situations, or actions mean the same thing. Follow platform conventions.</i>"],
+    "reply": [
+      {
+        "question": "0",
+        "answer": "heuristic_5"
+      },
+      {
+        "question": "1",
+        "answer": "heuristic_5"
+      },
+      {
+        "question": "2",
+        "answer": "heuristic_5"
+      },
+      {
+        "question": "3",
+        "answer": "heuristic_5"
+      },
+      {
+        "question": "4",
+        "answer": "heuristic_5"
+      },
+    ]
+  }, // end conversation object
+
+  "heuristic_5" : {
+    "says" : [ "<b>#5: Error Prevention</b>", "<i>Even better than good error messages is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action.</i>"],
+    "reply": [
+      {
+        "question": "0",
+        "answer": "heuristic_6"
+      },
+      {
+        "question": "1",
+        "answer": "heuristic_6"
+      },
+      {
+        "question": "2",
+        "answer": "heuristic_6"
+      },
+      {
+        "question": "3",
+        "answer": "heuristic_6"
+      },
+      {
+        "question": "4",
+        "answer": "heuristic_6"
+      },
+    ]
+  }, // end conversation object
+
+  "heuristic_6" : {
+    "says" : [ "<b>#6: Recognition rather than recall</b>", "<i>Minimize the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part of the dialogue to another. Instructions for use of the system should be visible or easily retrievable whenever appropriate.</i>"],
+    "reply": [
+      {
+        "question": "0",
+        "answer": "heuristic_7"
+      },
+      {
+        "question": "1",
+        "answer": "heuristic_7"
+      },
+      {
+        "question": "2",
+        "answer": "heuristic_7"
+      },
+      {
+        "question": "3",
+        "answer": "heuristic_7"
+      },
+      {
+        "question": "4",
+        "answer": "heuristic_7"
+      },
+    ]
+  }, // end conversation object
+
+  "heuristic_7" : {
+    "says" : [ "<b>#7: Flexibility and efficiency of use</b>", "<i>Accelerators — unseen by the novice user — may often speed up the interaction for the expert user such that the system can cater to both inexperienced and experienced users. Allow users to tailor frequent actions.</i>"],
+    "reply": [
+      {
+        "question": "0",
+        "answer": "heuristic_8"
+      },
+      {
+        "question": "1",
+        "answer": "heuristic_8"
+      },
+      {
+        "question": "2",
+        "answer": "heuristic_8"
+      },
+      {
+        "question": "3",
+        "answer": "heuristic_8"
+      },
+      {
+        "question": "4",
+        "answer": "heuristic_8"
+      },
+    ]
+  }, // end conversation object
+
+  "heuristic_8" : {
+    "says" : [ "<b>#8: Aesthetic and minimalist design</b>", "<i>Dialogues should not contain information which is irrelevant or rarely needed. Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility.</i>"],
+    "reply": [
+      {
+        "question": "0",
+        "answer": "heuristic_9"
+      },
+      {
+        "question": "1",
+        "answer": "heuristic_9"
+      },
+      {
+        "question": "2",
+        "answer": "heuristic_9"
+      },
+      {
+        "question": "3",
+        "answer": "heuristic_9"
+      },
+      {
+        "question": "4",
+        "answer": "heuristic_9"
+      },
+    ]
+  }, // end conversation object
+
+  "heuristic_9" : {
+    "says" : [ "<b>#9: Help users recognize, diagnose, and recover from errors</b>", "<i>Error messages should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.</i>"],
+    "reply": [
+      {
+        "question": "0",
+        "answer": "heuristic_10"
+      },
+      {
+        "question": "1",
+        "answer": "heuristic_10"
+      },
+      {
+        "question": "2",
+        "answer": "heuristic_10"
+      },
+      {
+        "question": "3",
+        "answer": "heuristic_10"
+      },
+      {
+        "question": "4",
+        "answer": "heuristic_10"
+      },
+    ]
+  }, // end conversation object
+
+  "heuristic_10" : {
+    "says" : [ "<b>#10: Help and documentation</b>", "<i>Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user's task, list concrete steps to be carried out, and not be too large.</i>"],
+    "reply": [
+      {
+        "question": "0",
+        "answer": "foo"
+      },
+      {
+        "question": "1",
+        "answer": "foo"
+      },
+      {
+        "question": "2",
+        "answer": "foo"
+      },
+      {
+        "question": "3",
+        "answer": "foo"
+      },
+      {
+        "question": "4",
+        "answer": "foo"
+      },
+    ]
+  }, // end conversation object
+
+  "foo" : {
+    "says" : [ "[object Object]"],
+    "reply": [
+      {
+        "question": "[object Object]",
+        "answer": "foo"
+      }
+    ]
+  }, // end conversation object
+
+
 
   "object" : {
     "says" : [ "[object Object]"],
@@ -226,27 +446,27 @@ unveilDesign = function() {
   }, 2000)
 }
 
-heuristicFunc1 = function() {
-
-  /* Time out for 5 seconds to ensure hover tooltips are added to the newly introduce DOM elements */
-  setTimeout(function() {
-    updateBalloonHovers();
-  }, 5000);
-
-  chatWindow.talk(convo, "heuristic_1");
-  // updateBalloonHovers();
-}
-
-heuristicFunc2 = function() {
-
-    /* Time out for 5 seconds to ensure hover tooltips are added to the newly introduce DOM elements */
-    setTimeout(function() {
-      updateBalloonHovers();
-    }, 5000);
-
-    chatWindow.talk(convo, "heuristic_2");
-    // updateBalloonHovers();
-  }
+// heuristicFunc1 = function() {
+//
+//   /* Time out for 5 seconds to ensure hover tooltips are added to the newly introduce DOM elements */
+//   // setTimeout(function() {
+//   //   updateBalloonHovers();
+//   // }, 5000);
+//
+//   chatWindow.talk(convo, "heuristic_1");
+//   // updateBalloonHovers();
+// }
+//
+// heuristicFunc2 = function() {
+//
+//     /* Time out for 5 seconds to ensure hover tooltips are added to the newly introduce DOM elements */
+//     // setTimeout(function() {
+//     //   updateBalloonHovers();
+//     // }, 5000);
+//
+//     chatWindow.talk(convo, "heuristic_2");
+//     // updateBalloonHovers();
+// }
 
 
 /*--------------------------------------------------
@@ -277,34 +497,6 @@ function startTalking() {
 
     // Update conditional hold
     startedPlaying = true;
-  }
-}
-
-/* Find all buttons that contain: */
-function updateBalloonHovers() {
-  // First: find all button elements which need a balloon label. Add these to array.
-  // I.e. these are 'span.bubble-button' with content "0", "1", "2", "3" or "4".
-  let allButtons = document.querySelectorAll('span.bubble-button');
-
-  // Cycle through full array, and set aria and data elements
-  for (i = 0; i < allButtons.length; i++) {
-    // console.log(allButtons[i]);
-    if (allButtons[i].innerHTML == "0") {
-      updateAttr(allButtons[i], "I don't agree that this is a usability problem at all.", "up-right", "medium");
-
-    } else if (allButtons[i].innerHTML == "1") {
-      updateAttr(allButtons[i], "Cosmetic problem only: need not be fixed unless extra time is available on project.", "up-right", "medium");
-
-    } else if (allButtons[i].innerHTML == "2") {
-      updateAttr(allButtons[i], "Minor usability problem: fixing this should be given low priority.", "up-right", "medium");
-
-    } else if (allButtons[i].innerHTML == "3") {
-      updateAttr(allButtons[i], "Major usability problem: important to fix, so should be given high priority.", "up-right", "medium");
-
-    } else if (allButtons[i].innerHTML == "4") {
-      updateAttr(allButtons[i], "Usability catastrophe: imperative to fix this before product can be released.", "up-right", "medium");
-
-    }
   }
 }
 

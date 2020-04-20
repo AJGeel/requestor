@@ -114,6 +114,7 @@
 .bubble.reply.bubble-picked .bubble-content .bubble-button {
   transform: scale(0) translate3d(0px, 0px, 0px);
   padding: 0;
+	cursor: initial;
 }
 .bubble.reply:not(.bubble-picked) .bubble-content .bubble-button:hover,
 .bubble.reply .bubble-content .bubble-button.bubble-pick {

@@ -310,17 +310,25 @@ function Bubbles(container, self, options) {
       setTimeout(scrollBubbles, animationTime / 2)
     }, wait + animationTime * 2)
 
-    // Debug: logs adding bubble content. Canditate for callback function integration.
-    // console.log(say, posted, reply, live);
-    // console.log(say);
+    // DEBUG: Console log only bubble buttons.
+    // if (say.includes('<span class="bubble-button"')) {
+    //   console.log("Adding new bubble button! Here are the details:");
+    //   console.log("Say: " + say);
+    //   console.log("Posted: " + posted);
+    //   console.log("Reply: " + reply);
+    //   console.log("Live: " + live);
+    // }
 
-    // Only log bubble buttons.
     if (say.includes('<span class="bubble-button"')) {
-      console.log("Adding new bubble button! Here are the details:");
-      console.log("Say: " + say);
-      console.log("Posted: " + posted);
-      console.log("Reply: " + reply);
-      console.log("Live: " + live);
+      // First: check whether the answer is a heuristic, and has a [0, 4] input
+      // If so: fire callback function that attaches the hover balloons with
+      // additional information
+      if (say.includes('>0<') || say.includes('>1<') || say.includes('>2<')
+      || say.includes('>3<') || say.includes('>4<')) {
+        console.log("Heuristic button detected!");
+        
+        updateBalloonHovers();
+      }
     }
   }
 
@@ -370,3 +378,33 @@ function Bubbles(container, self, options) {
 //   exports.Bubbles = Bubbles
 //   exports.prepHTML = prepHTML
 // }
+
+/* CUSTOM FUNCTIONS */
+
+/* Find all buttons that contain: */
+function updateBalloonHovers() {
+  // First: find all button elements which need a balloon label. Add these to array.
+  // I.e. these are 'span.bubble-button' with content "0", "1", "2", "3" or "4".
+  let allButtons = document.querySelectorAll('span.bubble-button');
+
+  // Cycle through full array, and set aria and data elements
+  for (i = 0; i < allButtons.length; i++) {
+    // console.log(allButtons[i]);
+    if (allButtons[i].innerHTML == "0") {
+      updateAttr(allButtons[i], "I don't agree that this is a usability problem at all.", "up-right", "medium");
+
+    } else if (allButtons[i].innerHTML == "1") {
+      updateAttr(allButtons[i], "Cosmetic problem only: need not be fixed unless extra time is available on project.", "up-right", "medium");
+
+    } else if (allButtons[i].innerHTML == "2") {
+      updateAttr(allButtons[i], "Minor usability problem: fixing this should be given low priority.", "up-right", "medium");
+
+    } else if (allButtons[i].innerHTML == "3") {
+      updateAttr(allButtons[i], "Major usability problem: important to fix, so should be given high priority.", "up-right", "medium");
+
+    } else if (allButtons[i].innerHTML == "4") {
+      updateAttr(allButtons[i], "Usability catastrophe: imperative to fix this before product can be released.", "up-right", "medium");
+
+    }
+  }
+}
