@@ -326,7 +326,7 @@ function Bubbles(container, self, options) {
       if (say.includes('>0<') || say.includes('>1<') || say.includes('>2<')
       || say.includes('>3<') || say.includes('>4<')) {
         console.log("Heuristic button detected!");
-        
+
         updateBalloonHovers();
       }
     }
@@ -394,16 +394,16 @@ function updateBalloonHovers() {
       updateAttr(allButtons[i], "I don't agree that this is a usability problem at all.", "up-right", "medium");
 
     } else if (allButtons[i].innerHTML == "1") {
-      updateAttr(allButtons[i], "Cosmetic problem only: need not be fixed unless extra time is available on project.", "up-right", "medium");
+      updateAttr(allButtons[i], "This is a cosmetic problem. It does not need to be fixed unless there is extra time available on the project.", "up-right", "medium");
 
     } else if (allButtons[i].innerHTML == "2") {
-      updateAttr(allButtons[i], "Minor usability problem: fixing this should be given low priority.", "up-right", "medium");
+      updateAttr(allButtons[i], "This is a minor usability problem. Fixing this should be given low priority.", "up-right", "medium");
 
     } else if (allButtons[i].innerHTML == "3") {
-      updateAttr(allButtons[i], "Major usability problem: important to fix, so should be given high priority.", "up-right", "medium");
+      updateAttr(allButtons[i], "This is a major usability problem. It is important to fix, so should be given high priority.", "up-right", "medium");
 
     } else if (allButtons[i].innerHTML == "4") {
-      updateAttr(allButtons[i], "Usability catastrophe: imperative to fix this before product can be released.", "up-right", "medium");
+      updateAttr(allButtons[i], "This is a usability catastrophe. Releasing this design before fixing this would be a disaster.", "up-right", "medium");
 
     }
   }
