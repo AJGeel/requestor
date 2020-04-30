@@ -83,12 +83,12 @@ Click on the link for an in-depth article (reading time: 5 minutes)." data-ballo
           <button type="button" name="startEvaluation" id="startEvaluationBtn" class="btn" onclick="startEvaluation()">I understand &mdash; show me the interface!</button>
         </div>
 
-        <!-- <form class="" action="backend/form_handler.php" method="post" enctype="application/x-www-form-urlencoded"> -->
+
         <form class="" action="javascript:void(0)" method="post" enctype="application/x-www-form-urlencoded">
 
-          <!-- hidden form attributes to store user and session data -->
-          <input type="hidden" name="user_id" id="form_user_id" value="22044"/>           <!-- TODO: link these hidden form values with JS / PHP, update them accordingly. -->
-          <input type="hidden" name="prototype_id" id="form_prototype_id" value="81948"/> <!-- HOWEVER: now they are just static -->
+          <!-- Hidden form attributes to store user and session data -->
+          <input type="hidden" name="user_id" id="form_user_id" value="-1"/>
+          <input type="hidden" name="prototype_id" id="form_prototype_id" value="0"/> <!-- Variant 0 = GUI / Variant 1 = CUI -->
 
           <div class="form_section heuristic">
             <h2>#1: Visibility of System Status</h2>

@@ -168,7 +168,7 @@ const projectCard1 =
         <button class="btn-tertiary" type="button" name="button" onclick="promptDeleteCard(this)">Delete</button>
         <div class="dashboard-card--button-group">
           <button class="btn-secondary" type="button" name="button">Edit</button>
-          <button class="btn-primary" type="button" name="button" onclick="location.href='/app/r'">View</button>
+          <button class="btn-primary" type="button" name="button" onclick="location.href='/app/gui.php'">View</button>
         </div>
       </div>
     </div>

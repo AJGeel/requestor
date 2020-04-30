@@ -251,7 +251,7 @@
     </nav>
 
     <div class="container">
-      <h1>Requestor &mdash; Better Multidisciplinary Collaboration in UX Work</h1>
+      <h1>Requestor &mdash; A Collaborative Tool For Sharing UX Designs In-Progress</h1>
       <p>Requestor is a web-based tool that enables UX Designers to more easily share their works-in-progress with their (Non UX-designer) colleagues, and provide them with actionable instructions in order to provide feedback. <a target="_blank" href="https://figma.com/">Interactive Figma prototypes</a> can easily be embedded in the tool, and shared alongside the information and instructions to evaluate it. </p>
       <!-- <p>The purpose of this project is to help address problems related to <a target="_blank" href="https://scholar.google.com/scholar?hl=en&as_sdt=0,5&q=ux+maturity">UX Maturity</a> in business by providing industry workers with the tools and the lens required to understand the role of UX.</p> -->
       <img src="/i/concept-overview.jpg" alt="Mock-up image of the concept overview">

@@ -136,7 +136,7 @@ let convo = {
   }, // end conversation object
 
   "heuristic_1" : {
-    "says" : [ "<b>1/10: Visibility of System Status</b>", "<i>The system should always keep users informed about what is going on, through appropriate feedback within reasonable time."],
+    "says" : [ "<b>1/10 — 'Visibility of System Status'</b>", "The system should always keep users informed about what is going on, through appropriate feedback within reasonable time."],
     "reply": [
       {
         "question": "0",
@@ -162,7 +162,7 @@ let convo = {
   }, // end conversation object
 
   "heuristic_2" : {
-    "says" : [ "<b>2/10: Match between the system and the real world</b>", "<i>The system should speak the users' language, with words, phrases and concepts familiar to the user, rather than system-oriented terms. Follow real-world conventions, making information appear in a natural and logical order.</i>", "Once more, please share your opinion below."],
+    "says" : [ "<b>2/10 — 'Match between the System and the Real World'</b>", "The system should speak the users' language, with words, phrases and concepts familiar to the user, rather than system-oriented terms. Follow real-world conventions, making information appear in a natural and logical order."],
     "reply": [
       {
         "question": "0",
@@ -188,7 +188,7 @@ let convo = {
   }, // end conversation object
 
   "heuristic_3" : {
-    "says" : [ "<b>3/10: User control and freedom</b>", "<i>Users often choose system functions by mistake and will need a clearly marked 'emergency exit' to leave the unwanted state without having to go through an extended dialogue. Support undo and redo.</i>"],
+    "says" : [ "<b>3/10 — 'User Control and Freedom'</b>", "Users often choose system functions by mistake and will need a clearly marked 'emergency exit' to leave the unwanted state without having to go through an extended dialogue."],
     "reply": [
       {
         "question": "0",
@@ -214,7 +214,7 @@ let convo = {
   }, // end conversation object
 
   "heuristic_4" : {
-    "says" : [ "<b>4/10: Consistency and standards</b>", "<i>Users should not have to wonder whether different words, situations, or actions mean the same thing. Follow platform conventions.</i>"],
+    "says" : [ "<b>4/10 — 'Consistency and Standards'</b>", "Users should not have to wonder whether different words, situations, or actions mean the same thing. Follow platform conventions."],
     "reply": [
       {
         "question": "0",
@@ -240,7 +240,7 @@ let convo = {
   }, // end conversation object
 
   "heuristic_5" : {
-    "says" : [ "<b>5/10: Error Prevention</b>", "<i>Even better than good error messages is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action.</i>"],
+    "says" : [ "<i>You're halfway there! Just five more questions.</i>", "<b>5/10 — 'Error Prevention'</b>", "Even better than good error messages is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action."],
     "reply": [
       {
         "question": "0",
@@ -266,7 +266,7 @@ let convo = {
   }, // end conversation object
 
   "heuristic_6" : {
-    "says" : [ "<b>6/10: Recognition rather than recall</b>", "<i>Minimize the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part of the dialogue to another. Instructions for use of the system should be visible or easily retrievable whenever appropriate.</i>"],
+    "says" : [ "<b>6/10 — 'Recognition rather than Recall'</b>", "Minimize the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part of the dialogue to another. Instructions for use of the system should be visible or easily retrievable whenever appropriate."],
     "reply": [
       {
         "question": "0",
@@ -292,7 +292,7 @@ let convo = {
   }, // end conversation object
 
   "heuristic_7" : {
-    "says" : [ "<b>7/10: Flexibility and efficiency of use</b>", "<i>Accelerators — unseen by the novice user — may often speed up the interaction for the expert user such that the system can cater to both inexperienced and experienced users. Allow users to tailor frequent actions.</i>"],
+    "says" : [ "<b>7/10 — 'Flexibility and Efficiency of Use'</b>", "Accelerators — unseen by the novice user — may often speed up the interaction for the expert user such that the system can cater to both inexperienced and experienced users. Allow users to tailor frequent actions."],
     "reply": [
       {
         "question": "0",
@@ -318,7 +318,7 @@ let convo = {
   }, // end conversation object
 
   "heuristic_8" : {
-    "says" : [ "<b>8/10: Aesthetic and minimalist design</b>", "<i>Dialogues should not contain information which is irrelevant or rarely needed. Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility.</i>"],
+    "says" : [ "<b>8/10 — 'Aesthetic and Minimalist Design'</b>", "Dialogues should not contain information which is irrelevant or rarely needed. Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility."],
     "reply": [
       {
         "question": "0",
@@ -344,7 +344,7 @@ let convo = {
   }, // end conversation object
 
   "heuristic_9" : {
-    "says" : [ "<b>9/10: Help users recognize, diagnose, and recover from errors</b>", "<i>Error messages should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.</i>"],
+    "says" : [ "<b>9/10 — Help users Recognize, Diagnose, and Recover from Errors</b>", "Error messages should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution."],
     "reply": [
       {
         "question": "0",
@@ -370,29 +370,55 @@ let convo = {
   }, // end conversation object
 
   "heuristic_10" : {
-    "says" : [ "<b>10/10: Help and documentation</b>", "<i>Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user's task, list concrete steps to be carried out, and not be too large.</i>"],
+    "says" : [ "<i>We have one more question.</i>", "<b>10/10 — Help and Documentation</b>", "Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user's task, list concrete steps to be carried out, and not be too large."],
     "reply": [
       {
         "question": "0",
-        "answer": "foo"
+        "answer": "closing_1"
       },
       {
         "question": "1",
-        "answer": "foo"
+        "answer": "closing_1"
       },
       {
         "question": "2",
-        "answer": "foo"
+        "answer": "closing_1"
       },
       {
         "question": "3",
-        "answer": "foo"
+        "answer": "closing_1"
       },
       {
         "question": "4",
-        "answer": "foo"
+        "answer": "closing_1"
       },
     ]
+  }, // end conversation object
+
+  "closing_1" : {
+    "says" : [ "You've reached the end of this evaluation! 🎉", "All your data has been saved.", "You will be re-directed shortly. Thank you for your efforts!"],
+    // "reply": [
+    //   {
+    //     "question": "0",
+    //     "answer": "foo"
+    //   },
+    //   {
+    //     "question": "1",
+    //     "answer": "foo"
+    //   },
+    //   {
+    //     "question": "2",
+    //     "answer": "foo"
+    //   },
+    //   {
+    //     "question": "3",
+    //     "answer": "foo"
+    //   },
+    //   {
+    //     "question": "4",
+    //     "answer": "foo"
+    //   },
+    // ]
   }, // end conversation object
 
   "foo" : {
@@ -446,28 +472,6 @@ unveilDesign = function() {
   }, 2000)
 }
 
-// heuristicFunc1 = function() {
-//
-//   /* Time out for 5 seconds to ensure hover tooltips are added to the newly introduce DOM elements */
-//   // setTimeout(function() {
-//   //   updateBalloonHovers();
-//   // }, 5000);
-//
-//   chatWindow.talk(convo, "heuristic_1");
-//   // updateBalloonHovers();
-// }
-//
-// heuristicFunc2 = function() {
-//
-//     /* Time out for 5 seconds to ensure hover tooltips are added to the newly introduce DOM elements */
-//     // setTimeout(function() {
-//     //   updateBalloonHovers();
-//     // }, 5000);
-//
-//     chatWindow.talk(convo, "heuristic_2");
-//     // updateBalloonHovers();
-// }
-
 
 /*--------------------------------------------------
 03. Custom Functions
@@ -475,11 +479,16 @@ unveilDesign = function() {
 
 
 function startEvaluation() {
-  // Unblur the prototype frame.
+  // Evaluation starts: unblur the prototype frame.
   const frame = document.getElementById("frame");
   frame.style.transition = "filter 2s ease-in-out, opacity 2s ease-in-out";
   frame.style.filter = "blur(0px)";
   frame.style.opacity = "1";
+}
+
+function updateFormValue(name, value) {
+  // Make DOM call to
+  let formItem = document.getElementsByName(`${name}`);
 }
 
 
@@ -493,7 +502,7 @@ function startTalking() {
     setTimeout(function() {
       // chatWindow.talk(convo, "icebreaker");
       // chatWindow.talk(convo, "tasks_4a");
-      chatWindow.talk(convo, "heuristic_1");
+      chatWindow.talk(convo, "heuristic_10");
     }, 1000);
 
     // Update conditional hold
@@ -501,6 +510,7 @@ function startTalking() {
   }
 }
 
+// Update the numerical input items with the respective balloon tooltips
 function updateAttr(target, ariaLabel, balloonPos, balloonLen) {
   target.setAttribute('aria-label', ariaLabel);
   target.setAttribute('data-balloon-pos', balloonPos);

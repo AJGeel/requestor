@@ -51,9 +51,65 @@
 
         <form class="" action="javascript:void(0)" method="post" enctype="application/x-www-form-urlencoded">
 
-          <!-- hidden form attributes to store user and session data -->
-          <input type="hidden" name="user_id" id="form_user_id" value="22044"/>           <!-- TODO: link these hidden form values with JS / PHP, update them accordingly. -->
-          <input type="hidden" name="prototype_id" id="form_prototype_id" value="81948"/> <!-- HOWEVER: now they are just static -->
+         <!-- Hidden form attributes to store user and session data
+              In the CUI, this hidden form is used to store all user input, which
+              is later sent my the form_handler.php
+         -->
+          <input type="hidden" name="user_id" id="form_user_id" value="-1"/>
+          <input type="hidden" name="prototype_id" id="form_prototype_id" value="1"/> <!-- Variant 0 = GUI / Variant 1 = CUI -->
+
+          <!-- Initially, all user input values are unset. These will be set
+               once the user starts progressing through the interface. -->
+
+          <!-- Heuristic 1 -->
+          <input type="hidden" name="heu_1" value="">
+          <input type="hidden" name="heu_1_issue" value="">
+          <input type="hidden" name="heu_1_suggestion" value="">
+
+          <!-- Heuristic 2 -->
+          <input type="hidden" name="heu_2" value="">
+          <input type="hidden" name="heu_2_issue" value="">
+          <input type="hidden" name="heu_2_suggestion" value="">
+
+          <!-- Heuristic 3 -->
+          <input type="hidden" name="heu_3" value="">
+          <input type="hidden" name="heu_3_issue" value="">
+          <input type="hidden" name="heu_3_suggestion" value="">
+
+          <!-- Heuristic 4 -->
+          <input type="hidden" name="heu_4" value="">
+          <input type="hidden" name="heu_4_issue" value="">
+          <input type="hidden" name="heu_4_suggestion" value="">
+
+          <!-- Heuristic 5 -->
+          <input type="hidden" name="heu_5" value="">
+          <input type="hidden" name="heu_5_issue" value="">
+          <input type="hidden" name="heu_5_suggestion" value="">
+
+          <!-- Heuristic 6 -->
+          <input type="hidden" name="heu_6" value="">
+          <input type="hidden" name="heu_6_issue" value="">
+          <input type="hidden" name="heu_6_suggestion" value="">
+
+          <!-- Heuristic 7 -->
+          <input type="hidden" name="heu_7" value="">
+          <input type="hidden" name="heu_7_issue" value="">
+          <input type="hidden" name="heu_7_suggestion" value="">
+
+          <!-- Heuristic 8 -->
+          <input type="hidden" name="heu_8" value="">
+          <input type="hidden" name="heu_8_issue" value="">
+          <input type="hidden" name="heu_8_suggestion" value="">
+
+          <!-- Heuristic 9 -->
+          <input type="hidden" name="heu_9" value="">
+          <input type="hidden" name="heu_9_issue" value="">
+          <input type="hidden" name="heu_9_suggestion" value="">
+
+          <!-- Heuristic 10 -->
+          <input type="hidden" name="heu_10" value="">
+          <input type="hidden" name="heu_10_issue" value="">
+          <input type="hidden" name="heu_10_suggestion" value="">
 
         </form>
 

@@ -400,7 +400,7 @@ function updateBalloonHovers() {
       updateAttr(allButtons[i], "This is a minor usability problem. Fixing this should be given low priority.", "up-right", "medium");
 
     } else if (allButtons[i].innerHTML == "3") {
-      updateAttr(allButtons[i], "This is a major usability problem. It is important to fix, so should be given high priority.", "up-right", "medium");
+      updateAttr(allButtons[i], "This is a major usability problem. It is important to fix, so it should be given high priority.", "up-right", "medium");
 
     } else if (allButtons[i].innerHTML == "4") {
       updateAttr(allButtons[i], "This is a usability catastrophe. Releasing this design before fixing this would be a disaster.", "up-right", "medium");

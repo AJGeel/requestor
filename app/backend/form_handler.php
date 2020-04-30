@@ -5,10 +5,6 @@
 // Source: https://security.stackexchange.com/questions/60988/prevent-a-server-side-script-from-a-direct-url-access
 
 
-// if (!defined('allow-access')) {
-//   exit('Direct access not allowed.');
-// }
-
 /* Then: make sure we have the database credentials */
 require 'config.php';
 ?>
