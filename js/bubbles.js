@@ -1,4 +1,9 @@
-/* TODO: Fix random order (1-5) --> (5-1) */
+// Global variables
+
+var inputText; // We make this global so we can DOM-access this throughout other scripts.
+// This is done to only make the inputText visible if we expect an answer.
+var inputWrap;
+// Same goes for the inputWrap
 
 // core function
 function Bubbles(container, self, options) {
@@ -76,10 +81,13 @@ function Bubbles(container, self, options) {
 
   // install user input textfield
   this.typeInput = function(callbackFn) {
-    var inputWrap = document.createElement("div")
+    inputWrap = document.createElement("div")
     inputWrap.className = "input-wrap"
-    var inputText = document.createElement("textarea")
-    inputText.setAttribute("placeholder", "Ask me anything...")
+    // inputWrap.classList.add("max-reached"); // Add this if the max is reached.
+    inputText = document.createElement("textarea")
+    // inputText.classList.add("inactive"); // Add this if no text input is required.
+    inputText.setAttribute("placeholder", "Please enter your input here. \n(max. 400 characters)")
+    inputText.setAttribute("maxlength", "400.")
     inputWrap.appendChild(inputText)
     inputText.addEventListener("keypress", function(e) {
       // register user input
@@ -325,7 +333,6 @@ function Bubbles(container, self, options) {
       // additional information
       if (say.includes('>0<') || say.includes('>1<') || say.includes('>2<')
       || say.includes('>3<') || say.includes('>4<')) {
-        console.log("Heuristic button detected!");
 
         updateBalloonHovers();
       }

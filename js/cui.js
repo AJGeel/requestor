@@ -13,11 +13,60 @@
 // initialize by constructing a named function...
 const chatWindow = new Bubbles(
     document.getElementById('chat'), // ...passing HTML container element...
-    "chatWindow" // ...and name of the function as a parameter
-);
+    "chatWindow", { // ...and name of the function as a parameter
+
+    inputCallbackFn: function(obj) {
+    // add error conversation block & recall it if no answer matched
+    var miss = function() {
+      chatWindow.talk(
+        {
+          "i-dont-get-it": {
+            says: [
+              "Sorry, I don't quite understand what you mean."
+            ],
+            reply: obj.convo[obj.standingAnswer].reply
+          }
+        },
+        "i-dont-get-it"
+      )
+    }
+
+    // do this if answer found
+    var match = function(key) {
+      setTimeout(function() {
+        chatWindow.talk(convo, key) // restart current convo from point found in the answer
+      }, 600)
+    }
+
+    // sanitize text for search function
+    var strip = function(text) {
+      return text.toLowerCase().replace(/[\s.,\/#!$%\^&\*;:{}=\-_'"`~()]/g, "")
+    }
+
+    // search function
+    var found = false
+    obj.convo[obj.standingAnswer].reply.forEach(function(e, i) {
+      // 'e' stands for convo.{active}.reply[e], and lists both questions and answers
+      // 'i' stands for the question's content
+
+      strip(e.question).includes(strip(obj.input)) && obj.input.length > 0
+        ? (found = e.answer)
+        : found ? null : (found = false)
+    })
+    // If a match is found, execute the following function:
+    // chatWindow.talk(convo, e.answer)
+
+    // If no match is found, go to the 'miss' function
+    found ? match(found) : miss()
+  }
+
+});
 
 // Variable that prevents multiple chat instances from occurring at the same time.
 let startedPlaying = false;
+
+// Variable that keeps track of the current heuristic
+let currentHeuristic;
 
 
 /*--------------------------------------------------
@@ -140,23 +189,23 @@ let convo = {
     "reply": [
       {
         "question": "0",
-        "answer": "heuristic_2"
+        "answer": "heu_1_0"
       },
       {
         "question": "1",
-        "answer": "heuristic_2"
+        "answer": "heu_1_1"
       },
       {
         "question": "2",
-        "answer": "heuristic_2"
+        "answer": "heu_1_2"
       },
       {
         "question": "3",
-        "answer": "heuristic_2"
+        "answer": "heu_1_3"
       },
       {
         "question": "4",
-        "answer": "heuristic_2"
+        "answer": "heu_1_4"
       },
     ]
   }, // end conversation object
@@ -166,23 +215,23 @@ let convo = {
     "reply": [
       {
         "question": "0",
-        "answer": "heuristic_3"
+        "answer": "heu_2_0"
       },
       {
         "question": "1",
-        "answer": "heuristic_3"
+        "answer": "heu_2_1"
       },
       {
         "question": "2",
-        "answer": "heuristic_3"
+        "answer": "heu_2_2"
       },
       {
         "question": "3",
-        "answer": "heuristic_3"
+        "answer": "heu_2_3"
       },
       {
         "question": "4",
-        "answer": "heuristic_3"
+        "answer": "heu_2_4"
       },
     ]
   }, // end conversation object
@@ -192,23 +241,23 @@ let convo = {
     "reply": [
       {
         "question": "0",
-        "answer": "heuristic_4"
+        "answer": "heu_3_0"
       },
       {
         "question": "1",
-        "answer": "heuristic_4"
+        "answer": "heu_3_1"
       },
       {
         "question": "2",
-        "answer": "heuristic_4"
+        "answer": "heu_3_2"
       },
       {
         "question": "3",
-        "answer": "heuristic_4"
+        "answer": "heu_3_3"
       },
       {
         "question": "4",
-        "answer": "heuristic_4"
+        "answer": "heu_3_4"
       },
     ]
   }, // end conversation object
@@ -218,49 +267,49 @@ let convo = {
     "reply": [
       {
         "question": "0",
-        "answer": "heuristic_5"
+        "answer": "heu_4_0"
       },
       {
         "question": "1",
-        "answer": "heuristic_5"
+        "answer": "heu_4_1"
       },
       {
         "question": "2",
-        "answer": "heuristic_5"
+        "answer": "heu_4_2"
       },
       {
         "question": "3",
-        "answer": "heuristic_5"
+        "answer": "heu_4_3"
       },
       {
         "question": "4",
-        "answer": "heuristic_5"
+        "answer": "heu_4_4"
       },
     ]
   }, // end conversation object
 
   "heuristic_5" : {
-    "says" : [ "<i>You're halfway there! Just five more questions.</i>", "<b>5/10 — 'Error Prevention'</b>", "Even better than good error messages is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action."],
+    "says" : [ "<i>You're halfway there! We just have five heuristics left!</i>", "insert_gif_here.jpg", "<b>5/10 — 'Error Prevention'</b>", "Even better than good error messages is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action."],
     "reply": [
       {
         "question": "0",
-        "answer": "heuristic_6"
+        "answer": "heu_5_0"
       },
       {
         "question": "1",
-        "answer": "heuristic_6"
+        "answer": "heu_5_1"
       },
       {
         "question": "2",
-        "answer": "heuristic_6"
+        "answer": "heu_5_2"
       },
       {
         "question": "3",
-        "answer": "heuristic_6"
+        "answer": "heu_5_3"
       },
       {
         "question": "4",
-        "answer": "heuristic_6"
+        "answer": "heu_5_4"
       },
     ]
   }, // end conversation object
@@ -270,23 +319,23 @@ let convo = {
     "reply": [
       {
         "question": "0",
-        "answer": "heuristic_7"
+        "answer": "heu_6_0"
       },
       {
         "question": "1",
-        "answer": "heuristic_7"
+        "answer": "heu_6_1"
       },
       {
         "question": "2",
-        "answer": "heuristic_7"
+        "answer": "heu_6_2"
       },
       {
         "question": "3",
-        "answer": "heuristic_7"
+        "answer": "heu_6_3"
       },
       {
         "question": "4",
-        "answer": "heuristic_7"
+        "answer": "heu_6_4"
       },
     ]
   }, // end conversation object
@@ -296,23 +345,23 @@ let convo = {
     "reply": [
       {
         "question": "0",
-        "answer": "heuristic_8"
+        "answer": "heu_7_0"
       },
       {
         "question": "1",
-        "answer": "heuristic_8"
+        "answer": "heu_7_1"
       },
       {
         "question": "2",
-        "answer": "heuristic_8"
+        "answer": "heu_7_2"
       },
       {
         "question": "3",
-        "answer": "heuristic_8"
+        "answer": "heu_7_3"
       },
       {
         "question": "4",
-        "answer": "heuristic_8"
+        "answer": "heu_7_4"
       },
     ]
   }, // end conversation object
@@ -322,23 +371,23 @@ let convo = {
     "reply": [
       {
         "question": "0",
-        "answer": "heuristic_9"
+        "answer": "heu_8_0"
       },
       {
         "question": "1",
-        "answer": "heuristic_9"
+        "answer": "heu_8_1"
       },
       {
         "question": "2",
-        "answer": "heuristic_9"
+        "answer": "heu_8_2"
       },
       {
         "question": "3",
-        "answer": "heuristic_9"
+        "answer": "heu_8_3"
       },
       {
         "question": "4",
-        "answer": "heuristic_9"
+        "answer": "heu_8_4"
       },
     ]
   }, // end conversation object
@@ -348,23 +397,23 @@ let convo = {
     "reply": [
       {
         "question": "0",
-        "answer": "heuristic_10"
+        "answer": "heu_9_0"
       },
       {
         "question": "1",
-        "answer": "heuristic_10"
+        "answer": "heu_9_1"
       },
       {
         "question": "2",
-        "answer": "heuristic_10"
+        "answer": "heu_9_2"
       },
       {
         "question": "3",
-        "answer": "heuristic_10"
+        "answer": "heu_9_3"
       },
       {
         "question": "4",
-        "answer": "heuristic_10"
+        "answer": "heu_9_4"
       },
     ]
   }, // end conversation object
@@ -374,23 +423,23 @@ let convo = {
     "reply": [
       {
         "question": "0",
-        "answer": "closing_1"
+        "answer": "heu_10_0"
       },
       {
         "question": "1",
-        "answer": "closing_1"
+        "answer": "heu_10_1"
       },
       {
         "question": "2",
-        "answer": "closing_1"
+        "answer": "heu_10_2"
       },
       {
         "question": "3",
-        "answer": "closing_1"
+        "answer": "heu_10_3"
       },
       {
         "question": "4",
-        "answer": "closing_1"
+        "answer": "heu_10_4"
       },
     ]
   }, // end conversation object
@@ -451,26 +500,105 @@ let convo = {
     ]
   }, // end conversation object
 
+  "heuristicIssue" : {
+    "says" : [ "Could you tell us what the issue is? You may click on the input box below to type your answer."],
+    "reply": [
+      {
+        "question": "I’d rather not.",
+        "answer": "closing_1"
+      }
+    ]
+  }
+
 } // end conversation object
 
+
 unveilDesign = function() {
-
-  /* For security purposes, the full function HAS to be defined within this file.
-     The GitHub repo suggests that these functions cannot accept parameters for security reasons,
-     Although I have to try this out myself.
-
-     A function with a parameter in this formulation would be:
-
-     unveilDesign = function(param) {
-        console.log(param);
-     }
-  */
   startEvaluation();
 
   setTimeout(function() {
     chatWindow.talk(convo, "intro_3")
   }, 2000)
 }
+
+
+
+
+/* Due to how the Bubbles.js library is built, we need to have a messy, repetitive
+   block of code: parameters are not accepted in chat reply functions for security
+   reasons. I don't like the code below either.
+*/
+
+/* Heuristic 1 answer response functions */
+heu_1_0 = function() { handleHeuristicResponse(1, 0); }
+heu_1_1 = function() { handleHeuristicResponse(1, 1); }
+heu_1_2 = function() { handleHeuristicResponse(1, 2); }
+heu_1_3 = function() { handleHeuristicResponse(1, 3); }
+heu_1_4 = function() { handleHeuristicResponse(1, 4); }
+
+/* Heuristic 2 answer response functions */
+heu_2_0 = function() { handleHeuristicResponse(2, 0); }
+heu_2_1 = function() { handleHeuristicResponse(2, 1); }
+heu_2_2 = function() { handleHeuristicResponse(2, 2); }
+heu_2_3 = function() { handleHeuristicResponse(2, 3); }
+heu_2_4 = function() { handleHeuristicResponse(2, 4); }
+
+/* Heuristic 3 answer response functions */
+heu_3_0 = function() { handleHeuristicResponse(3, 0); }
+heu_3_1 = function() { handleHeuristicResponse(3, 1); }
+heu_3_2 = function() { handleHeuristicResponse(3, 2); }
+heu_3_3 = function() { handleHeuristicResponse(3, 3); }
+heu_3_4 = function() { handleHeuristicResponse(3, 4); }
+
+/* Heuristic 4 answer response functions */
+heu_4_0 = function() { handleHeuristicResponse(4, 0); }
+heu_4_1 = function() { handleHeuristicResponse(4, 1); }
+heu_4_2 = function() { handleHeuristicResponse(4, 2); }
+heu_4_3 = function() { handleHeuristicResponse(4, 3); }
+heu_4_4 = function() { handleHeuristicResponse(4, 4); }
+
+/* Heuristic 5 answer response functions */
+heu_5_0 = function() { handleHeuristicResponse(5, 0); }
+heu_5_1 = function() { handleHeuristicResponse(5, 1); }
+heu_5_2 = function() { handleHeuristicResponse(5, 2); }
+heu_5_3 = function() { handleHeuristicResponse(5, 3); }
+heu_5_4 = function() { handleHeuristicResponse(5, 4); }
+
+/* Heuristic 6 answer response functions */
+heu_6_0 = function() { handleHeuristicResponse(6, 0); }
+heu_6_1 = function() { handleHeuristicResponse(6, 1); }
+heu_6_2 = function() { handleHeuristicResponse(6, 2); }
+heu_6_3 = function() { handleHeuristicResponse(6, 3); }
+heu_6_4 = function() { handleHeuristicResponse(6, 4); }
+
+/* Heuristic 7 answer response functions */
+heu_7_0 = function() { handleHeuristicResponse(7, 0); }
+heu_7_1 = function() { handleHeuristicResponse(7, 1); }
+heu_7_2 = function() { handleHeuristicResponse(7, 2); }
+heu_7_3 = function() { handleHeuristicResponse(7, 3); }
+heu_7_4 = function() { handleHeuristicResponse(7, 4); }
+
+/* Heuristic 8 answer response functions */
+heu_8_0 = function() { handleHeuristicResponse(8, 0); }
+heu_8_1 = function() { handleHeuristicResponse(8, 1); }
+heu_8_2 = function() { handleHeuristicResponse(8, 2); }
+heu_8_3 = function() { handleHeuristicResponse(8, 3); }
+heu_8_4 = function() { handleHeuristicResponse(8, 4); }
+
+/* Heuristic 9 answer response functions */
+heu_9_0 = function() { handleHeuristicResponse(9, 0); }
+heu_9_1 = function() { handleHeuristicResponse(9, 1); }
+heu_9_2 = function() { handleHeuristicResponse(9, 2); }
+heu_9_3 = function() { handleHeuristicResponse(9, 3); }
+heu_9_4 = function() { handleHeuristicResponse(9, 4); }
+
+/* Heuristic 10 answer response functions */
+heu_10_0 = function() { handleHeuristicResponse(10, 0); }
+heu_10_1 = function() { handleHeuristicResponse(10, 1); }
+heu_10_2 = function() { handleHeuristicResponse(10, 2); }
+heu_10_3 = function() { handleHeuristicResponse(10, 3); }
+heu_10_4 = function() { handleHeuristicResponse(10, 4); }
+
 
 
 /*--------------------------------------------------
@@ -486,9 +614,46 @@ function startEvaluation() {
   frame.style.opacity = "1";
 }
 
-function updateFormValue(name, value) {
-  // Make DOM call to
-  let formItem = document.getElementsByName(`${name}`);
+/* Function that updates the hidden form values to save user input */
+function updateFormValue(name, userInput) {
+  // Make DOM call to locate target
+  let hiddenFormItem = document.getElementsByName(`${name}`)[0];
+
+  // Update hidden form item with user input
+  hiddenFormItem.value = `${userInput}`;
+}
+
+/* Function that continues the conversation in any heuristic*/
+function goToHeuristic(heuristicNo) {
+  chatWindow.talk(convo, `heuristic_${heuristicNo}`);
+}
+
+function handleHeuristicResponse(heuristicNo, input) {
+  // First: update the hidden form value
+  updateFormValue(`heu_${heuristicNo}`, input);
+
+  currentHeuristic = heuristicNo;
+
+  // Check if the heuristic is the last of the set
+
+  if (heuristicNo != 10) {
+    // No issue detected, heurstic does not require follow-up questions.
+    if (input == 0) {
+      goToHeuristic(heuristicNo+1);
+    } else {
+      // Prompt the user to input more on this: what the issue is, and a suggestion on how to fix it.
+      // However, for now we keep it simple;
+      goToHeuristic(heuristicNo+1);
+      // TODO integrate 'heuristic_n_issue' and 'heuristic_n_suggestion' dialogs.
+    }
+  } else if (heuristicNo == 10) {
+    // Go to the closing statements
+    chatWindow.talk(convo, 'closing_1');
+  } else {
+    // This should never occur. However, we do want to gracefully handle this exception.
+    console.log("We could not handle your request at this time.");
+    chatWindow.talk(convo, 'closing_1');
+  }
 }
 
 
@@ -502,7 +667,7 @@ function startTalking() {
     setTimeout(function() {
       // chatWindow.talk(convo, "icebreaker");
       // chatWindow.talk(convo, "tasks_4a");
-      chatWindow.talk(convo, "heuristic_10");
+      chatWindow.talk(convo, "heuristicIssue");
     }, 1000);
 
     // Update conditional hold
