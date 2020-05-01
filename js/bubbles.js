@@ -85,7 +85,7 @@ function Bubbles(container, self, options) {
     inputWrap.className = "input-wrap"
     // inputWrap.classList.add("max-reached"); // Add this if the max is reached.
     inputText = document.createElement("textarea")
-    // inputText.classList.add("inactive"); // Add this if no text input is required.
+    inputText.classList.add("inactive"); // Add this if no text input is required.
     inputText.setAttribute("placeholder", "Please enter your input here. \n(max. 400 characters)")
     inputText.setAttribute("maxlength", "400.")
     inputWrap.appendChild(inputText)

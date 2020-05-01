@@ -28,6 +28,7 @@
 .bubble-container .input-wrap textarea.inactive {
 	transform: scale(.6) translateY(1em);
   opacity: 0;
+	pointer-events: none;
 }
 
 .bubble-container .input-wrap.max-reached::before {

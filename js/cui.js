@@ -501,14 +501,24 @@ let convo = {
   }, // end conversation object
 
   "heuristicIssue" : {
-    "says" : [ "Could you tell us what the issue is? You may click on the input box below to type your answer."],
+    "says" : [ "Could you tell us what the issue is? If you want, you can type your input in the text area below."],
     "reply": [
       {
-        "question": "I’d rather not.",
-        "answer": "closing_1"
+        "question": "I’d like to skip this one.",
+        "answer": "heuristicSuggestion"
       }
     ]
-  }
+  },
+
+  "heuristicSuggestion" : {
+    "says" : [ "Could you give a suggestion on how to fix this issue? You may click on the input box below to type your answer."],
+    "reply": [
+      {
+        "question": "I’d like to skip this one.",
+        "answer": "handleSuggestion"
+      }
+    ]
+  },
 
 } // end conversation object
 
@@ -521,6 +531,9 @@ unveilDesign = function() {
   }, 2000)
 }
 
+handleSuggestion = function() {
+  handleSuggestionContent();
+}
 
 
 
@@ -643,7 +656,8 @@ function handleHeuristicResponse(heuristicNo, input) {
     } else {
       // Prompt the user to input more on this: what the issue is, and a suggestion on how to fix it.
       // However, for now we keep it simple;
-      goToHeuristic(heuristicNo+1);
+      askHeuristicIssue();
+      // goToHeuristic(heuristicNo+1);
       // TODO integrate 'heuristic_n_issue' and 'heuristic_n_suggestion' dialogs.
     }
   } else if (heuristicNo == 10) {
@@ -656,6 +670,25 @@ function handleHeuristicResponse(heuristicNo, input) {
   }
 }
 
+function askHeuristicIssue() {
+  setTimeout(function() {
+    // Make textarea input visible...
+    // ... After a well-timed delay, of course.
+    inputText.classList.remove("inactive");
+    // Autofocus the element for a more convenient typing experience
+    inputText.focus();
+  }, 2000);
+  // Summon heuristic issue dialog
+  chatWindow.talk(convo, "heuristicIssue");
+}
+
+function handleSuggestionContent() {
+  // Should hide textarea again.
+
+  // Should resume at the next heuristic.
+  let nextHeu = currentHeuristic + 1;
+  goToHeuristic(`heu_${nextHeu}`);
+}
 
 
 
@@ -667,7 +700,7 @@ function startTalking() {
     setTimeout(function() {
       // chatWindow.talk(convo, "icebreaker");
       // chatWindow.talk(convo, "tasks_4a");
-      chatWindow.talk(convo, "heuristicIssue");
+      chatWindow.talk(convo, "heuristic_1");
     }, 1000);
 
     // Update conditional hold
