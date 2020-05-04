@@ -103,8 +103,8 @@ document.addEventListener("keypress", function(event) {
   // Console log the keycode for debugging
   // console.log("$DEBUG: Key: " + event.keyCode);
   if (event.keyCode == 68 /* || event.keyCode == 100 */) {
-    // 'd' or 'D' is pressed: toggle darkmode on Body DOM element
-    toggleClass(DOM_Body, "darkmode");
+    // 'd' or 'D' is pressed: toggle darkmode on Body DOM element REMOVED 2020-05-04 
+    // toggleClass(DOM_Body, "darkmode");
 
   }  else if (event.keyCode == 120 || event.keyCode == 88) {
     // 'x' or 'X' is pressed: does nothing yet.

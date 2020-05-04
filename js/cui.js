@@ -16,49 +16,80 @@ const chatWindow = new Bubbles(
     "chatWindow", { // ...and name of the function as a parameter
 
     inputCallbackFn: function(obj) {
-    // add error conversation block & recall it if no answer matched
-    var miss = function() {
-      chatWindow.talk(
-        {
-          "i-dont-get-it": {
-            says: [
-              "Sorry, I don't quite understand what you mean."
-            ],
-            reply: obj.convo[obj.standingAnswer].reply
+      // add error conversation block & recall it if no answer matched
+      var miss = function() {
+
+        // console.log(obj.convo[obj.standingAnswer]);
+        console.log(obj.input);
+
+        if (currentQuestion == "issue") {
+          // Store user input in hidden form
+          updateFormValue(`heu_${currentHeuristic}_issue`, obj.input);
+
+          // Initialize next dialog
+          askHeuristicSuggestion();
+
+        } else if (currentQuestion == "suggestion") {
+          // Store user input in hidden form
+          updateFormValue(`heu_${currentHeuristic}_suggestion`, obj.input);
+
+          // Reset currentQuestion variable
+          currentQuestion = "";
+
+          // Hide textarea element
+          inputText.classList.add("inactive");
+
+          // Initialize next dialog
+          if (currentHeuristic < 10) {
+            goToHeuristic(currentHeuristic+1)
+          } else {
+            chatWindow.talk(convo, "closing_1");
           }
-        },
-        "i-dont-get-it"
-      )
+
+        } else {
+          // Fallback option in case the currentQuestion is not defined.
+          chatWindow.talk(
+            {
+              "i-dont-get-it": {
+                says: [
+                  "Sorry, I don't quite understand what you mean."
+                ],
+                reply: obj.convo[obj.standingAnswer].reply
+              }
+            },
+            "i-dont-get-it"
+          )
+        }
+      }
+
+      // do this if answer found
+      var match = function(key) {
+        setTimeout(function() {
+          chatWindow.talk(convo, key) // restart current convo from point found in the answer
+        }, 600)
+      }
+
+      // sanitize text for search function
+      var strip = function(text) {
+        return text.toLowerCase().replace(/[\s.,\/#!$%\^&\*;:{}=\-_'"`~()]/g, "")
+      }
+
+      // search function
+      var found = false
+      obj.convo[obj.standingAnswer].reply.forEach(function(e, i) {
+        // 'e' stands for convo.{active}.reply[e], and lists both questions and answers
+        // 'i' stands for the question's content
+
+        strip(e.question).includes(strip(obj.input)) && obj.input.length > 0
+          ? (found = e.answer)
+          : found ? null : (found = false)
+      })
+      // If a match is found, execute the following function:
+      // chatWindow.talk(convo, e.answer)
+
+      // If no match is found, go to the 'miss' function
+      found ? match(found) : miss()
     }
-
-    // do this if answer found
-    var match = function(key) {
-      setTimeout(function() {
-        chatWindow.talk(convo, key) // restart current convo from point found in the answer
-      }, 600)
-    }
-
-    // sanitize text for search function
-    var strip = function(text) {
-      return text.toLowerCase().replace(/[\s.,\/#!$%\^&\*;:{}=\-_'"`~()]/g, "")
-    }
-
-    // search function
-    var found = false
-    obj.convo[obj.standingAnswer].reply.forEach(function(e, i) {
-      // 'e' stands for convo.{active}.reply[e], and lists both questions and answers
-      // 'i' stands for the question's content
-
-      strip(e.question).includes(strip(obj.input)) && obj.input.length > 0
-        ? (found = e.answer)
-        : found ? null : (found = false)
-    })
-    // If a match is found, execute the following function:
-    // chatWindow.talk(convo, e.answer)
-
-    // If no match is found, go to the 'miss' function
-    found ? match(found) : miss()
-  }
 
 });
 
@@ -67,6 +98,8 @@ let startedPlaying = false;
 
 // Variable that keeps track of the current heuristic
 let currentHeuristic;
+// Variable that keeps track of open-ended questions
+let currentQuestion;
 
 
 /*--------------------------------------------------
@@ -511,7 +544,7 @@ let convo = {
   },
 
   "heuristicSuggestion" : {
-    "says" : [ "Could you give a suggestion on how to fix this issue? You may click on the input box below to type your answer."],
+    "says" : [ "Perhaps you have a suggestion on how we may fix this issue? Once more, you can type your input in the text area below."],
     "reply": [
       {
         "question": "I’d like to skip this one.",
@@ -532,7 +565,18 @@ unveilDesign = function() {
 }
 
 handleSuggestion = function() {
-  handleSuggestionContent();
+  // Reset currentQuestion variable
+  currentQuestion = "";
+
+  // Hide textarea element
+  inputText.classList.add("inactive");
+
+  // Initialize next dialog
+  if (currentHeuristic < 10) {
+    goToHeuristic(currentHeuristic+1)
+  } else {
+    chatWindow.talk(convo, "closing_1");
+  }
 }
 
 
@@ -678,19 +722,28 @@ function askHeuristicIssue() {
     // Autofocus the element for a more convenient typing experience
     inputText.focus();
   }, 2000);
+
+  // Update currentQuestion variable
+  currentQuestion = "issue";
   // Summon heuristic issue dialog
   chatWindow.talk(convo, "heuristicIssue");
 }
 
-function handleSuggestionContent() {
-  // Should hide textarea again.
+function askHeuristicSuggestion() {
+  setTimeout(function() {
+    // Make textarea input visible...
+    // ... After a well-timed delay, of course.
+    // However, this most likely was already visible, hence this is just a way to ensure that it is.
+    inputText.classList.remove("inactive");
+    // Autofocus the element for a more convenient typing experience
+    inputText.focus();
+  }, 2000);
 
-  // Should resume at the next heuristic.
-  let nextHeu = currentHeuristic + 1;
-  goToHeuristic(`heu_${nextHeu}`);
+  // Update currentQuestion variable
+  currentQuestion = "suggestion";
+  // Summon heuristic issue dialog
+  chatWindow.talk(convo, "heuristicSuggestion");
 }
-
-
 
 function startTalking() {
   /* We only want to start a new conversation if there are no other simulaneous conversations */
@@ -703,7 +756,7 @@ function startTalking() {
       chatWindow.talk(convo, "heuristic_1");
     }, 1000);
 
-    // Update conditional hold
+    // Update conditional
     startedPlaying = true;
   }
 }
