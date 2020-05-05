@@ -1,0 +1,180 @@
+.container {
+  display: flex;
+  font-family: "Sen", sans-serif;
+  line-height: 150%;
+
+  animation: fadeInCenter .8s ease-in-out;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F3F3FC 100%);
+  display: flex;
+  justify-content: center;
+}
+
+.hero img {
+  object-fit: contain;
+  padding: 14em 2em;
+  max-width: 100%;
+
+  animation: fadeInBottom 1s ease-in-out;
+}
+
+.container .sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  /* width: 40%; */
+  width: 500px;
+  flex-shrink: 0;
+}
+
+b {
+  font-weight: bold;
+}
+
+h1 {
+  color: #0000A3;
+  font-size: 2.2em;
+  font-weight: 600;
+  margin-bottom: .8em;
+}
+
+p {
+  font-family: "Ubuntu", sans-serif;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+.stats {
+  margin: 1em 0;
+}
+
+.stat {
+  background-color: #F3F3FC;
+  color: #0000A3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 4px;
+}
+
+.stat--icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.stat--icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.stat--text {
+  width: 100%;
+}
+
+.stat:last-child {
+  flex-direction: column;
+}
+
+.stat-buttons {
+  display: flex;
+  width: 100%;
+  margin-top: 1em;
+}
+
+.stat-buttons button {
+  width: 100%;
+  font-family: 'Sen', sans-serif;
+  background-color: #F3F3FC;
+  border: 1px solid #0000A3;
+  box-sizing: border-box;
+  color: #0000A3;
+  cursor: pointer;
+  padding: .4em;
+  font-size: 1em;
+  border-radius: 2px;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+
+.stat-buttons button.active {
+  background-color: #0000A3;
+  color: #fff;
+}
+
+.stat-buttons button:hover {
+  background-color: #0000A3;
+  color: #fff;
+}
+
+.stat-buttons button:first-child {
+  border-right: none;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.stat-buttons button:last-child {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.call-to-action {
+  background-color: #0000A3;
+  color: #fff;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 100px;
+  padding: .7em;
+  font-size: 1em;
+  border: none;
+  font-family: 'Sen', sans-serif;
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.call-to-action span {
+  transition: all .2s ease-in-out;
+}
+
+.call-to-action:hover span {
+  transform: translateX(1em);
+}
+
+
+
+
+@keyframes fadeInCenter {
+  from {
+    transform: scale(.9);
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeInBottom {
+  from {
+    transform: rotate(-20deg) scale(.3);
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    transform: rotate(0deg);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}

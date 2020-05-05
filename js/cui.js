@@ -84,8 +84,6 @@ const chatWindow = new Bubbles(
           ? (found = e.answer)
           : found ? null : (found = false)
       })
-      // If a match is found, execute the following function:
-      // chatWindow.talk(convo, e.answer)
 
       // If no match is found, go to the 'miss' function
       found ? match(found) : miss()
@@ -452,7 +450,7 @@ let convo = {
   }, // end conversation object
 
   "heuristic_10" : {
-    "says" : [ "<i>We have one more question.</i>", "<b>10/10 — Help and Documentation</b>", "Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user's task, list concrete steps to be carried out, and not be too large."],
+    "says" : [ "<i>We have one more heuristic.</i>", "<b>10/10 — Help and Documentation</b>", "Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user's task, list concrete steps to be carried out, and not be too large."],
     "reply": [
       {
         "question": "0",
@@ -478,29 +476,13 @@ let convo = {
   }, // end conversation object
 
   "closing_1" : {
-    "says" : [ "You've reached the end of this evaluation! 🎉", "All your data has been saved.", "You will be re-directed shortly. Thank you for your efforts!"],
+    "says" : [ "You've reached the end of this evaluation! 🎉", "All your input has been saved.", "You will be re-directed shortly. Thank you for your efforts!"],
     // "reply": [
     //   {
     //     "question": "0",
     //     "answer": "foo"
-    //   },
-    //   {
-    //     "question": "1",
-    //     "answer": "foo"
-    //   },
-    //   {
-    //     "question": "2",
-    //     "answer": "foo"
-    //   },
-    //   {
-    //     "question": "3",
-    //     "answer": "foo"
-    //   },
-    //   {
-    //     "question": "4",
-    //     "answer": "foo"
-    //   },
-    // ]
+    //   }
+    //]
   }, // end conversation object
 
   "foo" : {
@@ -753,7 +735,7 @@ function startTalking() {
     setTimeout(function() {
       // chatWindow.talk(convo, "icebreaker");
       // chatWindow.talk(convo, "tasks_4a");
-      chatWindow.talk(convo, "heuristic_1");
+      chatWindow.talk(convo, "icebreaker");
     }, 1000);
 
     // Update conditional
