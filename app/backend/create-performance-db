@@ -1,0 +1,13 @@
+CREATE TABLE performance (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    user_id int(11),
+    prototype_id int(11),
+    time_spent_total int(11),
+    time_spent_on_onboarding int(11),
+    time_spent_on_scenario int(11),
+    time_spent_on_evaluation int(11),
+    completed_scenario int(1),
+    interested int(1),
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+)

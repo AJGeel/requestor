@@ -99,6 +99,12 @@ let currentHeuristic;
 // Variable that keeps track of open-ended questions
 let currentQuestion;
 
+let timeSpentTotal = 0;
+let timeSpentOnOnboarding = 0;
+let timeSpentOnScenario = 0;
+let timeSpentOnEvaluation = 0;
+let completedScenario = 0;
+
 
 /*--------------------------------------------------
 02. Bubbles Core & Script
@@ -186,11 +192,11 @@ let convo = {
     "reply": [
       {
         "question": "I’m done!",
-        "answer": "tasks_4a"
+        "answer": "completedScenario"
       },
       {
         "question": "I got stuck...",
-        "answer": "tasks_4b"
+        "answer": "didNotCompleteScenario"
       }
     ]
   }, // end conversation object
@@ -546,6 +552,32 @@ unveilDesign = function() {
   }, 2000)
 }
 
+// CONTINUE HERE
+// FOR SOME REASON, THE PROGRAM BREAKS HERE.
+completedScenario = function() {
+  // Store the time taken to perform the scenario
+  timeSpentOnScenario = checkTimeElapsed() - timeSpentOnOnboarding;
+  // Update hidden form value for time spent
+  updateFormValue('time_spent_on_scenario', timeSpentOnScenario);
+
+  // Also update the hidden form value for completing the scenario
+  updateFormValue('completed_scenario', 1);
+
+  // Progress the dialog to the next text
+  chatWindow.talk(convo, "tasks_4a");
+}
+
+// CONTINUE HERE
+// FOR SOME REASON, THE PROGRAM BREAKS HERE.
+didNotCompleteScenario = function() {
+  // Store the time taken to perform the scenario
+  timeSpentOnScenario = checkTimeElapsed() - timeSpentOnOnboarding;
+  // Update hidden form value for time spent
+  updateFormValue('time_spent_on_scenario', timeSpentOnScenario);
+  // Progress the dialog to the next text
+  chatWindow.talk(convo, "tasks_4b");
+}
+
 handleSuggestion = function() {
   // Reset currentQuestion variable
   currentQuestion = "";
@@ -557,6 +589,19 @@ handleSuggestion = function() {
   if (currentHeuristic < 10) {
     goToHeuristic(currentHeuristic+1)
   } else {
+    // Recordtime taken for evaluation and update form
+    timeSpentOnEvaluation = checkTimeElapsed() - timeSpentOnScenario - timeSpentOnOnboarding;
+    updateFormValue('time_spent_on_evaluation', timeSpentOnEvaluation);
+    // Record time taken for full process
+    timeSpentTotal = checkTimeElapsed();
+    updateFormValue('time_spent_total', timeSpentTotal);
+
+    setTimeout(function() {
+      // Timeout for five seconds, after which the data is submitted to the database
+      // And the user is re-directed to the data-display screen.
+      submitForm();
+    }, 5000)
+
     chatWindow.talk(convo, "closing_1");
   }
 }
@@ -651,15 +696,14 @@ function startEvaluation() {
   frame.style.transition = "filter 2s ease-in-out, opacity 2s ease-in-out";
   frame.style.filter = "blur(0px)";
   frame.style.opacity = "1";
+
+  // Update the hidden form value to store how much time the user spent on the onboarding sequence.
+  timeSpentOnOnboarding = checkTimeElapsed();
+  updateFormValue('time_spent_on_onboarding', timeSpentOnOnboarding);
 }
 
-/* Function that updates the hidden form values to save user input */
-function updateFormValue(name, userInput) {
-  // Make DOM call to locate target
-  let hiddenFormItem = document.getElementsByName(`${name}`)[0];
+function compScen() {
 
-  // Update hidden form item with user input
-  hiddenFormItem.value = `${userInput}`;
 }
 
 /* Function that continues the conversation in any heuristic*/
@@ -748,4 +792,8 @@ function updateAttr(target, ariaLabel, balloonPos, balloonLen) {
   target.setAttribute('aria-label', ariaLabel);
   target.setAttribute('data-balloon-pos', balloonPos);
   target.setAttribute('data-balloon-length', balloonLen);
+}
+
+function submitForm() {
+  document.getElementsByTagName('form')[0].submit();
 }

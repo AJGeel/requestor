@@ -49,7 +49,7 @@
           <div class="progress-bar" id="progress-bar"></div>
         </div>
 
-        <form class="" action="javascript:void(0)" method="post" enctype="application/x-www-form-urlencoded">
+        <form class="" action="backend/form_handler.php" method="post" enctype="application/x-www-form-urlencoded">
 
          <!-- Hidden form attributes to store user and session data
               In the CUI, this hidden form is used to store all user input, which
@@ -57,6 +57,14 @@
          -->
           <input type="hidden" name="user_id" id="form_user_id" value="-1"/>
           <input type="hidden" name="prototype_id" id="form_prototype_id" value="1"/> <!-- Variant 0 = GUI / Variant 1 = CUI -->
+
+          <!-- User Performance Indicators -->
+          <input type="hidden" name="time_spent_total" value="0"> <!-- All time_spent variables are in seconds -->
+          <input type="hidden" name="time_spent_on_onboarding" value="0">
+          <input type="hidden" name="time_spent_on_scenario" value="0">
+          <input type="hidden" name="time_spent_on_evaluation" value="0">
+          <input type="hidden" name="completed_scenario" value="0"> <!-- Was the user was able to complete the scenario? 0 = false, 1 = true -->
+          <input type="hidden" name="interested" value="0">
 
           <!-- Initially, all user input values are unset. These will be set
                once the user starts progressing through the interface. -->
@@ -111,6 +119,9 @@
           <input type="hidden" name="heu_10_issue" value="">
           <input type="hidden" name="heu_10_suggestion" value="">
 
+          <!-- Heuristic 10 -->
+          <input type="hidden" name="general_impression" value="">
+
         </form>
 
         <div id="chat">
@@ -159,7 +170,7 @@
     </div>
 
 
-    <script src="/js/lottie.js"></script>
+    <script src="/js/lottie.js"></script> <!-- Currently not in use in this version. May be omitted -->
     <script src="/js/app.js"></script>
     <script src="/js/bubbles.js"></script>
     <script src="/js/cui.js"></script>

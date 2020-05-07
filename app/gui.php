@@ -90,6 +90,14 @@ Click on the link for an in-depth article (reading time: 5 minutes)." data-ballo
           <input type="hidden" name="user_id" id="form_user_id" value="-1"/>
           <input type="hidden" name="prototype_id" id="form_prototype_id" value="0"/> <!-- Variant 0 = GUI / Variant 1 = CUI -->
 
+          <!-- User Performance Indicators -->
+          <input type="hidden" name="time_spent_total" value="0"> <!-- All time_spent variables are in seconds -->
+          <input type="hidden" name="time_spent_on_onboarding" value="0">
+          <input type="hidden" name="time_spent_on_scenario" value="0">
+          <input type="hidden" name="time_spent_on_evaluation" value="0">
+          <input type="hidden" name="completed_scenario" value="0"> <!-- Was the user was able to complete the scenario? 0 = false, 1 = true -->
+          <input type="hidden" name="interested" value="0">
+
           <div class="form_section heuristic">
             <h2>#1: Visibility of System Status</h2>
             <p>The system should always keep users informed about what is going on, through appropriate feedback within reasonable time.</p>
@@ -432,29 +440,6 @@ Potentially, the tooltip functionality could be used to embed additional context
             </div>
 
           </div>
-
-          <!-- <div class="form_section">
-
-            <img class="congrats-img" src="i/mirage-message-sent.png"/>
-
-            <h2>Finish Line</h2>
-            <p>You've reached the end of this evaluation. On behalf <span id="requestor_id">Arthur Geel</span>, the requestor, thank you very much for your efforts, they allow us to level up our designs!</p>
-            <p>Before you submit your evaluation, we'd like to show you how you did:</p>
-            <div class="stat-overview">
-              <p class="timer"><img src="i/feather/clock.svg"/><span id="timer">00:00</span>&nbsp;spent in this session</p>
-
-              <div class="stat-half">
-                <p><img src="i/feather/bell.svg"/>Some cool stats should be here.</p>
-                <p><img src="i/feather/bell.svg"/>Don't forget about this one.</p>
-              </div>
-
-              <div class="stat-half">
-                <p><img src="i/feather/bell.svg"/>Or this one.</p>
-                <p><img src="i/feather/bell.svg"/>This one too.</p>
-              </div>
-
-            </div>
-          </div> -->
 
           <div class="form_section">
             <h2>One More Thing</h2>

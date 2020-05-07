@@ -7,11 +7,11 @@ window.onscroll = function() {
 
 function trackScrollPercentage() {
   /* Calculate full window scroll amount */
-  var pixelsScrolled = document.body.scrollTop || document.documentElement.scrollTop;
+  let pixelsScrolled = document.body.scrollTop || document.documentElement.scrollTop;
 
   /* Calculate element height */
-  var elemHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  var percentScrolled = (pixelsScrolled / elemHeight) * 100;
+  let elemHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  let percentScrolled = (pixelsScrolled / elemHeight) * 100;
 
   document.getElementById("progress-bar").style.width = percentScrolled + "%";
 
@@ -30,13 +30,13 @@ function trackScrollPercentage() {
 
 // DOM element of the iFrame which will be replaced.
 const DOM_iFrame = document.getElementById("iframe_prototype");
-var DOM_iFrame_Container = document.getElementById("frame_container");
+let DOM_iFrame_Container = document.getElementById("frame_container");
 
 // Note: the Figma prototype URLs are currently hardcoded. In the future this should be automatically retrieved from the Figma Plugin communication.
-var Figma_URI = "ejJw4AVHI1kAIktWxJzYDb"; // Specifies the location of the Figma File
-var Figma_Node_ID = "%253A2%26"; // Specifies the initial node selected in the Figma project
-var Figma_Viewport = "497%252C275%252C0.2620800733566284"; // Specifies the viewport
-var Figma_Scaling = "scale-down-width" // Specifies how Figma handles scaling issues (e.g. horizontal overflow)
+let Figma_URI = "ejJw4AVHI1kAIktWxJzYDb"; // Specifies the location of the Figma File
+let Figma_Node_ID = "%253A2%26"; // Specifies the initial node selected in the Figma project
+let Figma_Viewport = "497%252C275%252C0.2620800733566284"; // Specifies the viewport
+let Figma_Scaling = "scale-down-width" // Specifies how Figma handles scaling issues (e.g. horizontal overflow)
 
 
 /* Function that updates the targeted iFrame's source attribute with our Figma demonstrator prototype */
@@ -48,16 +48,12 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
   // const hardcoded_src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
 
   // Update the iFrame DOM element's src
-  // target.src = updated_src;
+  target.src = updated_src;
   // target.src = hardcoded_src; /* Toggle this to override the target source with the hardcoded src. */
-  // target.src = "https://www.arthurgeel.com/"
+  // target.src = "https://www.arthurgeel.com/" /* Test to see how live websites function */
 
   // Resize the iFrame's size
   resizeiFrame();
-
-  // DEBUG: print full src URL
-  // console.log("$DEBUG: " + updated_src);
-  // console.log("$DEBUG: " + hardcoded_src);
 }
 
 // Run the function with the arguments
@@ -103,7 +99,7 @@ document.addEventListener("keypress", function(event) {
   // Console log the keycode for debugging
   // console.log("$DEBUG: Key: " + event.keyCode);
   if (event.keyCode == 68 /* || event.keyCode == 100 */) {
-    // 'd' or 'D' is pressed: toggle darkmode on Body DOM element REMOVED 2020-05-04 
+    // 'd' or 'D' is pressed: toggle darkmode on Body DOM element REMOVED 2020-05-04
     // toggleClass(DOM_Body, "darkmode");
 
   }  else if (event.keyCode == 120 || event.keyCode == 88) {
@@ -119,12 +115,12 @@ document.addEventListener("keypress", function(event) {
 // Grab DOM element of time spent on page.
 // const DOM_Timer = document.getElementById("timer");
 //
-// // Generate a date object of initial page load
-// var startTime = Date.now();
-//
-// var timerCondition = true;
-//
-// // Function is called every 1000ms
+// Generate a date object of initial page load
+var startTime = Date.now();
+
+var timerCondition = true;
+
+// Function is called every 1000ms
 // setInterval(() => {
 //
 //   if (timerCondition == true) {
@@ -133,24 +129,37 @@ document.addEventListener("keypress", function(event) {
 // }, 1000);
 
 
-function updateTime(target) {
-  var currentTime = formatTime(Math.floor((Date.now() - startTime)/1000));
+// function updateTime(target) { /* Not in use as of 07-05-2020 */
+//   let currentTime = formatTime(Math.floor((Date.now() - startTime)/1000));
+//
+//   updateTargetBG(target, currentTime, "00:10", "00:20", "00:30");
+//
+//   // console.log("$DEBUG: " + currentTime);
+//   target.innerHTML = currentTime;
+// }
+//
+// function updateTargetBG(target, currentTime, timeStamp1, timeStamp2, timeStamp3) {
+//   if (currentTime == timeStamp1) {
+//     target.parentElement.style.backgroundColor = "#fcffd2";
+//   } else if (currentTime == timeStamp2) {
+//     target.parentElement.style.backgroundColor = "#ffedd2";
+//   } else if (currentTime == timeStamp3) {
+//     target.parentElement.style.backgroundColor = "#ffd2d2";
+//   }
+// }
 
-  updateTargetBG(target, currentTime, "00:10", "00:20", "00:30");
-
-  // console.log("$DEBUG: " + currentTime);
-  target.innerHTML = currentTime;
+/* Function that returns the amount of seconds that have passed since opening the page */
+function checkTimeElapsed() {
+  return Math.floor((Date.now() - startTime)/1000);
 }
+/* We store the time for a number of things:
+   - Total time spent in this interaction.
+   - Time spent on the Onboarding part.
+   - Time spent on acting out the Scenario part.
+   - Time spent on carrying out the Evaluation part.
 
-function updateTargetBG(target, currentTime, timeStamp1, timeStamp2, timeStamp3) {
-  if (currentTime == timeStamp1) {
-    target.parentElement.style.backgroundColor = "#fcffd2";
-  } else if (currentTime == timeStamp2) {
-    target.parentElement.style.backgroundColor = "#ffedd2";
-  } else if (currentTime == timeStamp3) {
-    target.parentElement.style.backgroundColor = "#ffd2d2";
-  }
-}
+   The checkTimeElapsed() function is used to calculate these durations.
+*/
 
 // Function that formats the time
 function formatTime(time) {
@@ -180,7 +189,7 @@ function formatTime(time) {
 
 /* Start of Automatic Resizer for TextArea Elements */
 
-var textAreas = document.getElementsByTagName('textarea');
+let textAreas = document.getElementsByTagName('textarea');
 for (var i = 0; i < textAreas.length; i++) {
   textAreas[i].setAttribute('style', 'height:' + (textAreas[i].scrollHeight) + 'px; overflow-y:hidden;');
   textAreas[i].addEventListener("input", OnInput, false);
@@ -280,17 +289,18 @@ function formProgressiveDisclosure(value, target, evaluationType) {
 
 /* Experimental: calculate color contrasts */
 
-// Calculates perceived luminance. Value output: [0, ~258.8]
-function calculateLuminance(red, green, blue) {
-  return Math.sqrt( 0.299 * Math.pow(red, 2) + 0.587 * Math.pow(green, 2) + 0.144 * Math.pow(blue, 2));
-}
+// Calculates perceived luminance. Value output: [0, ~258.8] (Not in use as of 07-05-2020)
+// function calculateLuminance(red, green, blue) {
+//   return Math.sqrt( 0.299 * Math.pow(red, 2) + 0.587 * Math.pow(green, 2) + 0.144 * Math.pow(blue, 2));
+// }
 
 // Calculates perceived contrast. Value output: [1, ~5177]
-function calculateContrast(L1, L2) {
-  // If/else statement to find the highest value, this one should go first
-  return ((L1 + 0.05) / (L2 + 0.05));
-}
+// function calculateContrast(L1, L2) {
+//   // If/else statement to find the highest value, this one should go first
+//   return ((L1 + 0.05) / (L2 + 0.05));
+// }
 
+// (Not in use as of 07-05-2020)
 // function luminanace(r, g, b) {
 //     var a = [r, g, b].map(function (v) {
 //         v /= 255;
@@ -381,13 +391,16 @@ function startEvaluation() {
   const startEvaluationBtn = document.getElementById("startEvaluationBtn");
   startEvaluationBtn.classList.add("destroy-button");
 
-  const prevElemSibling = startEvaluationBtn.previousElementSibling
+  const prevElemSibling = startEvaluationBtn.previousElementSibling;
 
   prevElemSibling.style.transition = "margin-bottom .5s ease-in-out";
   prevElemSibling.style.marginBottom = "-4.4em";
 
   const frameModal = document.getElementById("frameModal");
   frameModal.classList.add("destroy-modal");
+
+  // Update the hidden form value to store how much time the user spent on the onboarding sequence.
+  updateFormValue('time_spent_on_onboarding', checkTimeElapsed());
   // frameModal.style.display = "none";
   // startEvaluationBtn.style.animation = "fadeOutElement 1s ease-in-out";
   // startEvaluationBtn.style.animationFillMode = "forwards";
@@ -530,14 +543,14 @@ function validateForm(type) {
 }
 
 /* Start dynamic favicon functionality */
-
-function updateFavicon(newName) {
-  // First: make DOM call to grab favicon
-  const favicon = document.getElementById("favicon");
-
-  // Then: adjust its colour.
-  favicon.setAttribute("href", `i/favicon-${newName}.png`);
-}
+// Deleted 07-05-2020 for being unused and redundant.
+// function updateFavicon(newName) {
+//   // First: make DOM call to grab favicon
+//   const favicon = document.getElementById("favicon");
+//
+//   // Then: adjust its colour.
+//   favicon.setAttribute("href", `i/favicon-${newName}.png`);
+// }
 
 /* End dynamic favicon functionality */
 
@@ -577,8 +590,8 @@ function checkUID() {
 
   // If it is not defined yet
   if (temp_uid == "" || temp_uid == null) {
-    // Generate a random user id. // TODO: make this happen server-side in the future for security reasons.
-    setCookie("temp_uid", generateRandom(99999), 182 /* Standard save for half a year*/ );
+    // Generate a random user id.
+    setCookie("temp_uid", generateRandom(9999999), 7 /* We only keep this temporary cookie for 7 days. */ );
   }
 
   // Update the form's form_user_id with this value.
@@ -611,3 +624,12 @@ window.addEventListener('beforeunload', (event) => {
     event.returnValue = 'You have unfinished changes!';
   }
 });
+
+/* Function that updates the hidden form values to save user input / implicit data */
+function updateFormValue(name, userInput) {
+  // Make DOM call to locate target
+  let hiddenFormItem = document.getElementsByName(`${name}`)[0];
+
+  // Update hidden form item with user input
+  hiddenFormItem.value = `${userInput}`;
+}
