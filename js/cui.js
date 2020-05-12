@@ -192,7 +192,7 @@ let convo = {
     "reply": [
       {
         "question": "I’m done!",
-        "answer": "completedScenario"
+        "answer": "didCompleteScenario"
       },
       {
         "question": "I got stuck...",
@@ -554,7 +554,7 @@ unveilDesign = function() {
 
 // CONTINUE HERE
 // FOR SOME REASON, THE PROGRAM BREAKS HERE.
-completedScenario = function() {
+didCompleteScenario = function() {
   // Store the time taken to perform the scenario
   timeSpentOnScenario = checkTimeElapsed() - timeSpentOnOnboarding;
   // Update hidden form value for time spent
@@ -567,8 +567,6 @@ completedScenario = function() {
   chatWindow.talk(convo, "tasks_4a");
 }
 
-// CONTINUE HERE
-// FOR SOME REASON, THE PROGRAM BREAKS HERE.
 didNotCompleteScenario = function() {
   // Store the time taken to perform the scenario
   timeSpentOnScenario = checkTimeElapsed() - timeSpentOnOnboarding;
@@ -777,9 +775,8 @@ function startTalking() {
 
     // Time out for a second to improve flow
     setTimeout(function() {
-      // chatWindow.talk(convo, "icebreaker");
-      // chatWindow.talk(convo, "tasks_4a");
       chatWindow.talk(convo, "icebreaker");
+      // chatWindow.talk(convo, "tasks_3");
     }, 1000);
 
     // Update conditional
