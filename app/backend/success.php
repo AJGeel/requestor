@@ -61,7 +61,7 @@
     let nextQuestionnaireBtn = document.getElementById('nextQuestionnaire');
 
     // Global variables
-    let interested = false;
+    let interestedBool = 0;
     let interfaceVariant;
 
     let userData = {
@@ -84,7 +84,11 @@
       }
 
       btnNotInterested.classList.remove('active');
-      interested = true;
+      // Update variable value
+      interestedBool = 1;
+
+      // Submit to database
+      updateInterested();
     });
 
     // EventListener for clicking the 'not interested' button
@@ -94,7 +98,11 @@
       }
 
       btnInterested.classList.remove('active');
-      interested = false;
+      // Update variable value
+      interestedBool = 0;
+      
+      // Submit to database
+      updateInterested();
     });
 
     // EventListener for the 'Continue to Questionnaire' button
@@ -120,11 +128,6 @@
     }
 
     function toNextPage() {
-      // let userID = getCookie('temp_uid');
-
-      // Submit 'interested' data to server
-      console.log('TODO: Implement FETCH PHP SQL request.');
-      console.log(`INSERT INTO table_name (uid, interested) VALUES (${userData.ID}, ${interested})`);
       // Navigate to the correct follow-up page
       location.href = `../../nasa-tlx/${interfaceVariant}.html`;
     }
@@ -216,28 +219,46 @@
     // var sampleJSON = "FooBar3000";
     // var sampleURL = "https://phpenthusiast.com/dummy-api/"
 
-    function fetchPOST(url, myObj) {
-        fetch(url, {
-          method: "POST",
-          mode: "same-origin",
-          credentials: "same-origin",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            "payload": myObj
-          })
-        })
-        .then(function(response) {
-            return response.json();
-        })
-    }
+    // function fetchPOST(url, myObj) {
+    //     fetch(url, {
+    //       method: "POST",
+    //       mode: "same-origin",
+    //       credentials: "same-origin",
+    //       headers: {
+    //         "Content-Type": "application/json"
+    //       },
+    //       body: JSON.stringify({
+    //         "payload": myObj
+    //       })
+    //     })
+    //     .then(function(response) {
+    //         return response.json();
+    //     })
+    // }
+    //
+    // function fetchGET(url) {
+    //   fetch(url)
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data))
+    //   .catch((error) => console.log(error))
+    // }
 
-    function fetchGET(url) {
-      fetch(url)
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.log(error))
+    /* Function that POSTS the user's ID and interestedBool values to our PHP
+    handler. This validates its contents, and updates it in the database.
+    */
+    function updateInterested() {
+      var url = 'interested.php';
+      var formData = new FormData();
+      formData.append('user_id', userData.ID);
+      formData.append('interested', interestedBool);
+
+      fetch(url, { method: 'POST', body: formData })
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (body) {
+        console.log(body);
+      });
     }
 
   </script>

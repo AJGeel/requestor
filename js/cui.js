@@ -43,6 +43,20 @@ const chatWindow = new Bubbles(
           if (currentHeuristic < 10) {
             goToHeuristic(currentHeuristic+1)
           } else {
+            // Record time taken for evaluation and update form
+            timeSpentOnEvaluation = checkTimeElapsed() - timeSpentOnScenario - timeSpentOnOnboarding;
+            updateFormValue('time_spent_on_evaluation', timeSpentOnEvaluation);
+            // Record time taken for full process
+            timeSpentTotal = checkTimeElapsed();
+            updateFormValue('time_spent_total', timeSpentTotal);
+
+            // Timeout for five seconds, after which the data is submitted to the database
+            // And the user is re-directed to the data-display screen.
+            setTimeout(function() {
+              submitForm();
+            }, 5000);
+
+            //
             chatWindow.talk(convo, "closing_1");
           }
 
@@ -158,7 +172,7 @@ let convo = {
   }, // end conversation object
 
   "intro_3" : {
-    "says" : [ "See? The interface just became a whole lot more visible.", "If you want, you can get a general impression of the design: try scrolling and clicking on things to see where they take you.", "If you're ready to continue the evaluation, just let me know!"],
+    "says" : [ "See? The interface just became a whole lot more visible.", "If you want, you can get a general impression of the design: try moving your cursor to the frame and scroll.", "If you're ready to continue the evaluation, just let me know!"],
     "reply": [
       {
         "question": "I’m ready!", /* Careful: framework does not support ' characters in question. Use the ’ character instead. */
@@ -178,7 +192,7 @@ let convo = {
   }, // end conversation object
 
   "tasks_2" : {
-    "says" : [ "Here's the scenario you should act out using the prototype:", "<i>Your name is Frederic — a 62 year old Dutch male from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</i>", "1. You opened the Bol.com page to order a new one. However, there are some restrictions: The printer should <span class='underlined'>cost less than €90</span>. It should be able to <span class='underlined'>print in full-colour</span>. Finally, <span class='underlined'>you don't want an Epson brand printer</span>.", "2. Your task is to use the Bol.com website to find a suitable new printer, and add it to your shopping basket.", "When you’re ready to start the task, click on the button."],
+    "says" : [ "Here's the scenario you should act out using the prototype:", "<i>Your name is Frederic — a 62 year old Dutch male from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</i>", "1. You opened the Bol.com page to order a new one. However, there are some restrictions: The printer should <span class='underlined'>cost less than €90</span>. It should be able to <span class='underlined'>print in full-colour</span>. Finally, <span class='underlined'>you don't want an Epson brand printer</span>.", "2. Your task is to use the Bol.com website to find a suitable new printer, and add it to your shopping basket.", "When you’re ready to start the task, click on the button. "],
     "reply": [
       {
         "question": "I’m ready.",
@@ -188,7 +202,7 @@ let convo = {
   }, // end conversation object
 
   "tasks_3" : {
-    "says" : [ "Good luck! Please use either of the buttons when you’re done."],
+    "says" : [ "You can now navigate through the page by clicking on things. Good luck! Please use either of the buttons when you’re done."],
     "reply": [
       {
         "question": "I’m done!",
@@ -202,7 +216,7 @@ let convo = {
   }, // end conversation object
 
   "tasks_4a" : {
-    "says" : [ "That's awesome!", "I have a few questions about how you experienced using the design on the left.", "I will be sharing <b>ten general principles</b> on what make a user interface usable. For each principle, please state <b>whether you think there is a problem.</b>", "You can do so using the scale of <b>0 to 4</b>, where '0' means no problem and '4' means a usability catastrophe. You may hover over the ratings to see a more elaborate description."],
+    "says" : [ "That's awesome!", "I have a few questions about how you experienced using the design on the left.", "I will be sharing <b>ten general principles</b> on what make a user interface usable. For each principle, please state <b>whether you think there is a problem.</b>", "You can do so using the scale of <b>0 to 4</b>, where '0' signifies <b>no problem</b> and '4' signifies <b>a usability catastrophe</b>. You may hover over the ratings to see a more elaborate description."],
     "reply": [
       {
         "question": "Let’s go!",
@@ -587,7 +601,7 @@ handleSuggestion = function() {
   if (currentHeuristic < 10) {
     goToHeuristic(currentHeuristic+1)
   } else {
-    // Recordtime taken for evaluation and update form
+    // Record time taken for evaluation and update form
     timeSpentOnEvaluation = checkTimeElapsed() - timeSpentOnScenario - timeSpentOnOnboarding;
     updateFormValue('time_spent_on_evaluation', timeSpentOnEvaluation);
     // Record time taken for full process
@@ -700,10 +714,6 @@ function startEvaluation() {
   updateFormValue('time_spent_on_onboarding', timeSpentOnOnboarding);
 }
 
-function compScen() {
-
-}
-
 /* Function that continues the conversation in any heuristic*/
 function goToHeuristic(heuristicNo) {
   chatWindow.talk(convo, `heuristic_${heuristicNo}`);
@@ -729,6 +739,19 @@ function handleHeuristicResponse(heuristicNo, input) {
       // TODO integrate 'heuristic_n_issue' and 'heuristic_n_suggestion' dialogs.
     }
   } else if (heuristicNo == 10) {
+    // Record time taken for evaluation and update form
+    timeSpentOnEvaluation = checkTimeElapsed() - timeSpentOnScenario - timeSpentOnOnboarding;
+    updateFormValue('time_spent_on_evaluation', timeSpentOnEvaluation);
+    // Record time taken for full process
+    timeSpentTotal = checkTimeElapsed();
+    updateFormValue('time_spent_total', timeSpentTotal);
+
+    setTimeout(function() {
+      // Timeout for five seconds, after which the data is submitted to the database
+      // And the user is re-directed to the data-display screen.
+      submitForm();
+    }, 5000)
+
     // Go to the closing statements
     chatWindow.talk(convo, 'closing_1');
   } else {
