@@ -182,7 +182,7 @@ let convo = {
   }, // end conversation object
 
   "tasks_1" : {
-    "says" : [ "Fantastic. I'll explain what you should do.", "We ask you to perform a <i>Heuristic Evaluation</i> of the design you see on left.", "This means that you envision yourself to be the user while acting out a scenario, and share your opinion on the design's usability at the end, basing your opinion on ten general rules.", "This may seem like a lot, but don't worry, I'll guide you through the process."],
+    "says" : [ "Fantastic. I'll explain what you should do.", "We ask you to perform a <i>Heuristic Evaluation</i> of the design you see on the left.", "This means that you envision yourself to be the user while acting out a scenario, and share your opinion on the design's usability at the end, basing your opinion on ten general rules.", "This may seem like a lot, but don't worry, I'll guide you through the process."],
     "reply": [
       {
         "question": "Let’s do it!",
@@ -202,7 +202,7 @@ let convo = {
   }, // end conversation object
 
   "tasks_3" : {
-    "says" : [ "You can now navigate through the page by clicking on things. Good luck! Please use either of the buttons when you’re done."],
+    "says" : [ "You can now navigate through the page by clicking on things. Good luck! Please use either of the buttons when you’ve completed the scenario."],
     "reply": [
       {
         "question": "I’m done!",
@@ -216,7 +216,7 @@ let convo = {
   }, // end conversation object
 
   "tasks_4a" : {
-    "says" : [ "That's awesome!", "I have a few questions about how you experienced using the design on the left.", "I will be sharing <b>ten general principles</b> on what make a user interface usable. For each principle, please state <b>whether you think there is a problem.</b>", "You can do so using the scale of <b>0 to 4</b>, where '0' signifies <b>no problem</b> and '4' signifies <b>a usability catastrophe</b>. You may hover over the ratings to see a more elaborate description."],
+    "says" : [ "That's awesome!", "I have a few questions about how you experienced using the prototype.", "I will be sharing <b>ten general principles</b> on what make a user interface usable. For each principle, please state <b>whether you think there is a problem.</b>", "You can do so using the scale of <b>0 to 4</b>, where '0' means <b>no problem</b> and '4' signifies <b>a usability catastrophe</b>. Hover over the ratings with your cursor to see a more elaborate description.", "Finally, if you believe the question is irrelevant or cannot be answered, please answer ’0’."],
     "reply": [
       {
         "question": "Let’s go!",
@@ -340,7 +340,8 @@ let convo = {
   }, // end conversation object
 
   "heuristic_5" : {
-    "says" : [ "<i>You're halfway there! We just have five heuristics left!</i>", "insert_gif_here.jpg", "<b>5/10 — 'Error Prevention'</b>", "Even better than good error messages is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action."],
+    // "says" : [ "<i>You're halfway there! We just have five heuristics left!</i>", "insert_gif_here.jpg", "<b>5/10 — 'Error Prevention'</b>", "Even better than good error messages is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action."],
+    "says" : [ "<i>You're halfway there! We just have five heuristics left!</i>", "<b>5/10 — 'Error Prevention'</b>", "Even better than good error messages is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action."],
     "reply": [
       {
         "question": "0",

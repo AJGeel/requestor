@@ -1,9 +1,121 @@
+/*------------------------------------------------------------------
+
+01. DOM Calls & Global Vars
+02. OnLoad Calls & EventListeners
+03. Reusable Functions
+
+-------------------------------------------------------------------*/
+
+/*--------------------------------------------------
+01. DOM Calls & Global Vars
+---------------------------------------------------*/
+
 const windowWidth = document.getElementById('window-width');
 
-/* Start of Scrollbar functionality */
-window.onscroll = function() {
-  trackScrollPercentage()
-};
+// DOM element of the iFrame which will be replaced.
+const DOM_iFrame = document.getElementById("iframe_prototype");
+let DOM_iFrame_Container = document.getElementById("frame_container");
+
+// Note: the Figma prototype URLs are currently hardcoded. In the future this should be automatically retrieved from the Figma Plugin communication.
+let Figma_URI = "ejJw4AVHI1kAIktWxJzYDb"; // Specifies the location of the Figma File
+let Figma_Node_ID = "%253A2%26"; // Specifies the initial node selected in the Figma project
+let Figma_Viewport = "497%252C275%252C0.2620800733566284"; // Specifies the viewport
+let Figma_Scaling = "scale-down-width" // Specifies how Figma handles scaling issues (e.g. horizontal overflow)
+
+// Select the DOM body element
+const DOM_Body = document.getElementById("body");
+
+// Generate a date object of initial page load
+let startTime = Date.now();
+
+// Select the evaluation container to slow down the animation if the user hovers over it.
+const evaluationContainer = document.getElementById("evaluation_container");
+
+/*--------------------------------------------------
+02. OnLoad calls and EventListeners
+---------------------------------------------------*/
+
+// If the user scrolls in the window, we track the scroll percentage and update the visual indicator of that.
+window.onscroll = function() { trackScrollPercentage() };
+
+// If the window is resized, carry out the 'resizeiFrame' function
+window.addEventListener("resize", resizeiFrame);
+
+// On page load: resize the iFrame
+resizeiFrame();
+
+// Add event listener to the document which runs this function every time a key is pressed
+document.addEventListener("keypress", function(event) {
+  // console.log("$DEBUG: Key: " + event.keyCode);
+  if (event.keyCode == 68 /* || event.keyCode == 100 */) {
+    // 'd' or 'D' is pressed: toggle darkmode on Body DOM element REMOVED 2020-05-04
+    // toggleClass(DOM_Body, "darkmode");
+  }
+});
+
+// Select all textAreas on the DOM for automatic resizing functionality
+let textAreas = document.getElementsByTagName('textarea');
+for (var i = 0; i < textAreas.length; i++) {
+  textAreas[i].setAttribute('style', 'height:' + (textAreas[i].scrollHeight) + 'px; overflow-y:hidden;');
+  textAreas[i].addEventListener("input", OnInput, false);
+}
+
+/* If the user hovers over the information to read it, we make the Lottie animation less obtrusive */
+evaluationContainer.addEventListener("mouseenter", function(event) {
+  // animation.pause();       /* We can pause the animation completely */
+  animation.setSpeed(.2);     /* Or can choose to slow it down. */
+});
+
+/* If their mouse leaves, return to the original speed. */
+evaluationContainer.addEventListener("mouseleave", function(event) {
+  // animation.play();
+  animation.setSpeed(1);
+});
+
+// Eventlistener that makes the envelope invitation move if the user hovers over the accept button.
+const onboardingBtn = document.querySelector(".onboarding-btn");
+const invitationImg = document.getElementById("invitationImg");
+const onboardingBg = document.querySelector(".onboarding-wrapper");
+
+onboardingBtn.addEventListener("mouseenter", function(event) {
+  invitationImg.classList.toggle("hover");
+  onboardingBg.style.transition = "background-color .6s ease-in-out";
+  onboardingBg.classList.toggle("hover");
+});
+
+onboardingBtn.addEventListener("mouseleave", function(event) {
+  invitationImg.classList.toggle("hover");
+  onboardingBg.classList.toggle("hover");
+});
+
+/* Lottie Animation Library */
+const animation = lottie.loadAnimation({
+  container: document.getElementById('lottie-point-right'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: '/i/lottie/data.json'
+});
+
+const form = document.querySelector('form');
+
+let submittedBefore = false;
+
+// Keep track of user input. If the form has been used, we want to make sure the user does not accidentally leave the page.
+let formChanged = false;
+form.addEventListener('change', () => formChanged = true);
+window.addEventListener('beforeunload', (event) => {
+  if (formChanged) {
+    event.returnValue = 'You have unfinished changes!';
+  }
+});
+
+// Check whether the user has been assigned an anonymous UID, if not, assign one.
+checkUID();
+
+/*--------------------------------------------------
+03. Reusable Functions
+---------------------------------------------------*/
 
 function trackScrollPercentage() {
   /* Calculate full window scroll amount */
@@ -23,26 +135,11 @@ function trackScrollPercentage() {
     timerCondition = false;
   }
 }
-/* End of Scrollbar functionality */
-
-
-/* Start of Figma Embed functionality */
-
-// DOM element of the iFrame which will be replaced.
-const DOM_iFrame = document.getElementById("iframe_prototype");
-let DOM_iFrame_Container = document.getElementById("frame_container");
-
-// Note: the Figma prototype URLs are currently hardcoded. In the future this should be automatically retrieved from the Figma Plugin communication.
-let Figma_URI = "ejJw4AVHI1kAIktWxJzYDb"; // Specifies the location of the Figma File
-let Figma_Node_ID = "%253A2%26"; // Specifies the initial node selected in the Figma project
-let Figma_Viewport = "497%252C275%252C0.2620800733566284"; // Specifies the viewport
-let Figma_Scaling = "scale-down-width" // Specifies how Figma handles scaling issues (e.g. horizontal overflow)
-
 
 /* Function that updates the targeted iFrame's source attribute with our Figma demonstrator prototype */
 function updateiFrame(URI, nodeID, viewport, scaling, target) {
   // Construct the iFrame's new src URI with the specified arguments
-  var updated_src = "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/" + URI + "%3Fnode-id%3D" + nodeID + "%26viewport%3D" + viewport + "%26scaling%3D" + scaling;
+  let updated_src = "https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/" + URI + "%3Fnode-id%3D" + nodeID + "%26viewport%3D" + viewport + "%26scaling%3D" + scaling;
 
   // Hardcoded iFrame source. I'm keeping this in to help me understand the URI Encoding issue I was dealing with earlier. However, it is fixed now.
   // const hardcoded_src = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width";
@@ -56,16 +153,7 @@ function updateiFrame(URI, nodeID, viewport, scaling, target) {
   resizeiFrame();
 }
 
-// Run the function with the arguments
-// updateiFrame(Figma_URI, Figma_Node_ID, Figma_Viewport, Figma_Scaling, DOM_iFrame);
-resizeiFrame();
 
-/* End of Figma Embed functionality */
-
-
-/* Start window resize watcher */
-// If the window is resized, carry out the 'resizeiFrame' function
-window.addEventListener("resize", resizeiFrame);
 
 function resizeiFrame() {
   const padding = 40;
@@ -84,69 +172,11 @@ function resizeiFrame() {
 /* End window resize watcher */
 
 
-/* Start of Key Mapping Functionality */
-// Select the DOM body element
-const DOM_Body = document.getElementById("body");
 
 // Function that toggles a classname on a DOM id
 function toggleClass(target, className) {
   target.classList.toggle(className);
 }
-
-// Add event listener to the document which runs this function every time a key is pressed
-document.addEventListener("keypress", function(event) {
-
-  // Console log the keycode for debugging
-  // console.log("$DEBUG: Key: " + event.keyCode);
-  if (event.keyCode == 68 /* || event.keyCode == 100 */) {
-    // 'd' or 'D' is pressed: toggle darkmode on Body DOM element REMOVED 2020-05-04
-    // toggleClass(DOM_Body, "darkmode");
-
-  }  else if (event.keyCode == 120 || event.keyCode == 88) {
-    // 'x' or 'X' is pressed: does nothing yet.
-  }
-});
-/* End of Key Mapping Functionality */
-
-
-
-/* Start of Timer Functionality */
-
-// Grab DOM element of time spent on page.
-// const DOM_Timer = document.getElementById("timer");
-//
-// Generate a date object of initial page load
-var startTime = Date.now();
-
-var timerCondition = true;
-
-// Function is called every 1000ms
-// setInterval(() => {
-//
-//   if (timerCondition == true) {
-//     updateTime(DOM_Timer);
-//   }
-// }, 1000);
-
-
-// function updateTime(target) { /* Not in use as of 07-05-2020 */
-//   let currentTime = formatTime(Math.floor((Date.now() - startTime)/1000));
-//
-//   updateTargetBG(target, currentTime, "00:10", "00:20", "00:30");
-//
-//   // console.log("$DEBUG: " + currentTime);
-//   target.innerHTML = currentTime;
-// }
-//
-// function updateTargetBG(target, currentTime, timeStamp1, timeStamp2, timeStamp3) {
-//   if (currentTime == timeStamp1) {
-//     target.parentElement.style.backgroundColor = "#fcffd2";
-//   } else if (currentTime == timeStamp2) {
-//     target.parentElement.style.backgroundColor = "#ffedd2";
-//   } else if (currentTime == timeStamp3) {
-//     target.parentElement.style.backgroundColor = "#ffd2d2";
-//   }
-// }
 
 /* Function that returns the amount of seconds that have passed since opening the page */
 function checkTimeElapsed() {
@@ -161,54 +191,14 @@ function checkTimeElapsed() {
    The checkTimeElapsed() function is used to calculate these durations.
 */
 
-// Function that formats the time
-function formatTime(time) {
-  // The largest round integer less than or equal to the result of time divided being by 60.
-  let minutes = Math.floor(time / 60);
-
-  // Seconds are the remainder of the time divided by 60 (modulus operator)
-  let seconds = time % 60;
-
-  // If the value of seconds is less than 10, then display seconds with a leading zero
-  if (seconds < 10) {
-    seconds = `0${seconds}`;
-  }
-
-  // If the value of minutes is less than 10, then display minutes with a leading zero
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
-  // The output in MM:SS format
-  return `${minutes}:${seconds}`;
-}
-
-/* End of Timer Functionality */
 
 
-
-/* Start of Automatic Resizer for TextArea Elements */
-
-let textAreas = document.getElementsByTagName('textarea');
-for (var i = 0; i < textAreas.length; i++) {
-  textAreas[i].setAttribute('style', 'height:' + (textAreas[i].scrollHeight) + 'px; overflow-y:hidden;');
-  textAreas[i].addEventListener("input", OnInput, false);
-}
-
+// Function that automatically resizes form items based on their calculated heights
 function OnInput() {
   this.style.height = 'auto';
   this.style.height = (this.scrollHeight) + 'px';
 }
 
-/* End of Automatic Resizer for TextArea Elements */
-
-
-
-
-
-
-
-/* Start of Form Functionality */
 
 // Function that progressively discloses the form questions.
 function formProgressiveDisclosure(value, target, evaluationType) {
@@ -259,90 +249,17 @@ function formProgressiveDisclosure(value, target, evaluationType) {
   }
 }
 
-
-/* End of Form Functionality */
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Experimental: Fullscreen when clicking on canvas */
-// const DOM_Evaluation_Container = document.getElementById("evaluation_container");
-//
-// DOM_iFrame_Container.addEventListener("click", function() {
-//   toggleClass(DOM_Evaluation_Container, "hide");
-//
-//   resizeiFrame();
-// });
-
-
-/* Experimental: reminder to save work */
-
-
-/* Experimental: calculate color contrasts */
-
-// Calculates perceived luminance. Value output: [0, ~258.8] (Not in use as of 07-05-2020)
-// function calculateLuminance(red, green, blue) {
-//   return Math.sqrt( 0.299 * Math.pow(red, 2) + 0.587 * Math.pow(green, 2) + 0.144 * Math.pow(blue, 2));
-// }
-
-// Calculates perceived contrast. Value output: [1, ~5177]
-// function calculateContrast(L1, L2) {
-//   // If/else statement to find the highest value, this one should go first
-//   return ((L1 + 0.05) / (L2 + 0.05));
-// }
-
-// (Not in use as of 07-05-2020)
-// function luminanace(r, g, b) {
-//     var a = [r, g, b].map(function (v) {
-//         v /= 255;
-//         return v <= 0.03928
-//             ? v / 12.92
-//             : Math.pow( (v + 0.055) / 1.055, 2.4 );
-//     });
-//     return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
-// }
-// function contrast(rgb1, rgb2) {
-//     var lum1 = luminanace(rgb1[0], rgb1[1], rgb1[2]);
-//     var lum2 = luminanace(rgb2[0], rgb2[1], rgb2[2]);
-//     var brightest = Math.max(lum1, lum2);
-//     var darkest = Math.min(lum1, lum2);
-//     return (brightest + 0.05)
-//          / (darkest + 0.05);
-// }
-// contrast([255, 255, 255], [255, 255, 0]); // 1.074 for yellow
-// contrast([255, 255, 255], [0, 0, 255]); // 8.592 for blue
-// // minimal recommended contrast ratio is 4.5, or 3 for larger font-sizes
-
-
-/* If the user hovers over the information to read it, we make the Lottie animation less obtrusive */
-const evaluationContainer = document.getElementById("evaluation_container");
-evaluationContainer.addEventListener("mouseenter", function(event) {
-  // animation.pause();       /* We can pause the animation completely */
-  animation.setSpeed(.2);     /* Or can choose to slow it down. */
-});
-
-evaluationContainer.addEventListener("mouseleave", function(event) {
-  // animation.play();
-  animation.setSpeed(1);
-});
-
-
+// Function to handle reviewing of invitations
 function reviewInvitation() {
-  // alert("This should trigger an animation that opens the envelope and does some of the onboarding. However, for now it's kept simple.");
-
   // Grab onboarding wrapper DOM element and hide it.
   const onboardingWrapper = document.querySelector(".onboarding-wrapper");
   // onboardingWrapper.style.display = "none";
   onboardingWrapper.classList.add("destroy-modal-1s");
+
+  // After the animation, remove the DOM element for optimization
+  setTimeout(function() {
+    onboardingWrapper.remove();
+  }, 2000);
 
   // Grab evaluation form and make it scrollable again.
   evaluationContainer.style.height = "initial";
@@ -360,27 +277,7 @@ function declineInvitation() {
   }
 }
 
-// Eventlistener that makes the envelope invitation move if the user hovers over the accept button.
-const onboardingBtn = document.querySelector(".onboarding-btn");
-const invitationImg = document.getElementById("invitationImg");
-const onboardingBg = document.querySelector(".onboarding-wrapper");
-
-onboardingBtn.addEventListener("mouseenter", function(event) {
-  invitationImg.classList.toggle("hover");
-  onboardingBg.style.transition = "background-color .6s ease-in-out";
-  onboardingBg.classList.toggle("hover");
-});
-
-onboardingBtn.addEventListener("mouseleave", function(event) {
-  invitationImg.classList.toggle("hover");
-  onboardingBg.classList.toggle("hover");
-});
-
 function startEvaluation() {
-  // Scroll to the Scenario / Task list.
-  // const evaluation_intro = document.getElementById("evaluation_intro");
-  // evaluation_intro.scrollIntoView();
-
   // Unblur the prototype frame.
   const frame = document.getElementById("frame");
   frame.style.transition = "filter 2s ease-in-out, opacity 2s ease-in-out";
@@ -391,66 +288,35 @@ function startEvaluation() {
   const startEvaluationBtn = document.getElementById("startEvaluationBtn");
   startEvaluationBtn.classList.add("destroy-button");
 
+  // Smooth remove the now redundant whitespace
   const prevElemSibling = startEvaluationBtn.previousElementSibling;
-
   prevElemSibling.style.transition = "margin-bottom .5s ease-in-out";
   prevElemSibling.style.marginBottom = "-4.4em";
 
+  // Destroy the modal
   const frameModal = document.getElementById("frameModal");
   frameModal.classList.add("destroy-modal");
 
+  // After the animation, remove the frameModal from the DOM to optimize performance.
+  setTimeout(function() {
+    frameModal.remove();
+  }, 2000);
+
   // Update the hidden form value to store how much time the user spent on the onboarding sequence.
   updateFormValue('time_spent_on_onboarding', checkTimeElapsed());
-  // frameModal.style.display = "none";
-  // startEvaluationBtn.style.animation = "fadeOutElement 1s ease-in-out";
-  // startEvaluationBtn.style.animationFillMode = "forwards";
+
+  // TODO Show the buttons that signify the end of the performed scenario
+  let scenarioIndicator = document.getElementsByClassName('scenario_indicator')[0];
+  scenarioIndicator.style.display = 'block';
+
+  setTimeout(function() {
+    scenarioIndicator.style.opacity = '1';
+    scenarioIndicator.style.height = 'auto';
+  }, 100);
 
 }
 
-// function updateFrameModalContent() {
-//   const frameModal = document.getElementById("frameModal");
-//
-//   frameModal.classList.remove("destroy-modal");
-//   frameModal.classList.add("restore-modal");
-//
-//   frameModal.querySelector("h1").innerHTML = "Heads up!";
-//   frameModal.querySelector("p").innerHTML = "You did not complete all of the heuristics &mdash; we recommend you to review them again. However, you may also submit your evaluation as-is. To do so, simply click on the button once more.";
-// }
-
-/* Function that reads and stores the URL parameters */
-// const queryString = window.location.search;
-// console.log(queryString);
-// https://www.sitepoint.com/get-url-parameters-with-javascript/
-
-/* Lottie Animation Library */
-const animation = lottie.loadAnimation({
-  container: document.getElementById('lottie-point-right'),
-  renderer: 'svg',
-  loop: true,
-  autoplay: true,
-  path: '/i/lottie/data.json'
-});
-
-// while (animation.playSpeed >= 0.1) {
-//   setTimeout(function() {
-//     // animation.setSpeed(animation.playSpeed * 0.99);
-//     console.log("hello world");
-//   }, 50);
-// }
-
-// async function wait(ms) {
-//   return new Promise(resolve => {
-//     setTimeout(resolve, ms);
-//   });
-// }
-
 /* Functionality: Serialize form data with JS */
-const form = document.querySelector('form');
-
-// function serializeForm() {
-//   let formData = serialize(form);
-//   console.log(formData);
-// }
 
 /*!
  * Serialize all form data into a query string
@@ -489,13 +355,8 @@ function serialize(form) {
 
 };
 
-
-let submittedBefore = false;
-
-/*!
+/*
  * Check form for completeness and validity, notify end-user if incomplete/invalid.
- * (c) 2020 Arthur Geel
- * @param  {type} Evaluation type: determines resulting validation logic
  */
 function validateForm(type) {
 
@@ -542,18 +403,6 @@ function validateForm(type) {
   }
 }
 
-/* Start dynamic favicon functionality */
-// Deleted 07-05-2020 for being unused and redundant.
-// function updateFavicon(newName) {
-//   // First: make DOM call to grab favicon
-//   const favicon = document.getElementById("favicon");
-//
-//   // Then: adjust its colour.
-//   favicon.setAttribute("href", `i/favicon-${newName}.png`);
-// }
-
-/* End dynamic favicon functionality */
-
 // Function for setting cookies
 function setCookie(cookie_name, cookie_value, num_days) {
   let d = new Date();
@@ -584,6 +433,9 @@ function getCookie(cookie_name) {
   return "";
 }
 
+/* Function that checks whether the user has already been assigned an anonymous
+   unique identifier. If not, it assigns one.
+*/
 function checkUID() {
   // Get the user's unique id
   let temp_uid = getCookie("temp_uid");
@@ -610,20 +462,9 @@ function checkCookiesAccepted() {
   }
 }
 
-checkUID();
-
 function generateRandom(max) {
   return Math.floor(Math.random()*max);
 }
-
-// Keep track of user input. If the form has been used, we want to make sure the user does not accidentally leave the page.
-let formChanged = false;
-form.addEventListener('change', () => formChanged = true);
-window.addEventListener('beforeunload', (event) => {
-  if (formChanged) {
-    event.returnValue = 'You have unfinished changes!';
-  }
-});
 
 /* Function that updates the hidden form values to save user input / implicit data */
 function updateFormValue(name, userInput) {

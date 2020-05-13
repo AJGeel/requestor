@@ -303,6 +303,10 @@ body {
   /* cursor: pointer; */
 }
 
+.evaluation ol li i {
+  font-style: italic;
+}
+
 .evaluation ol li.clicked {
   text-decoration: line-through;
   opacity: .4;

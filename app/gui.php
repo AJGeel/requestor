@@ -17,6 +17,38 @@
     <link rel="stylesheet" href="/css/prototype-darkmode.css"> <!-- Optional Dark Mode for Aesthetics -->
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
+    <style media="screen">
+      .scenario_buttons {
+        display: flex;
+      }
+
+      .evaluation .scenario_question {
+        font-weight: 600;
+        font-family: 'Sen';
+        color: #333;
+        margin-bottom: 0;
+        text-align: center;
+      }
+
+      .scenario_indicator {
+        background-color: #f2f1ff;
+        padding: 2em;
+        box-sizing: border-box;
+        margin-top: 2em;
+        border-radius: 4px;
+
+        /* Animated values */
+        display: none;
+        height: 0;
+        opacity: 0;
+        transition: height 2s ease-in-out, opacity 2s ease-in-out;
+      }
+
+      .gui_form {
+        display: none;
+      }
+    </style>
+
   </head>
   <body id="body">
 
@@ -30,14 +62,11 @@
         <div class="frame-modal-container" id="frameModal">
           <div class="frame-modal">
             <div class="modal-illustration">
-              <!-- <img src="i/custom-icons/notice-the-right.png" alt=""> -->
               <div class="lottie-img" id="lottie-point-right" alt="An animation of a person telling you to look to the right."></div>
-              <!-- <button type="button" name="modalCloseBtn">&times;</button> -->
             </div>
             <div class="modal-content">
               <h1>One thing before you start:</h1>
               <p>Have a look at the instructions on the right. These will explain the context of the project and specify what you should focus on in this evaluation.</p>
-              <!-- <button type="button" name="startEvaluation" class="btn" onclick="startEvaluation()">I understand &mdash; show me the interface!</button> -->
             </div>
           </div>
         </div>
@@ -60,31 +89,37 @@
 
           <h2><img src="/i/feather/clipboard.svg" alt="Clipboard icon"/>What We Ask You To Do</h2>
           <ol>
-            <li>Carefully read through the 'Scenario / Task List'.</li>
-            <li>Once you are familiar with the tasks, click on the 'I understand' button: this unlocks the interface.</li>
-            <li>Try to perform all the steps using the interface on the left. Don't worry if you get stuck.</li>
-            <!-- <li>Perform a <a href="https://uxplanet.org/how-to-conduct-heuristic-evaluation-85548a355dca" target="_blank" aria-label="In short, a Heuristic Evaluation is a method for helping UX practitioners evaluate user interface designs.
-
-Click on the link for an in-depth article (reading time: 5 minutes)." data-balloon-pos="down" data-balloon-length="medium">Heuristic Evaluation</a> of the project using the form below. For every heuristic or 'global rule', you state whether you think there is a usability error.</li> -->
-            <li>When you've completed the steps, review the interface you've just used using the ten 'Usability Heuristics' &mdash; giving your opion on how well the design meets these ten rules.</li>
-          </ol>
-        </div>
-
-        <div class="evaluation-intro" id="evaluation_intro">
-          <h2><img src="/i/feather/image.svg" alt="Image icon"/>Scenario / Task List</h2>
-          <p class="tasklist-p">Your name is Frederic — a 62 year old Dutch male from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</p>
-          <ol>
-            <!-- <li class="taskListItem">Your name is Frederic — a 62 year old Dutch male from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</li> -->
-            <li class="taskListItem">You opened the Bol.com page to order a new one. However, your wife gave you a list of restrictions:</li>
-            <li class="taskListItem">The printer should <e>cost less than €90</e>. It should be able to <e>print in full-colour</e>. Finally, <e>you don't want an Epson brand printer</e>.</li>
-            <li class="taskListItem">Use the Bol.com website to find a suitable new printer, and add it to your shopping basket.</li>
+            <li>We ask you to perform a <i>Heuristic Evaluation</i> of the design you see on the left.</li>
+            <li>This means that you envision yourself to be the user while acting out a scenario, and share your opinion on the design's usability at the end.</li>
+            <li>The next section contains a scenario with tasks. You can click on the 'I understand' button to unlock the interface.</li>
+            <!-- <li>Try to perform all the steps using the interface on the left. Don't worry if you get stuck.</li>
+            <li>When you've completed the steps, review the interface you've just used using the ten 'Usability Heuristics' &mdash; giving your opion on how well the design meets these ten rules.</li> -->
           </ol>
 
           <button type="button" name="startEvaluation" id="startEvaluationBtn" class="btn" onclick="startEvaluation()">I understand &mdash; show me the interface!</button>
         </div>
 
+        <div class="evaluation-intro" id="evaluation_intro">
+          <h2><img src="/i/feather/image.svg" alt="Image icon"/>Scenario / Task List</h2>
+          <p class="tasklist-p">Here's the scenario &mdash; Your name is Frederic — a 62 year old Dutch male from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</p>
+          <ol>
+            <li class="taskListItem">You opened the Bol.com page to order a new one. However there are some restrictions: The printer should <e>cost less than €90</e>. It should be able to <e>print in full-colour</e>. Finally, <e>you don't want an Epson brand printer</e>.</li>
+            <li class="taskListItem">Your task is to use the Bol.com website on the left to find a suitable new printer, and add it to your shopping basket.</li>
+            <li class="tasklistItem">Please use either of the buttons below when you are done with the scenario, or found yourself stuck.</li>
+          </ol>
 
-        <form class="" action="javascript:void(0)" method="post" enctype="application/x-www-form-urlencoded">
+          <div class="scenario_indicator">
+            <p class="scenario_question">Were you able to complete the scenario?</p>
+            <div class="scenario_buttons">
+              <button type="button" name="didFinishScenario" id="didFinishScenarioBtn" class="btn" onclick="">Yes!</button>
+              <button type="button" name="didNotFinishScenario" id="didNotFinishScenarioBtn" class="btn" onclick="">No.</button>
+            </div>
+          </div>
+
+        </div>
+
+
+        <form class="gui_form" action="javascript:void(0)" method="post" enctype="application/x-www-form-urlencoded">
 
           <!-- Hidden form attributes to store user and session data -->
           <input type="hidden" name="user_id" id="form_user_id" value="-1"/>
@@ -471,8 +506,8 @@ Potentially, the tooltip functionality could be used to embed additional context
             <!-- TODO: IMPLEMENT JS TO LOCK/TRAP TABINDEX TO MODAL -->
             <h1>You've been invited by Arthur Geel to evaluate their Bol.com</a>  prototype!</h1>
             <h2>* This should only take about <span id="timeAmount">fifteen minutes</span> of your time.</h2>
-            <button type="button" name="review" class="onboarding-btn main" tabindex="0" onclick="reviewInvitation()">Review Invitation</button>
-            <button type="button" name="nothanks" class="onboarding-btn" tabindex="0" onclick="declineInvitation()">I'll Pass, Thanks</button>
+            <button type="button" name="review" class="onboarding-btn main" tabindex="0" onclick="reviewInvitation()">Accept Invitation</button>
+            <!-- <button type="button" name="nothanks" class="onboarding-btn" tabindex="0" onclick="declineInvitation()">I'll Pass, Thanks</button> -->
 
           </div>
         </div>
@@ -496,31 +531,8 @@ Potentially, the tooltip functionality could be used to embed additional context
       </div>
     </div>
 
-    <!-- Hotjar Tracking Code for localhost:3000 -->
-    <!-- <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:1672795,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    </script> -->
-
-
     <script src="/js/lottie.js"></script>
     <script src="/js/app.js"></script>
-
-
-    <!-- <div class="modal">
-      <h2>Save document?</h2>
-
-      <a href="https://arthurgeel.com/documents/cv.pdf">Link here</a>
-
-      <button>Cancel</button>
-      <button autofocus>OK</button>
-    </div> -->
 
   </body>
 </html>
