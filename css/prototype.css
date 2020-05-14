@@ -172,7 +172,7 @@ body {
 
 .frame-container .frame-modal-container .frame-modal p {
   color: #666;
-  line-height: 1.3em;
+  line-height: 1.5;
 }
 
 /* .frame-container .frame-modal-container .frame-modal button {
@@ -250,6 +250,7 @@ body {
 .evaluation h2 {
   font-size: 1.10em;
   margin-bottom: .5em;
+  line-height: 1.5;
 }
 
 .evaluation h2 img {
@@ -262,19 +263,24 @@ body {
   color: #666;
   font-size: .9em;
   margin-bottom: 2em;
-  line-height: 1.3em;
+  line-height: 1.5;
 }
 
 .evaluation li {
   color: #666;
   font-size: .9em;
-  margin-bottom: .5em;
-  line-height: 1.3em;
+  margin-bottom: 1em;
+  line-height: 1.5;
 }
 
 .evaluation li e {
   /* font-style: italic; */
   border-bottom: 1px dashed #CCC;
+  transition: background-color .2s ease-in-out;
+}
+
+.evaluation li e:hover {
+  background-color: #fafafa;
 }
 
 .evaluation .tasklist-p {
@@ -330,7 +336,8 @@ body {
 
 .evaluation label {
   display: block;
-  margin-bottom: .5em;
+  line-height: 1.5;
+  margin-bottom: 1em;
 }
 
 /* .evaluation h3 span {
@@ -498,7 +505,7 @@ input, textarea {
 
   font-family: "Ubuntu", sans-serif;
   font-size: .9em;
-  line-height: 1.3em;
+  line-height: 1.5;
   color: #333;
 
   transition: background-color .1s ease-in-out, border .1s ease-in-out, box-shadow .1s ease-in-out;
@@ -547,7 +554,7 @@ textarea:focus {
   color: var(--branding);
   font-size: .8em;
   font-family: "Sen", sans-serif;
-  line-height: 1.3em;
+  line-height: 1.5;
   box-shadow: 0px 0px 15px hsla(240, 100%, 32%, 0);
 
   transition: background-color .2s ease-in-out,

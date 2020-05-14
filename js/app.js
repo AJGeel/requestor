@@ -28,6 +28,13 @@ const DOM_Body = document.getElementById("body");
 // Generate a date object of initial page load
 let startTime = Date.now();
 
+// Keep track of user performance
+let timeSpentTotal = 0;
+let timeSpentOnOnboarding = 0;
+let timeSpentOnScenario = 0;
+let timeSpentOnEvaluation = 0;
+let completedScenario = 0;
+
 // Select the evaluation container to slow down the animation if the user hovers over it.
 const evaluationContainer = document.getElementById("evaluation_container");
 
@@ -127,13 +134,6 @@ function trackScrollPercentage() {
 
   document.getElementById("progress-bar").style.width = percentScrolled + "%";
 
-  // console.log("$DEBUG: percScrolled: " + percentScrolled);
-  // console.log("$DEBUG: timerCondition: " + timerCondition);
-
-  if (percentScrolled >= 75) {
-  //   console.log("100% SCROLLED MATE");
-    timerCondition = false;
-  }
 }
 
 /* Function that updates the targeted iFrame's source attribute with our Figma demonstrator prototype */
@@ -303,16 +303,13 @@ function startEvaluation() {
   }, 2000);
 
   // Update the hidden form value to store how much time the user spent on the onboarding sequence.
-  updateFormValue('time_spent_on_onboarding', checkTimeElapsed());
+  timeSpentOnOnboarding = checkTimeElapsed();
+  updateFormValue('time_spent_on_onboarding', timeSpentOnOnboarding);
 
-  // TODO Show the buttons that signify the end of the performed scenario
+  // Show the buttons that signify the end of the performed scenario
   let scenarioIndicator = document.getElementsByClassName('scenario_indicator')[0];
-  scenarioIndicator.style.display = 'block';
-
-  setTimeout(function() {
-    scenarioIndicator.style.opacity = '1';
-    scenarioIndicator.style.height = 'auto';
-  }, 100);
+  toggleVisibility(scenarioIndicator);
+  // scenarioIndicator.style.display = 'block';
 
 }
 
@@ -359,6 +356,13 @@ function serialize(form) {
  * Check form for completeness and validity, notify end-user if incomplete/invalid.
  */
 function validateForm(type) {
+
+  // Record time taken for evaluation and update form
+  timeSpentOnEvaluation = checkTimeElapsed() - timeSpentOnScenario - timeSpentOnOnboarding;
+  updateFormValue('time_spent_on_evaluation', timeSpentOnEvaluation);
+  // Record time taken for full process
+  timeSpentTotal = checkTimeElapsed();
+  updateFormValue('time_spent_total', timeSpentTotal);
 
   if (type == 'nielsen') {
     // First: get all of the data that is inside the form.
@@ -473,4 +477,85 @@ function updateFormValue(name, userInput) {
 
   // Update hidden form item with user input
   hiddenFormItem.value = `${userInput}`;
+}
+
+/* Function that handles the user's input when they indicate they finished the scenario */
+function finishedScenario(DOM, value) {
+  // Update hidden form item
+  updateFormValue('completed_scenario', value);
+
+  // Store the time taken to perform the scenario
+  timeSpentOnScenario = checkTimeElapsed() - timeSpentOnOnboarding;
+  // Update hidden form value for time spent
+  updateFormValue('time_spent_on_scenario', timeSpentOnScenario);
+
+  // Make reference to button wrapper DOM element
+  let buttonWrapper = DOM.parentElement.parentElement;
+  buttonWrapper.remove();
+
+  // Show the Form
+  toggleVisibility(form);
+
+  // Fix general impression height
+  let genImp = document.getElementById('general_impression');
+  genImp.style.height = 'auto';
+
+  // Conditionally update the appraisal text
+  if (value == 0) {
+    // User was unable to complete scenario
+    let cond = document.getElementById('conditionalContent');
+    cond.innerHTML = "You weren't able to complete the scenario. That's not a problem at all, this project is not finished and therefore not perfect.";
+  }
+
+}
+
+
+/* Function to make a hidden DOM element visible */
+function show(elem) {
+
+  // Get the natural height of the element
+  let getHeight = function() {
+    elem.style.display = 'block'; // Make it visible
+    let height = elem.scrollheight + 'px'; // Get its height
+    elem.style.display = ''; // Hide it again
+    return height;
+  };
+
+  let height = getHeight(); // Get the natural height
+  elem.classList.add('is-visible'); // Make the element visible
+  elem.style.height = height; // Update the max height
+
+  // Once the transition is complete, remove the inline max-height so the content can scale responsively
+  window.setTimeout(function() {
+    elem.style.height = '';
+  }, 350);
+}
+
+/* Function to hide a visible DOM element */
+function hide(elem) {
+  // give the element a height to change from
+  elem.style.height = elem.scrollheight = 'px';
+
+  // Set the height back to 0
+  window.setTimeout(function() {
+    elem.style.height = '0';
+  }, 1);
+
+  // When the transition is complete, hide it
+  window.setTimeout(function() {
+    elem.classList.remove('is-visible');
+  }, 350);
+}
+
+
+/* Function to toggle element visibility */
+function toggleVisibility(elem) {
+  // If the element is visible, hide it
+  if (elem.classList.contains('is-visible')) {
+    hide(elem);
+    return;
+  }
+
+  // Otherwise, show it
+  show(elem);
 }

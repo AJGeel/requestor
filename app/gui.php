@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
-    <title>Requestor App (Alpha)</title>
+    <title>Requestor &mdash; Bol.com Design Evaluation</title>
     <meta name="description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
     <meta name="author" content="Arthur Geel, hello@arthurgeel.com">
     <meta name="color-scheme" content="light dark">
@@ -36,16 +36,51 @@
         box-sizing: border-box;
         margin-top: 2em;
         border-radius: 4px;
+        overflow: hidden;
 
         /* Animated values */
         display: none;
         height: 0;
         opacity: 0;
-        transition: height 2s ease-in-out, opacity 2s ease-in-out;
+        transition: height 350ms ease-in-out, opacity 750ms ease-in-out;
       }
 
       .gui_form {
         display: none;
+        height: 0;
+        opacity: 0;
+        transition: height 350ms ease-in-out, opacity 750ms ease-in-out;
+
+      }
+
+      .form_section i {
+        font-style: italic;
+      }
+
+      .form_section b {
+        font-weight: bold;
+      }
+
+      .conditional p {
+        margin-bottom: 1em;
+      }
+
+      .conditional p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* .toggle-content {
+        display: none;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: height 350ms ease-in-out, opacity 750ms ease-in-out;
+      } */
+
+      .is-visible {
+      	display: block;
+      	height: auto;
+        opacity: 1;
       }
     </style>
 
@@ -56,7 +91,8 @@
 
       <section class="frame-container" id="frame_container"> <!-- Embedded Figma Prototype -->
         <div class="frame" id="frame">
-          <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen="true" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width"></iframe>
+          <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen="true" src=""></iframe>
+          <!-- <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen="true" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width"></iframe> -->
         </div>
 
         <div class="frame-modal-container" id="frameModal">
@@ -111,8 +147,8 @@
           <div class="scenario_indicator">
             <p class="scenario_question">Were you able to complete the scenario?</p>
             <div class="scenario_buttons">
-              <button type="button" name="didFinishScenario" id="didFinishScenarioBtn" class="btn" onclick="">Yes!</button>
-              <button type="button" name="didNotFinishScenario" id="didNotFinishScenarioBtn" class="btn" onclick="">No.</button>
+              <button type="button" name="didFinishScenario" id="didFinishScenarioBtn" class="btn" onclick="finishedScenario(this, 1)">Yes!</button>
+              <button type="button" name="didNotFinishScenario" id="didNotFinishScenarioBtn" class="btn" onclick="finishedScenario(this, 0)">No.</button>
             </div>
           </div>
 
@@ -132,6 +168,14 @@
           <input type="hidden" name="time_spent_on_evaluation" value="0">
           <input type="hidden" name="completed_scenario" value="0"> <!-- Was the user was able to complete the scenario? 0 = false, 1 = true -->
           <input type="hidden" name="interested" value="0">
+
+          <div class="form_section conditional">
+            <h2><img src="/i/feather/image.svg" alt="Image icon"/>Heuristic Evaluation</h2>
+            <p><i><span id="conditionalContent">You successfully completed the scenario. That's awesome!</span></i></p>
+            <p>We are interested in your <b>Heuristic Evaluation</b> of the design you've just seen. You will be shown <b>ten general principles</b> on what makes a user interface usable. For each principle, please state <b>whether you think there is a problem</b>.</p>
+            <p>You can do so using the scale of <b>0 to 4</b>, where '0' means </b>no problem</b> and '4' signifies <b>a usability catastrophe</b>. Hover over the ratings with your cursor to see a more elaborate description.</p>
+            <p>Finally, if you believe the question is irrelevant or cannot be answered, please answer ’0’.</p>
+          </div>
 
           <div class="form_section heuristic">
             <h2>#1: Visibility of System Status</h2>
@@ -504,7 +548,7 @@ Potentially, the tooltip functionality could be used to embed additional context
           </div>
           <div class="information">
             <!-- TODO: IMPLEMENT JS TO LOCK/TRAP TABINDEX TO MODAL -->
-            <h1>You've been invited by Arthur Geel to evaluate their Bol.com</a>  prototype!</h1>
+            <h1>You've been invited by Arthur Geel to help evaluate a Bol.com</a>  prototype!</h1>
             <h2>* This should only take about <span id="timeAmount">fifteen minutes</span> of your time.</h2>
             <button type="button" name="review" class="onboarding-btn main" tabindex="0" onclick="reviewInvitation()">Accept Invitation</button>
             <!-- <button type="button" name="nothanks" class="onboarding-btn" tabindex="0" onclick="declineInvitation()">I'll Pass, Thanks</button> -->
