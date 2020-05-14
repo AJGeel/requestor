@@ -113,12 +113,6 @@ let currentHeuristic;
 // Variable that keeps track of open-ended questions
 let currentQuestion;
 
-let timeSpentTotal = 0;
-let timeSpentOnOnboarding = 0;
-let timeSpentOnScenario = 0;
-let timeSpentOnEvaluation = 0;
-let completedScenario = 0;
-
 
 /*--------------------------------------------------
 02. Bubbles Core & Script

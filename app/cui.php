@@ -159,7 +159,7 @@
 
     <div class="small-screens">
       <div class="small-screens-container">
-        <img src="https://placehold.it/1920x1080" alt="placeholder image">
+        <img src="/i/nothing-here.png" alt="placeholder image">
         <h2>Oh snap!</h2>
         <p>It appears you are trying to reach this page on a phone, a small tablet, or a computer browser that is sized rather awkwardly.</p>
         <p>Unfortunately, the Requestor application currently is only supported on screens that are wider than 840 pixels, while your screen is <span id="window-width"></span> pixels wide.</p>

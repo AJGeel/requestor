@@ -17,73 +17,6 @@
     <link rel="stylesheet" href="/css/prototype-darkmode.css"> <!-- Optional Dark Mode for Aesthetics -->
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
-    <style media="screen">
-      .scenario_buttons {
-        display: flex;
-      }
-
-      .evaluation .scenario_question {
-        font-weight: 600;
-        font-family: 'Sen';
-        color: #333;
-        margin-bottom: 0;
-        text-align: center;
-      }
-
-      .scenario_indicator {
-        background-color: #f2f1ff;
-        padding: 2em;
-        box-sizing: border-box;
-        margin-top: 2em;
-        border-radius: 4px;
-        overflow: hidden;
-
-        /* Animated values */
-        display: none;
-        height: 0;
-        opacity: 0;
-        transition: height 350ms ease-in-out, opacity 750ms ease-in-out;
-      }
-
-      .gui_form {
-        display: none;
-        height: 0;
-        opacity: 0;
-        transition: height 350ms ease-in-out, opacity 750ms ease-in-out;
-
-      }
-
-      .form_section i {
-        font-style: italic;
-      }
-
-      .form_section b {
-        font-weight: bold;
-      }
-
-      .conditional p {
-        margin-bottom: 1em;
-      }
-
-      .conditional p:last-child {
-        margin-bottom: 0;
-      }
-
-      /* .toggle-content {
-        display: none;
-        height: 0;
-        opacity: 0;
-        overflow: hidden;
-        transition: height 350ms ease-in-out, opacity 750ms ease-in-out;
-      } */
-
-      .is-visible {
-      	display: block;
-      	height: auto;
-        opacity: 1;
-      }
-    </style>
-
   </head>
   <body id="body">
 
@@ -91,8 +24,8 @@
 
       <section class="frame-container" id="frame_container"> <!-- Embedded Figma Prototype -->
         <div class="frame" id="frame">
-          <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen="true" src=""></iframe>
-          <!-- <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen="true" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width"></iframe> -->
+          <!-- <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen="true" src=""></iframe> -->
+          <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen="true" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width"></iframe>
         </div>
 
         <div class="frame-modal-container" id="frameModal">
@@ -567,7 +500,7 @@ Potentially, the tooltip functionality could be used to embed additional context
 
     <div class="small-screens">
       <div class="small-screens-container">
-        <img src="https://placehold.it/1920x1080" alt="placeholder image">
+        <img src="/i/nothing-here.png" alt="placeholder image">
         <h2>Oh snap!</h2>
         <p>It appears you are trying to reach this page on a phone, a small tablet, or a computer browser that is sized rather awkwardly.</p>
         <p>Unfortunately, the Requestor application currently is only supported on screens that are wider than 840 pixels, while your screen is <span id="window-width"></span> pixels wide.</p>

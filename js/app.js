@@ -232,9 +232,11 @@ function formProgressiveDisclosure(value, target, evaluationType) {
     } else if (value == 1 || value == 2 || value == 3 || value == 4) {
       // If there is an issue (in any quantity), we do show the follow-up.
       // targ.style.display = "initial";
-      targ.style.height = `268px`;
+      targ.style.height = `316px`;
       targ.style.opacity = `1`;
       targ.style.visibility = `visible`;
+
+      // setTimeout(function() {targ.style.height = 'auto';}, 1000)
 
       // Select all textareas within the progressive disclosure element, and add the 'disabled' tag.
       targ.querySelectorAll('textarea').forEach((item) => {
