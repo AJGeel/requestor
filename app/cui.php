@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <!-- TODO:
+    - Thorough test to verify that everything works properly.
+    - Update Figma project content.
+    - Minify and Gzip all assets for increased performance
+    -->
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
