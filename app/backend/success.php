@@ -51,6 +51,21 @@
 
   </div>
 
+  <script type="text/javascript">
+  let userData = {
+    ID: <?php echo $user_id ?>,
+    input: "<?php echo $heuristics_string_values ?>",
+    timeSpent: {
+      total: <?php echo $time_spent_total ?>,
+      onboarding: <?php echo $time_spent_on_onboarding ?>,
+      scenario: <?php echo $time_spent_on_scenario ?>,
+      evaluation: <?php echo $time_spent_on_evaluation ?>
+    },
+    completedScenario: <?php echo $completed_scenario ?>
+  }
+  // Check PHP variable to determine which questionnaire should be loaded
+  let prototypeID = <?php echo $prototype_id ?>;
+  </script>
   <script src="success.js" charset="utf-8"></script>
 
 </body>

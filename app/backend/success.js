@@ -7,19 +7,6 @@ let nextQuestionnaireBtn = document.getElementById('nextQuestionnaire');
 let interestedBool = 0;
 let interfaceVariant;
 
-let userData = {
-  ID: <?php echo $user_id ?>,
-  input: "<?php echo $heuristics_string_values ?>",
-  timeSpent: {
-    total: <?php echo $time_spent_total ?>,
-    onboarding: <?php echo $time_spent_on_onboarding ?>,
-    scenario: <?php echo $time_spent_on_scenario ?>,
-    evaluation: <?php echo $time_spent_on_evaluation ?>
-  },
-  completedScenario: <?php echo $completed_scenario ?>
-}
-
-
 // EventListener for clicking the 'interested' button
 btnInterested.addEventListener('click', function() {
   if (btnInterested.classList.contains('active') != true) {
@@ -107,9 +94,6 @@ function checkUserPerformance() {
 }
 
 function checkPrototypeVariant() {
-  // Check PHP variable to determine which questionnaire should be loaded
-  let prototypeID = <?php echo $prototype_id ?>;
-
   if (prototypeID == 0) {
     interfaceVariant = 'gui';
   } else {

@@ -13,6 +13,7 @@
     <!-- Links and CSS -->
     <link rel="shortcut icon" href="/i/requestor.svg" type="image/png" id="favicon">
     <link rel="stylesheet" href="/css/reset.min.css"> <!-- Reset browser inconsistencies -->
+    <link rel="stylesheet" href="/css/research.css">
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
   </head>
@@ -46,205 +47,21 @@
           </div>
         </div>
         <div class="experience-form">
-          <p>Additionally, we'd like to know how you perceive your own ability in Design and/or User Experience Design. Please use the following scale to indicate the perception of your ability:</p>
-          <div class="experience-options">
-            <button type="button" name="button" id="xp_1">No level of competence &mdash; I have no practical experience.</button>
-            <button type="button" name="button" id="xp_2">Low level of competence &mdash; I have little practical experience.</button>
-            <button type="button" name="button" id="xp_3">Average level of competence &mdash; I have some practical experience.</button>
-            <button type="button" name="button" id="xp_4">Moderately high level of competence &mdash; I have good practical experience.</button>
-            <button type="button" name="button" id="xp_5">High level of competence &mdash; I have extensive practical experience.</button>
-          </div>
+          <p>Please select the option that best indicates how you perceive your knowledge of User Experience (UX) Design below:</p>
+          <select id="experienceLevel" class="experience-dropdown" name="experienceLevel">
+            <option value="" selected disabled hidden>Click here to see the options</option>
+            <option value="1">I am unaware of what UX involves and the added value it may bring.</option>
+            <option value="2">I have some understanding of what UX is, but have no experience in practical application.</option>
+            <option value="3">I know what UX is and have limited experience in practical application.</option>
+            <option value="4">I know what UX is and have considerable experience in practical application.</option>
+            <option value="5">I am known as an expert and have professional experience in practical application.</option>
+          </select>
         </div>
+        <!-- Informed by the NIH Proficiency Scale https://hr.nih.gov/working-nih/competencies/competencies-proficiency-scale -->
 
         <a id="toStudy" class="call-to-action inactive"><span>Continue to Study &nbsp;&gt;</span></a>
 
       </section>
-
-      <style media="screen">
-      html {
-      	background-color: #f3f3fc
-      }
-
-      .page {
-      	font-family: Sen, sans-serif;
-      	max-width: 54em;
-      	margin: 4em auto;
-      	background-color: #fff;
-      	padding: 6em;
-      	box-shadow: 0 5px 35px hsla(244, 40%, 32%, .15);
-      	border-radius: 2px
-      }
-
-      .consent {
-      	border-top: 4px solid #f3f3fc;
-      	margin-top: 3em;
-      	padding-top: 3em
-      }
-
-      h1 {
-      	color: #0000a3;
-      	font-size: 2.2em;
-      	font-weight: 600;
-      	margin-bottom: .8em;
-      	line-height: 1.2
-      }
-
-      .consent-form, .experience-form {
-      	background-color: #f3f3fc;
-      	color: #0000a3;
-      	display: flex;
-      	flex-direction: column;
-      	justify-content: center;
-      	align-items: center;
-      	padding: 2em;
-        margin: 2em 0;
-      }
-
-      .consent-form {
-        margin-bottom: 0;
-      }
-
-      .experience-form {
-        margin-top: 10px;
-      }
-
-      .consent-form p, .experience-form p {
-      	width: 100%;
-      }
-
-      .consent-options, .experience-options {
-      	width: 100%;
-      	display: flex
-      }
-
-      .experience-options {
-        flex-direction: column;
-      }
-
-      .consent-options button, .experience-options button {
-      	width: 100%;
-      	font-family: Sen, sans-serif;
-      	background-color: #f3f3fc;
-      	border: 1px solid #0000a3;
-      	box-sizing: border-box;
-      	color: #0000a3;
-      	cursor: pointer;
-      	padding: .4em;
-      	font-size: 1em;
-      	transition: background-color .2s ease-in-out, color .2s ease-in-out
-      }
-
-      .consent-options button {
-        border-right: none;
-      }
-
-      .experience-options button {
-        text-align: left;
-        padding: .4em 1em;
-        border-bottom: none;
-      }
-
-      .experience-options button:last-child {
-        border-bottom: 1px solid #0000a3;
-      }
-
-      .consent-options button.active,
-      .consent-options button:hover,
-      .experience-options button.active,
-      .experience-options button:hover {
-      	background-color: #0000a3;
-      	color: #fff
-      }
-
-      .consent-options button:first-child {
-      	border-top-left-radius: 2px;
-      	border-bottom-left-radius: 2px;
-      }
-
-      .consent-options button:last-child{
-      	border-top-right-radius: 2px;
-      	border-bottom-right-radius: 2px;
-        border-right: 1px solid #0000a3;
-      }
-
-      .call-to-action {
-      	background-color: #0000a3;
-      	color: #fff;
-      	box-sizing: border-box;
-      	cursor: pointer;
-      	border-radius: 100px;
-      	padding: .7em;
-      	font-size: 1em;
-      	border: none;
-      	font-family: Sen, sans-serif;
-      	margin-top: 1em;
-      	display: flex;
-      	justify-content: center;
-      	text-decoration: none;
-      	transition: background-color .2s ease-in-out
-      }
-
-      .call-to-action.inactive {
-      	background-color: #787891;
-      	cursor: help
-      }
-
-      .call-to-action span {
-      	transition: all .2s ease-in-out
-      }
-
-      .call-to-action:hover span {
-      	transform: translateX(1em)
-      }
-
-      p {
-      	line-height: 1.5;
-      	margin-bottom: 1em
-      }
-
-      ol {
-      	list-style-type: decimal;
-      	list-style-position: inside;
-      	line-height: 1.5
-      }
-
-      ol li {
-      	margin-bottom: 1em
-      }
-
-      body {
-      	transition: all .2s ease-in-out
-      }
-
-      a {
-      	color: #0000a3
-      }
-
-      b {
-      	font-weight: 700
-      }
-
-      @media only screen and (max-width:992px) {
-      	body {
-      		padding: 2em
-      	}
-      	.page {
-      		padding: 2em;
-      		margin: 0 auto;
-      		transition: .2s ease-in-out
-      	}
-      	h1 {
-      		font-size: 1.5em
-      	}
-      }
-
-      @media only screen and (max-width:400px) {
-      	body {
-      		padding: .5em
-      	}
-      }
-
-      </style>
       <script src="js/uid.js" charset="utf-8"></script>
 
     </div>
