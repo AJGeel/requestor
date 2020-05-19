@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
-    <title>Requestor &mdash; Bol.com Design Evaluation</title>
+    <title>Requestor &mdash; Government.nl Design Evaluation</title>
     <meta name="description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
     <meta name="author" content="Arthur Geel, hello@arthurgeel.com">
     <meta name="color-scheme" content="light dark">
@@ -30,7 +30,7 @@
       <section class="frame-container" id="frame_container"> <!-- Embedded Figma Prototype -->
         <div class="frame" id="frame">
           <!-- <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen="true" src=""></iframe> -->
-          <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen="true" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FejJw4AVHI1kAIktWxJzYDb%3Fnode-id%3D1%253A2%26viewport%3D497%252C275%252C0.2620800733566284%26scaling%3Dscale-down-width"></iframe>
+          <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FDYhe8z0n3I6fEFmD7PyJCa%2FGovernment-COVID19-%25E2%2580%2594-Sample-Project%3Fnode-id%3D2%253A2%26viewport%3D-80%252C198%252C0.2307339608669281%26scaling%3Dscale-down-width"></iframe>
         </div>
 
         <div class="frame-modal-container" id="frameModal">
@@ -54,12 +54,13 @@
         </div>
 
         <div class="evaluation-intro">
-          <h1>Bol.com &mdash; UX Design Evaluation</h1>
+          <h1>Government.nl &mdash; UX Design Evaluation</h1>
           <h2><img src="/i/feather/tag.svg" alt="Tag icon"/>About the Project</h2>
-          <p>Bol.com is the leading online shop in the Netherlands for books, toys and electronics that serve over 10.5 million customers. (Note: this project is currently placeholder, as it allows pre-alpha testers to better understand what this project is about.)</p>
+          <p style="margin-bottom: 1em;">The Government.nl website is the place where reliable information on what the Dutch government &mdash; together with other organisations &mdash; is doing. The website contains the latest official information on pressing issues and their legislation.</p>
+          <p>Please note that the website's contents that are used for this evaluation <b>have been edited</b> to introduce a number of usability issues &mdash; the content that you see is not representative for the Government.nl website.</p>
 
           <h2><img src="/i/feather/users.svg" alt="Users icon"/>Target Users</h2>
-          <p>Bol.com mainly serves customers in the Netherlands (72%) and Belgium (17%), across all age groups. (Data is fictive, placeholder)</p>
+          <p>With Government.nl, the Dutch government seeks to provide online information that is user friendly and accessible to all types of visitors.</p>
 
           <h2><img src="/i/feather/clipboard.svg" alt="Clipboard icon"/>What We Ask You To Do</h2>
           <ol>
@@ -74,12 +75,12 @@
         </div>
 
         <div class="evaluation-intro" id="evaluation_intro">
-          <h2><img src="/i/feather/image.svg" alt="Image icon"/>Scenario / Task List</h2>
-          <p class="tasklist-p">Here's the scenario &mdash; Your name is Frederic — a 62 year old Dutch male from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</p>
+          <h2><img src="/i/feather/image.svg" alt="Image icon"/>Scenario &amp; Steps</h2>
+          <p class="tasklist-p">The scenario is as follows &mdash; Your name is Frederic: a 44 year old expat living in the Eindhoven area. As the owner of a business without employees (ZZP), the uncertain times caused by the Corona Crisis have put a strain on your financial situation.</p>
           <ol>
-            <li class="taskListItem">You opened the Bol.com page to order a new one. However there are some restrictions: The printer should <e>cost less than €90</e>. It should be able to <e>print in full-colour</e>. Finally, <e>you don't want an Epson brand printer</e>.</li>
-            <li class="taskListItem">Your task is to use the Bol.com website on the left to find a suitable new printer, and add it to your shopping basket.</li>
-            <li class="tasklistItem">Please use either of the buttons below when you are done with the scenario, or found yourself stuck.</li>
+            <li class="taskListItem">You recall that the prime minister discussed options for financial support in a press conference, some time ago. However, you forgot what it was called, and whether it is applicable for you.</li>
+            <li class="taskListItem">Your task is to use the government.nl website to find reliable information on the financial support: you want to know the measure's name and the amount of financial support you can get.</li>
+            <li class="tasklistItem">Please use either of the buttons below when you are done with the scenario, or if you are unable to complete the scenario.</li>
           </ol>
 
           <div class="scenario_indicator">
@@ -109,10 +110,10 @@
 
           <div class="form_section conditional">
             <h2><img src="/i/feather/image.svg" alt="Image icon"/>Heuristic Evaluation</h2>
-            <p><i><span id="conditionalContent">You successfully completed the scenario. That's awesome!</span></i></p>
-            <p>We are interested in your <b>Heuristic Evaluation</b> of the design you've just seen. You will be shown <b>ten general principles</b> on what makes a user interface usable. For each principle, please state <b>whether you think there is a problem</b>.</p>
+            <p><i><span id="conditionalContent">You successfully completed the scenario. Fantastic!</span></i></p>
+            <p>We are interested in your <b>Heuristic Evaluation</b> of the design you've just seen. You will be shown <b>ten general principles</b> on what makes a user interface usable. For each principle, please recall your experience with the prototype, and state <b>whether you think there is a problem</b> with that principle.</p>
             <p>You can do so using the scale of <b>0 to 4</b>, where '0' means </b>no problem</b> and '4' signifies <b>a usability catastrophe</b>. Hover over the ratings with your cursor to see a more elaborate description.</p>
-            <p>Finally, if you believe the question is irrelevant or cannot be answered, please answer ’0’.</p>
+            <p>Finally, if you believe a question is irrelevant or cannot be answered, please answer ’0’.</p>
           </div>
 
           <div class="form_section heuristic">
@@ -486,7 +487,7 @@ Potentially, the tooltip functionality could be used to embed additional context
           </div>
           <div class="information">
             <!-- TODO: IMPLEMENT JS TO LOCK/TRAP TABINDEX TO MODAL -->
-            <h1>You've been invited by Arthur Geel to help evaluate a Bol.com</a>  prototype!</h1>
+            <h1>You've been invited by Arthur Geel to evaluate a Government.nl</a> prototype!</h1>
             <h2>* This should only take about <span id="timeAmount">fifteen minutes</span> of your time.</h2>
             <button type="button" name="review" class="onboarding-btn main" tabindex="0" onclick="reviewInvitation()">Accept Invitation</button>
             <!-- <button type="button" name="nothanks" class="onboarding-btn" tabindex="0" onclick="declineInvitation()">I'll Pass, Thanks</button> -->
