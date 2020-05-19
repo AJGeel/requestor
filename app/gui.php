@@ -56,7 +56,7 @@
         <div class="evaluation-intro">
           <h1>Government.nl &mdash; UX Design Evaluation</h1>
           <h2><img src="/i/feather/tag.svg" alt="Tag icon"/>About the Project</h2>
-          <p style="margin-bottom: 1em;">The Government.nl website is the place where reliable information on what the Dutch government &mdash; together with other organisations &mdash; is doing. The website contains the latest official information on pressing issues and their legislation.</p>
+          <p style="margin-bottom: 1em;">The Government.nl website is the place where you'll find reliable information on what the Dutch government &mdash; together with other organisations &mdash; is doing. The website contains the latest official information on pressing issues and their legislation.</p>
           <p>Please note that the website's contents that are used for this evaluation <b>have been edited</b> to introduce a number of usability issues &mdash; the content that you see is not representative for the Government.nl website.</p>
 
           <h2><img src="/i/feather/users.svg" alt="Users icon"/>Target Users</h2>
@@ -111,7 +111,7 @@
           <div class="form_section conditional">
             <h2><img src="/i/feather/image.svg" alt="Image icon"/>Heuristic Evaluation</h2>
             <p><i><span id="conditionalContent">You successfully completed the scenario. Fantastic!</span></i></p>
-            <p>We are interested in your <b>Heuristic Evaluation</b> of the design you've just seen. You will be shown <b>ten general principles</b> on what makes a user interface usable. For each principle, please recall your experience with the prototype, and state <b>whether you think there is a problem</b> with that principle.</p>
+            <p>We are interested in your <b>Heuristic Evaluation</b> of the design you've just seen. You will be shown <b>ten general principles</b> on what makes a user interface usable. For each principle, please recall your experience with the prototype and state <b>whether you think there is a problem</b> with that principle.</p>
             <p>You can do so using the scale of <b>0 to 4</b>, where '0' means </b>no problem</b> and '4' signifies <b>a usability catastrophe</b>. Hover over the ratings with your cursor to see a more elaborate description.</p>
             <p>Finally, if you believe a question is irrelevant or cannot be answered, please answer ’0’.</p>
           </div>

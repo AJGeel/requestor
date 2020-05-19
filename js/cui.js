@@ -146,7 +146,7 @@ let convo = {
   }, // end required "ice" conversation object
 
   "intro_1" : {
-    "says" : [ "Exactly, well done.", "Now let's get to business. Here's what you should know about the project before you see the design:", "<b class='with-image'><img src='/i/feather/tag.svg' alt='Tag icon'>About this Project</b> Bol.com is the leading online shop in the Netherlands for books, toys and electronics that serve over 10.5 million customers."],
+    "says" : [ "Exactly, well done.", "Now let's get to business. Here's what you should know about the project before you see the design:", "<b class='with-image'><img src='/i/feather/tag.svg' alt='Tag icon'>About this Project</b> The Government.nl website is the place where you'll find reliable information on what the Dutch government — together with other organisations — is doing. The website contains the latest official information on pressing issues and their legislation.", "Please note that the website’s contents that are used for this evaluation <b>have been edited</b> to introduce a number of usability issues — the content that you see is not representative for the Government.nl website."],
     "reply": [
       {
         "question": "Tell me more.",
@@ -156,7 +156,7 @@ let convo = {
   }, // end conversation object
 
   "intro_2" : {
-    "says" : [ "<b class='with-image'><img src='/i/feather/users.svg' alt='Users icon'>Target Users</b> Bol.com mainly serves customers in the Netherlands (72%) and Belgium (14%), across all age groups.", "That's all for now. Whenever you're ready, you can click on the next button to unveil the design."],
+    "says" : [ "<b class='with-image'><img src='/i/feather/users.svg' alt='Users icon'>Target Users</b> With Government.nl, the Dutch government seeks to provide online information that is user friendly and accessible to all types of visitors.", "That's all for now. Whenever you're ready, you can click on the next button to unveil the design."],
     "reply": [
       {
         "question": "Show me!",
@@ -166,7 +166,7 @@ let convo = {
   }, // end conversation object
 
   "intro_3" : {
-    "says" : [ "See? The interface just became a whole lot more visible.", "If you want, you can get a general impression of the design: try moving your cursor to the frame and scroll.", "If you're ready to continue the evaluation, just let me know!"],
+    "says" : [ "See? The interface just became a whole lot more visible.", "If you want, you can get a general impression of the design: try moving your cursor to the frame and scroll up or down to see what happens.", "If you're ready to continue the evaluation, just let me know!"],
     "reply": [
       {
         "question": "I’m ready!", /* Careful: framework does not support ' characters in question. Use the ’ character instead. */
@@ -186,7 +186,7 @@ let convo = {
   }, // end conversation object
 
   "tasks_2" : {
-    "says" : [ "Here's the scenario you should act out using the prototype:", "<i>Your name is Frederic — a 62 year old Dutch male from the Veldhoven area. Your Epson printer just broke down for the last time, and is in dire need of replacement.</i>", "1. You opened the Bol.com page to order a new one. However, there are some restrictions: The printer should <span class='underlined'>cost less than €90</span>. It should be able to <span class='underlined'>print in full-colour</span>. Finally, <span class='underlined'>you don't want an Epson brand printer</span>.", "2. Your task is to use the Bol.com website to find a suitable new printer, and add it to your shopping basket.", "When you’re ready to start the task, click on the button. "],
+    "says" : [ "Here's the scenario you should act out using the prototype:", "<i>Your name is Frederic: a 44 year old expat living in the Eindhoven area. As the owner of a business without employees (ZZP), the uncertain times caused by the Corona Crisis have put a strain on your financial situation.</i>", "1. You recall that the prime minister discussed options for financial support in a press conference, some time ago. However, you forgot what it was called, and whether it is applicable for you.", "2. Your task is to use the government.nl website to find reliable information on the financial support: you want to know the measure's name and the amount of financial support you can get.", "When you’re ready to start the task, click on the button."],
     "reply": [
       {
         "question": "I’m ready.",
@@ -210,7 +210,7 @@ let convo = {
   }, // end conversation object
 
   "tasks_4a" : {
-    "says" : [ "That's awesome!", "I have a few questions about how you experienced using the prototype.", "I will be sharing <b>ten general principles</b> on what make a user interface usable. For each principle, please state <b>whether you think there is a problem.</b>", "You can do so using the scale of <b>0 to 4</b>, where '0' means <b>no problem</b> and '4' signifies <b>a usability catastrophe</b>. Hover over the ratings with your cursor to see a more elaborate description.", "Finally, if you believe the question is irrelevant or cannot be answered, please answer ’0’."],
+    "says" : [ "That's awesome!", "I have a few questions about how you experienced using the prototype.", "I will be sharing <b>ten general principles</b> on what make a user interface usable. For each principle, please recall your experience with the prototype and state <b>whether you think there is a problem.</b>", "You can do so using the scale of <b>0 to 4</b>, where '0' means <b>no problem</b> and '4' signifies <b>a usability catastrophe</b>. Hover over the ratings with your cursor to see a more elaborate description.", "Finally, if you believe the question is irrelevant or cannot be answered, please answer ’0’."],
     "reply": [
       {
         "question": "Let’s go!",

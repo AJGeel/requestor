@@ -10,8 +10,8 @@
 .bubble-container .input-wrap textarea {
 	width: calc(100% - 20px);
   font-family: "Sen", sans-serif;
-  color: var(--branding);
-  background: rgb(249, 248, 255);
+  color: hsla(200, 99%, 21%, 1);
+  background: hsla(200, 100%, 99%, 1);
   font-size: 1em;
   letter-spacing: .5px;
   font-weight: 400;
@@ -39,7 +39,7 @@
 }
 
 .bubble-container .input-wrap textarea::placeholder {
-  color: hsl(240, 24%, 56%);
+  color: hsl(200, 24%, 56%);
 }
 .bubble.reply-freeform {
 	margin: 0;
@@ -189,7 +189,7 @@
 .bubble,
 .bubble-typing {
   color: #212121;
-  background: hsla(246, 10%, 95%, 1);
+  background: hsla(200, 10%, 95%, 1);
   padding: 8px 16px;
   border-radius: 5px 15px 15px 15px;
   font-weight: 400;
@@ -293,7 +293,7 @@
 .dot_3 { animation-delay: 1.35s; }
 @keyframes bounce_dot {
 	0% {}
-	50% { background-color: hsl(246, 26%, 50%); }
+	50% { background-color: hsl(200, 26%, 50%); }
 	100% {}
 }
 
@@ -307,7 +307,7 @@
 	display: flex;
 	margin: .5em 0;
   padding-bottom: .5em;
-	border-bottom: 2px solid #cdcddc;
+	border-bottom: 2px solid hsla(200, 18%, 83%, 1)
 }
 
 .bubble .bubble-content b img {

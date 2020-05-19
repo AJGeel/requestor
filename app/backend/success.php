@@ -33,7 +33,7 @@
         </div>
         <div class="stat">
           <div class="stat--icon"><img src="search-icon.png" alt="search icon"></div>
-          <div class="stat--text">You found <b><span class="stat--dynamic-content" id="issuesFound">0</span> out of 5 usability issues</b>. <span id="issuesFoundAppraisal">Better luck next time!</span></div>
+          <div class="stat--text">You found <b><span class="stat--dynamic-content" id="issuesFound">0</span> out of 6 usability issues</b>. <span id="issuesFoundAppraisal">Better luck next time!</span></div>
         </div>
         <div class="stat">
           <div class="stat--text"><b>Optional:</b> Would you be interested in helping us with other evaluations in the future?</div>

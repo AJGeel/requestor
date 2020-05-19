@@ -77,7 +77,7 @@ function checkUserPerformance() {
   }
 
   // For this case, the 'right' answers are problems in heuristics [1,4] and [9].
-  let faultyHeuristics = [0, 1, 2, 3, 8];
+  let faultyHeuristics = [0, 1, 2, 3, 5, 8];
   // Compare userAnswers to right answers
   for (i = 0; i < faultyHeuristics.length; i++) {
     // For each
