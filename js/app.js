@@ -236,7 +236,10 @@ function formProgressiveDisclosure(value, target, evaluationType) {
       targ.style.opacity = `1`;
       targ.style.visibility = `visible`;
 
-      // setTimeout(function() {targ.style.height = 'auto';}, 1000)
+      // After 1000ms, set the height to 'auto' to prevent vertical overflow if textareas are larger than normal.
+      setTimeout(function() {
+        targ.style.height = 'auto';
+      }, 1000)
 
       // Select all textareas within the progressive disclosure element, and add the 'disabled' tag.
       targ.querySelectorAll('textarea').forEach((item) => {

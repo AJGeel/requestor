@@ -314,6 +314,10 @@ body {
   padding-left: .5em;
 }
 
+.evaluation ol li b {
+  font-weight: bold;
+}
+
 .evaluation ol li:hover {
   /* cursor: pointer; */
 }

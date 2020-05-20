@@ -13,7 +13,7 @@
     <!-- Links and CSS -->
     <link rel="shortcut icon" href="/i/requestor.svg" type="image/png" id="favicon">
     <link rel="stylesheet" href="/css/reset.min.css"> <!-- Reset browser inconsistencies -->
-    <link rel="stylesheet" href="/css/style.css"> <!-- Main styling document -->
+    <link rel="stylesheet" href="/css/style.min.css"> <!-- Main styling document -->
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
   </head>
@@ -49,11 +49,8 @@
       </div>
     </section>
 
-    <script src="/js/headroom.js" charset="utf-8"></script>
-    <script src="/js/dashboard.js" charset="utf-8"></script>
-    <script type="text/javascript">
-
-    </script>
+    <script src="/js/headroom.min.js" charset="utf-8"></script>
+    <script src="/js/dashboard.min.js" charset="utf-8"></script>
 
   </body>
 </html>

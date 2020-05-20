@@ -145,7 +145,7 @@ ol {
   line-height: 1.5
 }
 
-ol li {
+ol > li {
   margin-bottom: 1em
 }
 

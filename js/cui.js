@@ -186,7 +186,7 @@ let convo = {
   }, // end conversation object
 
   "tasks_2" : {
-    "says" : [ "Here's the scenario you should act out using the prototype:", "<i>Your name is Frederic: a 44 year old expat living in the Eindhoven area. As the owner of a business without employees (ZZP), the uncertain times caused by the Corona Crisis have put a strain on your financial situation.</i>", "1. You recall that the prime minister discussed options for financial support in a press conference, some time ago. However, you forgot what it was called, and whether it is applicable for you.", "2. Your task is to use the government.nl website to find reliable information on the financial support: you want to know the measure's name and the amount of financial support you can get.", "When you’re ready to start the task, click on the button."],
+    "says" : [ "Here's the scenario you should act out using the prototype:", "<i>Your name is Frederic: a 44 year old expat living in the Eindhoven area. As the owner of a business without employees (ZZP), the uncertain times caused by the Corona Crisis have put a strain on your financial situation.</i>", "1. You recall that the prime minister discussed options for financial support in a press conference, some time ago. However, you forgot what it was called, and whether it is applicable for you.", "2. Your task is to <b>use the government.nl website</b> to find reliable information on the financial support: you want to know the measure's name and the amount of financial support you can get.", "When you’re ready to start the task, click on the button."],
     "reply": [
       {
         "question": "I’m ready.",

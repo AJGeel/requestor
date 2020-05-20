@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <!-- TODO:
-    - Thorough test to verify that everything works properly.
-    - Update Figma project content.
-    - Minify and Gzip all assets for increased performance
-    -->
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +13,7 @@
     <!-- Links and CSS -->
     <link rel="shortcut icon" href="/i/requestor.svg" type="image/png" id="favicon">
     <link rel="stylesheet" href="/css/reset.min.css"> <!-- Reset browser inconsistencies -->
-    <link rel="stylesheet" href="/css/prototype.css"> <!-- Main styling document -->
+    <link rel="stylesheet" href="/css/prototype.min.css"> <!-- Main styling document -->
     <link rel="stylesheet" href="/css/prototype-darkmode.css"> <!-- Optional Dark Mode for Aesthetics -->
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
@@ -79,8 +74,8 @@
           <p class="tasklist-p">The scenario is as follows &mdash; Your name is Frederic: a 44 year old expat living in the Eindhoven area. As the owner of a business without employees (ZZP), the uncertain times caused by the Corona Crisis have put a strain on your financial situation.</p>
           <ol>
             <li class="taskListItem">You recall that the prime minister discussed options for financial support in a press conference, some time ago. However, you forgot what it was called, and whether it is applicable for you.</li>
-            <li class="taskListItem">Your task is to use the government.nl website to find reliable information on the financial support: you want to know the measure's name and the amount of financial support you can get.</li>
-            <li class="tasklistItem">Please use either of the buttons below when you are done with the scenario, or if you are unable to complete the scenario.</li>
+            <li class="taskListItem">Your task is to <b>use the government.nl website</b> to find reliable information on the financial support: you want to know the measure's name and the amount of financial support you can get.</li>
+            <li class="tasklistItem">Please use either of the buttons below when you are done with the scenario, or if you find yourself unable to complete the scenario.</li>
           </ol>
 
           <div class="scenario_indicator">
@@ -515,7 +510,7 @@ Potentially, the tooltip functionality could be used to embed additional context
     </div>
 
     <script src="/js/lottie.js"></script>
-    <script src="/js/app.js"></script>
+    <script src="/js/app.min.js"></script>
 
   </body>
 </html>

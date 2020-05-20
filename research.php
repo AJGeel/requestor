@@ -25,7 +25,7 @@
         <p>Fantastic to see that you may be interested in contributing to the development of tools that <b>facilitate remote design work</b>!</p>
         <p>Requestor is a tool designed to facilitate better remote collaboration between designers and their (non)designer colleagues and stakeholders. With this tool we seek to empower everyone to <b>better understand design</b> and <b>provide constructive feedback</b>.</p>
         <p>In this study, we ask you to <b>perform a design evaluation</b> using the Requestor tool, which takes place on your computer, in your preferred internet browser. Subsequently, we ask you to <b>fill out a questionnaire</b> to help us understand the work load you experienced during the study.</p>
-        <p>We know your time is valuable, which is why this study was designed to take <b>less than 30 minutes</b> to complete. In any case, thanks for your interest and time.</p>
+        <p>We know your time is valuable, which is why this study was designed to take <b>less than 30 minutes</b> to complete. In any case, thank you for your interest and time.</p>
       </section>
 
       <section class="consent">

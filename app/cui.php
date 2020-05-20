@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <!-- TODO:
-    - Thorough test to verify that everything works properly.
-    - Update Figma project content.
-    - Minify and Gzip all assets for increased performance
-    -->
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,9 +13,9 @@
     <!-- Links and CSS -->
     <link rel="shortcut icon" href="/i/requestor.svg" type="image/png" id="favicon">
     <link rel="stylesheet" href="/css/reset.min.css"> <!-- Reset browser inconsistencies -->
-    <link rel="stylesheet" href="/css/prototype.css"> <!-- Main styling document -->
-    <link rel="stylesheet" href="/css/prototype-darkmode.css"> <!-- Optional Dark Mode for Aesthetics -->
-    <link rel="stylesheet" href="/css/bubbles.css"> <!-- CUI Bubbles Framework -->
+    <link rel="stylesheet" href="/css/prototype.min.css"> <!-- Main styling document -->
+    <link rel="stylesheet" href="/css/prototype-darkmode.min.css"> <!-- Optional Dark Mode for Aesthetics -->
+    <link rel="stylesheet" href="/css/bubbles.min.css"> <!-- CUI Bubbles Framework -->
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
   </head>
@@ -145,7 +140,7 @@
             <img src="/i/envelope.png" id="invitationImg" alt="" onclick="reviewInvitation(); startTalking();">
           </div>
           <div class="information">
-            <h1>You've been invited by Arthur Geel to help evaluate a Bol.com prototype!</h1>
+            <h1>You've been invited by Arthur Geel to evaluate a Government.nl prototype!</h1>
             <h2>* This should only take about <span id="timeAmount">fifteen minutes</span> of your time.</h2>
             <button type="button" name="review" class="onboarding-btn main" tabindex="0" onclick="reviewInvitation(); startTalking()">Accept Invitation</button>
             <!-- <button type="button" name="nothanks" class="onboarding-btn" tabindex="0" onclick="declineInvitation()">Decline Invitation</button> -->
@@ -174,9 +169,9 @@
 
 
     <script src="/js/lottie.js"></script> <!-- Currently not in use in this version. May be omitted -->
-    <script src="/js/app.js"></script>
-    <script src="/js/bubbles.js"></script>
-    <script src="/js/cui.js"></script>
+    <script src="/js/app.min.js"></script>
+    <script src="/js/bubbles.min.js"></script>
+    <script src="/js/cui.min.js"></script>
 
 
   </body>
