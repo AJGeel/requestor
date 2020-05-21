@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <title>Requestor &mdash; Research Study</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://requestor.nl/research.php">
+    <meta property="og:title" content="Requestor — Facilitating Remote Collaboration in Design">
+    <meta property="og:description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
+    <meta property="og:image" content="https://requestor.nl/i/requestor-promotional-og.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://requestor.nl/research.php">
+    <meta property="twitter:title" content="Requestor — Facilitating Remote Collaboration in Design">
+    <meta property="twitter:description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
+    <meta property="twitter:image" content="https://requestor.nl/i/requestor-promotional-og.jpg">
     <meta name="description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
     <meta name="author" content="Arthur Geel, hello@arthurgeel.com">
     <meta name="color-scheme" content="light dark">
@@ -30,7 +44,7 @@
 
       <section class="consent">
         <h1>Informed Consent</h1>
-        <p>Prior to this study we would like to ask you to read through the 'Subject information for participation' letter. You can access this by clicking on <a href="documents/Consent-Form-EN_AJ-Geel-20200428.pdf" target="_blank">this link</a>.</p>
+        <p>Prior to this study we would like to ask you to read through the 'Subject information for participation' letter. You can access this by clicking on <a href="documents/Consent-Form-EN_AJ-Geel-20200428.pdf" target="_blank">this link</a>. In case you have any questions, feel free to contact me at <a href="mailto:a.j.geel@student.tue.nl">a.j.geel@student.tue.nl</a>.</p>
         <p>By taking part in this study you confirm the following:</p>
         <ol>
           <li>I have read the subject information form. I was also able to ask questions. My questions have been answered to my satisfaction. I had enough time to decide whether to participate.</li>

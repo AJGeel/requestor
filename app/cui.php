@@ -5,7 +5,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
-    <title>Requestor &mdash; Government.nl Design Evaluation</title>
+
+    <!-- Primary Meta Tags -->
+    <title>Requestor — Facilitating Remote Collaboration in Design</title>
+    <meta name="title" content="Requestor — Facilitating Remote Collaboration in Design">
+    <meta name="description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://requestor.nl/app/cui.php">
+    <meta property="og:title" content="Requestor — Facilitating Remote Collaboration in Design">
+    <meta property="og:description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
+    <meta property="og:image" content="https://requestor.nl/i/requestor-promotional-og.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://requestor.nl/app/cui.php">
+    <meta property="twitter:title" content="Requestor — Facilitating Remote Collaboration in Design">
+    <meta property="twitter:description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
+    <meta property="twitter:image" content="https://requestor.nl/i/requestor-promotional-og.jpg">
     <meta name="description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
     <meta name="author" content="Arthur Geel, hello@arthurgeel.com">
     <meta name="color-scheme" content="light dark">
