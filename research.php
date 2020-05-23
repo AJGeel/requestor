@@ -49,7 +49,7 @@
         <ol>
           <li>I have read the subject information form. I was also able to ask questions. My questions have been answered to my satisfaction. I had enough time to decide whether to participate.</li>
           <li>I know that participation is voluntary. I know that I may decide at any time not to participate after all or to withdraw from the study. I do not need to give a reason for this.</li>
-          <li>I give permission for the collection and use of my data to answer the research question in this study.</li>
+          <li>I give permission for the collection and use of my data to answer the research question in this study. The research question can be found in the 'Subject information for participation' letter.</li>
           <li>I know that some people may have access to all my data to verify the study. These people are listed in this information sheet. I consent to the inspection by them.</li>
         </ol>
 
