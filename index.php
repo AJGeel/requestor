@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
-    <title>Requestor &mdash; Better Multidisciplinary Collaboration in UX Work</title>
+    <title>Requestor &mdash; The Online Platform to Easily Share UX Works-in-Progress</title>
     <meta name="description" content="Requestor enables digital creators to collaborate on design prototypes, and provide actionable feedback.">
     <meta name="author" content="Arthur Geel, hello@arthurgeel.com">
     <meta name="color-scheme" content="light dark">
@@ -76,6 +76,21 @@
         margin-bottom: 1em;
         color: #555;
         padding: 0 4em;
+        width: 100%;
+      }
+
+      p b {
+        font-weight: bold;
+      }
+
+      ul {
+        width: 100%;
+        padding: 0 4em
+      }
+
+      sup {
+        vertical-align: super;
+        font-size: smaller;
       }
 
       .container img {
@@ -235,6 +250,19 @@
       .features-grid .cell p {
         color: #666;
       }
+
+      .button-collection {
+        display: flex;
+        width: calc(100% - 8em);
+        margin-top: 2em;
+        padding: 2em;
+        background-color: #f0f5f4;
+      }
+
+      .button-collection button {
+        width: 50%;
+        margin: 0 1em;
+      }
     </style>
 
   </head>
@@ -251,12 +279,11 @@
     </nav>
 
     <div class="container">
-      <h1>Requestor &mdash; A Collaborative Tool For Sharing UX Designs In-Progress</h1>
-      <p>Requestor is a web-based tool that enables UX Designers to more easily share their works-in-progress with their (Non UX-designer) colleagues, and provide them with actionable instructions in order to provide feedback. <a target="_blank" href="https://figma.com/">Interactive Figma prototypes</a> can easily be embedded in the tool, and shared alongside the information and instructions to evaluate it. </p>
-      <!-- <p>The purpose of this project is to help address problems related to <a target="_blank" href="https://scholar.google.com/scholar?hl=en&as_sdt=0,5&q=ux+maturity">UX Maturity</a> in business by providing industry workers with the tools and the lens required to understand the role of UX.</p> -->
+      <h1>Requestor &mdash; The Online Platform to Easily Share UX Works-in-Progress</h1>
+      <p>Requestor is a web-based tool that facilitates collaboration and interation by simplifying the process of evaluating design work. Requestor integrates with popular prototyping tools to enable you to share your work faster. The work you share is provided with actionable instructions that empower anyone to give meaningful feedback.</p>
       <img src="/i/concept-overview.jpg" alt="Mock-up image of the concept overview">
 
-      <div class="features">
+      <!-- <div class="features">
         <h2>All of Requestor's Features</h2>
         <div class="features-grid">
           <div class="cell">
@@ -291,9 +318,18 @@
           </div>
         </div>
 
+      </div> -->
+
+      <h2>Site under construction</h2>
+      <p>Thank you for your interest in this project. At the moment, we are working hard to analyse the data produced in the evaluation study. For this reason, we cannot publish these yet. We expect to publish the preliminary results by <b>Friday, June 5<sup>th</sup></b>.</p>
+      <p>If you were looking for an interactive demonstration of this project, you're in luck! Feel free to use either of the buttons below to get started.</p>
+
+      <div class="button-collection">
+        <button class="nav-sign-in" type="button" name="button" onclick="location.href='/app/cui.php'">Conversational User Interface</button>
+        <button class="nav-sign-in" type="button" name="button" onclick="location.href='/app/gui.php'">Traditional User Interface</button>
       </div>
 
-      <h2>Project Status &amp; Sitemap</h2>
+      <!-- <h2>Project Status &amp; Sitemap</h2>
       <p>Requestor is a tool still in development, and is expected to see its first full release in May, 2020. Requestor's source code is regularly pushed to this <a target="_blank" href="https://github.com/AJGeel/requestor">Github Repository</a>.</p>
       <p>For an early preview of the tool and its pages, please check out the <a href="#sitemap">sitemap</a> below. The links can be clicked to preview functionalities of the tool.</p>
 
@@ -312,7 +348,7 @@
         <ul><li><a href="/terms-and-conditions/">Terms and Conditions</a><span>(Legal agreement between user and provider)</span><span>In-progress</span></li></ul>
         <ul><li><a href="/privacy-policy/">Privacy Policy</a><span>(GDPR: explains how we handle privacy)</span><span>V1 MVP 🎉</span></li></ul>
 
-      </div>
+      </div> -->
 
     </div>
 
