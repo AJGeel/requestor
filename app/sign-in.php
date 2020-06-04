@@ -50,5 +50,13 @@
 
     </section>
 
+    <section class="modal">
+      <div class="modal--overlay" id="modalOverlay">
+        
+      </div>
+    </section>
+
   </body>
+
+  <script src="/js/sign-in.min.js" charset="utf-8"></script>
 </html>

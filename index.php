@@ -195,7 +195,7 @@
                 <h3>Academic Evaluation</h3>
                 <p>Requestor is the end-result of <a href="https://arthurgeel.com/" target="_blank">Arthur Geel</a>'s Master Thesis at the Eindhoven University of Technology. As part of the thesis, I evaluate the platform's viability for design through a multivariate experiment.</p>
                 <div class="horiz-btn-group">
-                  <button class="btn" type="button" name="button" onclick="alert('Page is currently under construction. This location will be available soon.')">Read about the evaluation here &gt;</button>
+                  <button class="btn" type="button" name="button" onclick="alert('Page is currently under construction. This location will be available soon.')">Read About The Evaluation Here &gt;</button>
                 </div>
               </div>
             </div>
