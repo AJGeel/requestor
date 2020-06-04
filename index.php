@@ -37,9 +37,9 @@
             <h1>Share the designs you are working on <span class="span-emphasis">in minutes</span>.</h1>
             <p>Good design is a collaborative effort. However, making that collaboration work is difficult due to gaps in knowledge. Requestor was built to allow anyone to give meaningful design feedback.</p>
             <div class="horiz-btn-group">
-              <button class="btn" type="button" name="button" onclick="window.href='#features'">Learn More</button>
+              <button class="btn" type="button" name="button" onclick="scrollDn();">Learn More</button>
               <p>or</p>
-              <button class="btn btn-secondary" type="button" name="button">Try the Demo &gt;</button>
+              <button class="btn btn-secondary" type="button" name="button" onclick="window.open('https://requestor.nl/app/cui.php')">Try the Demo &gt;</button>
             </div>
 
           </div>
@@ -195,7 +195,7 @@
                 <h3>Academic Evaluation</h3>
                 <p>Requestor is the end-result of <a href="https://arthurgeel.com/" target="_blank">Arthur Geel</a>'s Master Thesis at the Eindhoven University of Technology. As part of the thesis, I evaluate the platform's viability for design through a multivariate experiment.</p>
                 <div class="horiz-btn-group">
-                  <button class="btn" type="button" name="button" onclick="">Read about the evaluation here &gt;</button>
+                  <button class="btn" type="button" name="button" onclick="alert('Page is currently under construction. This location will be available soon.')">Read about the evaluation here &gt;</button>
                 </div>
               </div>
             </div>
@@ -208,9 +208,9 @@
                 <h3>Interactive Demos</h3>
                 <p>The prototype used in the academic evaluation is publicly accessible! Experience the prototype — put yourself in the shoes of a designer, and give feedback on a realistic case! </p>
                 <div class="horiz-btn-group">
-                  <button class="btn" type="button" name="button" onclick="">CUI Variant &gt;</button>
+                  <button class="btn" type="button" name="button" onclick="window.open('https://requestor.nl/app/cui.php')">CUI Variant &gt;</button>
                   <p>or</p>
-                  <button class="btn btn-secondary" type="button" name="button">GUI Variant &gt;</button>
+                  <button class="btn btn-secondary" type="button" name="button" onclick="window.open('https://requestor.nl/app/gui.php')">GUI Variant &gt;</button>
                 </div>
               </div>
             </div>
@@ -229,7 +229,12 @@
     let headroom = new Headroom(nav);
     headroom.init();
 
-    alert(`Cool to see you here! Please note: we're still working on the site, although it's nearly done. Mobile support is coming soon. \n\n - Arthur`)
+    function scrollDn() {
+      let elem = document.getElementById('features');
+      elem.scrollIntoView();
+    }
+
+    // alert(`Cool to see you here! Please note: we're still working on the site, although it's nearly done. Mobile support is coming soon. \n\n - Arthur`)
 
     </script>
 
