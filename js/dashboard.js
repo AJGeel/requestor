@@ -202,7 +202,11 @@ function createNewRequestor() {
    /*} else if (checkIfURL(urlbar_input)){
      // Future: check if the URL is a valid URL. Not supported currently however. */
    } else {
-     alert("The URL you entered was not recognised as a valid Figma Prototype.");
+     // alert("The URL you entered was not recognised as a valid Figma Prototype.");
+     alert("Thank you for your interest. However, at this point in time, this feature is not available to the public. \n \n If you are interested in becoming a beta tester, please send a mail to a.j.geel@student.tue.nl");
+     if (confirm("Thank you for your interest. However, at this point in time, this feature is not available to the public. \n \n If you are interested in becoming a beta tester, please send a mail to a.j.geel@student.tue.nl or click 'OK' to open your mail client.")) {
+       window.location.href = "mailto:a.j.geel@student.tue.nl";
+     }
      // Display error message to the user.
    }
 
