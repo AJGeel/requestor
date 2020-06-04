@@ -60,61 +60,61 @@
             <!-- Start feature -->
             <div class="feature">
               <div class="feature--icon">
-                <img src="https://placehold.it/28x28" alt="feature icon">
+                <img src="/i/feather/green/lock.png" alt="feature icon">
               </div>
               <div class="feature--text">
                 <h3>Privacy by Design</h3>
-                <p>We care about your privacy, which is why we don't use creepy trackers and analytics.</p>
+                <p>We care about your privacy, which is why we don't use creepy trackers and external analytics.</p>
               </div>
             </div>
             <!-- Start feature -->
             <div class="feature">
               <div class="feature--icon">
-                <img src="https://placehold.it/28x28" alt="feature icon">
+                <img src="/i/feather/green/zap.png" alt="feature icon">
               </div>
               <div class="feature--text">
-                <h3>Privacy by Design</h3>
-                <p>We care about your privacy, which is why we don't use creepy trackers and analytics.</p>
+                <h3>Fast to Use</h3>
+                <p>Asking for feedback should be fast. With Requestor, you can send out request within minutes.</p>
               </div>
             </div>
             <!-- Start feature -->
             <div class="feature">
               <div class="feature--icon">
-                <img src="https://placehold.it/28x28" alt="feature icon">
+                <img src="/i/feather/green/cpu.png" alt="feature icon">
               </div>
               <div class="feature--text">
-                <h3>Privacy by Design</h3>
-                <p>We care about your privacy, which is why we don't use creepy trackers and analytics.</p>
+                <h3>Seamless Integration</h3>
+                <p>Nobody wants to repeat their work. Requestor imports designs from your favourite tools.</p>
               </div>
             </div>
             <!-- Start feature -->
             <div class="feature">
               <div class="feature--icon">
-                <img src="https://placehold.it/28x28" alt="feature icon">
+                <img src="/i/feather/green/aperture.png" alt="feature icon">
               </div>
               <div class="feature--text">
-                <h3>Privacy by Design</h3>
-                <p>We care about your privacy, which is why we don't use creepy trackers and analytics.</p>
+                <h3>Automated Branding</h3>
+                <p>The interface is customized to suit your brand identity. This all happens automagically, of course.</p>
               </div>
             </div>
             <!-- Start feature -->
             <div class="feature">
               <div class="feature--icon">
-                <img src="https://placehold.it/28x28" alt="feature icon">
+                <img src="/i/feather/green/message-circle.png" alt="feature icon">
               </div>
               <div class="feature--text">
-                <h3>Privacy by Design</h3>
-                <p>We care about your privacy, which is why we don't use creepy trackers and analytics.</p>
+                <h3>Interactive Guidance</h3>
+                <p>Not everybody knows what to look for in designs. Requestor interactively helps you see the things that matter.</p>
               </div>
             </div>
             <!-- Start feature -->
             <div class="feature">
               <div class="feature--icon">
-                <img src="https://placehold.it/28x28" alt="feature icon">
+                <img src="/i/feather/green/download-cloud.png" alt="feature icon">
               </div>
               <div class="feature--text">
-                <h3>Privacy by Design</h3>
-                <p>We care about your privacy, which is why we don't use creepy trackers and analytics.</p>
+                <h3>No Installation Required</h3>
+                <p>Requestor is a tool that fully runs in the cloud &mdash; there is no need to install any files at all!</p>
               </div>
             </div>
 
@@ -140,8 +140,8 @@
                   <p>01</p>
                 </div>
                 <div class="step--right">
-                  <h4>Grab your Link</h4>
-                  <p>Open up your design in your prototyping software, and use the 'share' option to copy your link.</p>
+                  <h4>Import your Design</h4>
+                  <p>Use the 'share' option in your prototyping software to copy your link. Paste the link to your design project in the bar at the top of your dashboard.</p>
                 </div>
               </div>
               <!-- Start of a step -->
@@ -150,8 +150,8 @@
                   <p>02</p>
                 </div>
                 <div class="step--right">
-                  <h4>Import your Design</h4>
-                  <p>Navigate to your dashboard and paste the link to your design project in the bar at the top.</p>
+                  <h4>Pick your Evaluation</h4>
+                  <p>Choose the focus of the evaluation: should your evaluators look at your design's usability, or is there something else you'd like to review?</p>
                 </div>
               </div>
               <!-- Start of a step -->
@@ -160,8 +160,8 @@
                   <p>03</p>
                 </div>
                 <div class="step--right">
-                  <h4>Pick your Evaluation Type</h4>
-                  <p>Choose the focus of the evaluation: should your evaluators look at your design's usability, or is there something else you'd like to review?</p>
+                  <h4>Share your Invites</h4>
+                  <p>You'll receive a custom link for sharing, which has a friendly invitation and onboarding to help the people you share your work with get up to speed.</p>
                 </div>
               </div>
 
@@ -189,7 +189,7 @@
             <!-- Start feature -->
             <div class="feature">
               <div class="feature--icon">
-                <img src="https://placehold.it/28x28" alt="feature icon">
+                <img src="/i/feather/green/paperclip.png" alt="feature icon">
               </div>
               <div class="feature--text">
                 <h3>Academic Evaluation</h3>
@@ -202,7 +202,7 @@
             <!-- Start feature -->
             <div class="feature">
               <div class="feature--icon">
-                <img src="https://placehold.it/28x28" alt="feature icon">
+                <img src="/i/feather/green/mouse-pointer.png" alt="feature icon">
               </div>
               <div class="feature--text">
                 <h3>Interactive Demos</h3>
