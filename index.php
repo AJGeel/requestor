@@ -193,9 +193,9 @@
               </div>
               <div class="feature--text">
                 <h3>Academic Evaluation</h3>
-                <p>Requestor is the end-result of <a href="https://arthurgeel.com/" target="_blank">Arthur Geel</a>'s Master Thesis at the Eindhoven University of Technology. As part of the thesis, I evaluate the platform's viability for design through a multivariate experiment.</p>
+                <p>Requestor is the end-result of the Master's Thesis by <a href="https://arthurgeel.com/" target="_blank">Arthur Geel</a> for the TU/e Industrial Design M.Sc. Programme. As part of the thesis, I evaluate the platform's viability for design through a multivariate experiment.</p>
                 <div class="horiz-btn-group">
-                  <button class="btn" type="button" name="button" onclick="alert('Page is currently under construction. This location will be available soon.')">Read About The Evaluation Here &gt;</button>
+                  <button class="btn" type="button" name="button" onclick="window.open('https://requestor.nl/evaluation')">Read About The Evaluation Here &gt;</button>
                 </div>
               </div>
             </div>

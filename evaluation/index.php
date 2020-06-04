@@ -20,6 +20,7 @@
 
       .note {
         background-color: #fff;
+        background: linear-gradient(125deg, hsl(170, 33%, 96%), hsl(170, 40%, 90%));
         padding: 2em;
         box-shadow: 0 2px 12px rgba(0,153,114,.4);
         margin: 4em 2em;

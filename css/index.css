@@ -121,6 +121,7 @@
 
       .section.coloured-bg {
         background-color: #F3F9F8;
+        background: linear-gradient(125deg, hsl(170, 33%, 96%), hsl(170, 40%, 85%));
       }
 
       .section--inner {
