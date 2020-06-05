@@ -73,8 +73,8 @@
                 <img src="/i/feather/green/zap.png" alt="feature icon">
               </div>
               <div class="feature--text">
-                <h3>Fast to Use</h3>
-                <p>Asking for feedback should be fast. With Requestor, you can send out request within minutes.</p>
+                <h3>Fast in Use</h3>
+                <p>Asking for feedback should be fast. With Requestor, you can send out requests within minutes.</p>
               </div>
             </div>
             <!-- Start feature -->
@@ -84,7 +84,7 @@
               </div>
               <div class="feature--text">
                 <h3>Seamless Integration</h3>
-                <p>Nobody wants to repeat their work. Requestor imports designs from your favourite tools.</p>
+                <p>Requestor imports designs from your favourite tools, including InVision, Figma and Adobe Xd.</p>
               </div>
             </div>
             <!-- Start feature -->
@@ -176,7 +176,7 @@
           <p class="section--summary">Video</p>
           <h3>Explained in <span class="span-emphasis">90 Seconds</span>.</h3>
           <div class="video-container">
-            <div style="padding:56.25% 0 0 0;position:relative; box-shadow: 0px 5px 25px rgba(1, 82, 62, 0.3)"><iframe src="https://player.vimeo.com/video/425870546?color=f3f9f8&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+            <div><iframe src="https://player.vimeo.com/video/425870546?color=f3f9f8&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
           </div>
         </div>
       </section>
