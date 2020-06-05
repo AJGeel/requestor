@@ -52,9 +52,23 @@
       .em-2 tr > td:nth-child(2) {
         font-style: italic;
       }
-    </style>
 
-    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+      tr {
+        transition: background-color: .1s ease-in-out;
+      }
+
+      tr:hover {
+        background-color: #fff;
+      }
+
+      .time-table samp {
+        font-weight: bold;
+      }
+
+      .time-table tr > td {
+        font-family: monospace;
+      }
+    </style>
 
   </head>
   <body>
@@ -109,7 +123,7 @@
           <li><a href="#Participant-Overview">Participant Overview</a></li>
           <li><a href="#Time-Related-Performance">Time-Related Performance</a></li>
           <li><a href="#Perceived-Task-Load-Index">Perceived Task Load</a></li>
-          <li><a href="#Attitude-Towards-Repeating">Attitude Towards Repeating Participation</a></li>
+          <li><a href="#Repeated-Participation">Attitude Towards Repeated Participation</a></li>
         </ol>
       </li>
       <li><a href="#Analysis">Analysis</a></li>
@@ -153,8 +167,8 @@
       <p>Text to be added later.</p> -->
 
       <!-- Start Chapter -->
-      <h2 id="Overview">Study Setup</h2>
-      <h3 id="Overall-Setup">Overall Setup</h3>
+      <h2 id="Overview">1 Study Setup</h2>
+      <h3 id="Overall-Setup">1.1 Overall Setup</h3>
       <p>The aims for this study are bifold: firstly, we seek to evaluate the <em>viability</em> of the Requestor platform as a tool for design. Secondly, we seek to explore the <em>effects</em> that User Interfaces (UIs) with <em>different styles of interactions</em> have on a person's <em>ability to perform an evaluation</em> of a design prototype.</p>
       <p>In order to progress towards these aims, a study was designed that contains a realistic design case which would be evaluated by eventual participants. For this evaluation, the users made use of the <em>Requestor</em> tool to support them in this. In this experiment, the tool was developed to keep track of performance-related stats of participants. After the participants had completed the sample design case, they were asked to complete a questionnaire on their perceived task load.</p>
       <p>To summarise, this study consisted participants taking part in an unmoderated session that consisted of two activities:</p>
@@ -163,7 +177,7 @@
         <li>Completing a <em>post-task questionnaire</em> to evaluate the work load (NASA-TLX) they perceived for the prototype variant used.</li>
       </ol>
 
-      <h3 id="Sample-Design-Case">Fictional Design Case</h3>
+      <h3 id="Sample-Design-Case">1.2 Fictional Design Case</h3>
       <p>The design case that was selected for this study was a fictional case involving <em>the Dutch Government</em> and their website <em>Government.nl</em>. In this sample case, the participants were asked to perform a <em>Heuristic Evaluation</em> of the website's usability. In the tumultuous time of a pandemic, this website is important to find reliable official information on pressing issues and their legislation, which made it an interesting case for this project.</p>
       <p>As part of the design case, the participants were asked to empathise with a fictional end-user, and carry out a number of tasks from their perspective. The scenario is as follows — the participants were asked to empathise with Frederic: a 44 year old expat living in the Eindhoven area. As the owner of a business without employees (ZZP), the uncertain times caused by the Corona Crisis have put a strain on his financial situation. Frederic recalled that the Government discussed measures for financial support in a press conference, but was unsure what that exactly implied for him. In this scenario, Frederic had the goal to use the Government.nl website to find <em>reliable information</em> on the financial support offered by the government.</p>
       <p>For this scenario, screenshots of the original Government.nl website were scraped and imported into the Figma prototyping tool. An expert review of the website found that there were little to no usability issues in this website. This is no surprise, seeing as the Government's goal for the website is to provide online information that is user-friendly and accessible to all types of visitors.</p>
@@ -174,7 +188,7 @@
         <figcaption><b>Figure 1:</b> The edited <a href="https://government.nl" target="_blank">Government.nl</a> design case for this study. The edited version can be accessed through <a class="external-link" href="https://www.figma.com/proto/DYhe8z0n3I6fEFmD7PyJCa/Government.nl-Design-Case?node-id=27%3A43&scaling=scale-down-width&viewport=-80%2C198%2C0.2307339608669281&hotspot-hints=0&hide-ui=1" target="_blank">this link</a>.</figcaption>
       </figure>
 
-      <h3 id="Prototype-Variants">Prototype Overview and Variants</h3>
+      <h3 id="Prototype-Variants">1.3 Prototype Overview and Variants</h3>
       <p>The participants were asked to use the custom built Requestor tool to help them perform this evaluation. In its essence, Requestor does two things:</p>
       <ol>
         <li>It displays an <em>interactive demonstrator</em> of the design project on the left. Users of the tool can use their mouse to scroll and click to browse the project as if it were a fully operational website.</li>
@@ -194,12 +208,12 @@
 
       <p>After reviewing design trends on user interfaces that seek to accomplish these qualities for different use cases, we found two potential <em>interaction styles</em> that fit in the context of this project. The modular approach taken in the design of the platform meant that it was easy to implement variations in the 'interactive evaluation module' without requiring a considerable investment in development time.</p>
 
-      <h4 id="Traditional-UI">Variant A: Traditional UI</h4>
+      <h4 id="Traditional-UI">1.3.1 Variant A: Traditional UI</h4>
       <p>The first variant of Requestor is a 'Traditional' <em>Graphical User Interface</em> (GUI), depicted in <a href="#Figure-2">Figure 2</a>. The GUI provides its users with feedforward and feedback through mostly graphical elements: the user is presented with a (mostly static) collection of headers, paragraphs, buttons and input fields which guides them through the evaluation process.</p>
       <p>The Traditional UI contains a list of contextual information about the project, and a list of ten questions which allow the evaluator to share their opinion on potential errors in usability in the ten heuristics.</p>
       <p>The design pattern of <em>Progressive Disclosure</em> was utilised to lower the perceived cognitive load. Progressive disclosure is a gradual presentation of content in steps which reduces the chances that users are overwhelmed by too much information or irrelevant information. For example, the Traditional UI only asks for additional information on a heuristic when there is an error.</p>
 
-      <h4 id="Conversational-UI">Variant B: Conversational UI</h4>
+      <h4 id="Conversational-UI">1.3.2 Variant B: Conversational UI</h4>
       <p>The second variant of Requestor is a <em>'Conversational' User Interface</em> (CUI). Rather than a traditional interaction, this interaction style allows evaluators to interact with the system based on principles that more closely align with real-life human communication. Instead of the traditional 'point-and-click' interaction, evaluators can operate the interface by providing textual answers to the conversational agent.</p>
       <p>The contents of the conversation between the CUI and the evaluation is very much in line with the Traditional UI: initially, the evaluator is greeted and onboarded with contextual information. Subsequently, the CUI guides the evaluator </p>
 
@@ -208,7 +222,7 @@
         <figcaption><b>Figure 3:</b> An overview of the Requestor Conversational UI Variant. Instead of a traditionally formatted page, the evaluation module is designed to mimic a chat conversation with an agent. This variant of the User Interface can be accessed by clicking on <a class="external-link" href="https://requestor.nl/app/cui.php" target="_blank">this link</a>.</figcaption>
       </figure>
 
-      <h3 id="Post-Test Questionnaire">Post-Test Questionnaire</h3>
+      <h3 id="Post-Test-Questionnaire">1.4 Post-Test Questionnaire</h3>
       <p>A custom implementation of the The NASA Task Load Index (NASA-TLX) questionnaire was used to evaluate the task load perceived by participants of this study. After completing the evaluation of the fictional design case, participants of this research were automatically transferred to the NASA-TLX questionnaire, where they were asked to share their thoughts on constructs such as <em>Mental Demand</em>, <em>Temporal Demand</em>, <em>Performance</em>, <em>Effort</em> and <em>Frustration</em>.</p>
 
       <figure id="Figure-4">
@@ -216,14 +230,11 @@
         <figcaption><b>Figure 4:</b> The digital implementation of the NASA-TLX questionnaire.</figcaption>
       </figure>
 
-      <div class="note">
-        <b>Please note:</b> this page is under construction, and will be updated soon with new information &mdash; stay tuned! <br/><br/> <b>E.T.A.:</b> 13:00.
-      </div>
-
       <!-- Start Chapter -->
-      <h2 id="Results">Results</h2>
-      <h3 id="">Participant Overview</h3>
-      <p>A total of <em>33 individuals</em> consented to participating in this research by submitting the <a href="https://requestor.nl/research.php" target="_blank">Informed Consent Form</a>. They shared their perceived knowledge of User Experience Design by answering the following question:</p>
+      <h2 id="Results">2. Results</h2>
+      <h3 id="">2.1 Participant Overview</h3>
+      <p>After the study proposal had been <a href="/documents/Approval-letter-ERB2020ID97-Geel.pdf" target="_blank">reviewed and approved</a> by the local Ethical Review Board (ERB) from the Industrial Design department, the research study was advertised on social media channels (i.e. LinkedIn, Facebook Groups and Whatsapp) to recruit eligible participants.</p>
+      <p>A total of <b>33 individuals</b> consented to participating in this research by submitting the <a href="https://requestor.nl/research.php" target="_blank">Informed Consent Form</a>. They shared their perceived knowledge of User Experience Design by answering the following question:</p>
       <ul>
         <li><em>Please select the option that best indicates how you perceive your knowledge of User Experience (UX) Design below</em></li>
       </ul>
@@ -238,13 +249,6 @@
               <th>Amount</th>
             </tr>
           </thead>
-          <!-- <tfoot>
-            <tr>
-              <th>Footer 1</th>
-              <th>Footer 2</th>
-              <th>Footer 3</th>
-            </tr>
-          </tfoot> -->
           <tbody>
             <tr>
               <td>1</td>
@@ -276,13 +280,188 @@
         <figcaption><b>Table 1:</b> Participant distribution for the five self-perceived expertise groups.</figcaption>
       </figure>
 
-      <h3 id="">Time-Related Performance</h3>
+      <p>Out of the <b>33 total</b> participants, <b>24</b> completed the design evaluation using the Requestor tool, of which <b>22</b> completed the post-task questionnaire on perceived workload. From this, we established that the mode of the participants was category 2, self-identifying as <em>I have some understanding of what UX is, but have no experience in practical application</em>.</p>
 
-      <h3 id="">Perceived Task Load</h3>
+      <h3 id="Time-Related-Performance">2.2 Time-Related Performance</h3>
+      <p>Both Requestor variants are equipped with features that allow the time taken to complete tasks to be measured. Four different time intervals were specified for the evaluation: <samp>time_spent_total</samp>, <samp>time_spent_on_onboarding</samp>, <samp>time_spent_on_scenario</samp> and <samp>time_spent_on_evaluation</samp>.</p>
+      <p>Table 2 shows the descriptive statistics for the dataset. From this, we can see that most participants spent from roughly <em>ten-</em> to <em>thirty minutes</em> on conducting the design evaluation. We see a great variance in this stat: the fastest evaluation was conducted <em>within five minutes</em>, while the longest evaluation spanned over <em>one and a half hours</em>.</p>
 
-      <h3>Attitude Towards Repeating Participation</h3>
+      <figure>
+        <table class="time-table">
+          <thead>
+            <tr>
+              <th class="not-visible"></th>
+              <th>Min.</th>
+              <th>Q1</th>
+              <th>Median</th>
+              <th>Mean</th>
+              <th>Q3</th>
+              <th>Max.</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="variable"><samp>t_total</samp></td>
+              <td>00:04:32</td>
+              <td>00:10:22</td>
+              <td>00:15:15</td>
+              <td>00:24:56</td>
+              <td>00:31:24</td>
+              <td>01:32:43</td>
+            </tr>
+            <tr>
+              <td class="variable"><samp>t_onboarding</samp></td>
+              <td>00:00:05</td>
+              <td>00:00:42</td>
+              <td>00:01:17</td>
+              <td>00:02:57</td>
+              <td>00:01:57</td>
+              <td>00:20:40</td>
+            </tr>
+            <tr>
+              <td class="variable"><samp>t_scenario</samp></td>
+              <td>00:00:32</td>
+              <td>00:00:42</td>
+              <td>00:01:17</td>
+              <td>00:02:57</td>
+              <td>00:01:57</td>
+              <td>00:20:40</td>
+            </tr>
+            <tr>
+              <td class="variable"><samp>t_evaluation</samp></td>
+              <td>00:01:47</td>
+              <td>00:05:18</td>
+              <td>00:10:25</td>
+              <td>00:18:04</td>
+              <td>00:25:46</td>
+              <td>00:59:40</td>
+            </tr>
+          </tbody>
 
-      <h2 id="Analysis">Analysis</h2>
+        </table>
+        <figcaption><b>Table 2:</b> Descriptive statistics for tasks performed in <b>both Requestor variants</b> by participants (n = 24 &mdash; displayed in hh:mm:ss).</figcaption>
+      </figure>
+
+      <p>In the next two tables we show the results per prototype variant (Tables 3 &amp; 4). When comparing both tables, we see that the median and mean for the Traditional UI (<samp>t_total; M = 00:18:48, &mu; = 00:32:18</samp>) are greater than those of the Conversational UI (<samp>t_total; M = 00:14:45, &mu; = 00:16:14</samp>).</p>
+      <p>A more thorough analysis of the time-related performance indicators and their implications will be included in <em>Section 3</em>.</p>
+
+      <figure>
+        <table class="time-table">
+          <thead>
+            <tr>
+              <th class="not-visible"></th>
+              <th>Min.</th>
+              <th>Q1</th>
+              <th>Median</th>
+              <th>Mean</th>
+              <th>Q3</th>
+              <th>Max.</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="variable"><samp>t_total</samp></td>
+              <td>00:07:29</td>
+              <td>00:10:21</td>
+              <td>00:18:48</td>
+              <td>00:32:18</td>
+              <td>00:51:24</td>
+              <td>01:32:43</td>
+            </tr>
+            <tr>
+              <td class="variable"><samp>t_onboarding</samp></td>
+              <td>00:00:05</td>
+              <td>00:01:09</td>
+              <td>00:01:44</td>
+              <td>00:03:30</td>
+              <td>00:02:36</td>
+              <td>00:20:40</td>
+            </tr>
+            <tr>
+              <td class="variable"><samp>t_scenario</samp></td>
+              <td>00:01:13</td>
+              <td>00:01:58</td>
+              <td>00:02:21</td>
+              <td>00:04:28</td>
+              <td>00:03:27</td>
+              <td>00:25:35</td>
+            </tr>
+            <tr>
+              <td class="variable"><samp>t_evaluation</samp></td>
+              <td>00:04:33</td>
+              <td>00:07:34</td>
+              <td>00:15:00</td>
+              <td>00:24:20</td>
+              <td>00:46:28</td>
+              <td>00:59:40</td>
+            </tr>
+          </tbody>
+
+        </table>
+        <figcaption><b>Table 3:</b> Descriptive statistics for tasks performed in the <b>Traditional UI</b> by participants (n = 13 &mdash; displayed in hh:mm:ss).</figcaption>
+      </figure>
+
+      <figure>
+        <table class="time-table">
+          <thead>
+            <tr>
+              <th class="not-visible"></th>
+              <th>Min.</th>
+              <th>Q1</th>
+              <th>Median</th>
+              <th>Mean</th>
+              <th>Q3</th>
+              <th>Max.</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="variable"><samp>t_total</samp></td>
+              <td>00:04:32</td>
+              <td>00:10:22</td>
+              <td>00:14:45</td>
+              <td>00:16:14</td>
+              <td>00:19:21</td>
+              <td>00:34:22</td>
+            </tr>
+            <tr>
+              <td class="variable"><samp>t_onboarding</samp></td>
+              <td>00:00:26</td>
+              <td>00:00:35</td>
+              <td>00:00:43</td>
+              <td>00:02:19</td>
+              <td>00:01:14</td>
+              <td>00:17:04</td>
+            </tr>
+            <tr>
+              <td class="variable"><samp>t_scenario</samp></td>
+              <td>00:00:32</td>
+              <td>00:01:56</td>
+              <td>00:02:39</td>
+              <td>00:03:16</td>
+              <td>00:03:54</td>
+              <td>00:08:28</td>
+            </tr>
+            <tr>
+              <td class="variable"><samp>t_evaluation</samp></td>
+              <td>00:01:47</td>
+              <td>00:04:39</td>
+              <td>00:08:37</td>
+              <td>00:10:40</td>
+              <td>00:11:59</td>
+              <td>00:27:04</td>
+            </tr>
+          </tbody>
+
+        </table>
+        <figcaption><b>Table 4:</b> Descriptive statistics for tasks performed in the <b>Conversational UI</b> by participants (n = 11 &mdash; displayed in hh:mm:ss).</figcaption>
+      </figure>
+
+      <h3 id="Perceived-Task-Load">2.3 Perceived Task Load</h3>
+
+      <h3 id="Repeated-Participation">2.4 Attitude Towards Repeated Participation</h3>
+
+      <h2 id="Analysis">3. Analysis</h2>
       <p>Vivamus rhoncus suscipit artem, nec interdum nisl bibendum et. Arturius nulla urna, tempus sed pellentesque ac, malesuada ut ligula. Maecenas ac imperdiet tellus, vitae efficitur lacus. Aenean pulvinar mollis fringilla. Quisque dignissim in sapien nec semper. Quisque tellus enim, consequat sed laoreet quis, efficitur ut magna. Donec placerat tincidunt diam, sed semper nunc. Artusce ac mauris vitae est condimentum vestibulum eget id turpis. Maecenas interdum dui eu dignissim volutpat.</p>
 
 
