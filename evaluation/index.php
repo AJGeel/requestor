@@ -24,10 +24,6 @@
         text-decoration: none;
       }
 
-      /* .external-link::after {
-        content: url('/i/feather/green/external-link.png');
-      } */
-
       .note {
         background-color: #fff;
         background: linear-gradient(125deg, hsl(170, 33%, 96%), hsl(170, 40%, 90%));
@@ -85,6 +81,10 @@
     </p>
   </header>
 
+  <div class="note">
+    <b>Please note:</b> The full results of the study, analysis, conclusion and detailed design process are to be published in the FMP report on <b>Thursday, June 11<sup>th</sup></b>.
+  </div>
+
   <div class="abstract">
     <h2>Abstract</h2>
     We see an increasing industry interest in User Experience (UX) Design for its potential Return on Investments. However, the process of UX Design requires understanding and involvement by the environment — if these are absent, the process can be disrupted. This project is guided by the question: <em>"How may we create a better collaborative space for UX Designers and their environment?"</em><br/><br/>
@@ -122,7 +122,7 @@
         <ol>
           <li><a href="#Participant-Overview">Participant Overview</a></li>
           <li><a href="#Time-Related-Performance">Time-Related Performance</a></li>
-          <li><a href="#Perceived-Task-Load-Index">Perceived Task Load</a></li>
+          <li><a href="#Perceived-Task-Load">Perceived Task Load</a></li>
           <li><a href="#Repeated-Participation">Attitude Towards Repeated Participation</a></li>
         </ol>
       </li>
@@ -215,7 +215,7 @@
 
       <h4 id="Conversational-UI">1.3.2 Variant B: Conversational UI</h4>
       <p>The second variant of Requestor is a <em>'Conversational' User Interface</em> (CUI). Rather than a traditional interaction, this interaction style allows evaluators to interact with the system based on principles that more closely align with real-life human communication. Instead of the traditional 'point-and-click' interaction, evaluators can operate the interface by providing textual answers to the conversational agent.</p>
-      <p>The contents of the conversation between the CUI and the evaluation is very much in line with the Traditional UI: initially, the evaluator is greeted and onboarded with contextual information. Subsequently, the CUI guides the evaluator </p>
+      <p>The contents of the conversation between the CUI and the evaluation is very much in line with the Traditional UI: initially, the evaluator is greeted and onboarded with contextual information.</p>
 
       <figure id="Figure-3">
         <img src="i/requestor-cui.png" loading="lazy" alt="Requestor CUI" width="600" height="400">
@@ -458,13 +458,69 @@
       </figure>
 
       <h3 id="Perceived-Task-Load">2.3 Perceived Task Load</h3>
+      <p>The NASA-TLX Questionnaire is a subjective assessment to measure the workload that was experienced when carrying out specific tasks. The questionnaire results in an overall indicator of workload (<em>TLX Score</em>), as well as indicators of work load experienced in the sub-scales (<em>Mental Demand</em>, <em>Physical Demand</em>, <em>Temporal Demand</em>, <em>Performance</em>, <em>Effort</em> and <em>Frustration</em>).</p>
+      <p>The questionnaire results in a score that can range from <em>0</em> to <em>100</em>, where a lower score indicates a lower perceived work load. In other words: a lower work load is generally favourable. The mean scores for the cumulative response and for individual prototype variants can be seen in Table 5 below.</p>
 
-      <h3 id="Repeated-Participation">2.4 Attitude Towards Repeated Participation</h3>
+      <figure>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>TLX </th>
+              <th>Mental</th>
+              <th>Physical</th>
+              <th>Temporal</th>
+              <th>Perform.</th>
+              <th>Effort</th>
+              <th>Frustr.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>All</b> (n=22)</td>
+              <td>42.7</td>
+              <td>44.1</td>
+              <td>9.3</td>
+              <td>34.1</td>
+              <td>40.2</td>
+              <td>37.5</td>
+              <td>42.0</td>
+            </tr>
+            <tr>
+              <td><b>TUI</b> (n=12)</td>
+              <td>46.8</td>
+              <td>52.9</td>
+              <td>9.2</td>
+              <td>28.3</td>
+              <td>41.7</td>
+              <td>47.5</td>
+              <td>45.4</td>
+            </tr>
+            <tr>
+              <td><b>CUI</b> (n=10)</td>
+              <td>38.0</td>
+              <td>33.5</td>
+              <td>9.5</td>
+              <td>41.0</td>
+              <td>38.5</td>
+              <td>25.5</td>
+              <td>38.5</td>
+            </tr>
+          </tbody>
+        </table>
+        <figcaption><b>Table 5:</b> Mean NASA TLX values for cumulative and individual prototype variants.</figcaption>
+      </figure>
+
+      <p></p>
+
+      <!-- <h3 id="Repeated-Participation">2.4 Attitude Towards Repeated Participation</h3> -->
 
       <h2 id="Analysis">3. Analysis</h2>
-      <p>Vivamus rhoncus suscipit artem, nec interdum nisl bibendum et. Arturius nulla urna, tempus sed pellentesque ac, malesuada ut ligula. Maecenas ac imperdiet tellus, vitae efficitur lacus. Aenean pulvinar mollis fringilla. Quisque dignissim in sapien nec semper. Quisque tellus enim, consequat sed laoreet quis, efficitur ut magna. Donec placerat tincidunt diam, sed semper nunc. Artusce ac mauris vitae est condimentum vestibulum eget id turpis. Maecenas interdum dui eu dignissim volutpat.</p>
+      <p>The full results, analysis, and detailed process of this project are to be published on <b>Thursday, June 11<sup>th</sup></b>. Please visit this page again later to read about them.  </p>
+      <!-- <p>Vivamus rhoncus suscipit artem, nec interdum nisl bibendum et. Arturius nulla urna, tempus sed pellentesque ac, malesuada ut ligula. Maecenas ac imperdiet tellus, vitae efficitur lacus. Aenean pulvinar mollis fringilla. Quisque dignissim in sapien nec semper. Quisque tellus enim, consequat sed laoreet quis, efficitur ut magna. Donec placerat tincidunt diam, sed semper nunc. Artusce ac mauris vitae est condimentum vestibulum eget id turpis. Maecenas interdum dui eu dignissim volutpat.</p> -->
 
-
+      <h2 id="Conclusion">4. Conclusion</h2>
+      <p>&mdash;</p>
 
 
   </body>
