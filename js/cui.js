@@ -19,7 +19,6 @@ const chatWindow = new Bubbles(
       // add error conversation block & recall it if no answer matched
       var miss = function() {
 
-        // console.log(obj.convo[obj.standingAnswer]);
         console.log(obj.input);
 
         if (currentQuestion == "issue") {
@@ -31,7 +30,7 @@ const chatWindow = new Bubbles(
 
         } else if (currentQuestion == "suggestion") {
           // Store user input in hidden form
-          updateFormValue(`heu_${currentHeuristic}_suggestion`, obj.input);
+          updateFormValue(`general_impression`, obj.input);
 
           // Reset currentQuestion variable
           currentQuestion = "";
@@ -43,6 +42,8 @@ const chatWindow = new Bubbles(
           if (currentHeuristic < 10) {
             goToHeuristic(currentHeuristic+1)
           } else {
+            console.log("LOREM");
+
             // Record time taken for evaluation and update form
             timeSpentOnEvaluation = checkTimeElapsed() - timeSpentOnScenario - timeSpentOnOnboarding;
             updateFormValue('time_spent_on_evaluation', timeSpentOnEvaluation);
@@ -59,6 +60,10 @@ const chatWindow = new Bubbles(
             //
             chatWindow.talk(convo, "closing_1");
           }
+
+        } else if (currentQuestion == "generalImpression") {
+
+          // TODO
 
         } else {
           // Fallback option in case the currentQuestion is not defined.
@@ -125,10 +130,8 @@ let convo = {
   // that maps the first thing the bot will say to the user
   "icebreaker": {
 
-    // "says" defines an array of sequential bubbles
-    // that the bot will produce
-    // "says": [ "Hey!", "Can I have a banana?", ".. aha ha, just kidding..", "unless..?" ],
-    "says": ["Hi there! Welcome to the Requestor app.", "I was trained to help you evaluate the design you see on the left 👈🏻", "You can respond by clicking on coloured buttons on the right."],
+    // "says": ["Hi there! Welcome to the Requestor app.", "I was trained to help you evaluate the design you see on the left 👈🏻", "You can respond by clicking on coloured buttons on the right."],
+    "says": ["Sup 👀"],
 
     // "reply" is an array of possible options the user can pick from
     // as a reply
@@ -550,6 +553,16 @@ let convo = {
     ]
   },
 
+  "generalImpression": {
+    "says" : [ "One More Thing", "Well done, you’ve reached the end of this evaluation. We thank you very much for your efforts! Here’s one last question:", "What was your general impression of the design you’ve just seen?"],
+    "reply": [
+      {
+        "question": "I’d like to skip this one.",
+        "answer": "handleImpression"
+      }
+    ]
+  },
+
 } // end conversation object
 
 
@@ -561,8 +574,6 @@ unveilDesign = function() {
   }, 2000)
 }
 
-// CONTINUE HERE
-// FOR SOME REASON, THE PROGRAM BREAKS HERE.
 didCompleteScenario = function() {
   // Store the time taken to perform the scenario
   timeSpentOnScenario = checkTimeElapsed() - timeSpentOnOnboarding;
@@ -611,6 +622,10 @@ handleSuggestion = function() {
 
     chatWindow.talk(convo, "closing_1");
   }
+}
+
+handleImpression = function() {
+
 }
 
 
@@ -722,33 +737,39 @@ function handleHeuristicResponse(heuristicNo, input) {
 
   // Check if the heuristic is the last of the set
 
-  if (heuristicNo != 10) {
+  if (heuristicNo < 10) {
     // No issue detected, heurstic does not require follow-up questions.
     if (input == 0) {
       goToHeuristic(heuristicNo+1);
     } else {
       // Prompt the user to input more on this: what the issue is, and a suggestion on how to fix it.
-      // However, for now we keep it simple;
       askHeuristicIssue();
       // goToHeuristic(heuristicNo+1);
-      // TODO integrate 'heuristic_n_issue' and 'heuristic_n_suggestion' dialogs.
     }
   } else if (heuristicNo == 10) {
-    // Record time taken for evaluation and update form
-    timeSpentOnEvaluation = checkTimeElapsed() - timeSpentOnScenario - timeSpentOnOnboarding;
-    updateFormValue('time_spent_on_evaluation', timeSpentOnEvaluation);
-    // Record time taken for full process
-    timeSpentTotal = checkTimeElapsed();
-    updateFormValue('time_spent_total', timeSpentTotal);
 
-    setTimeout(function() {
-      // Timeout for five seconds, after which the data is submitted to the database
-      // And the user is re-directed to the data-display screen.
-      submitForm();
-    }, 5000)
+    if (input == 0) {
+      // TODO: implement Go to 'final thoughts'
 
-    // Go to the closing statements
-    chatWindow.talk(convo, 'closing_1');
+      // Record time taken for evaluation and update form
+      timeSpentOnEvaluation = checkTimeElapsed() - timeSpentOnScenario - timeSpentOnOnboarding;
+      updateFormValue('time_spent_on_evaluation', timeSpentOnEvaluation);
+      // Record time taken for full process
+      timeSpentTotal = checkTimeElapsed();
+      updateFormValue('time_spent_total', timeSpentTotal);
+
+      setTimeout(function() {
+        // Timeout for five seconds, after which the data is submitted to the database
+        // And the user is re-directed to the data-display screen.
+        submitForm();
+      }, 5000)
+
+      // Go to the closing statements
+      chatWindow.talk(convo, 'closing_1');
+    } else {
+      askHeuristicIssue();
+    }
+
   } else {
     // This should never occur. However, we do want to gracefully handle this exception.
     console.log("We could not handle your request at this time.");
@@ -810,5 +831,5 @@ function updateAttr(target, ariaLabel, balloonPos, balloonLen) {
 }
 
 function submitForm() {
-  document.getElementsByTagName('form')[0].submit();
+  console.log(`document.getElementsByTagName('form')[0].submit();`);
 }

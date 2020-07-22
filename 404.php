@@ -17,7 +17,7 @@
 <div class="four-oh-four">
   <h1>404</h1>
   <p>Oh no! You were led to a page which does not exist. Perhaps you mistyped the URL, or we deleted something that previously did exist.</p>
-  <p>Either way, we gotta keep moving. In case you wish to return to the homepage, please <a href="///">click here</a>.</p>
+  <p>Either way, we gotta keep moving. In case you wish to return to the homepage, please <a href="https://requestor.nl">click here</a>.</p>
 </div>
 </body>
 

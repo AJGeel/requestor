@@ -43,8 +43,8 @@
 
       <section class="frame-container" id="frame_container"> <!-- Embedded Figma Prototype -->
         <div class="frame" id="frame">
-          <!-- <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen="true" src=""></iframe> -->
-          <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FDYhe8z0n3I6fEFmD7PyJCa%2FGovernment-COVID19-%25E2%2580%2594-Sample-Project%3Fnode-id%3D2%253A2%26viewport%3D-80%252C198%252C0.2307339608669281%26scaling%3Dscale-down-width"></iframe>
+          <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen="true" src=""></iframe>
+          <!-- <iframe id="iframe_prototype" title="An interactive Figma prototype of the current project." allowfullscreen src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FDYhe8z0n3I6fEFmD7PyJCa%2FGovernment-COVID19-%25E2%2580%2594-Sample-Project%3Fnode-id%3D2%253A2%26viewport%3D-80%252C198%252C0.2307339608669281%26scaling%3Dscale-down-width"></iframe> -->
         </div>
 
         <div class="frame-modal-container" id="frameModal" style="display:none;">
@@ -185,7 +185,7 @@
       </div>
     </div>
 
-
+    <script src="/js/lottie.js"></script>
     <script src="/js/app.min.js"></script>
     <script src="/js/bubbles.min.js"></script>
     <script src="/js/cui.min.js"></script>
