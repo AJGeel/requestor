@@ -27,7 +27,7 @@
     <!-- Links and CSS -->
     <link rel="shortcut icon" href="/i/requestor.svg" type="image/png" id="favicon">
     <link rel="stylesheet" href="/css/reset.min.css"> <!-- Reset browser inconsistencies -->
-    <link rel="stylesheet" href="/css/research.css">
+    <link rel="stylesheet" href="/css/research.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
   </head>
@@ -53,16 +53,16 @@
           <li>I know that some people may have access to all my data to verify the study. These people are listed in this information sheet. I consent to the inspection by them.</li>
         </ol>
 
-        <div class="consent-form">
+        <div class="form__item form__consent">
           <p>&bull; I give consent and would like to participate in this study.</p>
           <div class="consent-options">
             <button type="button" name="button" id="consent">Yes</button>
             <button type="button" name="button" id="noConsent">No</button>
           </div>
         </div>
-        <div class="experience-form">
+        <div class="form__item form__experience">
           <p>Please select the option that best indicates how you perceive your knowledge of User Experience (UX) Design below:</p>
-          <select id="experienceLevel" class="experience-dropdown" name="experienceLevel">
+          <select id="experienceLevel" class="form-dropdown" name="experienceLevel">
             <option value="" selected disabled hidden>Click here to see the options</option>
             <option value="1">I am unaware of what UX involves and the added value it may bring.</option>
             <option value="2">I have some understanding of what UX is, but have no experience in practical application.</option>
@@ -72,11 +72,34 @@
           </select>
         </div>
         <!-- Informed by the NIH Proficiency Scale https://hr.nih.gov/working-nih/competencies/competencies-proficiency-scale -->
+        <div class="form__item form__novelty-last-usage">
+          <p>A Conversational User Interface (CUI) is a user interface that emulates a conversation with a real human. Popular examples of CUIs include the Siri Voice Assistant, Amazon Echo and chatbots on websites.</p>
+          <p>How familiar are you with Conversational User Interfaces (for example a chatbot)?</p>
+          <select id="noveltyFamiliarity" class="form-dropdown" name="noveltyFamiliarity">
+            <option value="" selected disabled hidden>Click here to see the options</option>
+            <option value="1">1 — Not at all familiar.</option>
+            <option value="2">2 — Slightly familiar.</option>
+            <option value="3">3 — Somewhat familiar.</option>
+            <option value="4">4 — Moderately familiar.</option>
+            <option value="5">5 — Extremely familiar.</option>
+          </select>
+        </div>
+        <div class="form__item form__novelty-frequency">
+          <p>How frequently do you use Conversational User Interfaces (for example a chatbot)?</p>
+          <select id="noveltyFrequency" class="form-dropdown" name="experienceLevel">
+            <option value="" selected disabled hidden>Click here to see the options</option>
+            <option value="1">1 — Never.</option>
+            <option value="2">2 — Rarely (e.g. once in a year).</option>
+            <option value="3">3 — Occasionally (e.g. once in a month).</option>
+            <option value="4">4 — A moderate amount (e.g. once in a week).</option>
+            <option value="5">5 — A great deal (e.g. once per day).</option>
+          </select>
+        </div>
 
         <a id="toStudy" class="call-to-action inactive"><span>Continue to Study &nbsp;&gt;</span></a>
 
       </section>
-      <script src="js/uid.js" charset="utf-8"></script>
+      <script src="js/uid.min.js" charset="utf-8"></script>
 
     </div>
   </body>

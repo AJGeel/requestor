@@ -10,10 +10,14 @@ let getParams = function(t) {
   }
   return e
 };
+
 let btnConsent = document.getElementById("consent"),
   btnNoConsent = document.getElementById("noConsent"),
   consent = 0,
-  experienceLevelDOM = document.getElementById("experienceLevel");
+  experienceLevelDOM = document.getElementById("experienceLevel"),
+  noveltyFamiliarityDOM = document.getElementById("noveltyFamiliarity"),
+  noveltyFrequencyDOM = document.getElementById("noveltyFrequency");
+
 p = getParams(window.location.href);
 if ("0" == p.v) interfaceVariant = "gui";
 else if ("1" == p.v) interfaceVariant = "cui";
@@ -31,8 +35,22 @@ function toNextPage() {
       alert("Please share how you perceive your understanding and ability in UX Design.");
       experienceLevelDOM.focus();
     } else {
-      // All conditions are met. Send data to the database and go to the next page
-      saveExperienceToDB();
+      // If so: check if the 'Novelty > Familiarity' has been answered.
+      if (noveltyFamiliarityDOM.value == "") {
+        // Question has not been answered:
+        alert("Please share your familiarity with Conversational User Interfaces.");
+        noveltyFamiliarityDOM.focus();
+      } else {
+        // If so: check if the 'Novelty > Frequency' has been answered.
+        if (noveltyFrequencyDOM.value == "") {
+          // Question has not been answered:
+          alert("Please share your frequency of use of Conversational User Interfaces.");
+          noveltyFrequencyDOM.focus();
+        } else {
+          // All conditions are met. Send data to the database and go to the next page
+          saveExperienceToDB();
+        }
+      }
     }
   } else {
     alert("Unfortunately, we are not allowed to perform this study with persons who do not consent to the terms of this research. \n\nWe urge you to read through the 'Subject information for participation' letter again and decide whether you would like to consent to participating in this study.")
@@ -42,16 +60,20 @@ function toNextPage() {
 // Eventlistener for clicking on the 'consent' button
 btnConsent.addEventListener("click", function() {
   // Check whether the button is already active. If not, add the active tag
-  if (btnConsent.classList.contains("active") == false) { btnConsent.classList.add("active"); }
+  if (btnConsent.classList.contains("active") == false) {
+    btnConsent.classList.add("active");
+  }
 
   // Check the other button. If it contains the active tag, remove it.
-  if (btnNoConsent.classList.contains("active")) { btnNoConsent.classList.remove("active"); }
+  if (btnNoConsent.classList.contains("active")) {
+    btnNoConsent.classList.remove("active");
+  }
 
   // Update consent variable to 'true'
   consent = true;
 
   // Check if 'continue to study' button should be unlocked.
-  if (experienceLevelDOM.value != "") {
+  if (experienceLevelDOM.value != "" && noveltyFamiliarityDOM.value != "" && noveltyFrequencyDOM.value != "") {
     // Unlock button
     toStudy.classList.remove("inactive");
   }
@@ -60,10 +82,14 @@ btnConsent.addEventListener("click", function() {
 // Eventlistener for clicking on the 'no consent' button
 btnNoConsent.addEventListener("click", function() {
   // Check whether the button is already active. If not, add the active tag
-  if (btnNoConsent.classList.contains("active") == false) { btnNoConsent.classList.add("active"); }
+  if (btnNoConsent.classList.contains("active") == false) {
+    btnNoConsent.classList.add("active");
+  }
 
   // Check the other button. If it contains the active tag, remove it.
-  if (btnConsent.classList.contains("active")) { btnConsent.classList.remove("active"); }
+  if (btnConsent.classList.contains("active")) {
+    btnConsent.classList.remove("active");
+  }
 
   // Update consent variable to 'false'
   consent = false;
@@ -76,9 +102,27 @@ btnNoConsent.addEventListener("click", function() {
 
 // EventListener for changing values within the 'perceived understanding of UX' select
 experienceLevelDOM.addEventListener("change", function() {
-  // Check if participant has given their consent to participate in the study
-  if (consent) {
-    // If so: unlock the button
+  // Check if 'continue to study' button should be unlocked.
+  if (experienceLevelDOM.value != "" && noveltyFamiliarityDOM.value != "" && noveltyFrequencyDOM.value != "") {
+    // Unlock button
+    toStudy.classList.remove("inactive");
+  }
+})
+
+// EventListener for changing values within the 'CUI Novelty > Familiarity' select
+noveltyFamiliarityDOM.addEventListener("change", function() {
+  // Check if 'continue to study' button should be unlocked.
+  if (experienceLevelDOM.value != "" && noveltyFamiliarityDOM.value != "" && noveltyFrequencyDOM.value != "") {
+    // Unlock button
+    toStudy.classList.remove("inactive");
+  }
+})
+
+// EventListener for changing values within the 'CUI Novelty > Frequency' select
+noveltyFrequencyDOM.addEventListener("change", function() {
+  // Check if 'continue to study' button should be unlocked.
+  if (experienceLevelDOM.value != "" && noveltyFamiliarityDOM.value != "" && noveltyFrequencyDOM.value != "") {
+    // Unlock button
     toStudy.classList.remove("inactive");
   }
 })
@@ -155,11 +199,15 @@ handler. This validates its contents, and updates it in the database.
 function saveExperienceToDB() {
   let user_id = getCookie('temp_uid');
   let experience_level = experienceLevelDOM.value;
+  let novelty_familiarity = noveltyFamiliarityDOM.value;
+  let novelty_frequency = noveltyFrequencyDOM.value;
 
   let url = '/app/backend/experience.php';
   let formData = new FormData();
   formData.append('user_id', user_id);
   formData.append('experience_level', experience_level);
+  formData.append('novelty_familiarity', novelty_familiarity);
+  formData.append('novelty_frequency', novelty_frequency);
 
   fetch(url, { method: 'POST', body: formData })
   .then(function (response) {
