@@ -186,7 +186,6 @@
     </div>
 
 
-    <script src="/js/lottie.js"></script> <!-- Currently not in use in this version. May be omitted -->
     <script src="/js/app.min.js"></script>
     <script src="/js/bubbles.min.js"></script>
     <script src="/js/cui.min.js"></script>
