@@ -77,68 +77,68 @@
           <input type="hidden" name="prototype_id" id="form_prototype_id" value="1"/> <!-- Variant 0 = GUI / Variant 1 = CUI -->
 
           <!-- User Performance Indicators -->
-          <input type="hidden" name="time_spent_total" value="0"> <!-- All time_spent variables are in seconds -->
-          <input type="hidden" name="time_spent_on_onboarding" value="0">
-          <input type="hidden" name="time_spent_on_scenario" value="0">
-          <input type="hidden" name="time_spent_on_evaluation" value="0">
-          <input type="hidden" name="completed_scenario" value="0"> <!-- Was the user was able to complete the scenario? 0 = false, 1 = true -->
-          <input type="hidden" name="interested" value="0">
+          <input type="hidden" name="time_spent_total" value="0" maxlength="10"> <!-- All time_spent variables are in seconds -->
+          <input type="hidden" name="time_spent_on_onboarding" value="0" maxlength="10">
+          <input type="hidden" name="time_spent_on_scenario" value="0" maxlength="10">
+          <input type="hidden" name="time_spent_on_evaluation" value="0" maxlength="10">
+          <input type="hidden" name="completed_scenario" value="0" maxlength="10"> <!-- Was the user was able to complete the scenario? 0 = false, 1 = true -->
+          <input type="hidden" name="interested" value="0" maxlength="10">
 
           <!-- Initially, all user input values are unset. These will be set
                once the user starts progressing through the interface. -->
 
           <!-- Heuristic 1 -->
-          <input type="hidden" name="heu_1" value="">
-          <input type="hidden" name="heu_1_issue" value="">
-          <input type="hidden" name="heu_1_suggestion" value="">
+          <input type="hidden" name="heu_1" value="" maxlength="10">
+          <input type="hidden" name="heu_1_issue" value="" maxlength="400">
+          <input type="hidden" name="heu_1_suggestion" value="" maxlength="400">
 
           <!-- Heuristic 2 -->
-          <input type="hidden" name="heu_2" value="">
-          <input type="hidden" name="heu_2_issue" value="">
-          <input type="hidden" name="heu_2_suggestion" value="">
+          <input type="hidden" name="heu_2" value="" maxlength="10">
+          <input type="hidden" name="heu_2_issue" value="" maxlength="400">
+          <input type="hidden" name="heu_2_suggestion" value="" maxlength="400">
 
           <!-- Heuristic 3 -->
-          <input type="hidden" name="heu_3" value="">
-          <input type="hidden" name="heu_3_issue" value="">
-          <input type="hidden" name="heu_3_suggestion" value="">
+          <input type="hidden" name="heu_3" value="" maxlength="10">
+          <input type="hidden" name="heu_3_issue" value="" maxlength="400">
+          <input type="hidden" name="heu_3_suggestion" value="" maxlength="400">
 
           <!-- Heuristic 4 -->
-          <input type="hidden" name="heu_4" value="">
-          <input type="hidden" name="heu_4_issue" value="">
-          <input type="hidden" name="heu_4_suggestion" value="">
+          <input type="hidden" name="heu_4" value="" maxlength="10">
+          <input type="hidden" name="heu_4_issue" value="" maxlength="400">
+          <input type="hidden" name="heu_4_suggestion" value="" maxlength="400">
 
           <!-- Heuristic 5 -->
-          <input type="hidden" name="heu_5" value="">
-          <input type="hidden" name="heu_5_issue" value="">
-          <input type="hidden" name="heu_5_suggestion" value="">
+          <input type="hidden" name="heu_5" value="" maxlength="10">
+          <input type="hidden" name="heu_5_issue" value="" maxlength="400">
+          <input type="hidden" name="heu_5_suggestion" value="" maxlength="400">
 
           <!-- Heuristic 6 -->
-          <input type="hidden" name="heu_6" value="">
-          <input type="hidden" name="heu_6_issue" value="">
-          <input type="hidden" name="heu_6_suggestion" value="">
+          <input type="hidden" name="heu_6" value="" maxlength="10">
+          <input type="hidden" name="heu_6_issue" value="" maxlength="400">
+          <input type="hidden" name="heu_6_suggestion" value="" maxlength="400">
 
           <!-- Heuristic 7 -->
-          <input type="hidden" name="heu_7" value="">
-          <input type="hidden" name="heu_7_issue" value="">
-          <input type="hidden" name="heu_7_suggestion" value="">
+          <input type="hidden" name="heu_7" value="" maxlength="10">
+          <input type="hidden" name="heu_7_issue" value="" maxlength="400">
+          <input type="hidden" name="heu_7_suggestion" value="" maxlength="400">
 
           <!-- Heuristic 8 -->
-          <input type="hidden" name="heu_8" value="">
-          <input type="hidden" name="heu_8_issue" value="">
-          <input type="hidden" name="heu_8_suggestion" value="">
+          <input type="hidden" name="heu_8" value="" maxlength="10">
+          <input type="hidden" name="heu_8_issue" value="" maxlength="400">
+          <input type="hidden" name="heu_8_suggestion" value="" maxlength="400">
 
           <!-- Heuristic 9 -->
-          <input type="hidden" name="heu_9" value="">
-          <input type="hidden" name="heu_9_issue" value="">
-          <input type="hidden" name="heu_9_suggestion" value="">
+          <input type="hidden" name="heu_9" value="" maxlength="10">
+          <input type="hidden" name="heu_9_issue" value="" maxlength="400">
+          <input type="hidden" name="heu_9_suggestion" value="" maxlength="400">
 
           <!-- Heuristic 10 -->
-          <input type="hidden" name="heu_10" value="">
-          <input type="hidden" name="heu_10_issue" value="">
-          <input type="hidden" name="heu_10_suggestion" value="">
+          <input type="hidden" name="heu_10" value="" maxlength="10">
+          <input type="hidden" name="heu_10_issue" value="" maxlength="400">
+          <input type="hidden" name="heu_10_suggestion" value="" maxlength="400">
 
           <!-- General Impression -->
-          <input type="hidden" name="general_impression" value="">
+          <input type="hidden" name="general_impression" value="" maxlength="400">
 
         </form>
 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="index, follow">
     <title>Requestor &mdash; Government.nl Design Evaluation</title>
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://requestor.nl/app/cui.php">
@@ -153,10 +153,10 @@ Potentially, the tooltip functionality could be used to embed additional context
             <div class="form-progressive-disclosure" id="h1_prog">
 
               <label for="heu_1_issue">Issue(s) <span>(Please be specific)</span></label>
-              <textarea name="heu_1_issue" id="heu_1_issue" rows="4" disabled></textarea>
+              <textarea name="heu_1_issue" id="heu_1_issue" rows="4" disabled maxlength="400"></textarea>
 
               <label for="heu_1_recommendation">Recommendation(s)</label>
-              <textarea name="heu_1_recommendation" id="heu_1_recommendation" rows="2" disabled></textarea>
+              <textarea name="heu_1_recommendation" id="heu_1_recommendation" rows="2" disabled maxlength="400"></textarea>
 
             </div>
 
@@ -187,10 +187,10 @@ Potentially, the tooltip functionality could be used to embed additional context
             <div class="form-progressive-disclosure" id="h2_prog">
 
               <label for="heu_2_issue">Issue(s) <span>(Please be specific)</span></label>
-              <textarea name="heu_2_issue" id="heu_2_issue" rows="4" disabled></textarea>
+              <textarea name="heu_2_issue" id="heu_2_issue" rows="4" disabled maxlength="400"></textarea>
 
               <label for="heu_2_recommendation">Recommendation(s)</label>
-              <textarea name="heu_2_recommendation" id="heu_2_recommendation" rows="2" disabled></textarea>
+              <textarea name="heu_2_recommendation" id="heu_2_recommendation" rows="2" disabled maxlength="400"></textarea>
 
             </div>
 
@@ -221,10 +221,10 @@ Potentially, the tooltip functionality could be used to embed additional context
             <div class="form-progressive-disclosure" id="h3_prog">
 
               <label for="heu_3_issue">Issue(s) <span>(Please be specific)</span></label>
-              <textarea name="heu_3_issue" id="heu_3_issue" rows="4" disabled></textarea>
+              <textarea name="heu_3_issue" id="heu_3_issue" rows="4" disabled maxlength="400"></textarea>
 
               <label for="heu_3_recommendation">Recommendation(s)</label>
-              <textarea name="heu_3_recommendation" id="heu_3_recommendation" rows="2" disabled></textarea>
+              <textarea name="heu_3_recommendation" id="heu_3_recommendation" rows="2" disabled maxlength="400"></textarea>
 
             </div>
 
@@ -255,10 +255,10 @@ Potentially, the tooltip functionality could be used to embed additional context
             <div class="form-progressive-disclosure" id="h4_prog">
 
               <label for="heu_4_issue">Issue(s) <span>(Please be specific)</span></label>
-              <textarea name="heu_4_issue" id="heu_4_issue" rows="4" disabled></textarea>
+              <textarea name="heu_4_issue" id="heu_4_issue" rows="4" disabled maxlength="400"></textarea>
 
               <label for="heu_4_recommendation">Recommendation(s)</label>
-              <textarea name="heu_4_recommendation" id="heu_4_recommendation" rows="2" disabled></textarea>
+              <textarea name="heu_4_recommendation" id="heu_4_recommendation" rows="2" disabled maxlength="400"></textarea>
 
             </div>
 
@@ -289,10 +289,10 @@ Potentially, the tooltip functionality could be used to embed additional context
             <div class="form-progressive-disclosure" id="h5_prog">
 
               <label for="heu_5_issue">Issue(s) <span>(Please be specific)</span></label>
-              <textarea name="heu_5_issue" id="heu_5_issue" rows="4" disabled></textarea>
+              <textarea name="heu_5_issue" id="heu_5_issue" rows="4" disabled maxlength="400"></textarea>
 
               <label for="heu_5_recommendation">Recommendation(s)</label>
-              <textarea name="heu_5_recommendation" id="heu_5_recommendation" rows="2" disabled></textarea>
+              <textarea name="heu_5_recommendation" id="heu_5_recommendation" rows="2" disabled maxlength="400"></textarea>
 
             </div>
 
@@ -323,10 +323,10 @@ Potentially, the tooltip functionality could be used to embed additional context
             <div class="form-progressive-disclosure" id="h6_prog">
 
               <label for="heu_6issue">Issue(s) <span>(Please be specific)</span></label>
-              <textarea name="heu_6_issue" id="heu_6_issue" rows="4" disabled></textarea>
+              <textarea name="heu_6_issue" id="heu_6_issue" rows="4" disabled maxlength="400"></textarea>
 
               <label for="heu_6_recommendation">Recommendation(s)</label>
-              <textarea name="heu_6_recommendation" id="heu_6_recommendation" rows="2" disabled></textarea>
+              <textarea name="heu_6_recommendation" id="heu_6_recommendation" rows="2" disabled maxlength="400"></textarea>
 
             </div>
 
@@ -357,10 +357,10 @@ Potentially, the tooltip functionality could be used to embed additional context
             <div class="form-progressive-disclosure" id="h7_prog">
 
               <label for="heu_7_issue">Issue(s) <span>(Please be specific)</span></label>
-              <textarea name="heu_7_issue" id="heu_7_issue" rows="4" disabled></textarea>
+              <textarea name="heu_7_issue" id="heu_7_issue" rows="4" disabled maxlength="400"></textarea>
 
               <label for="heu_7_recommendation">Recommendation(s)</label>
-              <textarea name="heu_7_recommendation" id="heu_7_recommendation" rows="2" disabled></textarea>
+              <textarea name="heu_7_recommendation" id="heu_7_recommendation" rows="2" disabled maxlength="400"></textarea>
 
             </div>
 
@@ -391,10 +391,10 @@ Potentially, the tooltip functionality could be used to embed additional context
             <div class="form-progressive-disclosure" id="h8_prog">
 
               <label for="heu_8_issue">Issue(s) <span>(Please be specific)</span></label>
-              <textarea name="heu_8_issue" id="heu_8_issue" rows="4" disabled></textarea>
+              <textarea name="heu_8_issue" id="heu_8_issue" rows="4" disabled maxlength="400"></textarea>
 
               <label for="heu_8_recommendation">Recommendation(s)</label>
-              <textarea name="heu_8_recommendation" id="heu_8_recommendation" rows="2" disabled></textarea>
+              <textarea name="heu_8_recommendation" id="heu_8_recommendation" rows="2" disabled maxlength="400"></textarea>
 
             </div>
 
@@ -425,10 +425,10 @@ Potentially, the tooltip functionality could be used to embed additional context
             <div class="form-progressive-disclosure" id="h9_prog">
 
               <label for="heu_9_issue">Issue(s) <span>(Please be specific)</span></label>
-              <textarea name="heu_9_issue" id="heu_9_issue" rows="4" disabled></textarea>
+              <textarea name="heu_9_issue" id="heu_9_issue" rows="4" disabled maxlength="400"></textarea>
 
               <label for="heu_9_recommendation">Recommendation(s)</label>
-              <textarea name="heu_9_recommendation" id="heu_9_recommendation" rows="2" disabled></textarea>
+              <textarea name="heu_9_recommendation" id="heu_9_recommendation" rows="2" disabled maxlength="400"></textarea>
 
             </div>
 
@@ -459,10 +459,10 @@ Potentially, the tooltip functionality could be used to embed additional context
             <div class="form-progressive-disclosure" id="h10_prog">
 
               <label for="heu_10_issue">Issue(s) <span>(Please be specific)</span></label>
-              <textarea name="heu_10_issue" id="heu_10_issue" rows="4" disabled></textarea>
+              <textarea name="heu_10_issue" id="heu_10_issue" rows="4" disabled maxlength="400"></textarea>
 
               <label for="heu_10_recommendation">Recommendation(s)</label>
-              <textarea name="heu_10_recommendation" id="heu_10_recommendation" rows="2" disabled></textarea>
+              <textarea name="heu_10_recommendation" id="heu_10_recommendation" rows="2" disabled maxlength="400"></textarea>
 
             </div>
 
@@ -474,7 +474,7 @@ Potentially, the tooltip functionality could be used to embed additional context
             <p>Well done, you've reached the end of this evaluation. On behalf of <span id="requestor_id">Arthur Geel</span>, the requestor, we thank you very much for your efforts! Here's one last question:</p>
 
             <label for="general_impression">What was your general impression of the design you've just seen? <span>(You can be as specific as you want)</span></label>
-            <textarea name="general_impression" id="general_impression" rows="4" ></textarea>
+            <textarea name="general_impression" id="general_impression" rows="4"  maxlength="400"></textarea>
 
             <p class="p_emphasis">Don't forget to click the submit button when you've completed your evaluation.</p>
 
