@@ -19,8 +19,6 @@ const chatWindow = new Bubbles(
       // add error conversation block & recall it if no answer matched
       var miss = function() {
 
-        console.log(obj.input);
-
         if (currentQuestion == "issue") {
           // Store user input in hidden form
           updateFormValue(`heu_${currentHeuristic}_issue`, obj.input);
@@ -30,7 +28,7 @@ const chatWindow = new Bubbles(
 
         } else if (currentQuestion == "suggestion") {
           // Store user input in hidden form
-          updateFormValue(`general_impression`, obj.input);
+          updateFormValue(`heu_${currentHeuristic}_suggestion`, obj.input);
 
           // Reset currentQuestion variable
           currentQuestion = "";
@@ -42,29 +40,34 @@ const chatWindow = new Bubbles(
           if (currentHeuristic < 10) {
             goToHeuristic(currentHeuristic+1)
           } else {
-            console.log("LOREM");
 
-            // Record time taken for evaluation and update form
-            timeSpentOnEvaluation = checkTimeElapsed() - timeSpentOnScenario - timeSpentOnOnboarding;
-            updateFormValue('time_spent_on_evaluation', timeSpentOnEvaluation);
-            // Record time taken for full process
-            timeSpentTotal = checkTimeElapsed();
-            updateFormValue('time_spent_total', timeSpentTotal);
-
-            // Timeout for five seconds, after which the data is submitted to the database
-            // And the user is re-directed to the data-display screen.
-            setTimeout(function() {
-              submitForm();
-            }, 5000);
-
-            //
-            chatWindow.talk(convo, "closing_1");
+            // Initialize general impression dialog
+            askGeneralImpression();
           }
 
-        } else if (currentQuestion == "generalImpression") {
+        } else if (currentQuestion == "impression") {
 
-          // TODO
+          // Store user input in hidden form
+          updateFormValue(`general_impression`, obj.input);
 
+          // Go to closing statements: general impression
+          handleImpression();
+
+        } else if (currentQuestion == "finished") {
+          // Record time taken for evaluation and update form
+          timeSpentOnEvaluation = checkTimeElapsed() - timeSpentOnScenario - timeSpentOnOnboarding;
+          updateFormValue('time_spent_on_evaluation', timeSpentOnEvaluation);
+          // Record time taken for full process
+          timeSpentTotal = checkTimeElapsed();
+          updateFormValue('time_spent_total', timeSpentTotal);
+
+          // Timeout for five seconds, after which the data is submitted to the database
+          // And the user is re-directed to the data-display screen.
+          setTimeout(function() {
+            submitForm();
+          }, 5000);
+
+          chatWindow.talk(convo, "closing_1");
         } else {
           // Fallback option in case the currentQuestion is not defined.
           chatWindow.talk(
@@ -130,8 +133,7 @@ let convo = {
   // that maps the first thing the bot will say to the user
   "icebreaker": {
 
-    // "says": ["Hi there! Welcome to the Requestor app.", "I was trained to help you evaluate the design you see on the left 👈🏻", "You can respond by clicking on coloured buttons on the right."],
-    "says": ["Sup 👀"],
+    "says": ["Hi there! Welcome to the Requestor app.", "I was trained to help you evaluate the design you see on the left 👈🏻", "You can respond by clicking on coloured buttons on the right."],
 
     // "reply" is an array of possible options the user can pick from
     // as a reply
@@ -554,7 +556,7 @@ let convo = {
   },
 
   "generalImpression": {
-    "says" : [ "One More Thing", "Well done, you’ve reached the end of this evaluation. We thank you very much for your efforts! Here’s one last question:", "What was your general impression of the design you’ve just seen?"],
+    "says" : [ "Well done, you’ve reached the end of this evaluation! We thank you very much for your efforts! Here’s one last question:", "What was your general impression of the design you’ve just seen?"],
     "reply": [
       {
         "question": "I’d like to skip this one.",
@@ -625,7 +627,26 @@ handleSuggestion = function() {
 }
 
 handleImpression = function() {
+  // reset currentQuestion variable
+  currentQuestion = "finished";
 
+  // Hide textarea element
+  inputText.classList.add("inactive");
+
+  // Record time taken for evaluation and update form
+  timeSpentOnEvaluation = checkTimeElapsed() - timeSpentOnScenario - timeSpentOnOnboarding;
+  updateFormValue('time_spent_on_evaluation', timeSpentOnEvaluation);
+  // Record time taken for full process
+  timeSpentTotal = checkTimeElapsed();
+  updateFormValue('time_spent_total', timeSpentTotal);
+
+  setTimeout(function() {
+    // Timeout for five seconds, after which the data is submitted to the database
+    // And the user is re-directed to the data-display screen.
+    submitForm();
+  }, 5000)
+
+  chatWindow.talk(convo, "closing_1");
 }
 
 
@@ -744,28 +765,13 @@ function handleHeuristicResponse(heuristicNo, input) {
     } else {
       // Prompt the user to input more on this: what the issue is, and a suggestion on how to fix it.
       askHeuristicIssue();
-      // goToHeuristic(heuristicNo+1);
     }
   } else if (heuristicNo == 10) {
 
     if (input == 0) {
-      // TODO: implement Go to 'final thoughts'
+      // Go to closing statements: general impression
+      askGeneralImpression();
 
-      // Record time taken for evaluation and update form
-      timeSpentOnEvaluation = checkTimeElapsed() - timeSpentOnScenario - timeSpentOnOnboarding;
-      updateFormValue('time_spent_on_evaluation', timeSpentOnEvaluation);
-      // Record time taken for full process
-      timeSpentTotal = checkTimeElapsed();
-      updateFormValue('time_spent_total', timeSpentTotal);
-
-      setTimeout(function() {
-        // Timeout for five seconds, after which the data is submitted to the database
-        // And the user is re-directed to the data-display screen.
-        submitForm();
-      }, 5000)
-
-      // Go to the closing statements
-      chatWindow.talk(convo, 'closing_1');
     } else {
       askHeuristicIssue();
     }
@@ -808,6 +814,22 @@ function askHeuristicSuggestion() {
   chatWindow.talk(convo, "heuristicSuggestion");
 }
 
+function askGeneralImpression() {
+  setTimeout(function() {
+    // Make textarea input visible...
+    // ... After a well-timed delay, of course.
+    // However, this most likely was already visible, hence this is just a way to ensure that it is.
+    inputText.classList.remove("inactive");
+    // Autofocus the element for a more convenient typing experience
+    inputText.focus();
+  }, 4000);
+
+  // Update currentQuestion variable
+  currentQuestion = "impression";
+  // Summon general impression dialog
+  chatWindow.talk(convo, "generalImpression");
+}
+
 function startTalking() {
   /* We only want to start a new conversation if there are no other simulaneous conversations */
   if (startedPlaying == false) {
@@ -831,5 +853,6 @@ function updateAttr(target, ariaLabel, balloonPos, balloonLen) {
 }
 
 function submitForm() {
-  console.log(`document.getElementsByTagName('form')[0].submit();`);
+  // console.log(`document.getElementsByTagName('form')[0].submit();`);
+  document.getElementsByTagName('form')[0].submit();
 }
