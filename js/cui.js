@@ -28,7 +28,7 @@ const chatWindow = new Bubbles(
 
         } else if (currentQuestion == "suggestion") {
           // Store user input in hidden form
-          updateFormValue(`heu_${currentHeuristic}_suggestion`, obj.input);
+          updateFormValue(`heu_${currentHeuristic}_recommendation`, obj.input);
 
           // Reset currentQuestion variable
           currentQuestion = "";
